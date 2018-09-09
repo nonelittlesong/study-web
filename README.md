@@ -29,5 +29,5 @@ $ vim /etc/vsftpd/vsftpd.conf
 $ chmod o+w /var/ftp/pub/
 $ systemctl restart vsftpd.service
 ```
-**7. 设置安全组**
+**7. 设置安全组**  
 [安全组规则的典型应用](https://help.aliyun.com/document_detail/58746.html?spm=a2c4g.11186623.2.22.516c24cestfkeM#ftp)  
