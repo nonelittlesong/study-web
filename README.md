@@ -1,5 +1,5 @@
 # study-web
-## FTP
+## 一、 FTP
 参考：
 * [Linux实例搭建FTP站点](https://help.aliyun.com/document_detail/86292.html?spm=a2c4g.11186623.6.794.12ae2c2dTJgDDd)
 
