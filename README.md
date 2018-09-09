@@ -15,3 +15,18 @@ $ systemctl enable vsftpd.service
 ```
 $ systemctl start vsftpd.service
 ```
+**4. 运行以下命令查看 FTP 服务端口**  
+```
+$ netstat -antup | grep ftp
+```
+**5. 配置vsftpd**  
+```
+$ vim /etc/vsftpd/vsftpd.conf
+```
+根据情况配置  
+**6. 运行以下命令更改 /var/ftp/pub 目录的权限，为 FTP 用户添加写权限，并重新加载配置文件。**  
+```
+$ chmod o+w /var/ftp/pub/
+$ systemctl restart vsftpd.service
+```
+**7. 设置安全组**
