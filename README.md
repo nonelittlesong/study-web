@@ -36,6 +36,7 @@ $ systemctl restart vsftpd.service
 解决方法：
 * /etc/vsftpd/ftpusers注释调root这行
 * /etc/vsftpd/vsftpd.conf添加userlist_deny=NO
+* 重启`systemctl restart vsftpd.service`
 
 ## 三、425 Failed to establish connection.
 解决办法：  
@@ -43,4 +44,6 @@ $ systemctl restart vsftpd.service
 >pasv_enable=YES
 >pasv_min_port=6000
 >pasv_max_port=7000
-**添加相应的安全组规则**  
+
+阿里云**添加相应的安全组规则**  
+重启`systemctl restart vsftpd.service`  
