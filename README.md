@@ -49,5 +49,7 @@ $ systemctl restart vsftpd.service
 重启`systemctl restart vsftpd.service`  
 
 ## 四、安装LAMP
-[部署LAMP_建站教程_云服务器 ECS-阿里云](https://help.aliyun.com/document_detail/50774.html?spm=a2c4g.11186623.6.781.26262529FC4TsB)
+[部署LAMP_建站教程_云服务器 ECS-阿里云](https://help.aliyun.com/document_detail/50774.html?spm=a2c4g.11186623.6.781.26262529FC4TsB)  
+**MySQL：警告在命令行输入密码不安全**  
+使用`mysql -uroot -p`连接mysql  
 ## 五、Wordpress
