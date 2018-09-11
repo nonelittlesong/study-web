@@ -68,7 +68,7 @@ $ useradd -g mysql -s /sbin/nologin mysql
 [mysqld]
 user=mysql
 datadir=/usr/local/mysql/data #你的mysql安装地址
-socket=/usr/local/mysql/mysql.sock
+socket=/tmp/mysql.sock
 symbolic-links=0
 
 [mysqld_safe]
