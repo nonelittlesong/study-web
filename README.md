@@ -1,3 +1,6 @@
+wiki
+* 创建mysql数据库
+
 # study-web
 ## 一、FTP
 参考：
