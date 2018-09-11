@@ -77,6 +77,9 @@ pid-file=/var/run/mariadb/mariadb.pid
 
 !includedir /etc/my.cnf.d
 ```
+**4. mysqld 和 /etc/init.d/mysqld不是一个东西**  
+
+
 参考：
 * [MySQL server PID file could not be found! - CSDN博客](https://blog.csdn.net/u010098331/article/details/50752667/)
 * [MySQL 常见无法启动或启动异常的解决方案-阿里云](https://help.aliyun.com/knowledge_detail/41106.html?spm=5176.11065259.1996646101.searchclickresult.445457d6cPwppo#binlog%E4%B8%A2%E5%A4%B1)
