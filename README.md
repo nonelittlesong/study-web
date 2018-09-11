@@ -61,4 +61,24 @@ $ useradd -g mysql -s /sbin/nologin mysql
 ```
 更改MySQL安装目录的属性：`chown -R mysql:mysql /usr/local/mysql`  
 在/etc/my.cnf中添加`user=mysql`，以使用mysql用户操作mysqld。  
+
+**3. MySQL:ERROR:MySQL server PID file not be found.**  
+配置/etc/my.conf
+```
+[mysqld]
+user=mysql
+datadir=/usr/local/mysql/data #你的mysql安装地址
+socket=/usr/local/mysql/mysql.sock
+symbolic-links=0
+
+[mysqld_safe]
+log-error=/var/log/mariadb/mariadb.log
+pid-file=/var/run/mariadb/mariadb.pid
+
+!includedir /etc/my.cnf.d
+```
+参考：
+* [MySQL server PID file could not be found! - CSDN博客](https://blog.csdn.net/u010098331/article/details/50752667/)
+* [MySQL 常见无法启动或启动异常的解决方案-阿里云](https://help.aliyun.com/knowledge_detail/41106.html?spm=5176.11065259.1996646101.searchclickresult.445457d6cPwppo#binlog%E4%B8%A2%E5%A4%B1)
+
 ## 五、Wordpress
