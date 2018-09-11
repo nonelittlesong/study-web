@@ -52,7 +52,13 @@ $ systemctl restart vsftpd.service
 [部署LAMP_建站教程_云服务器 ECS-阿里云](https://help.aliyun.com/document_detail/50774.html?spm=a2c4g.11186623.6.781.26262529FC4TsB)  
 **1. MySQL：Warning：在命令行输入密码不安全**  
 使用`mysql -uroot -p`连接mysql  
-**2. MySQL：ERROR：不能使用root用户操作mysqld**  
 
+**2. MySQL：ERROR：不能使用root用户操作mysqld**  
+添加不可登录的mysql用户，加入到mysql用户组：
+```
+$ groupadd mysql
+$ useradd -g mysql -s /sbin/nologin mysql
+```
+更改MySQL安装目录的属性：`chown -R mysql:mysql /usr/local/mysql`  
 在/etc/my.cnf中添加`user=mysql`，以使用mysql用户操作mysqld。  
 ## 五、Wordpress
