@@ -50,4 +50,4 @@ $ systemctl restart vsftpd.service
 
 ## 四、安装LAMP
 [部署LAMP_建站教程_云服务器 ECS-阿里云](https://help.aliyun.com/document_detail/50774.html?spm=a2c4g.11186623.6.781.26262529FC4TsB)
-## 五、wrodpress
+## 五、Wordpress
