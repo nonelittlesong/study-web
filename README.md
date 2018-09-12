@@ -1,5 +1,5 @@
 wiki
-* 创建mysql数据库
+* [创建mysql数据库](https://github.com/nonelittlesong/study-web/wiki/create-database)
 
 # study-web
 ## 一、FTP
