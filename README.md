@@ -88,3 +88,7 @@ pid-file=/var/run/mariadb/mariadb.pid
 * [MySQL 常见无法启动或启动异常的解决方案-阿里云](https://help.aliyun.com/knowledge_detail/41106.html?spm=5176.11065259.1996646101.searchclickresult.445457d6cPwppo#binlog%E4%B8%A2%E5%A4%B1)
 
 ## 五、Wordpress
+**1. wordpress 更新失败**  
+* 为服务器创建一个可登录用户和组：www：www
+* 配置/etc/httpd/httpd.conf的User和Group
+* 将wordpress的own改为www:www
