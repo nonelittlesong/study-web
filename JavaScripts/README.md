@@ -9,4 +9,8 @@
    toString(), String()  
 3. 长度：  
    .length  
- 
+## 赋值
+```js
+var myObject = preferredObject || backupObject
+```
+利用逻辑或的特性，在变量赋值时提供备用值，避免将null或undefined赋值给变量。  
