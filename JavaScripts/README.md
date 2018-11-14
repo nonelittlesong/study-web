@@ -57,3 +57,8 @@ colors\[2] = "yellow" // 新增第3项
 // 数组长度
 colors.length // 可写
 ```
+**检测数组：**  
+```js
+value instanceof Array;
+Array.isArray(value);
+```
