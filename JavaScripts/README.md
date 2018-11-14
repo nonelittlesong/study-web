@@ -26,8 +26,18 @@ person.age = 29;
 ```
 第二种：
 ```js
+// 不会调用Object的构造函数
 var person = {
   name : "Nico",
   age : 29
 }
+// 可以用对象字面量封装可选参数
+```
+**访问对象属性的两种方式：**
+```
+person["name"];
+person.name;
+// 方括号方法的优点是可以使用变量访问属性
+var propertyName = "name";
+person[propertyName];
 ```
