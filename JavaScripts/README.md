@@ -17,7 +17,7 @@ var myObject = preferredObject || backupObject
 
 ## 引用类型
 ### 1. Object
-#### 创建Object实例有两种方式
+**创建Object实例有两种方式:**  
 第一种：
 ```js
 var person = new Object();
