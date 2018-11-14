@@ -14,3 +14,20 @@
 var myObject = preferredObject || backupObject
 ```
 利用逻辑或的特性，在变量赋值时提供备用值，避免将null或undefined赋值给变量。  
+
+## 引用类型
+### 1. Object
+#### 创建Object实例有两种方式
+第一种：
+```js
+var person = new Object();
+person.name = "Nico";
+person.age = 29;
+```
+第二种：
+```js
+var person = {
+  name : "Nico",
+  age : 29
+}
+```
