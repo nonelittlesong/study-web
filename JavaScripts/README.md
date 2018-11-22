@@ -72,16 +72,20 @@ alert(colors); // red,blue 后台会调用toString()
 * toLocaleString()调用每一项的toLocaleString(), 然后用“,“拼接。
 * toString（）调用每一项的toString()。
 * colors.join("×××"), 替换拼接符号。
+
 **栈方法**  
 * push(...) 输入任意项参数，返回元素的个数。
 * pop() 返回栈顶元素。
 * 可以与其他数组方法混合使用。
+
 **队列方法**  
 * shift() 返回队首元素。
 * unshift(...) 添加任意项，返回新数组长度。
+
 **重排序方法**  
 * reverse() 反转。
 * sort() 升序排列。根据toString()比较字符串大小。
+
 ```js
 // sort()可以接受一个比较函数
 function compare(value1, value2) {
