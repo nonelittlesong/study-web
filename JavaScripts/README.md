@@ -69,22 +69,22 @@ alert(colors.toString()); // red,blue
 alert(colors.valueOf()); // red,blue
 alert(colors); // red,blue 后台会调用toString()
 ```
-* toLocaleString()调用每一项的toLocaleString(), 然后用“,“拼接。
-* toString（）调用每一项的toString()。
-* colors.join("×××"), 替换拼接符号。
+* toLocaleString()调用每一项的toLocaleString(), 然后用“,“拼接。  
+* toString（）调用每一项的toString()。  
+* colors.join("×××"), 替换拼接符号。  
 
 **栈方法**  
-* push(...) 输入任意项参数，返回元素的个数。
-* pop() 返回栈顶元素。
-* 可以与其他数组方法混合使用。
+* push(...) 输入任意项参数，返回元素的个数。  
+* pop() 返回栈顶元素。  
+* 可以与其他数组方法混合使用。  
 
 **队列方法**  
-* shift() 返回队首元素。
-* unshift(...) 添加任意项，返回新数组长度。
+* shift() 返回队首元素。  
+* unshift(...) 添加任意项，返回新数组长度。  
 
 **重排序方法**  
-* reverse() 反转。
-* sort() 升序排列。根据toString()比较字符串大小。
+* reverse() 反转。  
+* sort() 升序排列。根据toString()比较字符串大小。  
 
 ```js
 // sort()可以接受一个比较函数
@@ -104,10 +104,15 @@ values.sort(compare);
 alert(values); // 0,1,5,10,15
 ```
 **操作方法**  
-* concat(...) 基于当前数组，在末尾添加n项，形成一个新数组。
+* concat(...) 基于当前数组，在末尾添加n项，形成一个新数组。  
 * slice() 接受1/2个参数  
   1个参数： 基于起始位置到数组末尾，创建一个新数组  
   2个参数： 基于起始位置到结束位置（不包括结束位置），创建一个新的数组  
   参数为负数： 参数+=参数+数组长度  
   起始位置大于结束位置： 返回空数组  
-* splice
+* splice(起始位, 删除数, 添加项)  
+
+**位置方法**  
+indexOf(目标, 起始位~可选), lastIndexOf(目标, 起始位~可选)  
+通过===查找  
+**迭代方法**
