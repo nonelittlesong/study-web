@@ -192,3 +192,21 @@ toUTCString()
 ```js
 
 var expression = / pattern / flags ;
+```
+flags:  
+1. g 全局模式（global），即模式将被应用于所有的字符串，而非在发现第一个匹配项时立即停止。
+2. i 不区分大小写（case-insensitive）。
+3. m 多行模式（multiline），即达到一行文本末尾时还会继续查找下一行中是否存在与模式匹配的项。
+
+元字符：  
+( \[ { \ ^ | ) ? * + . ] }  
+
+使用RegExp构造函数创建正则表达式：  
+```js
+var pattern1 = /[bc]at/i;
+var pattern2 = new RegExp("[bc]at", "i");
+```
+
+ECMAScript5明确规定，使用正则表达式字面量必须像直接调用RegExp构造函数一样，每次都创建新的RegExp实例。  
+
+**RegExp实例属性**  
