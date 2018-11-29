@@ -210,3 +210,10 @@ var pattern2 = new RegExp("[bc]at", "i");
 ECMAScript5明确规定，使用正则表达式字面量必须像直接调用RegExp构造函数一样，每次都创建新的RegExp实例。  
 
 **RegExp实例属性**  
+1. global 布尔值，是否设置了g
+1. ignoreCase 布尔值，是否设置了i
+1. multiline 布尔值，是否设置了m
+1. lastIndex 整数，表示开始搜索下一个匹配项的字符位置，从0开始算起。
+1. source 正则表达式的字符串表示，按照字面量形式而非传入构造函数中的字符串模式返回。
+
+**RegExp实例方法**  
