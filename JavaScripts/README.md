@@ -177,3 +177,13 @@ var y2k = new Date(2000, 0); // 基于系统的本地时区
 var start = +new Date();
 ```
 **继承的方法**  
+toLocaleString(), toString(), valueOf()  
+valueOf()返回Date的毫秒值，可用来比较Date大小。  
+
+**日期格式化方法**  
+toDateString(), toTimeString(), toLocaleDateString(), toLocaleTimeString(), 
+toUTCString()  
+
+**日期/时间组件方法**  
+直接取得和设Date中的待定部分。  
+
