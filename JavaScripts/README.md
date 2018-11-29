@@ -143,5 +143,37 @@ var sum = values.reduce(function(prev, cur, index, array) {
     return prev + cur;
 });
 alert(sum); // 15
+```
 
 ### 3. Date类型
+定义：  
+```
+var now = new Date();  
+/**
+ * Date.parse()
+ * 支持的日期格式：
+ * 6/13/2004
+ * January 12, 2004
+ * Tue May 25 2004 00:00:00 GMT-0700
+ * 2004-05-25T00:00:00
+ *
+ * 格式错误， 返回NaN
+ */
+var someDate = new Date(Date.parse("May 25, 2004"));
+var someDate = new Date("May 25, 2004"); // 与上一句等价
+/**
+ * Date.UTC()
+ * @param year 年份(必需)
+ * @param month 基于0的月份(必需)
+ * @param day 月份中的哪一天（1到31)
+ * @param hour 小时(以下参数默认为0)
+ * @param minute 分钟
+ * @param second 秒
+ * @param ms 毫秒
+ */
+var y2k = new Date(Date.UTC(2000, 0));
+var y2k = new Date(2000, 0); // 基于系统的本地时区
+// 使用+把Date转为String
+var start = +new Date();
+```
+**继承的方法**  
