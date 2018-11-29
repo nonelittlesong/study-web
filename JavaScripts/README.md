@@ -147,7 +147,7 @@ alert(sum); // 15
 
 ### 3. Date类型
 定义：  
-```
+```js
 var now = new Date();  
 /**
  * Date.parse()
