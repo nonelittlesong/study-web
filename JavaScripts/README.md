@@ -135,3 +135,13 @@ indexOf(目标, 起始位~可选), lastIndexOf(目标, 起始位~可选)
 2. 该项在数组中的位置。  
 3. 数组对象本身。  
 
+**缩小方法**  
+reduce() 和 reduceRught()  
+```
+var values = [1, 2, 3, 4, 5];
+var sum = values.reduce(function(prev, cur, index, array) {
+    return prev + cur;
+});
+alert(sum); // 15
+
+### 3. Date类型
