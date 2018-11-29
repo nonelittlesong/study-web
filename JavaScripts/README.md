@@ -188,3 +188,7 @@ toUTCString()
 直接取得和设Date中的待定部分。  
 
 ### 4. RegExp类型
+定义：  
+```js
+
+var expression = / pattern / flags ;
