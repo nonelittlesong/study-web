@@ -217,3 +217,44 @@ ECMAScript5明确规定，使用正则表达式字面量必须像直接调用Reg
 1. source 正则表达式的字符串表示，按照字面量形式而非传入构造函数中的字符串模式返回。
 
 **RegExp实例方法**  
+*exec()*  
+exec()接受一个参数，及要应用模式的字符串，然后返回包含第一个匹配项信息的数组;或者在没有匹配项的情况下返回null。  
+返回的数组虽然是Array的实例，但额外包含两个属性：index和input：  
+* index: 表示匹配项在字符串中的位置。
+* input: 表示应用正则表达式的字符串。  
+
+在数组中，第一项是与整个模式匹配的字符串，其他项是与模式中捕获组匹配的字符串：  
+```js
+var text = "mom and dad and baby";
+var pattern = /mom( and dady (and baby)?)?/gi;
+var matches = pattern.exec(text);
+alert(matches.index); // 0
+alert(matches.input); // "mom and dad and baby"
+alert(matches[0]); // "mom and dad and baby
+alert(matches[1]); // " and dad and baby"
+alert(matches[2]); // " and baby"
+```
+对于exec()而言，即使模式中设置了g，每次也只返回一个匹配项。  
+在不设置g时，在同一个字符串多次调用exec(),始终返回地一个匹配信息。  
+设置了g， 每次调用都会在字符串中查找新的匹配项。  
+
+*test*  
+```js
+var text = "000-00-0000";
+var pattern = /\d{3}-\d{2}-\d{4}/;
+if (pattern.test(text)) {
+    alert("The pattern was matched.");
+}
+```
+正则表达式的valueOf()返回正则表达式本身。  
+
+**RegExp构造函数属性**  
+相当于静态属性。  
+| 长属性名 | 短属性名 | 说明 |
+| ------ | ------ | ------ |
+| input | $_ | 最近一次要匹配的字符串 |
+| lastMatch | $& | 最近一次的匹配项 |
+| lastParen | $+ | 最近一次匹配的捕获组 |
+| leftContext | $\` | input字符串中lastMatch之前的文本 |
+| multiline | $* | 布尔值，表示是否所有的表达式都使用多行模式。 |
+| rightContext | $' | Input字符串中lastMatch之后的文本 |
