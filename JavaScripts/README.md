@@ -259,3 +259,72 @@ if (pattern.test(text)) {
 | leftContext | $\` | input字符串中lastMatch之前的文本 |
 | multiline | $* | 布尔值，表示是否所有的表达式都使用多行模式。 |
 | rightContext | $' | Input字符串中lastMatch之后的文本 |
+
+**模式的局限性**  
+ECMAScript不支持的正则表达式：  
+。。。
+
+### 5. Function类型
+**没有重载**  
+函数名相当于指针，“重载”会使函数名指向新的函数。  
+
+**函数申明与函数表达式**  
+函数声明优先解析。  
+函数表达式必须等到解析器解析到其所在行。  
+
+**作为值的函数**  
+函数名作参数：  
+```js
+function callSomeFunction(someFunction, someArgument) {
+    return someFunction(someArgument);
+}
+function add10(num) {
+    return num + 10;
+}
+var result1 = callSomeFunction(add10, 10);
+alert(result); // 20
+```
+函数作为返回值：  
+```js
+function createComparisonFunction(propertyName) {
+    return function(object1, object2) {
+        var value1 = object1[propertyName];
+        var value2 = object2[propertyName];
+        if (value1 < value2) {
+            return -1;
+        } else if (value1 > value2) {
+            return 1;
+        } else {
+            return 0;
+        }
+    };
+}
+```
+
+**函数内部属性**  
+*arguments*  
+```js
+// 阶乘
+function factorial(num) {
+    if (num <= 1) {
+        return 1;
+    } else {
+        return num * arguments.callee(num-1)
+    }
+}
+```
+*this*  
+```js
+window.color = "red";
+var o = {color: "blue"};
+function sayColor() {
+    alert(this.color);
+}
+sayColor();
+o.sayColor = sayColor;
+o.sayColor();
+```
+*caller*  
+这个属性中保存着调用当前函数的函数的引用。  
+
+**函数属性和方法**  
