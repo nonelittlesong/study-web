@@ -328,3 +328,22 @@ o.sayColor();
 这个属性中保存着调用当前函数的函数的引用。  
 
 **函数属性和方法**  
+属性：  
+1. length: 函数希望接收的`命名参数`的个数。
+2. prototype: 保存实例方法。不可枚举，使用for-in无法发现。
+
+方法：
+1. apply():  
+   apply()方法接受两个参数：作用域和参数数组。  
+   ```
+   function sum(num1, num2) {
+       return num1 + num2;
+   }
+   function callSum1(num1, num2) {
+       return sum.apply(this, arguments);
+   }
+   function callSum2(num1, num2) {
+       return sum.apply(this, [num1, num2]);
+   }
+   ```
+2. call()
