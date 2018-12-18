@@ -332,7 +332,7 @@ o.sayColor();
 1. length: 函数希望接收的`命名参数`的个数。
 2. prototype: 保存实例方法。不可枚举，使用for-in无法发现。
 
-方法：
+非继承的方法：
 1. apply():  
    apply()方法接受两个参数：作用域和参数数组。  
    ```
@@ -353,5 +353,18 @@ o.sayColor();
        return sum.call(this, sum1, sum2);
    }
    ```
+3. bind()  
+   函数实例与this值绑定：  
+   ```
+   window.color = "red";
+   var o = {color: "blue"};
+   function sayColor() {
+       alert(this.color);
+   }
+   var objectSayColor = sayColor.bind(o);
+   objectSayColor();
+   ```
+   
+继承的方法： toLocaleString(), toString(), valueOf()。
 
-
+### 6. 基本包装类型
