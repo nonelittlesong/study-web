@@ -346,4 +346,12 @@ o.sayColor();
        return sum.apply(this, [num1, num2]);
    }
    ```
-2. call()
+2. call()  
+   与apply（）类似，只是参数不同。  
+   ```
+   function callSum(num1, num2) {
+       return sum.call(this, sum1, sum2);
+   }
+   ```
+
+
