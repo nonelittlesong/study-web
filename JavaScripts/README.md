@@ -418,4 +418,63 @@ toLowerCase(), toUpperCase()
 1. match()  
 2. search()  
 3. replace()  
-4. sllppp
+4. split()  
+
+localeCompare()方法：  
+比较字符串大小。  
+
+fromCharCode():  
+String构造函数本身的一个静态方法。`alert(String.fromCharCode(104,101,108,108,111)); // "hello"`  
+
+### 7. 单体内置对象
+**Global对象**  
+isNaN(), isFinite(), parseInt(), parseFloat()都是Global的方法。  
+*(1) URI编码方法*  
+encodeURI()和ehcodeURIComponent()  
+*(2) eval()方法*  
+eval()方法就像一个完整的ECMAScript解析器。  
+*(3) Global对象的属性*  
+*(4) window对象*  
+
+**Math对象**  
+与我们直接编写的计算功能相比，Math对象提供的计算功能执行起来要快很多。  
+
+| 属性 | 说明 |
+| ------ | ------ |
+| Math.E | e的值 |
+| Math.LN10 | ln(10) |
+| Math.LN2 | ln(2) |
+| Math.LOG2E | log2(e) |
+| Math.LOG10E | log(e) |
+| Math.PI | 元周率 |
+| Math.SQRT1_2 | 1/2的平方根 |
+| Math.SQRT2 | 2的平方根 |
+
+*(1) min()和max()*  
+*(2) apply()**  
+找到数组中的最大值或最小值：  
+```
+var values = [1, 2, 3, 4, 5];
+var max = Math.max.apply(Math, values);
+```
+*(3) 舍入方法*  
+Math.ceil(), Math.floor(), Math.round()  
+*(4) random()方法*  
+返回介于0到1之间的随机数，不包括0和1.  
+*(5) 其他方法*  
+
+| 方法 | 说明 |
+| ------ | ------ |
+| Math.abs(num) | num的绝对值 |
+| Math.exp(num) | 返回Math.E的num次幂 |
+| Math.log(num) | 返回num的自然对数 |
+| Math.pow(num, power) | 返回num的power次幂 |
+| Math.sqrt(num) | 返回num的平方根 |
+| Math.acos(x) | 返回x的反余弦值 |
+| Math.asin(x) | 返回x的反正弦值 |
+| Math.atan(x) | 返回x的反正切值 |
+| Math.atan2(y, x) | 返回y/x的反正切值 |
+| Math.cos(x) | 返回x的余弦值 |
+| Math.sin(x) | 返回x的正弦值 |
+| Math.tan(x) | 返回x的正切值 |
+
