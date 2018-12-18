@@ -368,3 +368,54 @@ o.sayColor();
 继承的方法： toLocaleString(), toString(), valueOf()。
 
 ### 6. 基本包装类型
+不建议显式地创建基本包装类型的对象。  
+
+**Boolean类型**  
+永远不要使用Boolean对象。  
+
+**Number类型**  
+格式化方法：  
+1. toFixed()  
+   ```
+   var num = 10;
+   alert(num.toFixed(2)); //"10.00"
+   ```
+2. toExponential()  
+   ```
+   num.toExponential(1); // "1.0e+1"
+   ```
+3. toPrecision()  
+   toPrecision()方法可以表现1到21位小数。  
+   
+**String类型**  
+属性：  
+length：  即使字符串中包含双字节字符，也算一个字符。  
+字符方法：  
+1. charAt(), charCodeAt(), \[]:  
+   ```
+   var stringValue = "hello world";
+   alert(stringValue.charAt(1)); //"e"
+   alert(stringValue.charCodeAt(1)); //"101"
+   alert(stringValue[1]); //"e"
+   ```
+字符串操作方法：  
+1. concat(): 将一个或多个字符串拼接起来。  
+   原字符串不变。  
+2. slice(), substr(), substring():  
+   不会修改字符串本身。  
+   
+字符串位置方法：  
+1. indexOf(), lastIndexOf():  
+   lastIndexOf是从后向前搜索。  
+
+trim():  
+不修改原字符串。  
+
+字符串大小写转换方法：  
+toLowerCase(), toUpperCase()  
+
+字符串的模式匹配方法：  
+1. match()  
+2. search()  
+3. replace()  
+4. sllppp
