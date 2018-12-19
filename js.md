@@ -176,4 +176,26 @@ if (canvas.getContext) {
 ```
 
 #### context方法之绘制文本
+绘制文本的方法有两个： fillText()和strokeText()。  
+这两个方法接收四个v参数： 绘制文本的内容， x坐标， y坐标， 最大像素宽度。  
+两个方法均以以下3个属性为基础：  
+* context.font 字体样式，大小
+* context.textAlign 对齐方式（start， center， end）
+* context.textBaseline 文本基线
 
+```js
+var context = canvas.getContext("2d");
+context.fillStyle = "red";
+context.font = "bold 26px";
+context.textAlign = "start";
+context.textBaseline = "top";
+context.fillText("hello world", 100, 100, 200);
+```
+
+#### context方法之变换
+* rotate(angle) 旋转图像angle角度
+* scale(scaleX, scaleY) 缩放图像
+* translate(x, y) 平移
+* transform(a, b, c, d, e, f)
+* setTransform(a, b, c, d, e, f)
+* skew(x ,y) 将画布拉伸
