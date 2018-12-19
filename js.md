@@ -65,7 +65,7 @@ var fn=function(a){
 javascript中没有私有作用域的概念，使用这种技术可以模拟一个私有作用域。  
 JQuery使用的就是这种技术，将JQuery代码包裹在(function(window,undefined){...jquery代码...}(window)中，可以达到保护JQuery内部变量的作用。  
 
-# [Context](https://blog.csdn.net/h15882065951/article/details/70232080)
+# [Canvas与Context](https://blog.csdn.net/h15882065951/article/details/70232080)
 #### 基本用法
 开始标签和结束标签之间是后备信息，当用户的浏览器不支持时显示。  
 1. 想要在canvas区域画图，第一步是获取绘图上下文。  
