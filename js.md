@@ -65,3 +65,43 @@ var fn=function(a){
 javascript中没有私有作用域的概念，使用这种技术可以模拟一个私有作用域。  
 JQuery使用的就是这种技术，将JQuery代码包裹在(function(window,undefined){...jquery代码...}(window)中，可以达到保护JQuery内部变量的作用。  
 
+# [Canvas](https://blog.csdn.net/h15882065951/article/details/70232080)
+#### 基本用法
+开始标签和结束标签之间是后备信息，当用户的浏览器不支持时显示。  
+1. 想要在canvas区域画图，第一步是获取绘图上下文。  
+   ```js
+   var canvas = document.getElementById("canvas");
+   if (canvas.getContext) {
+       var context = canvas.getContext('2d'); // 2d用单引号
+   }
+   ```
+2. 导入图片canvas.toDataURL("image/png");
+   ```js
+   // 获取图像的URL
+   var imgURL = canvas.toDataURL("image/png"); // 默认图片格式为png，可以自定义
+   // 显示图片
+   var image = document.createElement("img"); // 添加一个img元素
+   image.src = imgURL;
+   document.body.appendChild(image); // 将图片元素添加到页面中
+   ```
+   
+#### 2D上下文
+2D上下文的坐标原点在canvas左上角。x往右越大，y往下越大。  
+绘制2D图像三步走：  
+1. 获取上下文对象 getContext('2d');
+2. 指定填充（fillStyle）或描边（strokeStyle）颜色。描边还能设置线条交叉和末端的形式;  
+3. 绘制图形
+
+#### context属性
+设置填充和描边的颜色：  
+```js
+context.fillStyle = "red";
+context.strokeStyle = "blue";
+```
+* context.lineWidth
+* context.lineWCap
+* context.lineJoin
+
+#### 绘制矩形
+与绘制矩形相关的方法有三个：fillRect(), strokeRect(), clearRect()。  
+他们接受四个参数： x坐标，y坐标，宽度，高度。  
