@@ -65,7 +65,7 @@ var fn=function(a){
 javascript中没有私有作用域的概念，使用这种技术可以模拟一个私有作用域。  
 JQuery使用的就是这种技术，将JQuery代码包裹在(function(window,undefined){...jquery代码...}(window)中，可以达到保护JQuery内部变量的作用。  
 
-# [Canvas](https://blog.csdn.net/h15882065951/article/details/70232080)
+# [Context](https://blog.csdn.net/h15882065951/article/details/70232080)
 #### 基本用法
 开始标签和结束标签之间是后备信息，当用户的浏览器不支持时显示。  
 1. 想要在canvas区域画图，第一步是获取绘图上下文。  
@@ -199,3 +199,42 @@ context.fillText("hello world", 100, 100, 200);
 * transform(a, b, c, d, e, f)
 * setTransform(a, b, c, d, e, f)
 * skew(x ,y) 将画布拉伸
+
+#### context之save()和restore()方法
+可以使用save()方法，保存先前设置的上下文的属性和状态。  
+该方法将先前设置的属性和状态推入一个堆栈结构，等到你想用保存的属性和状态，就使用restore()方法。  
+如果连续使用save()方法，可以将多个属性和状态的组合保存到栈结构中，此时再使用restore()方法一级一级向上返回。  
+save()方法只能保存设置的属性和变换，不能保存绘制上下文的内容。  
+
+#### 阴影
+根据以下属性，可以为图形和路径添加阴影：  
+1. context.shadowColor: 为阴影添加颜色;
+2. context.shadowOffsetX: 为阴影添加X轴方向的偏移量;
+3. context.shadowOffsetY: 为阴影添加Y轴方向的偏移量;
+4. context.shadowBlur: 为阴影添加模糊程度。
+```js
+// 设置阴影属性
+context.shadowOffsetX = 10;
+context.shadowOffsetY = 20;
+context.shadowBlur = 2;
+context.shadowColor = "blue";
+// 绘制矩形
+context.fillStyle = "red";
+context.fillRect(10,10,109,109);
+```
+
+#### 线性渐变
+1. createLinearGradient()创建一个线性渐变对象。接受四个参数： 渐变起始位的x，y坐标， 渐变结束位的x，y坐标。  
+2. addColorStop()指定色标（渐变颜色）。它接收两个参数： 色标位置(0或1）和css颜色值。  
+3. 将fillStyle或strokeStyle设置为这个对象。  
+```js
+var gradient = context.createLinearGradient(30, 30, 200, 200);
+gradient.addColorStop(0, "white");
+gradient.addColorStop(1, "black");
+context.fillStyle = gradient;
+context.fillRect(30, 30, 200, 200);
+```
+
+#### 径向渐变
+createRadialGradient()创建径向渐变对象，它接收6个参数：起始圆的圆心xy坐标和半径r;结束圆的圆心xy坐标和半径R。  
+
