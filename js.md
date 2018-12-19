@@ -85,7 +85,7 @@ JQuery使用的就是这种技术，将JQuery代码包裹在(function(window,und
    document.body.appendChild(image); // 将图片元素添加到页面中
    ```
    
-#### 2D上下文
+#### context
 2D上下文的坐标原点在canvas左上角。x往右越大，y往下越大。  
 绘制2D图像三步走：  
 1. 获取上下文对象 getContext('2d');
@@ -98,10 +98,81 @@ JQuery使用的就是这种技术，将JQuery代码包裹在(function(window,und
 context.fillStyle = "red";
 context.strokeStyle = "blue";
 ```
+描边属性：  
 * context.lineWidth
 * context.lineWCap
 * context.lineJoin
 
-#### 绘制矩形
+#### context方法之绘制矩形
 与绘制矩形相关的方法有三个：fillRect(), strokeRect(), clearRect()。  
 他们接受四个参数： x坐标，y坐标，宽度，高度。  
+```
+<body>
+
+<canvas id="canvas" width="400" height="300">抱歉，您的浏览器不支持canvas元素</canvas>
+  
+<script>
+    var canvas = document.getElementById("canvas");
+    //检测浏览器是否支持canvas 该方法是否存在 取得上下文对象
+    if (canvas.getContext) {
+        var context = canvas.getContext("2d"); //2d用单引用括起来
+        //描边矩形
+        context.strokeStyoe = "yellow"; // 描边颜色为蓝色
+        context.lineWidth = 4; //指定描边线的宽度
+        context.strokeRect(50, 50, 120, 120);	//用指定的颜色描边矩形
+        //填充矩形
+	    context.fillStyle = "red";
+	    context.fillRect(150, 150, 120, 120);
+        //消除指定大小的区域
+	    context.clearRect(110, 110, 30, 30);
+    }
+</script>
+
+</body>
+```
+
+#### context方法之绘制路径
+* beginPath() 开始绘制新路径
+* closePath() 关闭绘制路径
+
+```js
+var canvas = document.getElementById("canvas");
+if (canvas.getContext) {
+    var context = canvas.getContext("2d"); // context类似与java中的Paint
+    //========================圆=========================
+    context.beginPath();
+    /**
+     * 圆心坐标（50,50）， 半径40
+     * 起始角度0, 结束角度2*Math.PI
+     * false:顺时针
+     */
+    context.arc(50, 50, 40, 0, 2*Math.PI, false);
+    context.closePath();
+    context.fillStyle = "red";
+    context.fill(); // 以填充的方式绘制圆
+    
+    //========================弧============================
+    context.beginPath();
+    context.moveTo(20,20);
+    context.lineTo(100,20);
+    /**
+     * 此弧与”过当前点和第一个点（150,20）的直线“相切
+     * 此弧与”过第一个点（150,20)和第二个点（150,70）的直线“相切
+     * 半径为50
+     */
+    context.arcTo(150,20,150,70,50);
+    context.lineTo(150,120);
+    context.closePath();
+    context.strokeStyle="red";
+    context.stroke();
+    
+    //=======================矩形==========================
+    context.beginPath();
+	context.rect(20, 20, 200, 200);
+	context.closePath();
+	context.strokeStyle = "red";
+	context.stroke();
+}
+```
+
+#### cn
