@@ -175,4 +175,5 @@ if (canvas.getContext) {
 }
 ```
 
-#### cn
+#### context方法之绘制文本
+
