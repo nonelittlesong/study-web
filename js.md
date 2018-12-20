@@ -253,3 +253,11 @@ Window对象表示浏览器中打开的窗口。
 | innerHeight | 返回窗口的文档显示区的高度 |
 | innerWidth | 返回窗口的文档显示区的宽度 |
 
+# [addEventListener()](http://www.runoob.com/jsref/met-element-addeventlistener.html)
+element.addEventListener(event, function, useCapture)  
+
+| 参数 | 描述 |
+| --- | --- |
+| event | 字符串，指定事件名 |
+| function | 指定事件触发时执行的函数 |
+| useCapture | 可选。布尔值，指定事件是在捕获或冒泡阶段执行 |
