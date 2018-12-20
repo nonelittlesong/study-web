@@ -1,7 +1,7 @@
 参考：
 * [codepen](https://codepen.io/)
 * https://github.com/you-dont-need/You-Dont-Need-JavaScript
-* [dat.GUI](https://github.com/dataarts/dat.guiv)  
+* [dat.GUI](https://github.com/dataarts/dat)  
 * https://www.tweenmax.com.cn/  
 
 wiki
