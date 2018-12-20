@@ -261,3 +261,38 @@ element.addEventListener(event, function, useCapture)
 | event | 字符串，指定事件名 |
 | function | 指定事件触发时执行的函数 |
 | useCapture | 可选。布尔值，指定事件是在捕获或冒泡阶段执行 |
+
+#### 事件集合
+1. 鼠标事件：
+   * click 单击
+   * dbclick 双击
+   * mousedown 鼠标按下
+   * mouseout 鼠标移走
+   * mouseover 鼠标移入
+   * mouseup 鼠标弹起
+   * mousemove 鼠标移动
+2. 键盘事件：
+   * keydown 键按下
+   * keypress 键按下并松开
+   * keyup 键弹起
+3. HTML事件：
+   * load 加载页面
+   * unload 卸载离开页面
+   * change 改变内容
+   * scroll 滚动
+   * focus 获得焦点
+   * blur 失去焦点
+
+#### 鼠标/键盘属性
+| 属性 | 描述 |
+| --- | --- |
+| altKey | 返回事件触发时，ATL键是否被按下 |
+| button | 事件触发时，哪个鼠标按钮被点击 |
+| clientX | 鼠标指针的水平坐标 |
+| clientY | 鼠标指针的垂直坐标 |
+| ctrlKey | 事件触发时，ctrl键是否被按下 |
+| metaKey | 事件触发时，meta键是否被按下 |
+| relatedTarget | 返回与事件的目标节点相关的节点 |
+| screenX | |
+| screenY | |
+|shiftKey | shift键是否被按下 |
