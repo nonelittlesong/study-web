@@ -238,3 +238,12 @@ context.fillRect(30, 30, 200, 200);
 #### 径向渐变
 createRadialGradient()创建径向渐变对象，它接收6个参数：起始圆的圆心xy坐标和半径r;结束圆的圆心xy坐标和半径R。  
 
+# [Window对象](http://www.w3school.com.cn/jsref/dom_obj_window.asp)
+Window对象表示浏览器中打开的窗口。  
+如果文档包含框架（frame或iframe标签），浏览器会为HTML文档创建一个window对象，并为每个框架创建一个额外的window对象。  
+#### Window对象集合
+
+| 集合 | 描述 |
+| ------ | ------ |
+| frames\[] | 返回窗口中所有命名的框架。<br>该集合是Window对象数组，每个Window对象在窗口中含有一个框架或<iframe>。属性frames.length存放在数组frames[]中含有的元素的个数。注意，frames[]数组中引用的框架可能还包含框架，他们自己也有frames[]数组。 |
+
