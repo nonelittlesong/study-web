@@ -53,7 +53,7 @@ var colors = [];
 var colors = ["red", "bule"];
 // 访问和设置数组
 // 索引小于数组长度会修改， 大于会新增
-colors\[2] = "yellow" // 新增第3项
+colors[2] = "yellow" // 新增第3项
 // 数组长度
 colors.length // 可写
 ```
