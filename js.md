@@ -1,5 +1,5 @@
 contents：  
-* [function立即执行](#js中(function(\){...})()立即执行函数写法理解)
+* [function立即执行](#context)  
 
 # [js中(function(){...})()立即执行函数写法理解](https://www.cnblogs.com/chris-oil/p/4862083.html)
 要理解立即函数，先要理解一些基本概念。  
