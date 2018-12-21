@@ -296,3 +296,60 @@ element.addEventListener(event, function, useCapture)
 | screenX | |
 | screenY | |
 |shiftKey | shift键是否被按下 |
+
+# [Prototype](https://www.cnblogs.com/dengpeng1004/p/5317245.html)
+作用： 为一个特定的类声明通用的变量和函数。  
+
+**私有变量和私有函数**  
+```js
+function Obj() {
+  var a = 0; // 私有变量
+  var fn = function() { // 私有函数
+    ...
+  }
+}
+
+var o = new Obj();
+console.log(o.a); // undefined
+console.log(o.fn); // undefined
+```
+在函数对象Obj外部无法访问私有变量和私有函数。  
+
+**静态变量和静态函数**  
+```js
+function Obj() {
+ ...
+}
+Obj.a = 0;
+Obj.fn = function() {
+  ...
+}
+
+console.log(Obj.a); // 0
+console.log(typeof Obj.fn); // function
+var o = new Obj();
+console.log(o.a); // undefined
+console.log(typeof o.fn); // undefined
+```
+可以通过函数名访问，但无法通过实例访问。  
+
+**实例变量和实例函数**  
+```js
+function Obj() {
+  this.a = []; // 实例变量
+  this.fn = function() { // 实例函数
+    ...
+  }
+}
+
+console.log(typeof Obj.a); // undefined
+console.log(typeof Obj.fn); // undefined
+var o = new Obj();
+console.log(typeof o.a); // object
+console.log(typeof o.fn); // function
+```
+可以通过实例访问，无法通过函数名访问。  
+
+#### protptype
+为了解决每个实例对象都会复制相同的实例方法。  
+默认情况下prototype属性会默认获得一个constructor属性，这个属性是一个指向prototype所在函数的指针。  
