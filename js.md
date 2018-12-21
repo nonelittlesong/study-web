@@ -1,7 +1,7 @@
 contents：  
 * [Canvas与Context](#canvas与context)
 * [Window](#window对象)
-* [addEventListener()](#addeventlistener\(\))
+* [addEventListener](#addeventlistener\(\))
 * [Prototype](#prototype)
 
 # [js中(function(){...})()立即执行函数写法理解](https://www.cnblogs.com/chris-oil/p/4862083.html)
@@ -259,7 +259,7 @@ Window对象表示浏览器中打开的窗口。
 | innerHeight | 返回窗口的文档显示区的高度 |
 | innerWidth | 返回窗口的文档显示区的宽度 |
 
-# [addEventListener\(\)](http://www.runoob.com/jsref/met-element-addeventlistener.html)
+# [addEventListener](http://www.runoob.com/jsref/met-element-addeventlistener.html)
 element.addEventListener(event, function, useCapture)  
 
 | 参数 | 描述 |
