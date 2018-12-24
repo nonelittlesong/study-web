@@ -51,6 +51,21 @@ transition: property duration timing-function delay
 **弟弟选择器～**  
 选择所有后面的弟弟。  
 
+# [box-shadow](http://www.w3school.com.cn/cssref/pr_box-shadow.asp)  
+添加一个或多个阴影。  
+**语法：**  
+box-shadow: h-shadow v-shadow blur spread color inset;
+
+| 值 | 描述 |
+| --- | --- |
+| h-shadow | 必需。水平阴影的位置，允许负值。 |
+| v-shadow | 必须。垂直阴影的位置，允许负值。 |
+| blur | 可选。模糊距离 |
+| spread | 可选。阴影尺寸。 |
+| color | 可选。阴影颜色 |
+| inset | 可选。将外部阴影改为内部阴影。 |
+
+
 # 其它属性
 ### 1. [display](http://www.w3school.com.cn/cssref/pr_class_display.asp)  
 display属性规定元素应该生成的框的属性。  
@@ -75,3 +90,6 @@ js语法： object.style.textDecoration="overline";
 
 ### 4. [text-transform](http://www.w3school.com.cn/cssref/pr_text_text-transform.asp)
 控制文本的大小写。  
+
+### 5. [border-radius](http://www.w3school.com.cn/cssref/pr_border-radius.asp)  
+圆角。  
