@@ -76,6 +76,9 @@ box-shadow: h-shadow v-shadow blur spread color inset;
 | static | 默认 |
 | inherit | |
 
+# [line-height](http://www.w3school.com.cn/cssref/pr_dim_line-height.asp)  
+行间距。**不允许负值。**  
+继承性: yes。  
 
 # 其它属性
 ### 1. [display](http://www.w3school.com.cn/cssref/pr_class_display.asp)  
