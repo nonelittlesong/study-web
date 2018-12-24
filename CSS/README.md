@@ -70,3 +70,5 @@ js语法： object.style.textDecoration="overline";
 | blink | 闪烁 |
 | inherit | 继承父元素 |
 
+### 3. font-size和font-weight
+字体大小和粗细。  
