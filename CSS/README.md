@@ -16,3 +16,8 @@ font-family是用于某个元素的字体族名称或/及类族名称的一个�
 **与%的区别：**  
 %相对于父元素，vw、vh相对于视窗。  
 
+# [：hover](http://www.w3school.com.cn/cssref/selector_hover.asp)  
+* :hover 选择器用于选择鼠标指针浮动在上面的元素。  
+* ：hover 可用于所有元素。  
+* ：link 未被访问链接的样式。 :visited 已被访问链接链接样式。 :active 活动链接。  
+
