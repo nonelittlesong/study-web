@@ -65,6 +65,17 @@ box-shadow: h-shadow v-shadow blur spread color inset;
 | color | 可选。阴影颜色 |
 | inset | 可选。将外部阴影改为内部阴影。 |
 
+# [position](http://www.w3school.com.cn/cssref/pr_class_position.asp)  
+元素的定位类型。  
+
+| 值 | 描述 |
+| --- | --- |
+| absolute | 相对于static以外的第一个父元素进行定位。元素的位置通过left，top，right，bottom属性进行规定。 |
+| fixed | 相对于浏览器窗口进行定位。通过left，top，right和bottom进行规定。 |
+| relative | |
+| static | 默认 |
+| inherit | |
+
 
 # 其它属性
 ### 1. [display](http://www.w3school.com.cn/cssref/pr_class_display.asp)  
