@@ -33,6 +33,7 @@ js语法： `object.style.transition="width 2s"`
 transition: property duration timing-function delay  
 
 **timing-function:**  
+
 | 值 | 描述 |
 | --- | --- |
 | linear | 线性。等于cubic-bezier(0,0,1,1) |
