@@ -51,3 +51,22 @@ transition: property duration timing-function delay
 **弟弟选择器～**  
 选择所有后面的弟弟。  
 
+# 其它属性
+### 1. [display](http://www.w3school.com.cn/cssref/pr_class_display.asp)  
+display属性规定元素应该生成的框的属性。  
+### 2. [text-decoration](http://www.w3school.com.cn/cssref/pr_text_text-decoration.asp)  
+修饰文本。  
+默认值： none;  
+继承性： no;  
+版本： css1;  
+js语法： object.style.textDecoration="overline";  
+
+| 值 | 描述 |
+| --- | --- |
+| none | 默认 |
+| underline | 下划线 |
+| overline | 上划线 |
+| line-through | 中划线 |
+| blink | 闪烁 |
+| inherit | 继承父元素 |
+
