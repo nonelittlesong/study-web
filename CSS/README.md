@@ -111,7 +111,7 @@ js语法： object.style.textDecoration="overline";
 ### 6. z-index
 默认是0。  
 
-### 7. text-align
+### 7. [text-align](http://www.w3school.com.cn/cssref/pr_text_text-align.asp)
 文本水平对齐方式：left，right，center，justify。  
 继承性： yes。  
 值 justify 可以使文本的两端都对齐。在两端对齐文本中，文本行的左右两端都放在父元素的内边界上。然后，调整单词和字母间的间隔，使各行的长度恰好相等。  
