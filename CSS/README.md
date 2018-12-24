@@ -72,3 +72,6 @@ js语法： object.style.textDecoration="overline";
 
 ### 3. font-size和font-weight
 字体大小和粗细。  
+
+### 4. [text-transform](http://www.w3school.com.cn/cssref/pr_text_text-transform.asp)
+控制文本的大小写。  
