@@ -21,3 +21,23 @@ font-family是用于某个元素的字体族名称或/及类族名称的一个�
 * ：hover 可用于所有元素。  
 * ：link 未被访问链接的样式。 :visited 已被访问链接链接样式。 :active 活动链接。  
 
+# [transition](http://www.w3school.com.cn/cssref/pr_transition.asp)
+**定义和用法:**  
+transition是一个简写属性。  
+默认值： all 0 ease 0  
+继承性： no  
+版本： css3  
+js语法： `object.style.transition="width 2s"`  
+
+**语法:**  
+transition: property duration timing-function delay  
+
+**timing-function:**  
+| 值 | 描述 |
+| --- | --- |
+| linear | 线性。等于cubic-bezier(0,0,1,1) |
+| ease | 先加速后减速。cubic-bezier(0.25,0.1,0.25,1) |
+| ease-in | 加速。cubic-bezier(0.42,0,1,1) |
+| ease-out | 减速。cubic-bezier(0,0,0.58,1) |
+| ease-in-out | 慢速开始和结束.cubic-bezier(0.42,0,0.58,1) |
+| cubic-bezier(n,n,n,n) | 自定义 |
