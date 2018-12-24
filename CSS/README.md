@@ -6,3 +6,13 @@ font-family是用于某个元素的字体族名称或/及类族名称的一个�
 
 使用逗号分割每个值，并始终提供一个类族名称作为最后的选择。  
 **js语法：** `object.style.fontFamily="arial,sans-serif"`  
+
+# [css3新单位vw、vh、vmin、vmax的使用详解](https://blog.csdn.net/ZNYSYS520/article/details/76053961)
+* vw: 视窗宽度的百分比
+* vh: 视窗高度的百分比
+* vmin: 当前vw和vh中较小的一个值
+* vmax: 当前vw和vh中较大的一个值
+
+**与%的区别：**  
+%相对于父元素，vw、vh相对于视窗。  
+
