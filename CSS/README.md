@@ -104,3 +104,6 @@ js语法： object.style.textDecoration="overline";
 
 ### 5. [border-radius](http://www.w3school.com.cn/cssref/pr_border-radius.asp)  
 圆角。  
+
+### 6. z-index
+默认是0。  
