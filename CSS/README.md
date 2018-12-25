@@ -80,6 +80,17 @@ box-shadow: h-shadow v-shadow blur spread color inset;
 行间距。**不允许负值。**  
 继承性: yes。  
 
+# [flex](https://blog.csdn.net/u013451157/article/details/79011679)  
+简写属性：  
+* flex-grow: 定义项目的放大比例，默认为0。
+* flex-shrink: 定义项目的缩小比例，默认为1。
+* flex-basis: 定义了在分配多余空间之前，项目占据的主轴空间。默认值auto。
+
+flex: none; 计算值为0 0 auto  
+flex: auto; 计算值为1 1 auto  
+flex: 非负数字; 则该数字为flex-grow值，flex-shrink取1，flex-basis取0%  
+flex: 长度或百分比; 视为flex-basis的值，flex-grow取1，flex-shrink取1  
+
 # 其它属性
 ### 1. [display](http://www.w3school.com.cn/cssref/pr_class_display.asp)  
 display属性规定元素应该生成的框的属性。  
