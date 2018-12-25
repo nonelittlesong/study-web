@@ -1,4 +1,4 @@
-# 如何使用Google Fonts API
+# [如何使用Google Fonts API](https://www.ibm.com/developerworks/cn/web/1505_zhangyan_googlefont/)
 有三种方式来添加字体链接：  
 * Standard方式：  
   ```
