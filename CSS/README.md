@@ -91,6 +91,8 @@ flex: auto; 计算值为1 1 auto
 flex: 非负数字; 则该数字为flex-grow值，flex-shrink取1，flex-basis取0%  
 flex: 长度或百分比; 视为flex-basis的值，flex-grow取1，flex-shrink取1  
 
+[display: flex](https://www.cnblogs.com/qingchunshiguang/p/8011103.html)  
+
 # 其它属性
 ### 1. [display](http://www.w3school.com.cn/cssref/pr_class_display.asp)  
 display属性规定元素应该生成的框的属性。  
