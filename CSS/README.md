@@ -71,6 +71,7 @@ transform属性向元素应用2D或3D转换。旋转，平移，缩放，倾斜�
 语法： `transform: none | transform-functions`  
 
 | 值 | 描述 |
+| --- | --- |
 | none | 不进行转换 |
 | matrix(n,n,n,n,n,n) | 进行2D转换 |
 | matrix3d(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n) | 进行3d转换 |
