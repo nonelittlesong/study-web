@@ -20,11 +20,6 @@ font-family是用于某个元素的字体族名称或/及类族名称的一个�
 ### 2. em
 相对于父元素font-size的大小。  
 
-# [：hover](http://www.w3school.com.cn/cssref/selector_hover.asp)  
-* :hover 选择器用于选择鼠标指针浮动在上面的元素。  
-* ：hover 可用于所有元素。  
-* ：link 未被访问链接的样式。 :visited 已被访问链接链接样式。 :active 活动链接。  
-
 # [transition](http://www.w3school.com.cn/cssref/pr_transition.asp)
 **定义和用法:**  
 transition是一个简写属性。  
