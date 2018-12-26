@@ -60,8 +60,8 @@ transition: property duration timing-function delay
 | .class | .intro | 选择class="intro"的所有元素 | 1 |
 | #id | #firstname | 选择id="firstname"的所有元素 | 1 |
 | * | * | 选择所有元素 | 2 |
-| element | p | 选择所有<p>元素 | 2 |
-| element,element | div,p | 选择所有<div>和<p>元素 | 1 |
+| element | p | 选择所有\<p>元素 | 2 |
+| element,element | div,p | 选择所有\<div>和\<p>元素 | 1 |
 
 
 # [box-shadow](http://www.w3school.com.cn/cssref/pr_box-shadow.asp)  
