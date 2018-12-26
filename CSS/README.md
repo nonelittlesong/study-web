@@ -179,6 +179,7 @@ js语法： object.style.textDecoration="overline";
 
 ### 8. [overflow](http://www.w3school.com.cn/cssref/pr_pos_overflow.asp)
 继承性：no  
+默认情况下元素会被内容撑大，所以定义height时要考率overflow。  
 
 | 值 | 描述 |
 | --- | --- |
