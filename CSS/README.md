@@ -6,6 +6,17 @@
 **:root伪类**:  
 :root伪类代表了HTML文档的根元素，这是一个放置自定义属性的好位置。  
 
+# [@media查询](http://www.runoob.com/cssref/css3-pr-mediaquery.html)  
+**@media可以针对不同的屏幕尺寸设置不同的样式。**  
+语法：  
+```css
+@media mediatype and | not | only (media feature) {
+    CSS-Code;
+}
+```
+你也可以针对不同的媒体使用不同的stylesheets：  
+`link rel="stylesheet" media="mediatype and | not | only (media feature)" href="mystylesheet.css">`  
+
 # [CSS动画](http://www.w3school.com.cn/css3/css3_animation.asp)  
 ### 1. @keyframes
 当你在@keyframes中创建动画时，请把它捆绑到某个选择器，否则不会产生动画效果。  
