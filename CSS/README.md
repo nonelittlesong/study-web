@@ -6,6 +6,28 @@
 **:root伪类**:  
 :root伪类代表了HTML文档的根元素，这是一个放置自定义属性的好位置。  
 
+# [CSS动画](http://www.w3school.com.cn/css3/css3_animation.asp)  
+### 1. @keyframes
+当你在@keyframes中创建动画时，请把它捆绑到某个选择器，否则不会产生动画效果。  
+语法：  
+```css
+@keyframes animationname {
+    keyframes-selector {
+        css-styles;
+    }
+}
+```
+| 值 | 描述 |
+| --- | --- |
+| animationname | 必需。定义动画的名称。 |
+| keyframes-selector | 0-100% <br> from(0%) <br> to(100%) |
+| css-styles | 必需。一个或多个合法的 CSS 样式属性。 |
+
+### 2. animation、
+继承性: no  
+语法：  
+`animation: name duration timing-function delay iteration-count direction`  
+
 # font-family
 继承性： yes  
 font-family是用于某个元素的字体族名称或/及类族名称的一个优先表。  
