@@ -47,13 +47,22 @@ transition: property duration timing-function delay
 | ease-in-out | 慢速开始和结束.cubic-bezier(0.42,0,0.58,1) |
 | cubic-bezier(n,n,n,n) | 自定义 |
 
-# [各种符号](https://blog.csdn.net/XA5851477/article/details/65629214)
+# [CSS选择器](http://www.w3school.com.cn/cssref/css_selectors.asp)
 **子元素选择器>**  
 只选儿子不选孙子。  
 **相邻兄弟选择器+**  
 选紧跟在后面的弟弟。  
 **弟弟选择器～**  
 选择所有后面的弟弟。  
+
+| 选择器 | 例子 | 例子描述 | CSS |
+| --- | --- | --- | --- |
+| .class | .intro | 选择class="intro"的所有元素 | 1 |
+| #id | #firstname | 选择id="firstname"的所有元素 | 1 |
+| * | * | 选择所有元素 | 2 |
+| element | p | 选择所有<p>元素 | 2 |
+| element,element | div,p | 选择所有<div>和<p>元素 | 1 |
+
 
 # [box-shadow](http://www.w3school.com.cn/cssref/pr_box-shadow.asp)  
 添加一个或多个阴影。  
