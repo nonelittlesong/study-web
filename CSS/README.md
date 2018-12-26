@@ -1,4 +1,5 @@
 # font-family
+继承性： yes  
 font-family是用于某个元素的字体族名称或/及类族名称的一个优先表。  
 有两种类型的字体系列名称：  
 * 指定的系列名称： "times","courier","arial";
