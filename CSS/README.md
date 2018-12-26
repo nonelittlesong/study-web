@@ -15,7 +15,7 @@
 }
 ```
 你也可以针对不同的媒体使用不同的stylesheets：  
-`link rel="stylesheet" media="mediatype and | not | only (media feature)" href="mystylesheet.css">`  
+`<link rel="stylesheet" media="mediatype and | not | only (media feature)" href="mystylesheet.css">`  
 
 # [CSS动画](http://www.w3school.com.cn/css3/css3_animation.asp)  
 ### 1. @keyframes
