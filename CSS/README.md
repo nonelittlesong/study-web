@@ -46,6 +46,8 @@ font-family是用于某个元素的字体族名称或/及类族名称的一个�
 # [transition](http://www.w3school.com.cn/cssref/pr_transition.asp)
 参考：  
 https://www.cnblogs.com/huanying2000/p/6215472.html  
+https://www.cnblogs.com/qianduanjingying/p/4937574.html  
+
 **定义和用法:**  
 transition是一个简写属性。  
 默认值： all 0 ease 0  
