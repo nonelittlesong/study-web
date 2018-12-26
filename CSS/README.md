@@ -21,6 +21,28 @@ font-family是用于某个元素的字体族名称或/及类族名称的一个�
 ### 2. em
 相对于父元素font-size的大小。  
 
+### 3. 尺寸
+| 单位 | 描述 |
+| --- | --- |
+| % | 百分比 |
+| in | 英寸 |
+| cm | 厘米 |
+| mm | 毫米 |
+| em | 1em等于当前字体尺寸。 |
+| ex | 一个ex是一个字体的x-height。（x-height通常是字体尺寸的一半) |
+| pt | 磅（1pt等于1/72英寸） |
+| pc | 12点活字（1pc等于12点） |
+| px | 像素 |
+
+### 4. 颜色
+| 单位 | 描述 |
+| --- | --- |
+| 颜色名 | 比如ivory |
+| rgb(x,x,x) | 比如rgb(255,0,0) |
+| rgb(x%,x%,x%) | rgb(100%,0%,0%) |
+| #rrggbb | #FF0000 |
+
+
 # [transition](http://www.w3school.com.cn/cssref/pr_transition.asp)
 **定义和用法:**  
 transition是一个简写属性。  
