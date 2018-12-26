@@ -65,6 +65,36 @@ transition: property duration timing-function delay
 | ease-in-out | 慢速开始和结束.cubic-bezier(0.42,0,0.58,1) |
 | cubic-bezier(n,n,n,n) | 自定义 |
 
+# transform
+继承性： no  
+transform属性向元素应用2D或3D转换。旋转，平移，缩放，倾斜。  
+语法： `transform: none | transform-functions`  
+
+| 值 | 描述 |
+| none | 不进行转换 |
+| matrix(n,n,n,n,n,n) | 进行2D转换 |
+| matrix3d(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n) | 进行3d转换 |
+| translate(x,y) | 2d平移 |
+| translate(x,y,z) | 3d平移 |
+| translateX(x) | x轴平移 |
+| translateY(y) | y轴平移 |
+| translateZ(z) | z轴平移 |
+| scale(x,y) | 2d缩放 |
+| scale3d(x,y,z) | 3d缩放 |
+| scaleX(x) | x轴缩放 |
+| scaleY(y) | y轴缩放 |
+| scaleZ(z) | z轴缩放 |
+| rotate(angle) | 2d旋转 |
+| rotate3d(x,y,z,angle) | 3d旋转 |
+| rotateX(angle) | |
+| rotateY(angle) | |
+| rotateZ(angle) | |
+| skew(x-angle, y-angle) | 定义沿着x轴和y轴的倾斜 |
+| skewX(angle) | |
+| skewY(angle) | |
+| perspective(n) | 为3D转换元素定义透视视图 |
+
+
 # [CSS选择器](http://www.w3school.com.cn/cssref/css_selectors.asp)
 **子元素选择器>**  
 只选儿子不选孙子。  
