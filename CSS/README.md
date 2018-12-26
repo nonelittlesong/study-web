@@ -125,8 +125,10 @@ box-shadow: h-shadow v-shadow blur spread color inset;
 | inherit | |
 
 # [line-height](http://www.w3school.com.cn/cssref/pr_dim_line-height.asp)  
-行间距。**不允许负值。**  
+文本行高。**不允许负值。**  
 继承性: yes。  
+该属性会影响行框的布局。在应用到一个块级元素时，它定义了该元素中基线之间的最小距离而不是最大距离。  
+line-height与font-size的计算值之差（在css中成为行间距）分为两半，分别加到一个文本行的顶部和底部。可以包含这些内容的最小宽就是行宽。  
 
 # [flex](https://blog.csdn.net/u013451157/article/details/79011679)  
 简写属性：  
