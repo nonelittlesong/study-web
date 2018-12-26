@@ -14,11 +14,11 @@ font-family是用于某个元素的字体族名称或/及类族名称的一个�
 * vmin: 当前vw和vh中较小的一个值
 * vmax: 当前vw和vh中较大的一个值
 
-### 2. em
-相对于父元素font-size的大小。  
-
 **与%的区别：**  
 %相对于父元素，vw、vh相对于视窗。  
+
+### 2. em
+相对于父元素font-size的大小。  
 
 # [：hover](http://www.w3school.com.cn/cssref/selector_hover.asp)  
 * :hover 选择器用于选择鼠标指针浮动在上面的元素。  
