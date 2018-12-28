@@ -8,8 +8,6 @@
 | 变色混合模式 | difference,exclusion,hard-light | 用于制作各种变异的图层混合 |
 | 色彩叠加混合模式 | hue，saturation，color，luminosity | 根据色相，饱和度等基本属性融合 |
 
-
-
 # [CSS3 用户界面](http://www.w3school.com.cn/css3/css3_user_interface.asp)
 | 属性 | 描述 |
 | --- | --- |
@@ -70,6 +68,10 @@
 继承性: no  
 语法：  
 `animation: name duration timing-function delay iteration-count direction`  
+
+### 3. [will-change](https://www.w3cplus.com/css3/introduction-css-will-change-property.html)
+`will-change`允许对浏览器默认的样式优化和提前处理元素，在动画实际执行前，为准备动画执行潜在的昂贵工作。  
+
 
 # font-family
 继承性： yes  
