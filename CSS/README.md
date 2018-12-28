@@ -1,3 +1,19 @@
+# [CSS3 用户界面](http://www.w3school.com.cn/css3/css3_user_interface.asp)
+| 属性 | 描述 |
+| --- | --- |
+| appearance | 允许你将元素设置为标准用户界面元素的外观 |
+| box-sizing | 允许用确切的方式定义适应某个区域的具体内容 |
+| icon | 为创作者提供使用图标化等价物来设置元素样式的能力 |
+| nav-down | 规定在使用arrow-down导航键时向何处导航 |
+| nav-index | 设置元素的tab键控制次序 |
+| nav-left | 规定在使用arrow-left导航键时向何处导航 |
+| nav-right | |
+| nav-up | |
+| outline-offset | 对轮廓进行偏移，并在超出边框边缘的位置绘制轮廓 |
+| resize | 用户能否对元素的尺寸进行调整 |
+
+
+
 # [变量](https://blog.csdn.net/u011043843/article/details/46480677)
 **自定义属性**:  
 为了自定义一个属性名，我们需要用--作为前缀。  
