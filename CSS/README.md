@@ -1,3 +1,15 @@
+# [混合模式](https://blog.csdn.net/Geoooo/article/details/80063852)
+| 分类名称 | 混合模式名称 | 描述 |
+| --- | --- | --- |
+| 基础混合模式 | normal | 利用图层透明度控制上下层的图层混合 |
+| 降暗混合模式 | darken,multiply,color-burn | 减色模式，滤掉图像中的高亮色 |
+| 加亮混合模式 | screen,lighten,color-dodge | 加色模式，滤掉图像中的暗色 |
+| 融合混合模式 | overlay,soft-light,hard-light | 用于不同程度的对上、下图层的融合 |
+| 变色混合模式 | difference,exclusion,hard-light | 用于制作各种变异的图层混合 |
+| 色彩叠加混合模式 | hue，saturation，color，luminosity | 根据色相，饱和度等基本属性融合 |
+
+
+
 # [CSS3 用户界面](http://www.w3school.com.cn/css3/css3_user_interface.asp)
 | 属性 | 描述 |
 | --- | --- |
