@@ -12,6 +12,10 @@
 | outline-offset | 对轮廓进行偏移，并在超出边框边缘的位置绘制轮廓 |
 | resize | 用户能否对元素的尺寸进行调整 |
 
+### 1. [box-sizing](http://www.w3school.com.cn/cssref/pr_box-sizing.asp)
+* content-box: 高度和宽度分别应用到元素的内容框。在宽度和高度之外绘制元素的内边距和边框。  
+* border-box: 为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。通过从已设定的高度和宽度分别减去边框和内边距才能得到内容的宽度和高度。
+
 
 
 # [变量](https://blog.csdn.net/u011043843/article/details/46480677)
