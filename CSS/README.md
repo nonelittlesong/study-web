@@ -335,6 +335,7 @@ js语法： object.style.textDecoration="overline";
 可继承性： no
 
 | 值 | 描述 |
+| --- | --- |
 | clip | 默认值。修剪文本 |
 | ellipsis | 显示省略号代表修剪的文本 |
 | string | 使用给定的字符串代表修剪的文本 |
