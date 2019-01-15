@@ -323,3 +323,7 @@ js语法： object.style.textDecoration="overline";
 | scroll | 显示滚动条 |
 | auto | 被修剪时显示滚动条 |
 
+### 9. [list-style-type](http://www.w3school.com.cn/css/pr_list-style-type.asp)
+可继承性: yes  
+列表的风格。  
+
