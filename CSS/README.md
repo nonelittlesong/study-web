@@ -330,3 +330,12 @@ js语法： object.style.textDecoration="overline";
 ### 10. [float](http://www.w3school.com.cn/cssref/pr_class_float.asp)
 可继承性： no
 假如在一行之上只有极少的空间可供浮动元素，那么这个元素会跳至下一行，这个过程会持续到某一行拥有足够的空间为止。  
+
+### 11. [text-overflow](http://www.w3school.com.cn/cssref/pr_text-overflow.asp)
+可继承性： no
+
+| 值 | 描述 |
+| clip | 默认值。修剪文本 |
+| ellipsis | 显示省略号代表修剪的文本 |
+| string | 使用给定的字符串代表修剪的文本 |
+
