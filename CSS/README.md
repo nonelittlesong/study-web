@@ -340,3 +340,15 @@ js语法： object.style.textDecoration="overline";
 | ellipsis | 显示省略号代表修剪的文本 |
 | string | 使用给定的字符串代表修剪的文本 |
 
+### 12. [white-space](http://www.w3school.com.cn/cssref/pr_text_white-space.asp)
+可继承性： yes  
+如何处理文本的空白：  
+
+| 值 | 描述 |
+| --- | --- |
+| normal | 默认，空白会被浏览器忽略 |
+| pre | 空白会被浏览器保留，其行为类似与\<pre>标签 |
+| nowrap | 文本不会换行 |
+| pre-wrap | 保留空白，但是会换行 |
+| pre-line | 合并空白符，但是保留换行符 |
+
