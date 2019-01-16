@@ -26,6 +26,13 @@
 * content-box: 高度和宽度分别应用到元素的内容框。在宽度和高度之外绘制元素的内边距和边框。  
 * border-box: 为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。通过从已设定的高度和宽度分别减去边框和内边距才能得到内容的宽度和高度。
 
+### 2. [outline](http://www.w3school.com.cn/cssref/pr_outline.asp)
+继承性： no  
+js语法： object.style.outline="#0000FF dotted thin"  
+绘制元素边框外的轮廓，可按顺序设置：  
+1. outline-color  
+2. outline-style
+3. outline-width
 
 
 # [变量](https://blog.csdn.net/u011043843/article/details/46480677)
