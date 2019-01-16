@@ -279,6 +279,22 @@ flex: 长度或百分比; 视为flex-basis的值，flex-grow取1，flex-shrink�
 # 其它属性
 ### 1. [display](http://www.w3school.com.cn/cssref/pr_class_display.asp)  
 display属性规定元素应该生成的框的属性。  
+
+| 值 | 描述 |
+| --- | --- |
+| table | 此元素会作为块级表格来显示，表格前后带有换行符 |
+| table-cell | 此元素会作为表格单元格显示 |
+
+[table-layout](http://www.w3school.com.cn/cssref/pr_tab_table-layout.asp)  
+继承性： yes  
+
+| 值 | 描述 |
+| --- | --- |
+| automatic | 默认。列宽度由单元格内容设定 |
+| fixed | 列宽由表格宽度和列宽度设定 |
+
+
+
 ### 2. [text-decoration](http://www.w3school.com.cn/cssref/pr_text_text-decoration.asp)  
 修饰文本。  
 默认值： none;  
