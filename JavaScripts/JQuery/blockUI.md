@@ -81,3 +81,37 @@ $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
 </script>
 ```
 
+# 三、 [Modal Dialogs](http://malsup.com/jquery/block/#dialog)
+```js
+<script type="text/javascript>
+  $(document).ready(function() {
+    $('#test').click(function() {
+      $.blockUI({message: $('#question'), css: {width: '275px'} });
+    });
+    
+    $('#yes').click(function() {
+      $.blockUI({ message: "<h1>Remote call in progress...</h1> });
+      $.ajax({
+        url: 'wait.php',
+        cache: false,
+        complete: function() {
+          $.unblockUI();
+        }
+      });
+    });
+    
+    $('#no').click(function() {
+      $.unblockUI();
+      return false;
+    });
+  });
+</script>
+...
+<input id="test" type="submit" value="Show Dialog" />
+...
+<div id="question style="display:none; cursor: default">
+  <h1>Would you like to continue?</h1>
+  <input type="button" id="yes" value="yes"/>
+  <input type="button" id="no" value="no"/>
+</div>
+```
