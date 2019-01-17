@@ -82,7 +82,7 @@ $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
 ```
 
 # 三、 [Modal Dialogs](http://malsup.com/jquery/block/#dialog)
-```js
+```
 <script type="text/javascript>
   $(document).ready(function() {
     $('#test').click(function() {
