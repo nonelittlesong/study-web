@@ -324,8 +324,13 @@ js语法： object.style.textDecoration="overline";
 ### 4. [text-transform](http://www.w3school.com.cn/cssref/pr_text_text-transform.asp)
 控制文本的大小写。  
 
-### 5. [border-radius](http://www.w3school.com.cn/cssref/pr_border-radius.asp)  
+### 5. [border-radius](http://www.w3school.com.cn/cssref/pr_border-radius.asp)、[border-collapse](http://www.w3school.com.cn/cssref/pr_tab_border-collapse.asp)
+[border-radius](http://www.w3school.com.cn/cssref/pr_border-radius.asp):  
 圆角。  
+[border-collapse](http://www.w3school.com.cn/cssref/pr_tab_border-collapse.asp):  
+继承性： yes  
+border-collapse 属性设置表格的边框是否被合并为一个单一的边框。  
+值： separate或collapse。  
 
 ### 6. z-index
 默认是0。  
