@@ -29,3 +29,30 @@
 你可以使用viewBox属性声明自己的用户坐标系。  
 如果你选择的用户坐标系统和视窗宽高比相同，他会延伸来适应整个视窗。  
 如果你的用户坐标系宽高比不同。你可以使用perserveAspectRatio。  
+
+```css
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <defs>
+        <symbol id="shape_rectangle">
+          <title>Rectangular region shape</title>
+          <rect width="20" height="12" x="6" y="10" stroke-width="2"/>
+        </symbol>
+        <symbol id="shape_circle">
+          <title>Circular region shape</title>
+          <circle r="10" cx="16" cy="16" stroke-width="2"/>
+        </symbol>
+        <symbol id="shape_ellipse">
+          <title>Elliptical region shape</title>
+          <ellipse rx="12" ry="8" cx="16" cy="16" stroke-width="2"/>
+        </symbol>
+        <symbol id="shape_polygon">
+          <title>Polyline region shape</title>
+          <path d="M 15.25,2.2372 3.625,11.6122 6,29.9872 l 20.75,-9.625 2.375,-14.75 z" stroke-width="2"/>
+        </symbol>
+        <symbol id="shape_point">
+          <title>Point region shape</title>
+          <circle r="3" cx="16" cy="16" stroke-width="2"/>
+        </symbol>
+      </defs>
+    </svg>
+```
