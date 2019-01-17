@@ -10,3 +10,6 @@
 由于该事件在文档就绪后发生，因此把所有其他的jQuery事件和函数置于该事件中是非常好的做法。  
 提示： **ready()函数不能与\<body onload="">一起使用.**
 
+### 2. [click() 方法](http://www.w3school.com.cn/jquery/event_click.asp)
+$(selector).click()  
+
