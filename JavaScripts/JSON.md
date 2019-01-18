@@ -62,3 +62,48 @@ JSON.stringify()还可以接受两个参数：
    });
    ```
 2. 字符串缩进
+   1. 如果是数值，代表缩进的空格数。不超过10。  
+   2. 如果是字符串，使用字符串缩进。长度不超过10。  
+3. toJSON()
+   ```js
+   var book = {
+       "title": "Professional JavaScript",
+       "authors": [
+           "Nicholas C. Zakas"
+       ],
+       edition: 3,
+       year: 2011,
+       toJSON: function() {
+           return this.title;
+       }
+   };
+   var jsonText = JSON.stringify(book);
+   ```
+   可以让toJSON()方法返回undefined，此时如果包含它的对象嵌入另一个对象中，会导致该对象的值变成null，而如果包含它的对象是顶级对象，结果就是undefined。  
+   toJSON()可以作为函数过滤器的补充，因此理解序列化内部顺序十分重要：  
+   （1） 如果存在toJSON()方法而且能通过它取得有效的值，则调用该方法。否则，按默认顺序执行序列化。  
+   （2） 如果提供了第二个参数，应用这个函数过滤器。传入函数过滤器的值是第（1）步的返回值。  
+   （3） 对第（2）步返回的每个值进行相应的序列化。  
+   （4） 如果提供了第三个参数，执行相应的缩进。  
+   
+### 3. 解析选项
+```js
+var book = {
+    "title": "Profession JavaScript",
+    "authors": [
+        "Nicholas C. Zakas"
+    ],
+    edition: 3,
+    year: 2011,
+    releaseDate: new Date(2011, 11, 1)
+};
+var jsonText = JSON.stringify(book);
+var bookCopy = JSON.parse(jsonText, function(key, value) {
+    if (key == "releaseDate") {
+        return new Date(value);
+    } else {
+        return value;
+    }
+});
+```
+
