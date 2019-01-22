@@ -2,6 +2,8 @@
 ### accept属性
 规定文件上传的类型。  
 accept属性只能与\<input type="file">配合使用。  
+提示：**请避免使用该属性。应该在服务器端验证文件上传。**  
+
 语法：  
 ```
 <input accept="value">
