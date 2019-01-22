@@ -61,3 +61,32 @@ new_zip.loadAsync(content).then(function(zip) {
   new_zip.file("hello.txt").async("string");
 });
 ```
+
+# forEach(callback)
+Call a callback function for each entry at this folder level.  
+回调函数签名：`function (relativePath, file) {...}`  
+
+| 参数名 | 类型 | 描述 |
+| --- | --- | --- |
+| relativePath | string | 带路径的文件名，相对于当前文件夹 |
+| file | ZipObject | 当前文件 |
+
+例子：  
+```js
+var zip = new JSZip();
+zip.file("package.json", "...");
+zip.file("lib/index.js", "...");
+zip.file("test/index.html", "...");
+zip.file("test/asserts/file.js", "...");
+zip.file("test/asserts/generate.js", "...");
+
+zip.folder("test").forEach(function (relativePath, file){
+    console.log("iterating over", relativePath);
+});
+
+// will display:
+// iterating over index.html
+// iterating over asserts/
+// iterating over asserts/file.js
+// iterating over asserts/generate.js
+```
