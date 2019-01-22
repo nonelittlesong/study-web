@@ -34,3 +34,14 @@ var xml = serializer.serializeToString(xmldom);
 alert(xml);
 ```
 如果将非DOM对象传入serializeToString()，会导致错误发生。  
+
+# 二、 浏览器对XPath的支持
+XPath是设计用来查找节点。  
+### 1. DOM3级XPath
+XPathEvaluator：  
+* createExpression(expression, nsresolver): 将XPath表达式以及相应的命名空间信息转换成一个XPathExpression，这是查询的编译版。在多次使用同一个查询时很有用。  
+* createNSResolver(node): 根据node的命名空间信息创建一个新的XPathNSResolver对象。在基于使用命名空间的XML文档求值时，需要使用XPathNSResolver对象。  
+* evaluate(expression, context, nsresolver, type, result): 在给定的上下文中，基于特定的命名空间信息来对XPath表达式求值。  
+
+```js
+var result = xmldom.evaluate(
