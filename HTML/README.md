@@ -1,7 +1,7 @@
 # \<input>
 ### accept属性
 规定文件上传的类型。  
-accept属性只能与<input type="file">配合使用。  
+accept属性只能与\<input type="file">配合使用。  
 语法：  
 ```
 <input accept="value">
