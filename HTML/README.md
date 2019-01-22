@@ -1,4 +1,7 @@
 # \<input>
+### multiple
+multiple属性允许用户输入到\<input>元素的多个值。  
+
 ### accept属性
 规定文件上传的类型。  
 accept属性只能与\<input type="file">配合使用。  
