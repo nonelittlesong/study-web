@@ -9,7 +9,7 @@ Web Storage包含如下两种机制：
 这两种机制通过`Window.sessionStorage`和`Window.localStorage`属性使用。
 
 # 二、 示例
-检查浏览器localStorage功能：  
+检查localStorage功能：  
 ```js
 function check_local_storage() {
   try {
@@ -22,4 +22,20 @@ function check_local_storage() {
   }
 }
 ```
-
+获取Item:  
+```js
+function is_via_data_in_localStorage() {
+  if (localStorage.getItem('_via_timestamp')) {
+    return true;
+  } else {
+    return false;
+  }
+}
+```
+清除localStorage：  
+```js
+function clear_localStorage() {
+  localStorage.clear();
+  show_home_panel();
+}
+```
