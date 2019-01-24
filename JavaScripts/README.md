@@ -5,6 +5,10 @@ Object.keys(obj);
 obj: 要返回其枚举自身属性的对象。  
 返回值： 一个表示给定对象的所有可枚举属性的字符串数组。  
 
+### 2. [for...in](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...in)  
+以**任意顺序**遍历一个对象的可枚举属性。  
+
+
 # 二、 window
 ### 1. [setTimeout()](http://www.runoob.com/w3cnote/javascript-settimeout-usage.html)
 语法：  
