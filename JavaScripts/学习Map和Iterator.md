@@ -1,14 +1,14 @@
-# Map
+# 一、 Map
 Map对象保存键值对。任何值（对象或者原始值）都可以作为一个键或者一个值。  
 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map  
 
-## 语法
+## 1. 语法
 **new Map([iterable])**  
 ### 参数
 iterable  
 iterable可以是一个数组或者其他iterable对象，其元素或为键值对，或为两个元素的数组。每个键值对都会添加到新的Map。null会被当作undefined。  
 
-## 描述
+## 2. 描述
 一个Map对象在迭代时会根据对象中元素的插入顺序来进行。（一个for...of循环在每次迭代后会返回一个形式为\[key, value]的数组。  
 ### 键的相等
 键的比较是基于“SameValueZero”算法：NaN是与NaN相等的（虽然NaN!==NaN），剩下所有其他的值是根据===运算符的结果判断是否相等的。  
@@ -24,7 +24,7 @@ Objects和Maps类似的是，他们都允许你按键存取一个值，删除键
 * Object都有自己的原型，原型链上的键名可能和你自己在对象上设置的键名产生冲突。虽然ES5开始使用`map = Object.create(null)`来创建一个没有原型的对象。  
 * `Map`在涉及频繁增删键值对的场景下会有些性能优势。  
 
-## 属性
+## 3. 属性
 **Map.length**  
 属性length的值为0。  
 **[get Map\[@@species\]](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map/@@species)**  
@@ -32,7 +32,7 @@ Objects和Maps类似的是，他们都允许你按键存取一个值，删除键
 **[Map.prototype](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map/prototype)**  
 表示Map构造器的原型。允许添加属性从而应用与所有的Map对象。  
 
-## Map原型
+## 4. Map原型
 所有的Map对象实例都会继承Map.prototype。  
 ### 属性
 **Map.prototype.constructor**  
@@ -61,7 +61,7 @@ Objects和Maps类似的是，他们都允许你按键存取一个值，删除键
 **Map.prototype\[@@iterator\]()**  
 返回一个新的Iterator对象，他按插入的顺序包含了Map对象中每个元素的\[key, value\]数组。  
 
-## 示例
+## 5. 示例
 使用Map对象:  
 ```js
 var myMap = new Map();
