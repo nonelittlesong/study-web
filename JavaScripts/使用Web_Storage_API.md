@@ -31,6 +31,12 @@ function is_via_data_in_localStorage() {
     return false;
   }
 }
+
+function download_localStorage_data(type) {
+  var saved_date = new Date(localStorage.getItem('_via_timestamp');
+  var localStorage_data_blob = new Blob([localStorage.getItem('_via_img_metadata')], {type: 'text/json;charset=utf-8'});
+  save_data_to_local_file(localStorage_data_blob, 'VIA_browser_cache_' + saved_date + '.json');
+}
 ```
 清除localStorage：  
 ```js
