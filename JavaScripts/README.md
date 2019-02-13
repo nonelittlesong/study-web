@@ -30,3 +30,17 @@ function show_message(msg, t) {
   }, timeout);
 }
 ```
+
+# 三、 HTMLCanvasElement
+### 1. [toDataURL()](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toDataURL)
+语法：  
+```js
+canvas.toDataURL(type, encoderOptions);
+```
+参数：  
+* *type* 可选。图片格式。默认是image/png。  
+* *encoderOptions* 可选。在指定图片是image/ipeg或image/webp的情况下，可以从0到1的区间内选择图片的质量。如果超出取值范围，取默认值0.92。  
+
+返回值：  
+包含dataURI的DOMString。  
+
