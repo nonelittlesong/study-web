@@ -1,3 +1,9 @@
+# 事件
+### change
+* 对于`<input type="radio">`和`<input type="checkbox">`，元素激活时触发。  
+* 用户明确提交更改（如`<input type="date">`选取日期，`<input type="file">`选取文件）。  
+* 元素失去焦点时内容已改变。（`<textarea>`或`<input type="text">`）
+
 # \<input>
 ### multiple
 multiple属性允许用户输入到\<input>元素的多个值。  
