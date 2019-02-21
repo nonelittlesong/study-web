@@ -1,3 +1,52 @@
+# js解析xml字符串或文件
+解析字符串：  
+```js
+function createXml(str) {
+  if (document.all) {
+    var xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+    xmlDoc.async = false;
+    xmlDoc.loadXML(str);
+    return xmlDoc;
+  }
+　else{//非IE浏览器
+　　return new DOMParser().parseFromString(str, "text/xml");
+  }
+}
+```
+解析文件：  
+```js
+/**
+* aXMLFileName是xml文件路径名
+*/
+function getXmlDoc(){
+    try{
+      if (window.ActiveXObject){
+        xmlDoc= new ActiveXObject("Microsoft.XMLDOM");
+        xmlDoc.async = false;
+        isLoaded = xmlDoc.load(aXMLFileName);
+      }
+      else if(document.implementation&& document.implementation.createDocument){
+        try{
+            xmlDoc = document.implementation.createDocument('', '', null);
+            xmlDoc.async = false;
+            xmlDoc.load(aXMLFileName);
+        } catch(e){
+            var xmlhttp = new window.XMLHttpRequest();
+            xmlhttp.open("GET",aXMLFileName,false); 
+            xmlhttp.send(null);
+            xmlDoc = xmlhttp.responseXML;
+        }
+      }
+      else{
+          alert("load data error");
+      }
+    }
+    catch(e){  
+        alert(e.message);
+    }
+}
+```
+
 # 一、 浏览器对XML DOM的支持
 ### 1. DOM2级核心
 创建一个\<root>的XML文档：  
