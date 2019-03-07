@@ -1,3 +1,6 @@
+参考：  
+* https://dom.spec.whatwg.org/#xmldocument
+
 # js解析xml字符串或文件
 解析字符串：  
 ```js
