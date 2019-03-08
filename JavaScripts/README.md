@@ -44,3 +44,7 @@ canvas.toDataURL(type, encoderOptions);
 返回值：  
 包含dataURI的DOMString。  
 
+# 四、 Image
+### 1. [原始宽高](https://www.cnblogs.com/snandy/p/3704218.html)
+* naturalWidth
+* naturalHeight
