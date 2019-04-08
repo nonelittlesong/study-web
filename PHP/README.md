@@ -3,5 +3,5 @@ IDE:
 
 
 # [Xdebug](https://xdebug.org/)  
-* [docs](https://xdebug.org/docs/)  
+Xdebug is an extension for PHP to assist with debugging and development. It contains a single step debugger to use with IDEs; it upgrades PHP's var_dump() function; it adds stack traces for Notices, Warnings, Errors and Exceptions; it features functionality for recording every function call and variable assignment to disk; it contains a profiler; and it provides code coverage functionality for use with PHPUnit. 
 
