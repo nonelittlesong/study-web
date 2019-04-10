@@ -3,7 +3,7 @@ ubuntu16.04
 
 # 二、 安装Nginx
 1. 安装nginx。  
-```sh
+```shell
 sudo apt-get update
 sudo apt-get install nginx
 ```
