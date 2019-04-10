@@ -15,3 +15,11 @@ sudo apt-get install nginx
 sudo useradd nginx
 sudo chown -R nginx:nginx /etc/nginx/
 ```
+
+4. 启动Nginx服务并设置开机自动启动
+```
+systemctl start nginx
+systemctl enable nginx
+```
+
+# 三、 安装MySQL
