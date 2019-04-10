@@ -7,8 +7,8 @@
 wiki
 * [创建mysql数据库](https://github.com/nonelittlesong/study-web/wiki/create-database)
 
-# study-web
-## 一、FTP
+# 阿里云配置
+## 一、 FTP
 参考：
 * [Linux实例搭建FTP站点](https://help.aliyun.com/document_detail/86292.html?spm=a2c4g.11186623.6.794.12ae2c2dTJgDDd)
 
@@ -57,7 +57,7 @@ $ systemctl restart vsftpd.service
 阿里云**添加相应的安全组规则**  
 重启`systemctl restart vsftpd.service`  
 
-## 四、安装LAMP
+## 二、 安装LAMP
 [部署LAMP_建站教程_云服务器 ECS-阿里云](https://help.aliyun.com/document_detail/50774.html?spm=a2c4g.11186623.6.781.26262529FC4TsB)  
 **1. MySQL：Warning：在命令行输入密码不安全**  
 使用`mysql -uroot -p`连接mysql  
@@ -93,7 +93,7 @@ pid-file=/var/run/mariadb/mariadb.pid
 * [MySQL server PID file could not be found! - CSDN博客](https://blog.csdn.net/u010098331/article/details/50752667/)
 * [MySQL 常见无法启动或启动异常的解决方案-阿里云](https://help.aliyun.com/knowledge_detail/41106.html?spm=5176.11065259.1996646101.searchclickresult.445457d6cPwppo#binlog%E4%B8%A2%E5%A4%B1)
 
-## 五、Wordpress
+## 三、 Wordpress
 **1. wordpress 更新失败**  
 * 为服务器创建一个可登录用户和组：www：www
 * 配置/etc/httpd/httpd.conf的User和Group
