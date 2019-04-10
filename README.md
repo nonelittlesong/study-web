@@ -40,14 +40,14 @@ $ systemctl restart vsftpd.service
 ```
 **7. 设置安全组**  
 [安全组规则的典型应用](https://help.aliyun.com/document_detail/58746.html?spm=a2c4g.11186623.2.22.516c24cestfkeM#ftp)  
-## 二、530 Permission denied.
+#### 8. 530 Permission denied.
 使用root账号登录，会出现530 Permission denied错误。  
 解决方法：
 * /etc/vsftpd/ftpusers注释调root这行
 * /etc/vsftpd/vsftpd.conf添加userlist_deny=NO
 * 重启`systemctl restart vsftpd.service`
 
-## 三、425 Failed to establish connection.
+#### 9. 425 Failed to establish connection.
 解决办法：  
 /etc/vsftpd/vsftpd.conf添加  
 >pasv_enable=YES
