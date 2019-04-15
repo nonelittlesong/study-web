@@ -25,3 +25,27 @@
   * {string} type 默认为'png'。
   
 ## [legend图例](https://echarts.baidu.com/echarts2/doc/doc.html#Legend)
+
+<tbody>
+  <tr>
+    <th> 名称 </th>
+    <th> 默认值 </th>
+    <th> 描述 </th>
+  </tr>
+  <tr>
+    <td> {Array} data </td>
+    <td> [] </td>
+    <td>
+      <pre>
+        如需个性化图例文字样式，可把数组项改为{Object}，指定文本样式和个性化图例icon，格式为
+        {
+          name:{string},
+          textStyle:{Object},
+          icon:{string}
+        }
+      </pre>
+    </td>
+  </tr>
+</tbody>
+
+
