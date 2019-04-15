@@ -2,6 +2,7 @@
 * https://echarts.baidu.com/echarts2/doc/doc.html
 * https://echarts.baidu.com/api.html#action.tooltip
 
+# 一、 [option](https://echarts.baidu.com/echarts2/doc/doc.html#Option)
 ## [tooltip](https://echarts.baidu.com/echarts2/doc/doc.html#Tooltip)
 提示框，鼠标悬浮交互时的信息提示。
 
@@ -25,3 +26,4 @@
 * saveAsImage,保存图片。
   * {string} type 默认为'png'。
   
+<span class="bgGreen"> 公共选项 </span>
