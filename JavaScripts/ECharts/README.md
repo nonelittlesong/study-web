@@ -35,16 +35,14 @@
   <tr>
     <td> {Array} data </td>
     <td> [] </td>
-    <td>
-      <pre>
+    <td><pre>
 如需个性化图例文字样式，可把数组项改为{Object}，指定文本样式和个性化图例icon，格式为
 {
 name:{string},
 textStyle:{Object},
 icon:{string}
 }
-      </pre>
-    </td>
+</pre></td>
   </tr>
 </table>
 
