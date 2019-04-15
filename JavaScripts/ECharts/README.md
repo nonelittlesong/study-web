@@ -26,7 +26,7 @@
   
 ## [legend图例](https://echarts.baidu.com/echarts2/doc/doc.html#Legend)
 
-<tbody>
+<table>
   <tr>
     <th> 名称 </th>
     <th> 默认值 </th>
@@ -46,6 +46,6 @@
       </pre>
     </td>
   </tr>
-</tbody>
+</table>
 
 
