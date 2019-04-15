@@ -9,7 +9,8 @@
 | --- | --- | --- |
 | {string} trigger | 'item' | 触发类型。默认数据触发。可选为'item' / 'axis' |
 
-<pre>
-fsfs 
-  sfsf
-</pre>
+#### {Object} axisPointer
+坐标轴指示器  
+* type  
+  默认为line，可选为： 'line'/'cross'/'shadow'/'none'，指定type后对应style生效。  
+  
