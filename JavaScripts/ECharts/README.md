@@ -41,8 +41,7 @@
 name:{string},
 textStyle:{Object},
 icon:{string}
-}
-</pre></td>
+}</pre></td>
   </tr>
 </table>
 
