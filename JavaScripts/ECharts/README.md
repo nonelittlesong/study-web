@@ -51,4 +51,8 @@ icon:{string}
 * 数值型： 需要指定数值区间，不指定时则自定计算数值范围，坐标轴内包含数值区间内容全部坐标
 * 时间型： 时间型坐标轴用法同数值型，只是目标处理和格式化显示时会自动转为时间，并且随着时间跨度的不同自动切换需要显示的时间粒度
 
+## [series](https://echarts.baidu.com/echarts2/doc/doc.html#Series)
+#### 直角系
+* {number} yAxisIndex 默认0，yAxis坐标轴数组的索引，指定该系列数据所用的纵坐标轴。
+
 
