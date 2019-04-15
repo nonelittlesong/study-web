@@ -55,4 +55,4 @@ icon:{string}
 #### 直角系
 * {number} yAxisIndex 默认0，yAxis坐标轴数组的索引，指定该系列数据所用的纵坐标轴。
 
-
+## [grid](https://echarts.baidu.com/echarts2/doc/doc.html#Grid)
