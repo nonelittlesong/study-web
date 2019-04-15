@@ -21,4 +21,7 @@
   * {boolean} readOnly 默认数据视图为只读，可指定readOnly为false打开编辑功能。
 * magicType，动态类型切换。
   * {Array} type \['line','bar','stack','tiled','force','chord','pie','funnel']
+* restore,还原。
+* saveAsImage,保存图片。
+  * {string} type 默认为'png'。
   
