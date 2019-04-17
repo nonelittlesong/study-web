@@ -1,4 +1,4 @@
-# [!important]
+# !important
 提高指定样式规则的应用优先权  
 
 # [混合模式](https://blog.csdn.net/Geoooo/article/details/80063852)
