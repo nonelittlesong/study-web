@@ -43,3 +43,5 @@ echo "我的车牌是{$cars[0]}";
 ```
 ### 2、 print
 print和echo可以使用或省略括号。  
+
+# 四、 EOF
