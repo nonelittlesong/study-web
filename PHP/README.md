@@ -1,6 +1,8 @@
 学习资料：  
 1. https://github.com/threadshare/php  
 2. https://blog.csdn.net/qianfeng_php/article/details/78984317
+3. [官网](https://www.php.net/)
+
 
 框架：  
 * [Laravel](https://laravel.com/)
