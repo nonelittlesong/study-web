@@ -86,6 +86,7 @@ class Car
   }
 }
 ?>
+```
 ### 4、 常量
 常量前面没有$。  
 语法：
@@ -99,5 +100,29 @@ define("GREETING", "欢迎访问 Runoob.com");
 echo GREETING;    // 输出 "欢迎访问 Runoob.com"
 echo '<br>';
 echo greeting;    // 输出 "greeting"
+?>
+```
+
+# 六、 字符串
+在php中，只有一个字符串运算符： .  
+
+### 1、 strlen()函数
+返回字符串的长度。  
+```php
+<?php
+echo strlen("中文字符"); // 12
+?>
+```
+strlen()中一个中文字符长度为3。  
+可以使用mb_strlen()制定编码：  
+```php
+<?php
+echo mb_strlen("中文字符", 'utf-8'); // 4
+?>
+```
+### 2、 strpos()函数
+```php
+<?php
+echo strpos("hello world!", "world");  // 6
 ?>
 ```
