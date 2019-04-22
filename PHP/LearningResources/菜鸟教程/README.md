@@ -271,3 +271,5 @@ foreach (array_expression as $key => $value)
 ```
 
 # 十、 PHP数组排序
+* sort() - 对数组进行升序排序
+* rsort() - 
