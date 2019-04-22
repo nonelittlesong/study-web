@@ -230,7 +230,44 @@ $username = isset($_GET['user']) ? $_GET['user'] : 'nobody';
 * 如果$a<$b，则$c的值为-1
 
 # 八、 PHP If...Else语句
+`elseif`是PHP为`else if`专门做的容错版。  
 
-### 1「 fsfs
+# 九、 PHP数组
+### 1、 数值数组
+**获取数组的长度-count()函数**  
+```php
+<?php
+$cars = array("Volvo", "BMW", "Toyota");
+echo count($cars); // 3
+?>
+```
+### 2、 关联数组
+指定键：  
+```php
+$age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+// or
+$age['Peter'] = "35";
+$age['Ben'] = "37";
+$age['Joe'] = "43";
+```
+**遍历关联数组**  
+```php
+<?php
+$age = array("Peter"=>"35","Ben"=>"37","Joe"=>"43");
 
-### 1「 fsfs
+foreach ($age as $x=>$x_value) {
+  echo "Key=" . $x . ", Value=" . $x_value;
+  echo "<br>";
+}
+?>
+```
+
+foreach仅能用于数组和对象，有两种语法：  
+```php
+foreach (array_expression as $value)
+  statement
+foreach (array_expression as $key => $value)
+  statement
+```
+
+# 十、 PHP数组排序
