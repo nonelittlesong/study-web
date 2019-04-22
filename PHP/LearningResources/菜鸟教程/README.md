@@ -61,3 +61,29 @@ echo <<<EOF
 EOF;
 ?>
 ```
+
+# 五、 数据类型
+### 1、 字符串
+用单引号或双引号。  
+### 2、 数组
+```php
+<?php
+$cars = array("Volvo", "BMW", "Toyota");
+var_dump($cars); // array(3) { [0]=> string(5) "Volvo" [1]=> string(3) "BMW" [2]=> string(6) "Toyota" } 
+?>
+```
+### 3、 对象
+```php
+<?php
+class Car
+{
+  var $color;
+  function __construct($color="green") {
+    $this->color = $color;
+  }
+  function getColor() {
+    return $this->color;
+  }
+}
+?>
+
