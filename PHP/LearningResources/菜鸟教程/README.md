@@ -149,4 +149,70 @@ echo mb_strpos('123测试ceshi', '测试') . PHP_EOL;     // 3
 特色：  
 * a .= b： 连接两个字符串
 
-### 3、 
+### 3、 php比较运算符
+| 运算符 | 名称 | 描述 | 实例 |
+| --- | --- | --- | --- |
+| x === y | 绝对等于 | 如果x等于y，且他们类型相同，则返回true | 5==="5"返回false |
+| x !== y | 绝对不等于 | 如果x不等于y，或他们类型不相同，则返回true | 5！=="5"返回true |
+
+```php
+<?php
+$x=100; 
+$y="100";
+ 
+var_dump($x == $y);  // true
+echo "<br>";
+var_dump($x === $y); // false
+echo "<br>";
+var_dump($x != $y);  // false
+echo "<br>";
+var_dump($x !== $y); // true
+echo "<br>";
+ 
+$a=50;
+$b=90;
+ 
+var_dump($a > $b);  // false
+echo "<br>";
+var_dump($a < $b);  // true
+?>
+```
+
+### 4、 php逻辑运算符
+特色：  
+* xor: 异或  
+
+### 5、 php数组运算符
+| 运算符 | 名称 | 描述 |
+| --- | --- | --- |
+| x + y | 集合 | x和y的集合 |
+| x == y | 相等 | 如果x和y具有相同的键值对，则返回true |
+| x === y | 恒等 | 如果x和y具有相同的键值对，且顺序相同，则返回true |
+| x != y | 不等 | 如果x不等于y，则返回true |
+| x <> y | 不等 | 如果x不等于y，则返回true |
+| x !== y | 不恒等 | 如果x不等于y，或顺序不同，则返回true |
+
+### 6、 三元运算符
+```php
+(expr1) ? (expr2) : (expr3);
+(expr1) ?: (expr2);
+```
+在PHP7+版本多了一个NULL合并运算符`??`，实例如下：  
+```php
+<?php
+// 如果$_GET['user']不存在返回'nobody'，否则返回$_GET['user']的值
+$username = $_GET['user'] ?? 'nobody';
+// 类似的三元运算符
+$username = isset($_GET['user']) ? $_GET['user'] : 'nobody';
+```
+
+### 7、 组合比较符（PHP7+）
+语法格式：  
+`$c = $a <=> $b;`  
+
+* 如果$a>$b，则$c的值为1
+* 如果$a==$b，则$c的值为0
+* 如果$a<$b，则$c的值为-1
+
+# 八、 PHP If...Else语句
+
