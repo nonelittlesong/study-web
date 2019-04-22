@@ -86,4 +86,18 @@ class Car
   }
 }
 ?>
+### 4、 常量
+常量前面没有$。  
+语法：
+`bool define(string $name, mixed $value [, bool $case_insensitive = false ])`  
 
+例子：  
+```php
+<?php
+// 区分大小写的常量名
+define("GREETING", "欢迎访问 Runoob.com");
+echo GREETING;    // 输出 "欢迎访问 Runoob.com"
+echo '<br>';
+echo greeting;    // 输出 "greeting"
+?>
+```
