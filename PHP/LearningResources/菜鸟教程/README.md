@@ -2,7 +2,7 @@
 <details>
 <summary>点击展开目录菜单</summary>
  
-* [一、 基本语法](# 一、 基本语法)
+* [一、 基本语法](# 一-基本语法)
 * [二、 变量](# 二、 变量)
 * [三、 echo和print](# 三、 echo和print)
 * [四、 EOF](# 四、 EOF)
