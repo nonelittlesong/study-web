@@ -126,3 +126,27 @@ echo mb_strlen("中文字符", 'utf-8'); // 4
 echo strpos("hello world!", "world");  // 6
 ?>
 ```
+mb_strpos()按字处理，strpos()按字符处理：  
+```php
+<?php
+echo strpos('开始23测试ceshi', '测试') . PHP_EOL;     // 8
+echo mb_strpos('开始23测试ceshi', '测试') . PHP_EOL;  // 4
+
+echo strpos('123测试ceshi', '测试') . PHP_EOL;        // 3
+echo mb_strpos('123测试ceshi', '测试') . PHP_EOL;     // 3
+?>
+```
+
+# 七、 运算符
+### 1、 php算术运算符
+特色：  
+* -x： 取反
+* a . b： 并置
+* a / b： 两个整数相除可能得到小数
+* intdiv(a, b)： 整除
+
+### 2、 赋值运算符
+特色：  
+* a .= b： 连接两个字符串
+
+### 3、 
