@@ -340,4 +340,84 @@ echo substr(__FILE__,strlen(__DIR__)-strlen(__FILE__)+1);
 ?>
 ```
 
+# 十四、 PHP命名空间（namespace）
+解决两个问题：  
 
+1. 用户编写的代码与PHP内部的名字冲突。  
+2. 问很长的标识符创建一个别名。
+
+### 1、 定义命名空间
+多个命名空间：  
+```php
+<?php
+namespace MyProject {
+    const CONNECT_OK = 1;
+    class Connection { /* ... */ }
+    function connect() { /* ... */  }
+}
+
+namespace AnotherProject {
+    const CONNECT_OK = 1;
+    class Connection { /* ... */ }
+    function connect() { /* ... */  }
+}
+?>
+```
+将全局的非命名空间中的代码与命名空间中的代码组合在一起，只能使用大括号的形式的语法。全局代码必须使用一个不带名称的namespace语句加上大括号括起来，例如：  
+```php
+<?php
+namespace MyProject {
+
+const CONNECT_OK = 1;
+class Connection { /* ... */ }
+function connect() { /* ... */  }
+}
+
+namespace { // 全局代码
+session_start();
+$a = MyProject\connect();
+echo MyProject\Connection::start();
+}
+?>
+```
+在声明命名空间之前唯一合法的代码是用于定义源文件编码方式的 declare 语句。所有非 PHP 代码包括空白符都不能出现在命名空间的声明之前。  
+```php
+<?php
+declare(encoding='UTF-8'); //定义多个命名空间和不包含在命名空间中的代码
+namespace MyProject {
+
+const CONNECT_OK = 1;
+class Connection { /* ... */ }
+function connect() { /* ... */  }
+}
+
+namespace { // 全局代码
+session_start();
+$a = MyProject\connect();
+echo MyProject\Connection::start();
+}
+?>
+```
+以下代码会出现语法错误：  
+```php
+<html>
+<?php
+namespace MyProject; // 命名空间前出现了“<html>” 会致命错误 -　命名空间必须是程序脚本的第一条语句
+?>
+```
+
+### 2、 子命名空间
+```php
+<?php
+namespace MyProject\Sub\Level;  //声明分层次的单个命名空间
+
+const CONNECT_OK = 1;
+class Connection { /* ... */ }
+function Connect() { /* ... */  }
+
+?>
+```
+
+### 3、 命名空间的使用
+
+# 十五、 PHP面向对象
