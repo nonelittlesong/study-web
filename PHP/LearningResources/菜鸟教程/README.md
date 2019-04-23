@@ -420,10 +420,72 @@ function Connect() { /* ... */  }
 
 ### 3、 命名空间的使用
 PHP命名空间中的类名可以通过三种方式引用：  
-1. **非限定名称，或不包含前缀的类名称，**例如`$a = new Foo();`或`Foo::staticMethod();`。如果当前命名空间是currentnamespace，Foo将被解析为currentnamespace\Foo。如果使用Foo的代码是全局的，不包含任何命名空间中的代码，则Foo会被解析为Foo。警告：如果命名空间中的函数或常量未定义，则该非限定的函数或常量名称会被解析为全局函数名称或常量名称。
-2. **限定名称，或包含前缀的名称，**例如`$a = new subnamespace\Foo();`或`subnamespace\Foo::staticMethod();`。如果当前的名称空间是currentnamespace，则Foo会被解析为currentnamespace\subnamespace\Foo。如果使用Foo的代码是全局的，不包含任何命名空间的代码，Foo会被解析为subnamespace\Foo。
-3. **完全限定名称，或包含了全局前缀操作符的名称。**例如，`$a = new \currentnamespace\Foo();`或`\currentnamespace\Foo::staticMethod();`。在这种情况下，Foo总是被解析为代码中的文字名(literal name)currentnamespace\Foo。
+1. **非限定名称，或不包含前缀的类名称，** 例如`$a = new Foo();`或`Foo::staticMethod();`。如果当前命名空间是currentnamespace，Foo将被解析为currentnamespace\Foo。如果使用Foo的代码是全局的，不包含任何命名空间中的代码，则Foo会被解析为Foo。警告：如果命名空间中的函数或常量未定义，则该非限定的函数或常量名称会被解析为全局函数名称或常量名称。
+2. **限定名称，或包含前缀的名称，** 例如`$a = new subnamespace\Foo();`或`subnamespace\Foo::staticMethod();`。如果当前的名称空间是currentnamespace，则Foo会被解析为currentnamespace\subnamespace\Foo。如果使用Foo的代码是全局的，不包含任何命名空间的代码，Foo会被解析为subnamespace\Foo。
+3. **完全限定名称，或包含了全局前缀操作符的名称。** 例如，`$a = new \currentnamespace\Foo();`或`\currentnamespace\Foo::staticMethod();`。在这种情况下，Foo总是被解析为代码中的文字名(literal name)currentnamespace\Foo。
 
+### 1、 命名空间的顺序
+```php
+<?php
+namespace A;
+use B\D, C\E as F;
+
+// 函数调用
+
+foo();      // 首先尝试调用定义在命名空间"A"中的函数foo()
+            // 再尝试调用全局函数 "foo"
+
+\foo();     // 调用全局空间函数 "foo" 
+
+my\foo();   // 调用定义在命名空间"A\my"中函数 "foo" 
+
+F();        // 首先尝试调用定义在命名空间"A"中的函数 "F" 
+            // 再尝试调用全局函数 "F"
+
+// 类引用
+
+new B();    // 创建命名空间 "A" 中定义的类 "B" 的一个对象
+            // 如果未找到，则尝试自动装载类 "A\B"
+
+new D();    // 使用导入规则，创建命名空间 "B" 中定义的类 "D" 的一个对象
+            // 如果未找到，则尝试自动装载类 "B\D"
+
+new F();    // 使用导入规则，创建命名空间 "C" 中定义的类 "E" 的一个对象
+            // 如果未找到，则尝试自动装载类 "C\E"
+
+new \B();   // 创建定义在全局空间中的类 "B" 的一个对象
+            // 如果未发现，则尝试自动装载类 "B"
+
+new \D();   // 创建定义在全局空间中的类 "D" 的一个对象
+            // 如果未发现，则尝试自动装载类 "D"
+
+new \F();   // 创建定义在全局空间中的类 "F" 的一个对象
+            // 如果未发现，则尝试自动装载类 "F"
+
+// 调用另一个命名空间中的静态方法或命名空间函数
+
+B\foo();    // 调用命名空间 "A\B" 中函数 "foo"
+
+B::foo();   // 调用命名空间 "A" 中定义的类 "B" 的 "foo" 方法
+            // 如果未找到类 "A\B" ，则尝试自动装载类 "A\B"
+
+D::foo();   // 使用导入规则，调用命名空间 "B" 中定义的类 "D" 的 "foo" 方法
+            // 如果类 "B\D" 未找到，则尝试自动装载类 "B\D"
+
+\B\foo();   // 调用命名空间 "B" 中的函数 "foo" 
+
+\B::foo();  // 调用全局空间中的类 "B" 的 "foo" 方法
+            // 如果类 "B" 未找到，则尝试自动装载类 "B"
+
+// 当前命名空间中的静态方法或函数
+
+A\B::foo();   // 调用命名空间 "A\A" 中定义的类 "B" 的 "foo" 方法
+              // 如果类 "A\A\B" 未找到，则尝试自动装载类 "A\A\B"
+
+\A\B::foo();  // 调用命名空间 "A" 中定义的类 "B" 的 "foo" 方法
+              // 如果类 "A\B" 未找到，则尝试自动装载类 "A\B"
+?>
+```
 
 
 # 十五、 PHP面向对象OOP
