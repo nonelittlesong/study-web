@@ -272,4 +272,16 @@ foreach (array_expression as $key => $value)
 
 # 十、 PHP数组排序
 * sort() - 对数组进行升序排序
-* rsort() - 
+* rsort() - 对数组进行降序排序
+* asort() - 根据关联数组的值，对数组进行升序排序
+* ksort() - 根据关联数组的键，对数组进行升序排序
+* arsort() - 根据关联数组的值，对数组进行降序排序
+* krsort() - 根据关联数组的键，对数组进行降序排序
+
+# 十一、 PHP超级全局变量
+php预定义的全局变量。  
+### 1、 $GLOBALS
+$GLOBALS是
+
+### 2、 $\_SERVER
+$\_SERVER
