@@ -280,8 +280,64 @@ foreach (array_expression as $key => $value)
 
 # 十一、 PHP超级全局变量
 php预定义的全局变量。  
-### 1、 $GLOBALS
-$GLOBALS是
+* $GLOBALS
+* $\_SERVER
+* $\_REQUEST
+* $\_POST
+* $\_GET
+* $\_FILES
+* $\_ENV
+* $\_COOKIE
+* $\_SESSION
 
-### 2、 $\_SERVER
-$\_SERVER
+# 十二、 PHP循环
+* while - 只要指定的条件成立，则循环执行代码块
+* do...while - 首先执行一次代码块，然后在指定的条件成立时重复这个循环
+* for - 循环执行代码块指定的次数
+* foreach - 根据数组中每个元素来循环代码块
+
+# 十三、 魔术常量
+
+* \_\_LINE__ - 当前行号
+* \_\_FILE__ - 文件的完整路径和文件名。如果用在被包含文件中，则返回被包含的文件名
+* \_\_DIR__ - 文件所在目录。如果用在被包含文件中，则返回被包含的文件所在的目录
+* \_\_FUNCTION__ - 返回函数被定义时的名字（区分大小写）
+* \_\_CLASS__ - 返回类被定义时的名字
+* \_\_METHOD__ - 返回方法被定义时的名字
+* \_\_NAMESPACE__ - 当前命名空间的名称
+
+### 1、 \_\_TRAIT__
+实现代码复用。  
+```php
+
+<?php
+class Base {
+    public function sayHello() {
+        echo 'Hello ';
+    }
+}
+ 
+trait SayWorld {
+    public function sayHello() {
+        parent::sayHello();
+        echo 'World!';
+    }
+}
+ 
+class MyHelloWorld extends Base {
+    use SayWorld;
+}
+ 
+$o = new MyHelloWorld();
+$o->sayHello();
+?>
+```
+
+**获取文件名:**  
+```php
+<?php
+echo substr(__FILE__,strlen(__DIR__)-strlen(__FILE__)+1);
+?>
+```
+
+
