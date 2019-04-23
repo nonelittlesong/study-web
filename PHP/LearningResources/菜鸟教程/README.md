@@ -419,6 +419,12 @@ function Connect() { /* ... */  }
 ```
 
 ### 3、 命名空间的使用
+PHP命名空间中的类名可以通过三种方式引用：  
+1. **非限定名称，或不包含前缀的类名称，**例如`$a = new Foo();`或`Foo::staticMethod();`。如果当前命名空间是currentnamespace，Foo将被解析为currentnamespace\Foo。如果使用Foo的代码是全局的，不包含任何命名空间中的代码，则Foo会被解析为Foo。警告：如果命名空间中的函数或常量未定义，则该非限定的函数或常量名称会被解析为全局函数名称或常量名称。
+2. **限定名称，或包含前缀的名称，**例如`$a = new subnamespace\Foo();`或`subnamespace\Foo::staticMethod();`。如果当前的名称空间是currentnamespace，则Foo会被解析为currentnamespace\subnamespace\Foo。如果使用Foo的代码是全局的，不包含任何命名空间的代码，Foo会被解析为subnamespace\Foo。
+3. **完全限定名称，或包含了全局前缀操作符的名称。**例如，`$a = new \currentnamespace\Foo();`或`\currentnamespace\Foo::staticMethod();`。在这种情况下，Foo总是被解析为代码中的文字名(literal name)currentnamespace\Foo。
+
+
 
 # 十五、 PHP面向对象OOP
 * 类的变量使用**var**来声明，变量也可以初始化值。
