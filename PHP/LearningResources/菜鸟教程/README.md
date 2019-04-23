@@ -421,3 +421,37 @@ function Connect() { /* ... */  }
 ### 3、 命名空间的使用
 
 # 十五、 PHP面向对象OOP
+* 类的变量使用**var**来声明，变量也可以初始化值。
+
+### 1、 构造函数
+语法：  
+```php
+void __construct([mixed $args [, $...]])
+```
+
+### 2、 析构函数
+语法：  
+```php
+void __destruct(void)
+```
+
+### 3、 继承
+不支持多继承。  
+
+### 4、 方法重写
+如果父类方法不能满足子类要求，可以对其进行改写。  
+
+### 5、 访问控制
+* public
+* protected
+* private
+
+类属性必须定义为public/protected/private之一，如果用var定义，则被视为public。  
+方法默认为公有。  
+
+### 6、 接口
+* interface修饰接口
+* 方法必须共有
+* 类可以实现多个接口
+
+### 7、 抽象类
