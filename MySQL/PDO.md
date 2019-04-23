@@ -112,6 +112,7 @@ try {
   echo "新记录插入成功;
 } catch (PDOException $e) {
   // 如果执行失败回滚
+  $conn->rollback();
   echo $sql . "<br>" . $e->getMessage();
 }
 
@@ -120,3 +121,98 @@ $conn = null;
 ```
 
 # 五、 预处理
+```php
+<?php
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "myDBPDO";
+
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+  // 设置 PDO 错误模式为异常
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  
+  // 预处理SQL并绑定参数
+  $stmt = $conn->prepare("insert into MyGuest (firstname, lastname, email)
+                          values (:firstname, :lastname, :email)");
+  $stmt->bindParam(':firstname', $firstname);
+  $stmt->bindParam(':lastname', $lastname);
+  $stmt->bindParam('email', $email);
+  
+  // 插入行
+  $firstname = "John";
+  $lastname = "Doe";
+  $email = "john@example.com";
+  $stmt->execute();
+ 
+  // 插入其他行
+  $firstname = "Mary";
+  $lastname = "Moe";
+  $email = "mary@example.com";
+  $stmt->execute();
+ 
+  // 插入其他行
+  $firstname = "Julie";
+  $lastname = "Dooley";
+  $email = "julie@example.com";
+  $stmt->execute();
+  
+  echo "新记录插入成功";
+}
+catch(PDOException $e) {
+  echo "Error: " . $e->getMessage();
+}
+
+$conn = null;
+?>
+```
+
+# 六、 查询
+```php
+<?php
+echo "<table style='border: solid 1px black;'>";
+echo "<tr><th>Id</th><th>Firstname</th><th>Lastname</th></tr>";
+ 
+class TableRows extends RecursiveIteratorIterator {
+    function __construct($it) { 
+        parent::__construct($it, self::LEAVES_ONLY); 
+    }
+ 
+    function current() {
+        return "<td style='width:150px;border:1px solid black;'>" . parent::current(). "</td>";
+    }
+ 
+    function beginChildren() { 
+        echo "<tr>"; 
+    } 
+ 
+    function endChildren() { 
+        echo "</tr>" . "\n";
+    } 
+} 
+ 
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "myDBPDO";
+ 
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $stmt = $conn->prepare("SELECT id, firstname, lastname FROM MyGuests"); 
+    $stmt->execute();
+ 
+    // 设置结果集为关联数组
+    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) { 
+        echo $v;
+    }
+}
+catch(PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+$conn = null;
+echo "</table>";
+?>
+```
