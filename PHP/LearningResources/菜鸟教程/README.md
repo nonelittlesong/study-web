@@ -455,3 +455,60 @@ void __destruct(void)
 * 类可以实现多个接口
 
 ### 7、 抽象类
+任何一个类，如果它里面至少有一个方法被声明为抽象的，那么这个类就必须声明为抽象的。  
+定义为抽象类不能实例化。  
+继承一个抽象类的时候，子类必须定义父类中的所有抽象方法;另外，这些方法的访问控制必须和父类中**一样或者更为宽松**。  
+子类方法可以包含父类抽象方法中不存在的可选参数。  
+
+### 8、 static关键字
+静态属性不可以有对象通过->操作符来访问。  
+```php
+<?php
+class Foo {
+  public static $my_static = 'foo';
+  
+  public function staticValue() {
+     return self::$my_static;
+  }
+}
+
+print Foo::$my_static . PHP_EOL;
+$foo = new Foo();
+
+print $foo->staticValue() . PHP_EOL;
+?>    
+```
+
+### 9、 final关键字
+如果父类中的方法被声明为final，则子类无法覆盖该方法;如果一个类被声明为final，则不能被继承。  
+
+### 10、 调用父类的构造方法
+**php不会在子类的构造方法中自动调用父类的构造方法。**  
+使用`parent::__construct()`：  
+```php
+<?php
+class BaseClass {
+   function __construct() {
+       print "BaseClass 类中构造方法" . PHP_EOL;
+   }
+}
+class SubClass extends BaseClass {
+   function __construct() {
+       parent::__construct();  // 子类构造方法不能自动调用父类的构造方法
+       print "SubClass 类中构造方法" . PHP_EOL;
+   }
+}
+class OtherSubClass extends BaseClass {
+    // 继承 BaseClass 的构造方法
+}
+
+// 调用 BaseClass 构造方法
+$obj = new BaseClass();
+
+// 调用 BaseClass、SubClass 构造方法
+$obj = new SubClass();
+
+// 调用 BaseClass 构造方法
+$obj = new OtherSubClass();
+?>
+```
