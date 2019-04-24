@@ -601,3 +601,9 @@ $obj = new SubClass();
 $obj = new OtherSubClass();
 ?>
 ```
+
+# 十六、 PHP标准函数
+
+* get_class() - 返回一个对象的类名
+* get_object_vars() - 得到对象的属性
+* get_class_methods() - 得到类的方法名
