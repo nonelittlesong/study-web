@@ -404,5 +404,3 @@ border-collapse 属性设置表格的边框是否被合并为一个单一的边�
 | nowrap | 文本不会换行 |
 | pre-wrap | 保留空白，但是会换行 |
 | pre-line | 合并空白符，但是保留换行符 |
-
-# line height
