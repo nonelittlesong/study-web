@@ -1,3 +1,6 @@
+# \<body>
+宽默认为100%，高默认为0。  
+
 # 事件
 ### change
 * 对于`<input type="radio">`和`<input type="checkbox">`，元素激活时触发。  
