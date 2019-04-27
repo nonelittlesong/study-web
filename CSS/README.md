@@ -20,6 +20,32 @@
 
 </details>
 
+# [border](http://www.w3school.com.cn/cssref/pr_border.asp) 
+
+* border-width
+* border-style
+* border-color
+
+继承性： no  
+在table中定义border，影响整个table最外层的边框。  
+如果不设置其中的某个值，也不会有问题。如：`border: solid #ff0000;`  
+
+### border-style
+
+| 值 | 描述 |
+| --- | --- |
+| none | 无边框 |
+| hidden | 对于表，hidden用于解决边框冲突 |
+| dotted | 点 |
+| dashed | 虚线 |
+| solid | 实线 |
+| double | 双线 |
+| groove | 3D凹槽 |
+| ridge | 垄装边框 |
+| inset | 3D inset 边框 |
+| outset | 3D outset 边框 |
+| inherit | 继承父元素边框样式 |
+
 # !important
 提高指定样式规则的应用优先权  
 
@@ -356,6 +382,12 @@ js语法： object.style.textDecoration="overline";
 继承性： yes  
 border-collapse 属性设置表格的边框是否被合并为一个单一的边框。  
 值： separate或collapse。  
+
+| 值 | 描述 |
+| --- | --- |
+| separate | 默认值。边框会被分开。不会忽略border-spacing和empty-cells属性。 |
+| collapse | 忽略border-spacing和empty-cells属性 |
+| inherit | 继承父元素的值 |
 
 ### 6. z-index
 默认是0。  
