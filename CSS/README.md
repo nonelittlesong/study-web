@@ -389,6 +389,9 @@ border-collapse 属性设置表格的边框是否被合并为一个单一的边�
 | collapse | 忽略border-spacing和empty-cells属性 |
 | inherit | 继承父元素的值 |
 
+[empty-cells](http://www.w3school.com.cn/cssref/pr_tab_empty-cells.asp)： 设置是否显示表格中的空格单元（仅用于separate模式）。默认show。  
+
+
 ### 6. z-index
 默认是0。  
 
