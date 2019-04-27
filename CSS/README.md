@@ -12,7 +12,7 @@
 * [transition](#transition)
 * [transform](#transform)
 * [CSS选择器](#CSS选择器)
-* [box-shadow](box-shadow)
+* [box-shadow](#box-shadow)
 * [position](#position)
 * [line-height](#line-height)
 * [flex](#flex)
