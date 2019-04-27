@@ -12,11 +12,11 @@
 * [transition](#transition)
 * [transform](#transform)
 * [CSS选择器](#CSS选择器)
-* [box-shadow](#box-shadow)
+* [阴影](#阴影)
 * [position](#position)
 * [line-height](#line-height)
 * [flex](#flex)
-* [其他属性](#其他属性)
+* [其他属性](#其它属性)
 
 </details>
 
@@ -289,8 +289,8 @@ transform属性向元素应用2D或3D转换。旋转，平移，缩放，倾斜�
 | :not(selector) | :not(p) | 选择非\<p>每个元素 | 3 |
 | ::selection | ::selection | 选择被用户选取的元素部分 | 3 |
 
-
-# [box-shadow](http://www.w3school.com.cn/cssref/pr_box-shadow.asp)  
+# 阴影
+### [box-shadow](http://www.w3school.com.cn/cssref/pr_box-shadow.asp)  
 添加一个或多个阴影。  
 **语法：**  
 box-shadow: h-shadow v-shadow blur spread color inset;
@@ -303,6 +303,11 @@ box-shadow: h-shadow v-shadow blur spread color inset;
 | spread | 可选。阴影尺寸。 |
 | color | 可选。阴影颜色 |
 | inset | 可选。将外部阴影改为内部阴影。 |
+
+### [text-shadow](http://www.w3school.com.cn/cssref/pr_text-shadow.asp)
+继承性： yes。  
+语法： `text-shadow: h-shadow v-shadow blur color;`
+
 
 # [position](http://www.w3school.com.cn/cssref/pr_class_position.asp)  
 元素的定位类型。  
