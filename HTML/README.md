@@ -1,3 +1,6 @@
+# \<!DOCTYPE html>
+如果没有规定!DOCTYPE，可能产生意想不到的结果。  
+
 # [\<body>](https://blog.csdn.net/javaloveiphone/article/details/51098972)
 宽默认为100%，高默认为0。  
 
