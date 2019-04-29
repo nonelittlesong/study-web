@@ -56,3 +56,11 @@ icon:{string}
 * {number} yAxisIndex 默认0，yAxis坐标轴数组的索引，指定该系列数据所用的纵坐标轴。
 
 ## [grid](https://echarts.baidu.com/echarts2/doc/doc.html#Grid)
+
+# 二、 [主题](https://echarts.baidu.com/theme-builder/)
+### 1、 JS版本
+
+1. 下载或复制主题保存至`*.js`文件;
+2. 将文件在HTML中引用;
+3. 使用`echarts.init(dom, 'themeName')创建图表。
+
