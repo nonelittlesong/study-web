@@ -17,3 +17,8 @@ systemctl enable nginx
 ```
 
 # 三、 安装MySQL
+
+# 四、 安装php
+```
+sudo apt install php php-fpm php7.0-mysql
+```
