@@ -8,6 +8,7 @@ resources：
 notes：  
 * [linux用户操作](https://github.com/nonelittlesong/study-ubuntu/wiki/CentOS-User-and-Group)
 * [systemctl](https://github.com/nonelittlesong/study-ubuntu/blob/master/systemctl.md)
+* [查看进程](https://github.com/nonelittlesong/study-ubuntu)
 
 # Troubleshootings
 ## 1、 localhost被其他程序（如digits）占用
