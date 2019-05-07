@@ -5,7 +5,7 @@
 * [菜鸟教程](http://www.runoob.com/linux/nginx-install-setup.html)  
 
 # Troubleshootings
-## localhost被其他程序（如digits）占用
+## 1、 localhost被其他程序（如digits）占用
 卸载digits：  
 ```
 $ sudo apt-get remove digits
