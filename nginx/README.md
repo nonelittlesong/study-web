@@ -26,3 +26,7 @@ netstat -tunlp |grep 端口号
 $ sudo apt-get remove digits
 $ sudo apt-get autoremove
 ```
+## 2、 [解决Nginx php-fpm配置有误引起的502错误](https://www.centos.bz/2017/07/nginx-php-fpm-502-error/)
+修改nginx.conf:  
+将`astcgi_pass 127.0.0.1:9000;`  
+修改为`fastcgi_pass unix:/run/php/php7.0-fpm.sock;`  
