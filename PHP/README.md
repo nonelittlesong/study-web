@@ -8,13 +8,15 @@
 * xdebug配置文件 - `/etc/php/7.0/mods-available/xdebug.ini`
 
 </details>
-
-学习资料：  
+<details>
+  <summary>学习资料：</summary>
+  
 1. https://github.com/threadshare/php  
 2. https://blog.csdn.net/qianfeng_php/article/details/78984317
 3. [官网](https://www.php.net/)
 4. [菜鸟教程](http://www.runoob.com/php/php-tutorial.html)
 
+</details>
 
 框架：  
 * [Laravel](https://laravel.com/)
