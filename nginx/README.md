@@ -11,6 +11,14 @@ notes：
 * [systemctl](https://github.com/nonelittlesong/study-ubuntu/blob/master/systemctl.md)
 * [查看进程](https://github.com/nonelittlesong/study-ubuntu)
 
+# 常用指令
+### 查看端口
+```sh
+lsof -i:端口号
+# 或者
+netstat -tunlp |grep 端口号
+```
+
 # Troubleshootings
 ## 1、 localhost被其他程序（如digits）占用
 卸载digits：  
