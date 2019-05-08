@@ -1,3 +1,10 @@
+常用配置文件和命令：  
+* nginx错误日志 - `/var/log/nginx/error.log`
+* nginx配置文件 - `/etc/nginx/nginx.conf`
+* php-fpm日志 - `/var/log/php7.0-fpm.log`
+* www配置文件 - `/etc/php/7.0/fpm/pool.d/www.conf`
+* xdebug配置文件 - `/etc/php/7.0/mods-available/xdebug.ini`
+
 学习资料：  
 1. https://github.com/threadshare/php  
 2. https://blog.csdn.net/qianfeng_php/article/details/78984317
