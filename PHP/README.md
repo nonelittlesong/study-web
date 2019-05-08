@@ -33,8 +33,8 @@ sudo vim /etc/php/7.0/mods-available/xdebug.ini
 ```
 zend_extension=xdebug.so
 xdebug.remote_enable=on
-xdebug.remote_handler=dbgp
-xdebug.remote_port=9000
-xdebug.remote_host=localhost
+xdebug.remote_handler=dbgp # 默认，可缺省
+xdebug.remote_port=9000 # 默认，可缺省
+xdebug.remote_host=localhost # 默认，可缺省
 ```
 **以上配置方法只使用于通过apt安装的环境。**  
