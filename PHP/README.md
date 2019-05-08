@@ -31,10 +31,10 @@ sudo vim /etc/php/7.0/mods-available/xdebug.ini
 ```
 插入以下代码：  
 ```
-zend_extension = xdebug.so
-xdebug.profiler_enable = 1
-xdebug.profiler_output_dir = "/tmp"
-xdebug.remote_enable = 1
+zend_extension=xdebug.so
+xdebug.remote_enable=on
+xdebug.remote_handler=dbgp
 xdebug.remote_port=9000
 xdebug.remote_host=localhost
+xdebug.idekey=PHPSTORM
 ```
