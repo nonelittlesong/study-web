@@ -13,5 +13,28 @@
 
 
 # [Xdebug](https://xdebug.org/)  
-Xdebug is an extension for PHP to assist with debugging and development. It contains a single step debugger to use with IDEs; it upgrades PHP's var_dump() function; it adds stack traces for Notices, Warnings, Errors and Exceptions; it features functionality for recording every function call and variable assignment to disk; it contains a profiler; and it provides code coverage functionality for use with PHPUnit. 
-
+Xdebug is an extension for PHP to assist with debugging and development. It contains a single step debugger to use with IDEs; it upgrades PHP's var_dump() function; it adds stack traces for Notices, Warnings, Errors and Exceptions; it features functionality for recording every function call and variable assignment to disk; it contains a profiler; and it provides code coverage functionality for use with PHPUnit.   
+## 安装配置（ubuntu 16.04）：
+### 1、 使用apt自动安装
+```sh
+# sudo apt install php-xdebug
+```
+查看是否成功：  
+```sh
+$ php -version
+```
+### 2、 配置xdebug
+通过apt安装的php在`/etc/php/7.0/`。  
+编辑xdebug.ini：  
+```sh
+sudo vim /etc/php/7.0/mods-available/xdebug.ini
+```
+插入以下代码：  
+```
+zend_extension = xdebug.so
+xdebug.profiler_enable = 1
+xdebug.profiler_output_dir = "/tmp"
+xdebug.remote_enable = 1
+xdebug.remote_port=9000
+xdebug.remote_host=localhost
+```
