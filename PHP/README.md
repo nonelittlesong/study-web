@@ -36,6 +36,5 @@ xdebug.remote_enable=on
 xdebug.remote_handler=dbgp
 xdebug.remote_port=9000
 xdebug.remote_host=localhost
-xdebug.idekey=PHPSTORM
 ```
 **以上配置方法只使用于通过apt安装的环境。**  
