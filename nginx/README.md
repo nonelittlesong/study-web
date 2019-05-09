@@ -30,3 +30,14 @@ $ sudo apt-get autoremove
 修改nginx.conf:  
 将`astcgi_pass 127.0.0.1:9000;`  
 修改为`fastcgi_pass unix:/run/php/php7.0-fpm.sock;`  
+
+## 3、 [nginx无法加载资源文件](https://www.cnblogs.com/IT--Loding/p/6294185.html)
+```
+location ~ .*\.(js|css|png|jpg)$ {               # 这是是需要加载文件的正则过滤 如果有其他文件再加上即可
+  root /home/song/PhpstormProjects/DefectDetect; # 这是网站根目录
+  if (-f $request_filename) {
+    expires 1d;
+    break;
+  }
+}
+```
