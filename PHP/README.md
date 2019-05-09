@@ -55,3 +55,6 @@ xdebug.remote_host=localhost # 默认，可缺省
 systemctl restart php7.0-fpm
 ```
 **以上配置方法只使用于通过apt安装的环境。**  
+
+# 二、 PHPStorm配置
+[参考资料](https://blog.csdn.net/han_cui/article/details/80420252)  
