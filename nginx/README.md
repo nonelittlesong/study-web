@@ -41,3 +41,4 @@ location ~ .*\.(js|css|png|jpg)$ {               # 这是是需要加载文件�
   }
 }
 ```
+expires 设置缓存。  
