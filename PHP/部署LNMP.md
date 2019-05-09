@@ -22,6 +22,8 @@ systemctl enable nginx
 ```
 sudo apt install php php-fpm php-mysql php-mbstring php-cgi
 ```
+Laravel框架需要`php-mbstring`。  
+
 如果不安装`php-cgi`，在使用phpstorm自带的服务器时会报错：  
 ```
 php-cgi not found
