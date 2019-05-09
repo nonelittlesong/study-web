@@ -20,5 +20,10 @@ systemctl enable nginx
 
 # 四、 安装php
 ```
-sudo apt install php php-fpm php-mysql php-mbstring
+sudo apt install php php-fpm php-mysql php-mbstring php-cgi
+```
+如果不安装`php-cgi`，在使用phpstorm自带的服务器时会报错：  
+```
+php-cgi not found
+Please ensure that configured PHP Interpreter built as CGI program (--enable-fastcgi was specified)
 ```
