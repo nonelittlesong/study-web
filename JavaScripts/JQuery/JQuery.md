@@ -1,3 +1,4 @@
+* [jQuery官网](https://api.jquery.com/)
 
 # 一、 JQuery事件
 ### 1. [ready() 方法](http://www.w3school.com.cn/jquery/event_ready.asp)
@@ -41,3 +42,21 @@ $(document).ready(function(){
 </body>
 </html>
 ```
+
+# 三、 [Ajax](https://api.jquery.com/category/ajax/)
+语法：  
+* `jQuery.ajax(url\[, settings])`
+* `jQuery.ajax(\[settings])`
+
+参数：
+* url - String类型，发送request的目标。
+* settings - PlainObject类型。可以通过`$.ajaxSetup()`设置默认值。
+## 1、 参数settings
+### type(default: 'GET')
+请求方式。  
+### async(default: true)
+发送异步的请求。  
+### url(default: The current page)
+发送请求的目标。
+### _data_
+
