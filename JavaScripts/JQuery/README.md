@@ -44,6 +44,7 @@ $(document).ready(function(){
 ```
 
 # 三、 [Ajax](https://api.jquery.com/category/ajax/)
+## 1、 JQuery.ajax()
 语法：  
 * `jQuery.ajax(url\[, settings])`
 * `jQuery.ajax(\[settings])`
@@ -51,20 +52,20 @@ $(document).ready(function(){
 参数：
 * url - String类型，发送request的目标。
 * settings - PlainObject类型。可以通过`$.ajaxSetup()`设置默认值。
-## 1、 参数settings
-### type(default: 'GET')
+### 1） 参数settings
+#### type(default: 'GET')
 请求方式。  
-### async(default: true)
+#### async(default: true)
 发送异步的请求。  
-### url(default: The current page)
+#### url(default: The current page)
 发送请求的目标。
-### data
+#### data
 Type: PlainObject, String, Array。  
 发送给服务器的数据
-### dataType(default: Intelligent Guess(xml, json, script or html))
+#### dataType(default: Intelligent Guess(xml, json, script or html))
 Type:String。  
 从服务器中返回的数据[MIME](http://www.w3school.com.cn/media/media_mimeref.asp)。  
-### success
+#### success
 Type: Function(Anything data, String textStatus, jqXHR jqXHR)。  
 
 
