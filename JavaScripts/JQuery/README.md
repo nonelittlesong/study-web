@@ -68,6 +68,6 @@ Type:String。
 #### success
 Type: Function(Anything data, String textStatus, jqXHR jqXHR)。  
 
-例子：
+### 例子：
 * [echarts+php+mysql实现前后端数据可视化](https://www.jianshu.com/p/29895d280624)
 
