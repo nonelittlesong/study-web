@@ -58,5 +58,13 @@ $(document).ready(function(){
 发送异步的请求。  
 ### url(default: The current page)
 发送请求的目标。
-### _data_
+### data
+Type: PlainObject, String, Array。  
+发送给服务器的数据
+### dataType(default: Intelligent Guess(xml, json, script or html))
+Type:String。  
+从服务器中返回的数据[MIME](http://www.w3school.com.cn/media/media_mimeref.asp)。  
+### success
+Type: Function(Anything data, String textStatus, jqXHR jqXHR)。  
+
 
