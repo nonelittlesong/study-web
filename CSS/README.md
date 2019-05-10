@@ -235,6 +235,15 @@ transform属性向元素应用2D或3D转换。旋转，平移，缩放，倾斜�
 
 **使用transform属性是要有确定的宽高!**  
 
+transform兼容性：  
+```css
+transform: translateY(-50%);
+-ms-transform: translateY(-50%);
+-moz-transform: translateY(-50%);
+-webkit-transform: translateY(-50%);
+-o-transform: translateY(-50%);
+```
+
 # [CSS选择器](http://www.w3school.com.cn/cssref/css_selectors.asp)
 **子元素选择器>**  
 只选儿子不选孙子。  
@@ -326,6 +335,7 @@ box-shadow: h-shadow v-shadow blur spread color inset;
 继承性: yes。  
 该属性会影响行框的布局。在应用到一个块级元素时，它定义了该元素中基线之间的最小距离而不是最大距离。  
 line-height与font-size的计算值之差（在css中成为行间距）分为两半，分别加到一个文本行的顶部和底部。可以包含这些内容的最小宽就是行宽。  
+**button如果不设置line-height，line-height会根据字体大小自动调整，但相同字体不同文字有时会得到不同的line-height。**  
 
 # [flex](https://blog.csdn.net/u013451157/article/details/79011679)  
 简写属性：  
