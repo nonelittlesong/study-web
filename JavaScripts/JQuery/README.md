@@ -52,7 +52,7 @@ $(document).ready(function(){
 参数：
 * url - String类型，发送request的目标。
 * settings - PlainObject类型。可以通过`$.ajaxSetup()`设置默认值。
-### 1） 参数settings
+### 参数settings
 #### type(default: 'GET')
 请求方式。  
 #### async(default: true)
