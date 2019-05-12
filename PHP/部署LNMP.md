@@ -42,7 +42,5 @@ Please ensure that configured PHP Interpreter built as CGI program (--enable-fas
 sudo apt install software-properties-common python-software-properties
 sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
 sudo apt update
-sudo apt install php7.3 php7.3-cli php7.3-common
-php -v
 ```
 
