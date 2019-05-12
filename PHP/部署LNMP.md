@@ -24,6 +24,10 @@ sudo apt-get install nginx
 ```
 
 # 三、 安装MySQL
+```
+sudo apt install mysql-server  # 安装mysql-server
+mysql -V                       # V字大写
+```
 
 # 四、 安装php
 ```
