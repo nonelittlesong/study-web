@@ -9,6 +9,14 @@ notes：
 * [systemctl](https://github.com/nonelittlesong/study-ubuntu/blob/master/systemctl.md)
 * [查看进程](https://github.com/nonelittlesong/study-ubuntu)
 
+# 配置nginx
+在`/etc/php/7.3/fpm/pool.d/www.conf`中，有：  
+```
+listen = /run/php/php7.3-fpm.sock
+```
+因此，在`/etc/nginx/nginx.conf`中，进行如下配置：  
+
+
 # 常用指令
 ### 查看端口
 ```sh
