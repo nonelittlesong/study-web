@@ -23,6 +23,8 @@ sudo apt-get update
 sudo apt-get install nginx
 ```
 
+5. [我的nginx配置](https://github.com/nonelittlesong/study-web/blob/master/nginx/README.md)
+
 # 三、 安装MySQL
 安装mysql:  
 ```
