@@ -1,10 +1,8 @@
 resources：  
 * [Nginx中文文档](http://www.nginx.cn/doc/)  
 * [nginx news](http://nginx.org/)  
-* [nginx](http://nginx.org/en/)  
-* [菜鸟教程](http://www.runoob.com/linux/nginx-install-setup.html)  
 * [阿里云搭建LNMP环境（ CentOS 7）](https://help.aliyun.com/document_detail/97251.html?spm=a2c4g.11186623.6.990.3fe3685301ylyp)
-* [详解Nginx服务器配置](http://baijiahao.baidu.com/s?id=1604485941272024493&wfr=spider&for=pc)
+* [Nginx配置](https://www.jianshu.com/p/849343f679aa)
 
 notes：  
 * [linux用户操作](https://github.com/nonelittlesong/study-ubuntu/wiki/CentOS-User-and-Group)
