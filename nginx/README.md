@@ -10,12 +10,19 @@ notes：
 * [查看进程](https://github.com/nonelittlesong/study-ubuntu)
 
 # 配置nginx
+配置示例：  
+```
+
+```
+
 在`/etc/php/7.3/fpm/pool.d/www.conf`中，有：  
 ```
 listen = /run/php/php7.3-fpm.sock
 ```
 因此，在`/etc/nginx/nginx.conf`中，进行如下配置：  
-
+```
+fastcgi_pass unix:/run/php/php7.3-fpm.sock
+```
 
 # 常用指令
 ### 查看端口
