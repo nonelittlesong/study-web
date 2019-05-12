@@ -34,6 +34,10 @@ mysql -V                       # V字大写
 systemctl start mysql
 sudo systemctl enable mysql    # 权限
 ```
+配置安全性：  
+```
+mysql_secure_installation
+```
 
 # 四、 安装php
 ```
