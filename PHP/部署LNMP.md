@@ -24,9 +24,15 @@ sudo apt-get install nginx
 ```
 
 # 三、 安装MySQL
+安装mysql:  
 ```
 sudo apt install mysql-server  # 安装mysql-server
 mysql -V                       # V字大写
+```
+开启mysql：  
+```
+systemctl start mysql
+sudo systemctl enable mysql    # 权限
 ```
 
 # 四、 安装php
