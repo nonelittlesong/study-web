@@ -36,3 +36,13 @@ Laravel框架需要`php-mbstring`。
 php-cgi not found
 Please ensure that configured PHP Interpreter built as CGI program (--enable-fastcgi was specified)
 ```
+
+#### [安装最新的php](https://www.rosehosting.com/blog/how-to-install-php-7-3-on-ubuntu-16-04/)
+```
+sudo apt install software-properties-common python-software-properties
+sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
+sudo apt update
+sudo apt install php7.3 php7.3-cli php7.3-common
+php -v
+```
+
