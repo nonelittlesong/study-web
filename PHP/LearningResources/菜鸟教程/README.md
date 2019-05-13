@@ -29,6 +29,8 @@ https://www.runoob.com/php/php-tutorial.html
 // PHP 代码
 ?>
 ```
+>**数据类型：** bool int float string array object NULL resource callable  
+
 # 二、 变量
 **php变量规则：**  
 * 变量以$符号开始，后面跟着变量的名称
