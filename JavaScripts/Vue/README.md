@@ -107,3 +107,42 @@ new Vue({
 
 ## 4、 生命周期图示
 ![生命周期](https://github.com/nonelittlesong/study-resources/blob/master/images/vue/lifecycle.png)  
+
+# 模板语法
+在底层的实现上，Vue 将模板编译成虚拟 DOM 渲染函数。结合响应系统，Vue 能够智能地计算出最少需要重新渲染多少组件，并把 DOM 操作次数减到最少。  
+如果你熟悉虚拟 DOM 并且偏爱 JavaScript 的原始力量，你也可以不用模板，直接写渲染 (render) 函数，使用可选的 JSX 语法。  
+
+## 1、 插值
+### \# 文本
+数据绑定最常见的形式就是使用“Mustache”语法 (双大括号) 的文本插值：  
+```htm
+<span>Message: {{ msg }}</span>
+```
+Mustache 标签将会被替代为对应数据对象上 msg 属性的值。无论何时，绑定的数据对象上 msg 属性发生了改变，插值处的内容都会更新。  
+通过使用 v-once 指令，你也能执行一次性地插值，当数据改变时，插值处的内容不会更新。但请留心这会影响到该节点上的**其它**数据绑定：  
+```htm
+<span v-once>这个将不会改变: {{ msg }}</span>
+```
+
+### \# 原始HTML
+双大括号会将数据解释为普通文本，而非 HTML 代码。为了输出真正的 HTML，你需要使用 v-html 指令：  
+```htm
+<p>Using mustaches: {{ rawHtml }}</p>
+<p>Using v-html directive: <span v-html="rawHtml"></span></p>
+```
+注意，你不能使用 v-html 来复合局部模板，因为 Vue 不是基于字符串的模板引擎。反之，对于用户界面 (UI)，组件更适合作为可重用和可组合的基本单位。  
+
+>你的站点上动态渲染的任意 HTML 可能会非常危险，因为它很容易导致 XSS 攻击。请只对可信内容使用 HTML 插值，绝不要对用户提供的内容使用插值。  
+
+### \# 特性
+Mustache 语法不能作用在 HTML 特性上，遇到这种情况应该使用 v-bind 指令：  
+```htm
+<div v-bind:id="dynamicId"></div>
+```
+对于布尔特性 (它们只要存在就意味着值为 true)，v-bind 工作起来略有不同，在这个例子中：  
+```htm
+<button v-bind:disabled="isButtonDisabled">Button</button>
+```
+如果 isButtonDisabled 的值是 null、undefined 或 false，则 disabled 特性甚至不会被包含在渲染出来的 <button> 元素中。  
+
+### \# 使用JavaScript表达式
