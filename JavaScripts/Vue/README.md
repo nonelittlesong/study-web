@@ -86,3 +86,19 @@ vm.$watch('a', function (newValue, oldValue) {
   // 这个回调将在 `vm.a` 改变后调用
 })
 ```
+
+## 3、 实例生命周期钩子
+比如 `created` 钩子可以用来在一个实例被创建之后执行代码：  
+```js
+new Vue({
+  data: {
+    a: 1
+  },
+  created: function () {
+    // `this` 指向 vm 实例
+    console.log('a is: ' + this.a)
+  }
+})
+// => "a is: 1"
+```
+也有一些其它的钩子，在实例生命周期的不同阶段被调用，如 `mounted`、`updated` 和 `destroyed`。生命周期钩子的 `this` 上下文指向调用它的 `Vue` 实例。  
