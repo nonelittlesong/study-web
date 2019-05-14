@@ -19,3 +19,5 @@ mixed json_decode($json_string [, $assoc = false [, $depth = 512 [, options = 0]
 * depth - 整数类型的参数，它指定递归的深度。
 * options - 二进制掩码，目前只支持JSON_BIGINT_AS_STRING。
 
+# 二、 [PHP Session](https://www.runoob.com/php/php-sessions.html)
+## 1、 开始PHP 
