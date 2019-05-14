@@ -146,3 +146,74 @@ Mustache 语法不能作用在 HTML 特性上，遇到这种情况应该使用 v
 如果 isButtonDisabled 的值是 null、undefined 或 false，则 disabled 特性甚至不会被包含在渲染出来的 <button> 元素中。  
 
 ### \# 使用JavaScript表达式
+```htm
+{{ number + 1 }}
+
+{{ ok ? 'YES' : 'NO' }}
+
+{{ message.split('').reverse().join('') }}
+
+<div v-bind:id="'list-' + id"></div>
+```
+每个绑定都只能包含**单个表达式**：  
+```htm
+<!-- 这是语句，不是表达式 -->
+{{var a = 1}}
+<!-- 流控制也不会生效，请使用三元表达式 -->
+{{ if (ok) { return message }}}
+```
+
+>模板表达式都被放在沙盒中，只能访问全局变量的一个白名单，如 `Math` 和 `Date` 。你不应该在模板表达式中试图访问用户定义的全局变量。  
+
+## 2、 指令
+指令 (Directives) 是带有 `v-` 前缀的特殊特性。指令特性的值预期是单个 JavaScript 表达式 (v-for 是例外情况，稍后我们再讨论)。指令的职责是，当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM。回顾我们在介绍中看到的例子：  
+```htm
+<p v-if="seen">现在你看到我了</p>
+```
+这里，`v-if` 指令将根据表达式 `seen` 的值的真假来插入/移除 \<p> 元素。  
+
+### \# 参数
+一些指令能够接收一个“参数”，在指令名称之后以冒号表示。例如，v-bind 指令可以用于响应式地更新 HTML 特性：  
+```htm
+<a v-bind:href="url">...</a>
+```
+在这里 href 是参数，告知 v-bind 指令将该元素的 href 特性与表达式 url 的值绑定。  
+
+另一个例子是 v-on 指令，它用于监听 DOM 事件：  
+```htm
+<a v-on:click="doSomething">...</a>
+```
+
+### \# 动态参数
+2.6新增。  
+从 2.6.0 开始，可以用方括号括起来的 JavaScript 表达式作为一个指令的参数：  
+```htm
+<a v-bind:[attributeName]="url"> ... </a>
+```
+这里的 attributeName 会被作为一个 JavaScript 表达式进行动态求值，求得的值将会作为最终的参数来使用。例如，如果你的 Vue 实例有一个 data 属性 attributeName，其值为 "href"，那么这个绑定将等价于 v-bind:href。  
+
+同样地，你可以使用动态参数为一个动态的事件名绑定处理函数：  
+```htm
+<a v-on:[eventName]="doSomething"> ... </a>
+```
+同样地，当 eventName 的值为 "focus" 时，v-on:\[eventName] 将等价于 v-on:focus。  
+
+**对动态参数的值的约束**  
+动态参数预期会求出一个字符串，异常情况下值为 null。这个特殊的 null 值可以被显性地用于移除绑定。任何其它非字符串类型的值都将会触发一个警告。  
+
+**对动态参数表达式的约束**  
+
+>动态参数表达式有一些语法约束，因为某些字符，例如空格和引号，放在 HTML 特性名里是无效的。同样，在 DOM 中使用模板时你需要回避大写键名。  
+
+例如，下面的代码是无效的：  
+```htm
+<!-- 这会触发一个编译警告 -->
+<a v-bind:['foo' + bar]="value"> ... </a>
+```
+变通的办法是使用没有空格或引号的表达式，或用计算属性替代这种复杂表达式。  
+
+另外，如果你在 DOM 中使用模板 (直接在一个 HTML 文件里撰写模板)，需要留意浏览器会把特性名全部强制转为小写：  
+```htm
+<!-- 在 DOM 中使用模板时这段代码会被转换为 `v-bind:[someattr]` -->
+<a v-bind:[someAttr]="value"> ... </a>
+```
