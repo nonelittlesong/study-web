@@ -628,3 +628,19 @@ template v-if="loginType === 'username'">
 ```
 **注意，`<label>` 元素仍然会被高效地复用，因为它们没有添加 `key` 属性。**  
 
+## 2、 v-show
+另一个用于根据条件展示元素的选项是 `v-show` 指令。用法大致一样：  
+```htm
+<h1 v-show="ok">Hello!</h1>
+```
+不同的是**带有 `v-show` 的元素始终会被渲染并保留在 DOM 中**。`v-show` 只是简单地切换元素的 CSS 属性 `display`。  
+**注意，`v-show` 不支持 `<template>` 元素**  
+
+## 3、 v-if vs v-show
+如果需要非常频繁地切换，则使用 `v-show` 较好；如果在运行时条件很少改变，则使用 `v-if` 较好。  
+
+## 4、 v-if与v-for一起使用
+当 `v-if` 与 `v-for` 一起使用时，`v-for` 具有比 `v-if` 更高的优先级。  
+
+
+# 列表渲染
