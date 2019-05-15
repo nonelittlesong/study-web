@@ -217,3 +217,29 @@ Mustache 语法不能作用在 HTML 特性上，遇到这种情况应该使用 v
 <!-- 在 DOM 中使用模板时这段代码会被转换为 `v-bind:[someattr]` -->
 <a v-bind:[someAttr]="value"> ... </a>
 ```
+
+### \#修饰符
+修饰符 (modifier) 是以半角句号 . 指明的特殊后缀，用于指出一个指令应该以特殊方式绑定。例如，.prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()：  
+```htm
+<form v-on:submit.prevent="onSubmit">...</form>
+```
+
+# 3、 缩写
+### \# `v-bind` 缩写
+```htm
+<!-- 完整语法 -->
+<a v-bind:href="url">...</a>
+
+<!-- 缩写 -->
+<a :href="url">...</a>
+```
+
+### \# `v-on`缩写
+```htm
+<!-- 完整语法 -->
+<a v-on:click="doSomething">...</a>
+
+<!-- 缩写 -->
+<a @click="doSomething">...</a>
+```
+
