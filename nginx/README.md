@@ -179,3 +179,8 @@ location ~ .*\.(js|css|png|jpg)$ {               # 这是是需要加载文件�
 expires 设置缓存。  
 **expires缓存会导致在修改资源文件后，网页依然会加载过时的资源。**  
 
+## 4、 [laravel.log无法打开](https://stackoverflow.com/questions/23411520/how-to-fix-error-laravel-log-could-not-be-opened)
+```
+UnexpectedValueException
+The stream or file "/home/song/PhpstormProjects/Lara3/storage/logs/laravel.log" could not be opened: failed to open stream: Permission denied
+```
