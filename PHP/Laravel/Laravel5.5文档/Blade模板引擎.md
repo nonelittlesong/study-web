@@ -316,4 +316,30 @@ switch 语句可以通过 `@switch`，`@case`，`@break`，`@default` 和 `@ends
 ```
 `$loop`变量还提供了其他一些有用的属性：  
 
-| 属性  | 
+| 属性 | 描述 |
+| -- | --- |
+| $loop->index | 当前循环索引（从0开始） |
+| $loop->iteration | 当前循环迭代（从1开始） |
+| $loop->remaining | 当前剩余的迭代 |
+| $loop->count | 迭代数组元素的总数量 |
+| $loop->first | 是否是当前循环的第一个迭代 |
+| $loop->last | 是否是当前循环的最后一个迭代 |
+| $loop->depth | 当前循环的嵌套层级 |
+| $loop->parent | 嵌套循环中的父级循环变量 |
+
+## 3、 注释
+Blade 注释并不会包含到 HTML 中被返回：  
+```
+{{-- This comment will not be present in the rendered HTML --}}
+```
+
+## 4、 嵌入PHP
+```
+@php
+    //
+@endphp
+```
+>注：尽管 Blade 提供了这个特性，如果过于频繁地使用它意味着你在视图模板中嵌入了过多的业务逻辑，需要注意。  
+
+
+
