@@ -10,6 +10,8 @@ notes：
 * [查看进程](https://github.com/nonelittlesong/study-ubuntu)
 
 # 配置nginx ver.2
+https://blog.csdn.net/lgyaxx/article/details/79507525  
+
 在`/etc/nginx/nginx.conf`中，有：  
 ```
 include /etc/nginx/sites-enabled/*;
