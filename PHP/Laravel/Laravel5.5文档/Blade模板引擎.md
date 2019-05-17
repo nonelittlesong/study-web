@@ -266,3 +266,52 @@ switch 语句可以通过 `@switch`，`@case`，`@break`，`@default` 和 `@ends
 ```
 >注：在循环的时候可以使用 `$loop` 变量获取循环信息，例如是否是循环的第一个或最后一个迭代。  
 
+**结束循环或跳出当前迭代：**  
+```
+@foreach ($users as $user)
+    @if ($user->type == 1)
+        @continue
+    @endif
+
+    <li>{{ $user->name }}</li>
+
+    @if ($user->number == 5)
+        @break
+    @endif
+@endforeach
+```
+还可以使用指令声明来引入条件：  
+```
+@foreach ($users as $user)
+    @continue($user->type == 1)
+        <li>{{ $user->name }}</li>
+    @break($user->number == 5)
+@endforeach
+```
+
+**`$loop`变量**  
+在循环的时候，可以在循环体中使用 `$loop` 变量，该变量提供了一些有用的信息，比如当前循环索引，以及当前循环是不是第一个或最后一个迭代:  
+```
+@foreach ($users as $user) 
+    @if ($loop->first)
+        This is the first iteration.
+    @endif
+
+    @if ($loop->last)
+        This is the last iteration.
+    @endif
+
+    <p>This is user {{ $user->id }}</p>
+@endforeach
+```
+如果你身处嵌套循环，可以通过 `$loop` 变量的 `parent` 属性访问父级循环：  
+```
+@foreach ($users as $user)
+    @foreach ($user->posts as $post)
+        @if ($loop->parent->first)
+            This is first iteration of the parent loop.
+        @endif
+    @endforeach
+@endforeach
+```
+`$loop`变量还提供了其他一些有用的属性：  
