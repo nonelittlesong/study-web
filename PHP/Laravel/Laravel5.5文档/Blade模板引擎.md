@@ -151,7 +151,7 @@ Hello, {!! $name !!}.
 </script>
 ```
 
-## 1、 [Blade & JavaScript 框架]
+## 1、 [Blade & JavaScript 框架](#)
 由于很多 JavaScript 框架也是用花括号来表示要显示在浏览器中的表达式，如 Vue，  
 我们可以使用 `@` 符号来告诉 Blade 渲染引擎该表达式应该保持原生格式不作改动。比如：  
 ```htm
