@@ -9,6 +9,75 @@ notes：
 * [systemctl](https://github.com/nonelittlesong/study-ubuntu/blob/master/systemctl.md)
 * [查看进程](https://github.com/nonelittlesong/study-ubuntu)
 
+# 配置nginx ver.2
+在`/etc/nginx/nginx.conf`中，有：  
+```
+include /etc/nginx/sites-enabled/*;
+```
+>类似Apache的配置，Nginx配置中也存在`sites-available`这个文件夹，不过与Apache略有不同的是，Nginx配置完`vhost`后，使用`symbolic link`将配置文件链接至`sites-enabled`文件夹。  
+
+那么我们首先打开Nginx配置：  
+```sh
+$ cd /etc/nginx/sites-available
+$ cp default mysite.com
+```
+可以看到，我们将sites-available文件夹下的default配置文件拷贝后，生成了我们需要修改的名为mysite.com的配置文件。打开这个文件：  
+```
+$ vim mysite.com
+```
+可以看到，里面有一段这样的配置：  
+```
+# Virtual Host configuration for example.com 
+# 
+# You can move that to a different file under sites-available/ and symlink that 
+# to sites-enabled/ to enable it. 
+# 
+#server { 
+#       listen 80; 
+#       listen [::]:80; 
+# 
+#       server_name example.com; 
+# 
+#       root /var/www/example.com; 
+#       index index.html; 
+# 
+#       location / { 
+#               try_files $uri $uri/ =404; 
+#       } 
+#}
+```
+我在文章头部已经说过，我的Laravel项目文件在/var/www/myproject中，我们假设我们将要使用mysite.com这个域名作为我们网站地址。那么我们将以上配置做出修改如下：  
+```
+server {
+        listen 80;
+        listen [::]:80;
+
+        root /var/www/myproject/public;
+
+        index index.php;
+
+        server_name mysite.com www.mysite.com;
+
+        location / {
+                try_files $uri $uri/ /index.php?$query_string;
+        }
+
+        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+        #
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                fastcgi_pass unix:/run/php/php7.2-fpm.sock;
+        }
+
+        # deny access to .htaccess files, if Apache's document root
+        # concurs with nginx's one
+        #
+        location ~ /\.ht {
+                deny all;
+        }
+}
+```
+
 # 配置nginx
 在`/etc/php/7.3/fpm/pool.d/www.conf`中，有：  
 ```
