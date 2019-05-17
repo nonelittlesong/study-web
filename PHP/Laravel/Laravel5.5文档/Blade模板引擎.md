@@ -327,13 +327,13 @@ switch 语句可以通过 `@switch`，`@case`，`@break`，`@default` 和 `@ends
 | $loop->depth | 当前循环的嵌套层级 |
 | $loop->parent | 嵌套循环中的父级循环变量 |
 
-## 3、 注释
+## 4、 注释
 Blade 注释并不会包含到 HTML 中被返回：  
 ```
 {{-- This comment will not be present in the rendered HTML --}}
 ```
 
-## 4、 嵌入PHP
+## 5、 嵌入PHP
 ```
 @php
     //
@@ -342,4 +342,39 @@ Blade 注释并不会包含到 HTML 中被返回：
 >注：尽管 Blade 提供了这个特性，如果过于频繁地使用它意味着你在视图模板中嵌入了过多的业务逻辑，需要注意。  
 
 
+
+
+# 四、 包含子视图
+Blade 的 `@include` 指令允许你很轻松地在一个视图中包含另一个 Blade 视图，所有父级视图中变量在被包含的子视图中依然有效：  
+```htm
+<div>
+    @include('shared.errors')
+
+    <form>
+        <!-- Form Contents -->
+    </form>
+</div>
+```
+上述指令会在当前目录下的 `shared` 子目录中寻找 `errors.blade.php` 文件并将其内容引入当前视图。  
+
+尽管被包含的视图可以继承所有父视图中的数据，你还可以**传递额外参数**到被包含的视图：  
+```
+@include('view.name', ['some' => 'data'])
+```
+
+当然，如果你尝试包含一个不存在的视图，Laravel 会抛出错误，如果你想要**包含一个有可能不存在的视图**，可以使用 `@includeIf` 指令:  
+```
+@includeIf('view.name', ['some' => 'data'])
+```
+
+如果**包含的视图取决于一个给定的布尔条件**，可以使用 `@includeWhen` 指令：  
+```
+@includeWhen($boolean, 'view.name', ['some' => 'data'])
+```
+
+要**包含给定数组中的第一个视图**，可以使用 `@includeFirst` 指令：  
+```
+@includeFirst(['custom.admin', 'admin'], ['some' => 'data'])
+```
+>注：不要在 Blade 视图中使用 `__DIR__` 和 `__FILE__` 常量，因为它们会指向缓存视图的路径。  
 
