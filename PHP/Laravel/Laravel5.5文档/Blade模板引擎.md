@@ -378,3 +378,125 @@ Blade 的 `@include` 指令允许你很轻松地在一个视图中包含另一�
 ```
 >注：不要在 Blade 视图中使用 `__DIR__` 和 `__FILE__` 常量，因为它们会指向缓存视图的路径。  
 
+曾经有人问过我 `@include` 和 `@component` 有什么区别，两者有共同之处，都用于将其他内容引入当前视图，我理解的区别在于 `@include` 用于粗粒度的视图包含，`@component` 用于细粒度的组件引入，`@component` 通过插槽机制对引入视图内容可以进行更加细粒度的控制，如果你只是引入一块视图内容片段，用 `@include` 即可，如果想要在当前视图对引入视图内容片段进行调整和控制，则可以考虑使用 `@component`。  
+
+## 1、 渲染集合视图
+你可以使用 Blade 的 `@each` 指令通过一行代码循环引入多个局部视图：  
+```
+@each('view.name', $jobs, 'job')
+```
+该指令的第一个参数是数组或集合中每个元素要渲染的局部视图，  
+第二个参数是你希望迭代的数组或集合，  
+第三个参数是要分配给当前视图的变量名。  
+举个例子，如果你要迭代一个 `jobs` 数组，通常你需要在局部视图中访问 `$job` 变量。在局部视图中可以通过 `key` 变量访问当前迭代的键。  
+
+你还可以传递第四个参数到 `@each` 指令，该参数用于指定给定数组为空时渲染的视图：  
+```
+@each('view.name', $jobs, 'job', 'view.empty')
+```
+
+
+
+
+# 五、 堆栈
+Blade 允许你推送内容到命名堆栈，以便在其他视图或布局中渲染。这在子视图中引入指定 JavaScript 库时很有用：  
+```
+@push('scripts')
+    <script src="/example.js"></script>
+@endpush
+```
+推送次数不限，要渲染完整的堆栈内容，传递堆栈名称到 `@stack` 指令即可：  
+```
+<head>
+    <!-- Head Contents -->
+
+    @stack('scripts')
+</head>
+```
+
+
+
+
+# 六、 服务注入
+`@inject` 指令可以用于从服务容器中获取服务，传递给 `@inject` 的第一个参数是服务对应的变量名，第二个参数是要解析的服务类名或接口名：  
+```
+@inject('metrics', 'App\Services\MetricsService')
+
+<div>
+    Monthly Revenue: {{ $metrics->monthlyRevenue() }}.
+</div>
+```
+
+
+
+
+# 七、 扩展Blade
+可以使用 `directive` 方法来注册一个指令：  
+```
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\ServiceProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Perform post-registration booting of services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        \Blade::directive('datetime', function($expression) {
+            return "<?php echo date('Y-m-d H:i:s', $expression); ?>";
+        });
+    }
+
+    /**
+     * 在容器中注册绑定.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+}
+```
+正如你所看到的，我们可以将 `datetime` 方法应用到任何传入指令的表达式上：  
+```
+@datetime(1508888888)
+```
+最终该指令生成的 PHP 代码如下：  
+```
+<?php echo date('m/d/Y H:i', 1508888888); ?>
+```
+>注：更新完 Blade 指令逻辑后，必须删除所有的 Blade 缓存视图。缓存的 Blade 视图可以通过 Artisan 命令 `view:clear` 移除。  
+
+## 1、 自定义if语句
+在定义一些简单、自定义的条件语句时，编写自定义指令往往复杂性大于必要性，因为这个原因，Blade 提供了一个 `Blade::if` 方法通过闭包的方式快速定义自定义的条件指令，例如，我们来自定义一个条件来检查当前应用的环境，我们可以在 `AppServiceProvider` 的 `boot` 方法中定义这段逻辑：  
+```
+use Illuminate\Support\Facades\Blade;
+
+/**
+ * Perform post-registration booting of services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    \Blade::if('env', function ($environment) {
+        return app()->environment($environment);
+    });
+}
+```
+定义好自定义条件后，就可以在模板中使用了：  
+```
+@env('local')
+    The application is in the local environment...
+@else
+    The application is not in the local environment...
+@endenv
+```
