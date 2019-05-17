@@ -184,3 +184,24 @@ expires 设置缓存。
 UnexpectedValueException
 The stream or file "/home/song/PhpstormProjects/Lara3/storage/logs/laravel.log" could not be opened: failed to open stream: Permission denied
 ```
+
+Never set a directory to 777. you should change directory ownership. so set your current user that you are logged in with as owner and the webserver user (www-data, apache, ...) as the group. You can try this:  
+```
+sudo chown -R $USER:www-data storage
+sudo chown -R $USER:www-data bootstrap/cache
+```
+then to set directory permission try this:  
+```
+chmod -R 775 storage
+chmod -R 775 bootstrap/cache
+```
+Update:  
+
+Webserver user and group depend on your webserver and your OS. to figure out what's your web server user and group use the following commands. for nginx use:  
+```
+ps aux|grep nginx|grep -v grep
+```
+for apache use:  
+```
+ps aux | egrep '(apache|httpd)'
+```
