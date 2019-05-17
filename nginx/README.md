@@ -111,6 +111,29 @@ $ sudo systemctl restart nginx
 ```
 好了，这样一来，mysite.com就成功地被指向我们的项目地址，并且nginx可以正常处理请求加载出页面了。  
 
+其他配置：  
+```
+    server {
+        location / {
+            index index.php index.html index.htm;
+        }
+        location ~ \.php$ {
+            root /home/song/PhpstormProjects/Lara3/public;
+            fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+            fastcgi_index index.php;
+            fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+            include fastcgi_params;
+        }
+        location ~ .*\.(js|css|png|jpg)$ {
+            root /home/song/PhpstormProjects/Lara3/resources;
+            if (-f $request_filename) {
+                expires 1d;
+                break;
+            }
+        }
+    }
+
+```
 
 # 配置nginx
 在`/etc/php/7.3/fpm/pool.d/www.conf`中，有：  
