@@ -78,6 +78,38 @@ server {
 }
 ```
 
+可以看到，我们在server_name中加上了`mysite.com`及`www.mysite.com`这个alias，所以两者都可以用来访问我们的项目。  
+
+index后面我们添加了index.php，因为我们需要php来动态加载页面。  
+
+接下来我们看到  
+```
+location / {
+  try_files $uri $uri/ /index.php?$query_string;
+}
+```
+这段location配置非常重要，注意我们在try_files的最后，添加了/index.php?$query_string。这一步非常重要，因为为了使Laravel正常工作，所有的请求都应该被传递给Laravel本身，即所有的请求都被传递给了index.php，Laravel的应用主文件。如果这一步没有配置，那么我们只能够打开项目主页，其余页面将无法跳转。  
+
+```
+location ~ \.php$ {
+  include snippets/fastcgi-php.conf;
+  fastcgi_pass unix:/run/php/php7.2-fpm.sock;
+}
+这一段中我们设置好php-fpm的相关配置。然后保存退出。
+
+接下来我们输入  
+```sh
+$ sudo ln -s /etc/nginx/sites-available/mysite.com /etc/nginx/sites-enabled/
+```
+以激活我们的网站。注意：这里一定要使用绝对路径，而不能使用相对路径（例如../sites-available），切记。  
+
+完成后，我们重启Nginx：  
+```sh
+$ sudo systemctl restart nginx
+```
+好了，这样一来，mysite.com就成功地被指向我们的项目地址，并且nginx可以正常处理请求加载出页面了。  
+
+
 # 配置nginx
 在`/etc/php/7.3/fpm/pool.d/www.conf`中，有：  
 ```
