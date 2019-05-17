@@ -4,7 +4,7 @@ Blade 是由 Laravel 提供的非常简单但功能强大的模板引擎，
 所有的 Blade 视图最终都会被编译成原生 PHP 代码并缓存起来直到被修改，这意味着对应用的性能而言 Blade 基本上是零开销。  
 Blade 视图文件使用 .blade.php 文件扩展并存放在 resources/views 目录下。  
 
-# 模板继承
+# 一、 模板继承
 
 ## 1、 定义布局
 由于大多数 Web 应用在不同页面中使用同一个布局，可以很方便的将这个布局定义为一个单独的 Blade 页面：   
@@ -102,7 +102,7 @@ Route::get('blade', function () {
 
 
 
-# 数据显示
+# 二、 数据显示
 可以通过两个花括号包裹变量来显示**传递到视图**的数据，比如，如果给出如下路由：  
 ```php
 Route::get('greeting', function () {
@@ -159,3 +159,110 @@ Hello, {!! $name !!}.
 Hello, @{{ name }}.
 ```
 在本例中，`@` 符在编译阶段会被 Blade 移除，但是，`{{ name }}` 表达式将会保持不变，从而可以被 JavaScript 框架正常渲染。  
+
+**`@verbatim`指令**  
+如果你在模板中有很大一部分篇幅显示 JavaScript 变量，那么可以将这部分 HTML 封装在 `@verbatim` 指令中，这样就不需要在每个 Blade 输出表达式前加上 `@` 前缀：  
+```htm
+@verbatim
+    <div class="container">
+        Hello, {{ name }}.
+    </div>
+@endverbatim
+```
+
+
+
+
+# 三、 流程控制
+## 1、 if语句
+可以使用 `@if` , `@elseif` , `@else` 和 `@endif` 来构造 if 语句，这些指令的功能和 PHP 相同：  
+```
+@if (count($records) === 1)
+    I have one record!
+@elseif (count($records) > 1)
+    I have multiple records!
+@else
+    I don't have any records!
+@endif
+```
+为方便起见，Blade 还提供了 `@unless` 指令，表示除非：  
+```
+@unless (Auth::check())
+    You are not signed in.
+@endunless
+```
+
+此外，Blade 还提供了 `@isset` 和 `@empty` 指令，分别对应 PHP 的 `isset` 和 `empty` 方法：  
+```
+@isset($records)
+    // $records is defined and is not null...
+@endisset
+
+@empty($records)
+    // $records is "empty"...
+@endempty
+```
+
+**认证指令:**  
+`@auth` 和 `@guest` 指令可用于快速判断当前用户是否登录：  
+```
+@auth
+    // 用户已登录...
+@endauth
+
+@guest
+    // 用户未登录...
+@endguest
+```
+
+如果需要的话，你也可以在使用 `@auth` 和 `@guest` 的时候指定登录用户类型：  
+```
+@auth('admin')
+    // The user is authenticated...
+@endauth
+
+@guest('admin')
+    // The user is not authenticated...
+@endguest
+```
+
+## 2、 switch语句
+switch 语句可以通过 `@switch`，`@case`，`@break`，`@default` 和 `@endswitch` 指令构建：  
+```
+@switch($i)
+    @case(1)
+        First case...
+        @break
+
+    @case(2)
+        Second case...
+        @break
+
+    @default
+        Default case...
+@endswitch
+```
+
+## 3、 循环
+除了条件语句，Blade 还提供了简单的指令用于处理 PHP 的循环结构，同样，这些指令的功能和 PHP 对应功能完全一样：  
+```
+@for ($i = 0; $i < 10; $i++)
+    The current value is {{ $i }}
+@endfor
+
+@foreach ($users as $user)
+    <p>This is user {{ $user->id }}</p>
+@endforeach
+
+@forelse ($users as $user)
+    <li>{{ $user->name }}</li>
+@empty
+    <p>No users</p>
+@endforelse
+
+@while (true)
+    <p>I'm looping forever.</p>
+@endwhile
+```
+>注：在循环的时候可以使用 `$loop` 变量获取循环信息，例如是否是循环的第一个或最后一个迭代。  
+
