@@ -26,3 +26,30 @@ chmod -R 775 bootstrap/cache
 ### \# 更多配置
 Laravel 几乎不再需要其它任何配置就可以正常使用了，不过，你最好再看看 `config/app.php` 文件，其中包含了一些基于应用可能需要进行改变的配置，比如 `timezone` 和 `locale`（分别用于配置时区和本地化）。  
 你可能还想要配置 Laravel 的一些其它组件，比如缓存、数据库、Session 等，关于这些我们将会在后续文档一一探讨。  
+
+
+
+
+# Web服务器配置
+## Nginx
+如果你使用的是 Nginx，使用如下站点配置指令就可以支持 URL 美化：  
+```
+location / {
+    try_files $uri $uri/ /index.php?$query_string;
+}
+```
+当然，使用 `Homestead` 或 `Valet` 的话，以上配置已经为你配置好，无需额外操作。  
+
+
+
+
+# 环境配置
+[dotenv](https://github.com/vlucas/phpdotenv)  
+## 1、 获取环境变量配置值
+应用每次接受请求时，`.env` 中列出的所有配置及其对应值都会被载入到 PHP 超全局变量 `$_ENV` 中，然后你就可以在应用中通过辅助函数 `env` 来获取这些配置值。实际上，如果你去查看 Laravel 的配置文件，就会发现很多地方已经在使用这个辅助函数了：  
+```
+'debug' => env('APP_DEBUG', false),
+```
+传递到 `env` 函数的第二个参数是默认值，如果环境变量没有被配置将会使用该默认值。  
+
+## 2、 判断当前的应用环境
