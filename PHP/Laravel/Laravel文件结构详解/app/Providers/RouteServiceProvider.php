@@ -51,7 +51,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes()
     {
-        Route::middleware('web')
+        Route::middleware('web')                     // web路由分配到web中间件
              ->namespace($this->namespace)
              ->group(base_path('routes/web.php'));
     }
@@ -65,7 +65,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes()
     {
-        Route::prefix('api')
+        Route::prefix('api')                         // 自动添加/api前缀
              ->middleware('api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
