@@ -23,4 +23,6 @@ chmod -R 775 bootstrap/cache
 接下来要做的事情就是将应用的 key（APP_KEY）设置为一个随机字符串，如果你是通过 Composer 或者 Laravel 安装器安装的话，该 key 的值已经通过 `php artisan key:generate` 命令生成好了。  
 通常，该字符串应该是 32 位长，通过 `.env` 文件中的 APP_KEY 进行配置，如果你还没有将 `.env.example` 文件重命名为 `.env`，现在立即这样做。如果应用 **key 没有被设置，用户 Session 和其它加密数据将会有安全隐患!**  
 
-###
+### \# 更多配置
+Laravel 几乎不再需要其它任何配置就可以正常使用了，不过，你最好再看看 `config/app.php` 文件，其中包含了一些基于应用可能需要进行改变的配置，比如 `timezone` 和 `locale`（分别用于配置时区和本地化）。  
+你可能还想要配置 Laravel 的一些其它组件，比如缓存、数据库、Session 等，关于这些我们将会在后续文档一一探讨。  
