@@ -80,3 +80,34 @@ $value = config('app.timezone');
 ```php
 config(['app.timezone' => 'Asia/Shanghai']);
 ```
+
+# 缓存配置文件
+为了给应用加速，你可以使用 Artisan 命令 `config:cache` 将所有配置文件的配置缓存到单个文件里，这将会将所有配置选项合并到单个文件从而被框架快速加载。  
+
+应用每次上线，都要运行一次 `php artisan config:cache`，但是在本地开发时，没必要经常运行该命令，因为配置值经常会改变。  
+
+>注：如果在部署过程中执行 `config:cache` 命令，需要确保只在配置文件中调用了 `env` 方法。  
+
+# 维护模式
+当你的应用处于维护模式时，所有对应用的请求都应该返回同一个自定义视图。这一功能在对应用进行升级或者维护时，使得“关闭”站点变得轻而易举。对维护模式的判断代码位于应用默认的中间件栈中，如果应用处于维护模式，访问应用时状态码为 `503` 的 `MaintenanceModeException` 将会被抛出。  
+
+要开启维护模式，关闭站点，只需执行 Artisan 命令 `down` 即可：  
+```
+php artisan down
+```
+还可以提供 `message` 和 `retry` 选项给 `down` 命令。`message` 的值用于显示或记录自定义消息，而 `retry` 的值用于设置 HTTP 请求头的 Retry-After：  
+```
+php artisan down --message="Upgrading Database" --retry=60
+```
+要关闭维护模式，开启站点，对应的 Artisan 命令是 `up`：
+```
+php artisan up
+```
+>注：你可以通过定义自己的模板来定制默认的维护模式模板，自定义模板视图位于 `resources/views/errors/503.blade.php`。  
+
+## 1、 维护模式&队列
+当你的站点处于维护模式中时，所有的[队列任务](https://laravelacademy.org/post/8369.html)都不会执行；当应用退出维护模式这些任务才会被继续正常处理。  
+
+## 2、 维护模式的替代方案
+由于维护模式命令的执行需要几秒时间，你可以考虑使用 [Envoyer](https://envoyer.io/) 实现 0 秒下线作为替代方案。  
+
