@@ -53,3 +53,30 @@ location / {
 传递到 `env` 函数的第二个参数是默认值，如果环境变量没有被配置将会使用该默认值。  
 
 ## 2、 判断当前的应用环境
+当前应用环境由 `.env` 文件中的 `APP_ENV` 变量决定，你可以通过 `App` [门面](https://laravelacademy.org/post/8616.html)上的 `environment` 方法来访问其值：  
+```php
+$environment = App::environment();
+```
+你也可以向 `environment` 方法传递参数来判断当前环境是否匹配给定值，如果需要的话你甚至可以传递多个值。如果当前环境与给定值匹配，该方法返回 true：  
+```php
+if (App::environment('local')) {
+    // The environment is local
+}
+
+if (App::environment('local', 'staging')) {
+    // The environment is either local OR staging...
+}
+```
+
+
+
+
+# 访问配置值
+你可以使用全局辅助函数 `config` 在应用代码的任意位置访问配置值，配置值以**文件名+“.”+配置项**的方式进行访问，当配置项没有被配置的时候返回默认值：  
+```php
+$value = config('app.timezone');
+```
+如果要在运行时设置配置值，传递数组参数到 `config` 方法即可：  
+```php
+config(['app.timezone' => 'Asia/Shanghai']);
+```
