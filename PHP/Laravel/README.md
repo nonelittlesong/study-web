@@ -19,3 +19,8 @@ chmod -R 775 storage
 chmod -R 775 bootstrap/cache
 ```
 
+### \# 应用key
+接下来要做的事情就是将应用的 key（APP_KEY）设置为一个随机字符串，如果你是通过 Composer 或者 Laravel 安装器安装的话，该 key 的值已经通过 `php artisan key:generate` 命令生成好了。  
+通常，该字符串应该是 32 位长，通过 `.env` 文件中的 APP_KEY 进行配置，如果你还没有将 `.env.example` 文件重命名为 `.env`，现在立即这样做。如果应用 **key 没有被设置，用户 Session 和其它加密数据将会有安全隐患!**  
+
+###
