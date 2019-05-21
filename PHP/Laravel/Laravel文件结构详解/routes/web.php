@@ -28,3 +28,12 @@ Route::get('/name/{name?}/{age?}', function($myname = 'Wu Xiaosong', $age = 12) 
 Route::get('/name/{name?}/age/{age?}', function($myname = 'Wu Xiaosong', $age = 12) {
   return $myname . $age;
 });
+
+/**
+ * 子域名
+ */
+Route::domain('{account}.blog.dev')->group(function() {
+  Route::get('user/{id}', function ($account, $id) {
+    return 'This is ' . $account . ' page of User ' . $id;
+  });
+});
