@@ -18,3 +18,13 @@ Route::get('/', function () {
 Route::get('hello', function () {
   return 'Hello, this is my first route!';
 });
+
+/**
+ * 可选参数
+ */
+Route::get('/name/{name?}/{age?}', function($myname = 'Wu Xiaosong', $age = 12) {
+  return $myname . $age;
+});
+Route::get('/name/{name?}/age/{age?}', function($myname = 'Wu Xiaosong', $age = 12) {
+  return $myname . $age;
+});
