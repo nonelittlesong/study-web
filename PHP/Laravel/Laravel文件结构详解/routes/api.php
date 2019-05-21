@@ -16,3 +16,11 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+/**
+ * 模型隐式绑定
+ */
+Route::get('users/{user}', function(App\User $user) {
+  dd($user);
+});
+
