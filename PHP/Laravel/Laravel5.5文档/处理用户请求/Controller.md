@@ -82,3 +82,77 @@ Route::get('user/{id}', 'ShowProfile');
 
 
 # 控制器中间件
+中间件可以像这样分配给控制器路由：  
+```
+Route::get('profile', 'UserController@show')->middleware('auth');
+```
+不过，将中间件放在控制器构造函数中更方便，在控制器的构造函数中使用 `middleware` 方法你可以很轻松地分配中间件给该控制器（该方法继承自控制器基类），这样该中间件对所有控制器方法都生效：  
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use App\User;
+use Illuminate\Http\Request;
+
+class UserController extends Controller
+{
+    public function __construct()
+    {
+        $this->middleware('token');
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author LaravelAcademy.org
+     */
+    public function show($id)
+    {
+        return view('user.profile', ['user' => User::findOrFail($id)]);
+    }
+}
+```
+这里我们在构造函数中声明使用 `token` 中间件（关于该中间件定义参考[中间件](https://laravelacademy.org/post/7812.html)这篇教程），这样当我们访问 `http://blog.dev/user/1` 的时候，就会跳转到 Laravel 学院，只有当访问 `http://blog.dev/user/1?token=laravelacademy.org` 时，才能访问到正确的页面。  
+
+除此之外，我们还可以指定中间件对指定方法生效或者排除指定方法的校验：  
+```php
+$this->middleware('auth')->only('show'); // 只对该方法生效
+$this->middleware('auth')->except('show');  // 对该方法以外的方法生效
+```
+如果要指定多个控制器方法可以以数组的方式传参：  
+```php
+$this->middleware('auth')->only(['show', 'index']); // 只对指定方法生效
+$this->middleware('auth')->except(['show', 'index']);  // 对指定方法以外的方法生效
+```
+在控制器中还可以使用闭包注册中间件，这为我们定义只在某个控制器使用的中间件提供了方便，无需定义完整的中间件类：  
+```php
+$this->middleware(function ($request, $next) {
+    // ...
+
+    return $next($request);
+});
+```
+还是以 UserController 为例，我们为其定义一个匿名中间件：  
+```php
+class UserController extends Controller
+{
+  public function __construct() {
+    $this->middleware('token')->except('show');
+    $this->middleware(function ($request, $next) {
+      if (!is_numeric($request->input('id'))) {
+        throw new NotFoundHttpException();
+      }
+      return $next($request);
+    });
+  }
+}
+```
+这样当我们访问 `http://blog.dev/user/1` 会抛出 404 异常，只有当访问 `http://blog.dev/user/1?id=1` 时才能正常展示。
+
+>注：你还可以将中间件分配给多个控制器动作，不过，这意味着你的控制器会变得越来越臃肿，这种情况下，需要考虑将控制器分割成多个更小的控制器。  
+
+
+
+
+# 资源控制器
