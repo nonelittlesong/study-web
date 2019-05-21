@@ -70,3 +70,89 @@ mysql> select concat(round(sum(data_length)/(1024*1024),2) + round(sum(index_len
 +-----------+
 row in set, 1 warning (0.00 sec)
 ```
+
+# 6、 查看MySQL的所有用户信息
+```sh
+mysql>  select distinct concat('user: ''',user,'''@''',host,''';') as query from mysql.user;
++-------------------------------------+
+| query                               |
++-------------------------------------+
+| user: 'root'@'127.0.0.1';           |
+| user: 'root'@'::1';                 |
+| user: 'root'@'gettesx20.test.com'; |
+| user: 'root'@'localhost';           |
++-------------------------------------+
+rows in set (0.00 sec)
+ 
+mysql>
+```
+
+# 7、  查看某个具体用户的权限
+```sh
+mysql> show grants for 'root'@'localhost';
++---------------------------------------------------------------------------------------------------------------------------------+
+| Grants for root@localhost                                                                                                              |
++---------------------------------------------------------------------------------------------------------------------------------+
+| GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY PASSWORD '*C7B1594FD74578DA3A92A61720AC67C6DBE6FC23' WITH GRANT OPTION |
+| GRANT PROXY ON ''@'' TO 'root'@'localhost' WITH GRANT OPTION                                                                           |
++---------------------------------------------------------------------------------------------------------------------------------+
+rows in set (0.00 sec)
+```
+
+# 8、 查看数据库的最大连接数
+```sh
+mysql>  show variables like '%max_connections%';
++-----------------+-------+
+| Variable_name   | Value |
++-----------------+-------+
+| max_connections | 151   |
++-----------------+-------+
+row in set (0.00 sec)
+ 
+mysql>
+```
+
+# 9、 查看数据库当前连接数，并发数
+```sh
+mysql> show status like 'Threads%';
++-------------------+-------+
+| Variable_name     | Value |
++-------------------+-------+
+| Threads_cached    | 0     |
+| Threads_connected | 1     |
+| Threads_created   | 1     |
+| Threads_running   | 1     |
++-------------------+-------+
+rows in set (0.00 sec)
+```
+
+# 10、 查看数据文件存放路径
+```sh
+mysql> show variables like '%datadir%';
++---------------+-------------------+
+| Variable_name | Value             |
++---------------+-------------------+
+| datadir       | /mysqldata/mysql/ |
++---------------+-------------------+
+row in set (0.00 sec)
+ 
+mysql>
+```
+
+# 11、 查看数据库编码
+```sh
+mysql> show variables like 'character%';
++--------------------------+----------------------------+
+| Variable_name            | Value                      |
++--------------------------+----------------------------+
+| character_set_client     | utf8                       |
+| character_set_connection | utf8                       |
+| character_set_database   | utf8                       |
+| character_set_filesystem | binary                     |
+| character_set_results    | utf8                       |
+| character_set_server     | latin1                     |
+| character_set_system     | utf8                       |
+| character_sets_dir       | /usr/share/mysql/charsets/ |
++--------------------------+----------------------------+
+rows in set (0.00 sec)
+```
