@@ -37,3 +37,8 @@ Route::domain('{account}.blog.dev')->group(function() {
     return 'This is ' . $account . ' page of User ' . $id;
   });
 });
+
+/**
+ * 指向控制器
+ */
+Route::get('user/{id}', 'UserController@show');
