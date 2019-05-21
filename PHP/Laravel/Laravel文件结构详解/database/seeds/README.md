@@ -1,5 +1,6 @@
 数据库填充器。  
 
+# 相关artisan指令
 根据Eloquent模型生成表：  
 ```
 php artisan migrate
