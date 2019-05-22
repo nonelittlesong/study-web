@@ -99,7 +99,7 @@ class AfterMiddleware
 ```
 >但除非真的需要，否则我们一般不会把业务级别的中间件放到全局中间件中。  
 
-## 指定路由中间件
+## 2、 指定路由中间件
 1. 在`app/Http/Kernel.php`中分配给该中间件一个`key`
 2. 在路由中使用`middleware`方法添加`key`
 
