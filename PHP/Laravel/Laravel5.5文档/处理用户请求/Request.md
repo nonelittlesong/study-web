@@ -100,6 +100,46 @@ if($request->isMethod('post')){
 }
 ```
 
+### \# all()
 
-## 2、 PSR-7请求
+## 2、 [PSR-7请求](https://www.php-fig.org/psr/psr-7/)
+PSR-7 标准指定了 HTTP 消息接口，包括请求和响应。如果你想要获取遵循 PSR-7 标准的请求实例而不是 Laravel 请求实例，首先需要安装一些库。Laravel 可以使用 Symfony HTTP Message Bridge 组件将典型的 Laravel 请求和响应转化为兼容 PSR-7 接口的实现：  
+```
+composer require ymfony/psr-http-message-bridge
+composer require zendframework/zend-diactoros
+```
+安装完这些库之后，只需要在路由或控制器中通过对请求示例进行类型提示就可以获取 PSR-7 请求：  
+```php
+use Psr\Http\Message\ServerRequestInterface;
 
+Route::get('/', function (ServerRequestInterface $request) {
+    //
+});
+```
+>注：如果从路由或控制器返回的是 PSR-7 响应实例，则其将会自动转化为 Laravel 响应实例并显示出来。  
+
+
+
+
+# 二、 请求字符串处理中间件
+默认情况下，Laravel 在 `App\Http\Kernel` 的全局中间件堆栈中引入了 `TrimStrings` 和 `ConvertEmptyStringsToNull` 中间件。这些中间件会自动对请求中的字符串字段进行处理，前者将字符串两端的空格清除，后者将空字符串转化为 `null`。这样，在路由和控制器中我们就不必对字符串字段做额外的处理。  
+如果你想要禁止该行为，可以从 `App\Http\Kernel` 的中间件堆栈属性 `$middleware` 中移除这两个中间件。  
+
+
+
+
+# 三、 获取请求输入
+### \# 获取所有输入值
+你可以使用 `all` 方法以数组格式获取所有输入值：  
+```php
+$input = $request->all();
+```
+如果请求 URL 是 `http://blog.dev/user/1?token=laravelacademy.org&name=学院君`，则对应 `$input` 返回值是：  
+```
+array:2 [
+  "token" => "laravelacademy.org",
+  "name" => "学院君"
+]
+```
+
+### \# 
