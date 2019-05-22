@@ -150,3 +150,83 @@ Route::get('admin/profile', function () {
 ```
 
 ## 3、 中间件组
+Laravel自带`web`和`api`两个中间件组：  
+```php
+/**
+ * 应用的中间件组
+ *
+ * @var array
+ */
+protected $middlewareGroups = [
+    'web' => [
+        \App\Http\Middleware\EncryptCookies::class,
+        \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+        \Illuminate\Session\Middleware\StartSession::class,
+        // \Illuminate\Session\Middleware\AuthenticateSession::class,
+        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+        \App\Http\Middleware\VerifyCsrfToken::class,
+        \Illuminate\Routing\Middleware\SubstituteBindings::class,
+    ],
+
+    'api' => [
+        'throttle:60,1',
+        'bindings',
+    ],
+];
+```
+
+中间件组使用和分配单个中间件同样的语法被分配给路由和控制器动作。再次申明，中间件组的目的只是让一次分配给路由多个中间件的实现更加方便：  
+```php
+Route::get('/', function () {
+    //
+})->middleware('web');
+
+Route::group(['middleware' => ['web']], function () {
+    //
+});
+```
+
+默认情况下， `RouteServiceProvider` 自动将中间件组 `web` 应用到 `routes/web.php` 文件，将中间件组 `api` 应用到 `routes/api.php`。  
+
+当然我们可以自己设置自己的中间件组，以实现更灵活的中间件分配策略：  
+```php
+/**
+ * 应用的中间件组.
+ *
+ * @var array
+ */
+protected $middlewareGroups = [
+    'web' => [
+        \App\Http\Middleware\EncryptCookies::class,
+        \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+        \Illuminate\Session\Middleware\StartSession::class,
+        // \Illuminate\Session\Middleware\AuthenticateSession::class,
+        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+        \App\Http\Middleware\VerifyCsrfToken::class,
+        \Illuminate\Routing\Middleware\SubstituteBindings::class,
+    ],
+
+    'api' => [
+        'throttle:60,1',
+        'bindings',
+    ],
+
+    'blog' => [
+        'token',
+    ]
+];
+```
+
+我们修改 `routes/web.php` 下面的中间件分配方式：  
+```php
+Route::group(['middleware'=>['blog']],function(){
+    Route::get('/', function () {
+        return view('welcome', ['website' => 'Laravel']);
+    });
+
+    Route::view('/view', 'welcome', ['website' => 'Laravel学院']);
+});
+```
+
+
+
