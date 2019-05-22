@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware('token'); // 指定路由key
+})->middleware('token'); // 指定中间件key
 
 Route::get('hello', function () {
   return 'Hello, this is my first route!';
