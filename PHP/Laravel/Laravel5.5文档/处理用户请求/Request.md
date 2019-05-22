@@ -112,6 +112,8 @@ if($request->isMethod('post')){
   * [old()](#-取出上次请求数据)
 * Cookie
   * [cookie()](#-从请求中取出Cookie)
+* 文件
+  * [file() & hasFile()](1-获取上传的文件)
   
   
 ## 2、 [PSR-7请求](https://www.php-fig.org/psr/psr-7/)
@@ -339,3 +341,73 @@ Route::get('cookie/add', function () {
 
 
 # 三、 文件上传
+## 1、 获取上传的文件
+可以使用 `Illuminate\Http\Request` 实例提供的 `file` 方法或者动态属性来访问上传文件， `file` 方法返回 `Illuminate\Http\UploadedFile` 类的一个实例，该类继承自 PHP 标准库中提供与文件交互方法的 `SplFileInfo` 类：  
+```php
+$file = $request->file('photo');
+$file = $request->photo;
+```
+你可以使用 `hasFile` 方法判断文件在请求中是否存在：  
+```php
+if ($request->hasFile('photo')) {
+    //
+}
+```
+
+### \# 验证文件是否上传成功
+使用 `isValid` 方法判断文件在上传过程中是否出错：  
+```php
+if ($request->file('photo')->isValid()){
+    //
+}
+```
+
+### \# 文件路径和扩展名
+```php
+$path = $request->photo->path();
+$extension = $request->photo->extension();
+```
+
+### \# [其他文件方法](https://github.com/symfony/symfony/blob/3.0/src/Symfony/Component/HttpFoundation/File/UploadedFile.php)
+
+
+## 2、 保存上传的文件
+### \# `config/filesystems.php`
+`local` 配置存放上传文件，即本地文件系统，默认根目录是 `storage/app`。  
+`public` 也是本地文件系统，只不过存放在这里的文件可以被公开访问，其对应的根目录是 `storage/app/public`，要让 Web 用户访问到该目录下存放文件的前提是在应用入口 `public` 目录下建一个软链 `storage` 链接到 `storage/app/public`。  
+
+### \# store
+`UploadedFile` 类有一个 `store` 方法，该方法会将上传文件移动到相应的磁盘路径上，该路径可以是本地文件系统的某个位置，也可以是云存储（如Amazon S3）上的路径。  
+`store` 方法接收一个文件保存的相对路径（相对于文件系统配置的根目录），该路径不需要包含文件名，因为系统会自动生成一个唯一ID作为文件名。  
+`store` 方法还接收一个可选的参数 —— 用于存储文件的磁盘名称作为第二个参数（对应文件系统配置 `disks` 的键名，默认值是 `local`），该方法会返回相对于根目录的文件路径：  
+```php
+$path = $request->photo->store('images');
+$path = $request->photo->store('images', 's3');
+```
+如果你不想自动生成文件名，可以使用 `storeAs` 方法，该方法接收保存路径、文件名和磁盘名作为参数：  
+```php
+$path = $request->photo->storeAs('images', 'filename.jpg');
+$path = $request->photo->storeAs('images', 'filename.jpg', 's3');
+```
+### \# 例子
+在 `routes/api.php` 中定义如下文件上传路由：  
+```
+Route::post('file/upload', function(\Illuminate\Http\Request $request) {
+    if ($request->hasFile('photo') && $request->file('photo')->isValid()) {
+        $photo = $request->file('photo');
+        $extension = $photo->extension();
+        //$store_result = $photo->store('photo');
+        $store_result = $photo->storeAs('photo', 'test.jpg');
+        $output = [
+            'extension' => $extension,
+            'store_result' => $store_result
+        ];
+        print_r($output);exit();
+    }
+    exit('未获取到上传文件或上传过程出错');
+});
+```
+使用 Advanced REST Client 工具来演示 POST 表单提交。  
+上传文件成功后可以去 `storage/app` 目录下查看。  
+其他存储介质使用方式也差不多，无非是修改下 `store` 和 `storeAs` 对应的参数。  
+
