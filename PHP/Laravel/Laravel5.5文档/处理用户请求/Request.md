@@ -340,7 +340,7 @@ Route::get('cookie/add', function () {
 
 
 
-# 三、 文件上传
+# 四、 文件上传
 ## 1、 获取上传的文件
 可以使用 `Illuminate\Http\Request` 实例提供的 `file` 方法或者动态属性来访问上传文件， `file` 方法返回 `Illuminate\Http\UploadedFile` 类的一个实例，该类继承自 PHP 标准库中提供与文件交互方法的 `SplFileInfo` 类：  
 ```php
@@ -411,3 +411,22 @@ Route::post('file/upload', function(\Illuminate\Http\Request $request) {
 上传文件成功后可以去 `storage/app` 目录下查看。  
 其他存储介质使用方式也差不多，无非是修改下 `store` 和 `storeAs` 对应的参数。  
 
+
+
+
+# 五、 配置信任代理
+如果你的应用运行在一个会中断 TLS/SSL 证书的负载均衡器之后，你会注意到有的时候应用不会生成 HTTPS 链接，通常这是因为应用是从负载均衡器从80端口转发过来的流量，所以不知道应该生成安全加密链接。  
+
+要解决这个问题可以使用 Laravel 5.5 新增的 `App\Http\Middleware\TrustProxies` 中间件，该中间件允许你快速自定义需要被应用信任的负载均衡器或代理。被信任的代理位于这个中间件的 `$proxies` 属性列表，除了配置信任代理之外，还可以配置代理发送的带有请求来源信息的消息头。  
+
+### \# 信任所有代理
+
+如果你在使用 Amazon AWS 或者其他云服务提供的负载均衡，并不知道均衡器真实的 IP 地址，这种情况下，可以使用 `**` 通配符信任所有代理：  
+```php
+/**
+ * The trusted proxies for this application.
+ *
+ * @var array
+ */
+protected $proxies = '**';
+```
