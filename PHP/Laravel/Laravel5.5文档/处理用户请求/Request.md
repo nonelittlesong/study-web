@@ -106,6 +106,10 @@ if($request->isMethod('post')){
 
 ### \# [query()](#-从查询字符串中获取输入)
 
+### \# [only() & except()](#-获取输入的部分数据)
+
+### \# [has()](#-判断请求参数是否存在)
+
 ## 2、 [PSR-7请求](https://www.php-fig.org/psr/psr-7/)
 PSR-7 标准指定了 HTTP 消息接口，包括请求和响应。如果你想要获取遵循 PSR-7 标准的请求实例而不是 Laravel 请求实例，首先需要安装一些库。Laravel 可以使用 Symfony HTTP Message Bridge 组件将典型的 Laravel 请求和响应转化为兼容 PSR-7 接口的实现：  
 ```
@@ -187,4 +191,61 @@ $query = $request->query();
 `query` 方法用于获取 `GET` 请求查询字符串参数值，`input` 方法用于获取所有 `HTTP` 请求参数值，`post` 方法用于获取 `POST` 请求参数值。  
 
 ### \# 通过动态属性获取输入
+```php
+$name = $request->name;
+```
+实现原理：  
+```php
+/**
+ * Get an input element from the request.
+ *
+ * @param string $key
+ * @return mixed
+ */
+public function __get($key)
+{
+  if (array_key_exists($key, $this->all())) {
+    return $this->route($key);
+  }
+}
+```
+要我说，这些语法糖没啥用，对性能没啥提升，只是方便使用而已，但这样也会增加使用者学习语法的成本。  
+
+### \# 获取JSON输入值
+发送 JSON 请求到应用的时候，只要 Content-Type 请求头被设置为 `application/json`，都可以通过 `input` 方法获取 JSON 数据，还可以通过“.”号解析数组：  
+```php
+$name = $request->input('user.name');
+```
+
+### \# 获取输入的部分数据
+如果你需要取出输入数据的子集，可以使用 `only` 或 `except` 方法，这两个方法都接收一个数组或动态列表作为唯一参数，这和我们在上一篇控制器中提到的控制器中间件使用语法类似：  
+```php
+$input = $request->only(['username', 'password']);
+$input = $request->only('username', 'password');
+
+$input = $request->except(['credit_card']);
+$input = $request->except('credit_card');
+```
+>注：`only` 方法返回所有你想要获取的参数键值对，不过，如果你想要获取的参数不存在，则对应参数会被过滤掉。  
+
+### \# 判断请求参数是否存在
+判断参数在请求中是否存在，可以使用 `has` 方法，如果参数存在则返回 `true`：  
+```php
+if ($request->has('name')) {
+    //
+}
+```
+该方法支持以数组形式查询多个参数，这种情况下，只有当参数都存在时，才会返回 `true`：  
+```php
+if ($request->has(['name', 'email'])) {
+    //
+}
+```
+如果你想要判断参数存在且参数值不为空，可以使用 `filled` 方法：  
+```php
+if ($request->filled('name')) {
+    //
+}
+```
+
 
