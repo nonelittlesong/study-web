@@ -25,3 +25,33 @@ class UserController extends Controller
     }
 }
 ```
+
+### \# 依赖注入和路由参数
+要获取路由参数，只需要将路由参数放在其他依赖后：  
+```php
+Route::put('user/{id}','UserController@update');
+```
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class UserController extends Controller
+{
+    /**
+     * 更新指定用户
+     *
+     * @param Request $request
+     * @param int $id
+     * @return Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+}
+```
+
+### \# 
