@@ -100,7 +100,9 @@ if($request->isMethod('post')){
 }
 ```
 
-### \# all()
+### \# [all()](#-获取所有输入值)
+
+### \# [input()](#-获取单个输入值)
 
 ## 2、 [PSR-7请求](https://www.php-fig.org/psr/psr-7/)
 PSR-7 标准指定了 HTTP 消息接口，包括请求和响应。如果你想要获取遵循 PSR-7 标准的请求实例而不是 Laravel 请求实例，首先需要安装一些库。Laravel 可以使用 Symfony HTTP Message Bridge 组件将典型的 Laravel 请求和响应转化为兼容 PSR-7 接口的实现：  
@@ -142,4 +144,27 @@ array:2 [
 ]
 ```
 
-### \# 
+### \# 获取单个输入值
+```php
+$name = $request->input('name');
+```
+
+你还可以传递一个默认值作为第二个参数给 `input` 方法，如果请求输入值在当前请求 URL 中未出现时该值将会被返回：  
+```php
+$name = $request->input('name', '学院君');
+```
+比如我们访问` http://blog.dev/user/1?token=laravelacademy.org`，仍然可以获取到 `$name` 的值为 `学院君`。  
+
+处理表单数组输入时，可以使用”.”来访问数组输入：  
+```php
+$input = $request->input('products.0.name');
+$names = $request->input('products.*.name');
+```
+比如我们访问 `http://blog.dev/user/1?products[][name]=学院君&products[][name]=学院君小号`，则上述 `$input` 的值是 `学院君`，而 `$names` 的值是：  
+```
+array:2 [
+  0 => "学院君",
+  1 => "学院君小号"
+]
+```
+
