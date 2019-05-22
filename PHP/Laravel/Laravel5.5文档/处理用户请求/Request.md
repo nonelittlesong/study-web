@@ -319,3 +319,23 @@ Route::get('cookie/get', function(\Illuminate\Http\Request $request) {
 **当然我们也可以通过 Chrome 浏览器的 F12 模式快速查看 Cookie 信息。**（加密过）  
 
 ### \# 生成Cookie实例
+如果你想要生成一个 `Symfony\Component\HttpFoundation\Cookie` 实例以便后续添加到响应实例，可以使用全局辅助函数 `cookie`，该 Cookie 只有在添加到响应实例上才会发送到客户端：  
+```php
+$cookie = cookie('name', '学院君', $minutes);
+return response('欢迎来到 Laravel 学院')->cookie($cookie);
+```
+我们改写下之前的 cookie/add 路由实现逻辑：  
+```php
+Route::get('cookie/add', function () {
+    $minutes = 24 * 60;
+    //return response('欢迎来到 Laravel 学院')->cookie('name', '学院君', $minutes);
+    $cookie = cookie('name', '学院君X', $minutes);
+    return response('欢迎来到 Laravel 学院')->cookie($cookie);
+});
+```
+效果和之前一致，这次访问 `cookie/get` 路由，页面打印结果是 "学院君X"。  
+
+
+
+
+# 三、 文件上传
