@@ -100,15 +100,15 @@ if($request->isMethod('post')){
 }
 ```
 
-### \# [all()](#-获取所有输入值)
+### \# 其他
+* [all()](#-获取所有输入值)
+* [input()](#-获取单个输入值)
+* [query()](#-从查询字符串中获取输入)
+* [only() & except()](#-获取输入的部分数据)
+* [has()](#-判断请求参数是否存在)
+* [flash() & flashOnly() & flashExcept()](#-session)
+* [old()](#-取出上次请求数据)
 
-### \# [input()](#-获取单个输入值)
-
-### \# [query()](#-从查询字符串中获取输入)
-
-### \# [only() & except()](#-获取输入的部分数据)
-
-### \# [has()](#-判断请求参数是否存在)
 
 ## 2、 [PSR-7请求](https://www.php-fig.org/psr/psr-7/)
 PSR-7 标准指定了 HTTP 消息接口，包括请求和响应。如果你想要获取遵循 PSR-7 标准的请求实例而不是 Laravel 请求实例，首先需要安装一些库。Laravel 可以使用 Symfony HTTP Message Bridge 组件将典型的 Laravel 请求和响应转化为兼容 PSR-7 接口的实现：  
@@ -250,3 +250,34 @@ if ($request->filled('name')) {
 
 
 ## 1、 上一次请求输入
+
+### \# session
+`Illuminate\Http\Request` 实例的 `flash` 方法会将当前输入存放到一次性 Session（所谓的一次性指的是从 Session 中取出数据后，对应数据会从 Session 中销毁）中，这样在下一次请求时上一次输入的数据依然有效：  
+```php
+$request->flash();
+```
+你还可以使用 `flashOnly` 和 `flashExcept` 方法将输入数据子集存放到 Session 中，这些方法在 Session 之外保存敏感信息时很有用，该功能适用于登录密码填写错误的场景：  
+```php
+$request->flashOnly('username', 'email');
+$request->flashExcept('password');
+```
+
+### \# 将输入存储到Session然后重定向
+如果你经常需要一次性存储输入请求输入并返回到表单填写页，可以在 `redirect()` 之后调用 `withInput()` 方法实现这样的功能：
+```php
+return redirect('form')->withInput();
+return redirect('form')->withInput($request->except('password'));
+```
+
+### \# 取出上次请求数据
+要从 Session 中取出上次请求的输入数据，可以使用 Request 实例提供的 `old` 方法。`old` 方法可以很方便地从 Session 中取出一次性数据：  
+```php
+$username = $request->old('username');
+```
+Laravel 还提供了一个全局的辅助函数 `old()`，如果你是在 Blade 模板中显示上次输入数据，使用辅助函数 `old()` 更方便，如果给定参数没有对应输入，返回 null：  
+```htm
+<input type="text" name="username" value="{{ old('username') }}">
+```
+
+
+## 2、 Cookie
