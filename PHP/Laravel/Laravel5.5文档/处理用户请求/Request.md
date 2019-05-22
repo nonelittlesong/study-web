@@ -101,15 +101,19 @@ if($request->isMethod('post')){
 ```
 
 ### \# 其他
-* [all()](#-获取所有输入值)
-* [input()](#-获取单个输入值)
-* [query()](#-从查询字符串中获取输入)
-* [only() & except()](#-获取输入的部分数据)
-* [has()](#-判断请求参数是否存在)
-* [flash() & flashOnly() & flashExcept()](#-session)
-* [old()](#-取出上次请求数据)
-
-
+* 请求参数
+  * [all()](#-获取所有输入值)
+  * [input()](#-获取单个输入值)
+  * [query()](#-从查询字符串中获取输入)
+  * [only() & except()](#-获取输入的部分数据)
+  * [has()](#-判断请求参数是否存在)
+* Session
+  * [flash() & flashOnly() & flashExcept()](#-session)
+  * [old()](#-取出上次请求数据)
+* Cookie
+  * [cookie()](#-从请求中取出Cookie)
+  
+  
 ## 2、 [PSR-7请求](https://www.php-fig.org/psr/psr-7/)
 PSR-7 标准指定了 HTTP 消息接口，包括请求和响应。如果你想要获取遵循 PSR-7 标准的请求实例而不是 Laravel 请求实例，首先需要安装一些库。Laravel 可以使用 Symfony HTTP Message Bridge 组件将典型的 Laravel 请求和响应转化为兼容 PSR-7 接口的实现：  
 ```
@@ -281,3 +285,37 @@ Laravel 还提供了一个全局的辅助函数 `old()`，如果你是在 Blade 
 
 
 ## 2、 Cookie
+### \# 从请求中取出Cookie
+```php
+$value = $request->cookie('name');
+```
+
+### \# 添加Cookie到响应
+你可以使用 `cookie` 方法将一个 Cookie 添加到返回的 `Illuminate\Http\Response` 实例，你需要传递 Cookie 名称、值、以及有效期（分钟）到这个方法：  
+```php
+return response('欢迎来到 Laravel 学院')->cookie(
+    'name', '学院君', $minutes
+);
+```
+`cookie` 方法可以接收一些使用频率较低的参数，一般来说，这些参数和 PHP 原生函数 `setcookie` 作用和意义一致：  
+```php
+return response('欢迎来到 Laravel 学院')->cookie(
+    'name', '学院君', $minutes, $path, $domain, $secure, $httpOnly
+);
+```
+我们简单演示下该功能的使用，在 `routes/web.php` 定义两个路由如下：  
+```php
+Route::get('cookie/add', function () {
+    $minutes = 24 * 60;
+    return response('欢迎来到 Laravel 学院')->cookie('name', '学院君', $minutes);
+});
+
+Route::get('cookie/get', function(\Illuminate\Http\Request $request) {
+    $cookie = $request->cookie('name');
+    dd($cookie);
+});
+```
+先访问 `http://blog.dev/cookie/add` 设置 Cookie，然后再通过` http://blog.dev/cookie/get` 获取 Cookie 值，如果在页面看到输出 `学院君`，则表示 Cookie 设置成功。  
+**当然我们也可以通过 Chrome 浏览器的 F12 模式快速查看 Cookie 信息。**（加密过）  
+
+### \# 生成Cookie实例
