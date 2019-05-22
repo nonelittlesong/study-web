@@ -104,6 +104,8 @@ if($request->isMethod('post')){
 
 ### \# [input()](#-获取单个输入值)
 
+### \# [query()](#-从查询字符串中获取输入)
+
 ## 2、 [PSR-7请求](https://www.php-fig.org/psr/psr-7/)
 PSR-7 标准指定了 HTTP 消息接口，包括请求和响应。如果你想要获取遵循 PSR-7 标准的请求实例而不是 Laravel 请求实例，首先需要安装一些库。Laravel 可以使用 Symfony HTTP Message Bridge 组件将典型的 Laravel 请求和响应转化为兼容 PSR-7 接口的实现：  
 ```
@@ -167,4 +169,22 @@ array:2 [
   1 => "学院君小号"
 ]
 ```
+
+### \# 从查询字符串中获取输入
+`input` 方法会从整个请求负载（包括查询字符串）中获取数值，`query`则只会从查询字符串中获取数值：  
+```php
+$name = $request->query('name');
+```
+我们可以像 `input` 方法一样设置第二个参数为默认值：  
+```php
+$name = $request->query('name', '学院君');
+```
+你也可以调用一个不传任何参数的 `query` 方法以便以关联数组的方式获取整个查询字符串的值，类似 `all` 方法所做的：  
+```php
+$query = $request->query();
+```
+`query` 方法就是从 `query` 属性对象中获取参数值，`input` 方法会从 `query + request` 属性对象中获取参数值，请求实例上还有个 `post` 方法用于从 `request` 属性对象中获取参数值;  
+`query` 方法用于获取 `GET` 请求查询字符串参数值，`input` 方法用于获取所有 `HTTP` 请求参数值，`post` 方法用于获取 `POST` 请求参数值。  
+
+### \# 通过动态属性获取输入
 
