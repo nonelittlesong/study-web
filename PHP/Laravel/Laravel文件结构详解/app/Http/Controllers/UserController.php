@@ -17,4 +17,15 @@ class UserController extends Controller
   public function show($id) {
     return view('user.profile', ['user' => User::findOrFail($id)]);
   }
+  
+   /**
+    * 存储新用户
+    *
+    * @param Request request
+    *
+    */
+  public function store(Request $request) { // 依赖注入
+    $name = $request->input('name');
+    // 
+  }
 }
