@@ -28,4 +28,16 @@ class UserController extends Controller
     $name = $request->input('name');
     // 
   }
+  
+  /**
+   * 更新指定用户
+   *
+   * @param Request $request
+   * @param int $id
+   * @return Response
+   */
+  public function update(Request $request, $id) // 添加路由参数
+  {
+      //
+  }
 }
