@@ -42,3 +42,17 @@ Route::domain('{account}.blog.dev')->group(function() {
  * 指向控制器
  */
 Route::get('user/{id}', 'UserController@show');
+
+/*
+ |---------------------------------------------------------------------------------------
+ | Cookie
+ |---------------------------------------------------------------------------------------
+ */
+Route::get('cookie/add', function () {
+  $minutes = 24 * 60;
+  return response('<div style="background:green;color:#000;">Cookie已添加</div>')->cookie('name', '吴小松', $minutes);
+});
+Route::get('cookie/get', function (\Illuminate\Http\Request $request) {
+  $cookie = $request->cookie('name');
+  dd($cookie);
+});
