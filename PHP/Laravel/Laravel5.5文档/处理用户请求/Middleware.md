@@ -230,3 +230,68 @@ Route::group(['middleware'=>['blog']],function(){
 
 
 
+# 三、 中间件参数
+```php
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+
+class CheckRole
+{
+    /**
+     * 处理输入请求
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
+     * @param string $role
+     * @return mixed
+     * translator http://laravelacademy.org
+     */
+    public function handle($request, Closure $next, $role)
+    {
+        if (! $request->user()->hasRole($role)) {
+            // Redirect...
+        }
+
+        return $next($request);
+    }
+
+}
+```
+中间件参数可以在定义路由时通过 `:` 分隔中间件名和参数名来指定，多个中间件参数可以通过逗号分隔：  
+```php
+Route::put('post/{id}', function ($id) {
+    //
+})->middleware('role:editor');
+```
+
+
+
+# 四、 终端中间件
+终端中间件，可以理解为一个善后的后台处理中间件。有时候中间件可能需要在 HTTP 响应发送到浏览器之后做一些工作，比如，Laravel 内置的 `session` 中间件会在响应发送到浏览器之后将 Session 数据写到存储器中，为了实现这个功能，需要定义一个终止中间件并添加 `terminate` 方法到这个中间件：  
+```php
+<?php
+
+namespace Illuminate\Session\Middleware;
+
+use Closure;
+
+class StartSession
+{
+    public function handle($request, Closure $next)
+    {
+        return $next($request);
+    }
+
+    public function terminate($request, $response)
+    {
+        // 存储session数据...
+    }
+}
+```
+`terminate` 方法将会接收请求和响应作为参数。**定义了一个终端中间件之后，还需要将其加入到 `app/Http/Kernel.php` 文件的全局中间件列表中**。  
+
+当调用中间件上的 `terminate` 方法时，Laravel 将会从服务容器中取出一个该中间件的新实例，如果你想要在调用 `handle` 和 `terminate` 方法时使用同一个中间件实例，则需要使用容器提供的 `singleton` 方法以单例的方式将该中间件注册到容器中。  
+
