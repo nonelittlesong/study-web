@@ -94,3 +94,64 @@ Route::post('user/profile', function () {
 });
 ```
 
+## 1、 重定向到命名路由
+如果调用不带参数的 `redirect` 方法，会返回一个 `Illuminate\Routing\Redirector` 实例，然后就可以使用 `Redirector` 实例上的所有方法。例如，要生成一个 `RedirectResponse` 到命名路由，可以使用 `route` 方法：  
+```php
+return redirect()->route('login');
+```
+如果路由中有参数，可以将其作为第二个参数传递到 route 方法：  
+```php
+// For a route with the following URI: profile/{id}
+return redirect()->route('profile', ['id'=>1]);
+```
+
+### \# 通过Eloquent模型填充参数
+如果要重定向到**带 ID 参数**的路由（ Eloquent 模型绑定 ），可以传递**模型本身**，ID 会被自动解析出来：  
+```php
+return redirect()->route('profile', [$user]);
+```
+如果你想要自定义这个路由参数中的默认参数名（默认是 `id`），需要重写模型实例上的 `getRouteKey` 方法：  
+```php
+/**
+ * Get the value of the model's route key.
+ *
+ * @return mixed
+ */
+public function getRouteKey()
+{
+    return $this->slug;
+}
+```
+
+## 2、 重定向到控制器动作
+你还可以生成重定向到控制器动作的响应，只需传递控制器和动作名到 `action` 方法即可。记住，你不需要指定控制器的完整命名空间，因为 Laravel 的 `RouteServiceProvider` 将会自动设置默认的控制器命名空间：  
+```php
+return redirect()->action('HomeController@index');
+```
+和 `route` 方法一样，如果控制器路由要求参数，你可以将参数作为第二个参数传递给 `action` 方法：  
+```php
+return redirect()->action('UserController@profile', ['id'=>1]);
+```
+
+## 3、 带一次性Session数据的重定向
+重定向到一个新的 URL 并将数据存储到一次性 Session 中通常是同时完成的，为了方便，可以创建一个 `RedirectResponse` 实例然后在同一个方法链上将数据存储到 Session，这种方式在 `action` 之后存储状态信息时特别方便：  
+```php
+Route::post('user/profile', function () {
+    // 更新用户属性...
+    return redirect('dashboard')->with('status', 'Profile updated!');
+});
+```
+用户重定向到新页面之后，你可以从 Session 中取出并显示这些一次性信息，使用 Blade 语法实现如下（关于 Blade 模板使用我们会在后续教程详细讨论）：  
+```htm
+@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
+```
+>注：这个一次性体现在从 Session 取出数据之后，这些数据就会被销毁，不复存在。  
+
+
+
+
+# 三、 其他响应类型
