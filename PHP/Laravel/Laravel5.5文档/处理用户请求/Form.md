@@ -68,3 +68,78 @@ public function store(Request $request){
 
 >注：实际执行代码之前，需要在数据库中创建 `posts` 数据表，因为这里用到了 `unique:posts` 这个验证规则，该规则会去数据库中查询传入标题是否已存在以保证唯一性。  
 
+### \# 首次验证失败后中止后续规则验证
+有时候你可能想要在首次验证失败后停止检查该属性的其它验证规则，要实现这个功能，可以在规则属性中分配 `bail` 作为首规则：  
+```php
+$request->validate([
+    'title' => 'bail|required|unique:posts|max:255',
+    'body' => 'required',
+]);
+```
+在这个例子中，如果 `title` 属性上的 `required` 规则验证失败，则不会检查 `unique` 规则，规则会按照分配顺序依次进行验证。  
+
+### \# 嵌套属性注意事项
+如果 HTTP 请求中包含“嵌套”参数，可以使用“.”在验证规则中指定它们：  
+```php
+$request->validate([
+    'title' => 'required|unique:posts|max:255',
+    'author.name' => 'required',
+    'author.desc' => 'required',
+]);
+```
+这样的验证规则适用于验证如下标签请求：  
+```htm
+<form method="POST" action="{{route('posts.store')}}">
+    {{csrf_field()}}
+    <input type="text" name="title"/>
+    <input type="text" name="author[name]"/>
+    <input type="text" name="author[desc]"/>
+    <textarea cols="20" rows="5" name="body"></textarea>
+    <button type="submit">submit</button>
+</form>
+```
+
+## 4、 显示验证错误信息
+验证未通过，Laravel 将会自动将用户重定向回上一个位置。  
+此外，所有验证错误信息会自动存放到一次性 Session。  
+
+注意我们并没有在 `GET` 路由中显式绑定错误信息到视图。这是因为 Laravel 总是从 Session 数据中检查错误信息，而且如果有的话会自动将其绑定到视图。所以，值得注意的是每次请求的所有视图中总是存在一个`$errors` 变量，从而允许你在视图中方便而又安全地使用。`$errors` 变量是一个`Illuminate\Support\MessageBag` 实例。想要了解更多关于该对象的信息，查看其[文档](https://laravelacademy.org/post/7978.html#toc_15)。
+
+>注：`$errors` 变量会通过 `web` 中间件组中的 `Illuminate\View\Middleware\ShareErrorsFromSession` 中间件绑定到视图，如果使用了该中间件，那么 `$errors` 变量在视图中总是有效，从而方便你随时使用。  
+
+所以，在我们的例子中，验证失败的话用户将会被重定向到控制器的 `create` 方法，从而允许我们在视图中显示错误信息：  
+```htm
+<!-- /resources/views/post/create.blade.php -->
+
+<h1>Create Post</h1>
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+<!-- Create Post Form -->
+```
+
+## 5、 可选字段注意事项
+默认情况下，Laravel自带了 `TrimStrings` 和 `ConvertEmptyStringsToNull` 中间件，这两个中间件位于 `App\Http\Kernel` 类的全局中间件堆栈中，因为这个原因，你需要经常将“可选”的请求字段标记为 `nullable` —— 如果你不想让验证器将 null 判定为无效的话。例如：  
+```php
+$this->validate($request, [
+    'title' => 'required|unique:posts|max:255',
+    'body' => 'required',
+    'publish_at' => 'nullable|date',
+]);
+```
+
+### \# AJAX请求&验证
+在 AJAX 请求中使用 `validate` 方法时，Laravel 不会生成重定向响应。取而代之的，Laravel 生成一个包含验证错误信息的 JSON 响应。该 JSON 响应会带上一个 HTTP 状态码 `422`。  
+
+
+
+
+# 二、 复杂表单请求验证
