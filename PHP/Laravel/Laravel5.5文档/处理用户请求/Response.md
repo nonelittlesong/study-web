@@ -155,3 +155,100 @@ Route::post('user/profile', function () {
 
 
 # 三、 其他响应类型
+不带参数的`response()`创建`ResponseFactory`。  
+
+## 1、 视图响应
+```php
+return response() // 使用不带参数的response()创建ResponseFactory实例
+    ->view('hello', $data, 200)
+    ->header('Content-Type', $type);
+```
+当然，如果你不需要传递自定义的 HTTP 状态码和头信息，只需要简单使用全局辅助函数 `view` 即可：  
+```php
+Route::get('view/response', function() {
+   return view('hello');
+});
+```
+
+## 2、 JSON响应
+`json` 方法会自动将 `Content-Type` 头设置为 `application/json`，并使用 PHP 函数 `json_encode` 方法将给定数组转化为 JSON 格式数据：  
+```php
+return response()->json([
+        'name' => 'Abigail', 
+        'state' => 'CA'
+]);
+```
+如果你想要创建一个 JSONP 响应，可以在 `json` 方法之后调用 `withCallback` 方法：  
+```php
+return response()
+        ->json(['name' => 'Abigail', 'state' => 'CA'])
+        ->withCallback($request->input('callback'));
+```
+或者直接使用 `jsonp` 方法：  
+```php
+return response()
+        ->jsonp($request->input('callback'), ['name' => 'Abigail', 'state' => 'CA']);
+```
+
+## 3、 文件下载
+`download` 方法用于生成强制用户浏览器下载给定路径文件的响应。`download` 方法接受文件名作为第二个参数，该参数决定用户下载文件的显示名称，你还可以将 HTTP 头信息作为第三个参数传递到该方法：  
+```php
+return response()->download($pathToFile);
+return response()->download($pathToFile, $name, $headers);
+return response()->download($pathToFile)->deleteFileAfterSend(true);
+```
+>注：管理文件下载的 `Symfony HttpFoundation` 类要求被下载文件有一个 `ASCII` 文件名，这意味着被下载文件名不能是中文。  
+
+举个例子，我们可以通过以下代码下载上一篇教程上传的图片：  
+```php
+Route::get('download/response', function() {
+    return response()->download(storage_path('app/photo/test.jpg'), '测试图片.jpg');
+});
+```
+
+## 4、 文件响应
+`file` 方法可用于直接在用户浏览器显示文件，例如图片或 PDF，而不需要下载，该方法接收文件路径作为第一个参数，头信息数组作为第二个参数：  
+```php
+return response()->file($pathToFile);
+return response()->file($pathToFile, $headers);
+```
+
+
+
+# 四、 响应宏
+(~实现原理~)  
+
+使用 `Response` 门面上的 `macro` 方法。例如，在某个服务提供者的 `boot` 方法中编写代码如下：  
+```php
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\ServiceProvider;
+
+class ResponseMacroServiceProvider extends ServiceProvider
+{
+    /**
+     * Perform post-registration booting of services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Response::macro('caps', function ($value) {
+            return Response::make(strtoupper($value));
+        });
+    }
+}
+```
+`macro` 方法接收响应名称作为第一个参数，闭包函数作为第二个参数，响应宏的闭包在 `ResponseFactory` 实现类或辅助函数 `response` 中调用宏名称的时候被执行：  
+```php
+Route::get('macro/response', function() {
+    return response()->caps('LaravelAcademy');
+});
+```
+在浏览器中访问 `http://blog.dev/macro/response`，输出入下：  
+```
+LARAVELACADEMY
+```
