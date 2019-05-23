@@ -43,4 +43,17 @@ class StoreBlogPost extends FormRequest
         });
     }
     
+    /**
+ * 获取被定义验证规则的错误消息
+ *
+ * @return array
+ * @translator laravelacademy.org
+ */
+    public function messages(){
+        return [
+            'title.required' => 'A title is required',
+            'body.required'  => 'A message is required',
+        ];
+    }
+    
 }
