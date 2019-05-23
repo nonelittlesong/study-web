@@ -16,4 +16,54 @@ Session 驱动用于定义请求的 Session 数据存放在哪里，Laravel 可�
 >注：数组驱动通常用于运行测试以避免 Session 数据持久化。  
 
 
+## 2、 Session 驱动预备知识
+### \# 数据库
+当使用 `database` 作为 Session 驱动时，需要设置表包含 Session 字段，下面是该数据表的表结构声明：  
+```
+Schema::create('sessions', function ($table) {
+    $table->string('id')->unique();
+    $table->unsignedInteger('user_id')->nullable();
+    $table->string('ip_address', 45)->nullable();
+    $table->text('user_agent')->nullable();
+    $table->text('payload');
+    $table->integer('last_activity');
+});
+```
+你可以使用 Artisan 命令 `session:table` 在数据库中创建这张表：  
+```
+php artisan session:table
+php artisan migrate
+```
 
+### \# Redis
+在 Laravel 中使用 Redis 作为 Session 驱动前，需要通过 Composer 安装 `predis/predis` 包。可以在 `database` 配置文件中配置 Redis 连接，在 Session 配置文件中，`connection` 选项用于指定 Session 使用哪一个 Redis 连接。  
+
+比如我在 `config/database.php` 中为 Redis 配置了一个 Session 连接：  
+```php
+`redis` => [
+  'client' => 'predis',
+  'default' => [
+    'host' => env('REDIS_HOST', '127.0.0.1'),
+    'password' => env('REDIS_PASSWORD', null),
+    'port' => env('REDIS_PORT', 6379),
+    'database' => 0,
+  ],
+  'session' => [
+    'host' => env('SESS_REDIS_HOST', '127.0.0.1'),
+    'password' => env('SESS_REDIS_PASSWORD', null),
+    'port' => env('SESS_REDIS_PORT', 6379),
+    'database' => 0,
+  ]
+],
+```
+然后在 `config/session.php` 中配置 Session 驱动为 `redis`，对应的 `connection` 项指向 `database` 中的 `redis.session` 配置：  
+```php
+'driver' => env('SESSION_DRIVER', 'file'),
+'connection' => 'session',
+```
+>注：SESSION_DRIVER=redis 在 .env 中设置。  
+
+
+
+
+# 二、 使用Session
