@@ -65,3 +65,18 @@ Route::get('cookie/response', function() {
 ```
 
 ## 3、 Cookie & 加密
+默认情况下，Laravel 框架生成的 Cookie 都经过了加密和签名，以免在客户端被篡改。如果你想要让特定的 Cookie 子集在生成时取消加密，可以通过 `app/Http/Middleware` 目录下的中间件 `App\Http\Middleware\EncryptCookies` 提供的 `$except` 属性来排除这些 Cookie：  
+```php
+/**
+ * 不需要被加密的cookies名称
+ *
+ * @var array
+ */
+protected $except = [
+    'cookie_name',
+];
+```
+
+
+
+# 二、 重定向
