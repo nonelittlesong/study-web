@@ -129,3 +129,67 @@ $data = $request->session()->all();
 ```
 
 ### \# 判断Session中是否存在指定项
+`has` 方法可用于检查数据项在 Session 中是否存在。如果存在并且不为 `null` 的话返回 `true`：  
+```php
+if ($request->session()->has('users')) {
+    //
+}
+```
+要判断某个值在 Session 中是否存在，即使是 `null` 的话也无所谓，则可以使用 `exists` 方法。如果值存在的话 `exists` 返回 `true`：  
+```php
+if ($request->session()->exists('users')) {
+    //
+}
+```
+
+
+## 2、 存储数据
+* `put` 方法
+* `session` 辅助函数
+
+```php
+//通过调用请求实例的 put 方法
+$request->session()->put('key', 'value');
+
+// 通过全局辅助函数 session
+session(['key' => 'value']);
+```
+
+### \# 推送数据到数组Session
+`push` 方法可用于推送数据到值为数组的 Session，例如，如果 `user.teams` 键包含团队名数组，可以像这样推送新值到该数组：  
+```php
+$request->session()->push('user.teams', 'developers');
+```
+
+### \# 获取&删除数据
+`pull` 方法将会通过一条语句从 Session 获取并删除数据：
+```php
+$value = $request->session()->pull('key', 'default');
+```
+
+## 3、 一次性数据
+有时候你可能想要在 Session 中存储只在下个请求中有效的数据，这可以通过 `flash` 方法来实现。使用该方法存储的 Session 数据只在随后的 HTTP 请求中有效，然后将会被删除：  
+```php
+$request->session()->flash('status', '登录Laravel学院成功!');  
+```
+如果你需要在更多请求中保持该一次性数据，可以使用 `reflash` 方法，该方法将所有一次性数据保留到下一个请求，如果你只是想要保存特定一次性数据，可以使用 `keep` 方法：  
+```php
+$request->session()->reflash();
+$request->session()->keep(['username', 'email']);
+```
+
+## 4、 删除数据
+`forget` 方法从 Session 中移除指定数据，如果你想要从 Session 中移除所有数据，可以使用 `flush` 方法：  
+```php
+$request->session()->forget('key');
+$request->session()->flush();
+```
+
+## 5、 重新生成 Session ID
+重新生成 Session ID 经常用于阻止恶意用户对应用进行 `session fixation` 攻击（关于 session fixation 攻击可参考这篇文章：http://www.360doc.com/content/11/1028/16/1542811_159889635.shtml）。  
+
+如果你使用内置的 `LoginController` 的话，Laravel 会在认证期间自动重新生成 session ID，如果你需要手动重新生成 session ID，可以使用 `regenerate` 方法：  
+```php
+$request->session()->regenerate();
+```
+
