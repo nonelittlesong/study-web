@@ -110,6 +110,8 @@ if($request->isMethod('post')){
 * Session
   * [flash() & flashOnly() & flashExcept()](#-session)
   * [old()](#-取出上次请求数据)
+  * [get()](https://github.com/nonelittlesong/study-web/blob/master/PHP/Laravel/Laravel5.5%E6%96%87%E6%A1%A3/%E5%A4%84%E7%90%86%E7%94%A8%E6%88%B7%E8%AF%B7%E6%B1%82/Session.md#-request%E5%AE%9E%E4%BE%8B)
+  * [all()](https://github.com/nonelittlesong/study-web/blob/master/PHP/Laravel/Laravel5.5%E6%96%87%E6%A1%A3/%E5%A4%84%E7%90%86%E7%94%A8%E6%88%B7%E8%AF%B7%E6%B1%82/Session.md#-%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89session%E6%95%B0%E6%8D%AE)
 * Cookie
   * [cookie()](#-从请求中取出Cookie)
 * 文件
