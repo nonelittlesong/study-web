@@ -114,6 +114,8 @@ if($request->isMethod('post')){
   * [cookie()](#-从请求中取出Cookie)
 * 文件
   * [file() & hasFile()](1-获取上传的文件)
+* [validate()](https://github.com/nonelittlesong/study-web/blob/master/PHP/Laravel/Laravel5.5%E6%96%87%E6%A1%A3/%E5%A4%84%E7%90%86%E7%94%A8%E6%88%B7%E8%AF%B7%E6%B1%82/Form.md#3-%E7%BC%96%E5%86%99%E9%AA%8C%E8%AF%81%E9%80%BB%E8%BE%91)
+
   
   
 ## 2、 [PSR-7请求](https://www.php-fig.org/psr/psr-7/)
