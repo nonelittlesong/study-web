@@ -143,3 +143,57 @@ $this->validate($request, [
 
 
 # 二、 复杂表单请求验证
+## 1、 创建表单请求
+```
+php artisan make:request StoreBlogPost
+```
+实现`rules`方法：  
+```php
+/**
+ * 获取应用到请求的验证规则
+ *
+ * @return array
+ */
+public function rules(){
+    return [
+        'title' => 'required|unique:posts|max:255',
+        'body' => 'required',
+    ];
+}
+```
+**表单输入请求会在控制器方法被调用之前被验证**:  
+```php
+/**
+ * 存储输入的博客文章
+ *
+ * @param  StoreBlogPostRequest  $request
+ * @return Response
+ */
+public function store(StoreBlogPost $request){
+    // The incoming request is valid...
+}
+```
+如果验证失败，重定向响应会被生成并将用户退回上一个位置，错误信息也会被存储到**一次性 Session** 以便在视图中显示。  
+如果是 AJAX 请求，带 `422` 状态码的 HTTP 响应将会返回给用户，该响应数据中还包含了 JSON 格式的验证错误信息。  
+
+### \# 添加验证后钩子到表单请求
+如果你想要添加“验证后”钩子到表单请求，可以使用 `withValidator` 方法。该方法接收完整的构造验证器，从而允许你在**验证规则执行前**调用任何验证器方法：  
+```php
+/**
+ * 配置验证器实例.
+ *
+ * @param  \Illuminate\Validation\Validator  $validator
+ * @return void
+ */
+public function withValidator($validator)
+{
+    $validator->after(function ($validator) {
+        if ($this->somethingElseIsInvalid()) {
+            $validator->errors()->add('field', 'Something is wrong with this field!');
+        }
+    });
+}
+```
+
+
+## 2、 授权表单请求
