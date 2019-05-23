@@ -18,7 +18,7 @@
 storage/app/public 可以用来存储用户生成的文件，比如需要公开访问的用户头像。你应该创建一个 public/storage 的软链接指向这个目录。你可以直接通过 php artisan storage:link 命令来创建此链接。
 * tests - 目录包含自动化测试文件。Laravel 已内置了 PHPUnit 的测试范例供你参考。每个测试类都应该以 Test 作为后缀。你可以使用 phpunit 或者 php vendor/bin/phpunit 命令来运行测试。
 * vendor - 目录包含了你的 Composer 依赖包。
-
+* `.env` - 环境配置（session驱动，）。
 
 ## app目录
 
