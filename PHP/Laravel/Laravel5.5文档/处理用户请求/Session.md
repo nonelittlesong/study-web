@@ -186,7 +186,7 @@ $request->session()->flush();
 ```
 
 ## 5、 重新生成 Session ID
-重新生成 Session ID 经常用于阻止恶意用户对应用进行 `session fixation` 攻击（关于 session fixation 攻击可参考这篇文章：http://www.360doc.com/content/11/1028/16/1542811_159889635.shtml）。  
+重新生成 Session ID 经常用于阻止恶意用户对应用进行 `session fixation` 攻击（关于 session fixation 攻击可参考这篇文章：http://www.360doc.com/content/11/1028/16/1542811_159889635.shtml）    
 
 如果你使用内置的 `LoginController` 的话，Laravel 会在认证期间自动重新生成 session ID，如果你需要手动重新生成 session ID，可以使用 `regenerate` 方法：  
 ```php
