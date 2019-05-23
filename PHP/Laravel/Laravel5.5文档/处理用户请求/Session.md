@@ -186,10 +186,81 @@ $request->session()->flush();
 ```
 
 ## 5、 重新生成 Session ID
-重新生成 Session ID 经常用于阻止恶意用户对应用进行 `session fixation` 攻击（关于 session fixation 攻击可参考这篇文章：http://www.360doc.com/content/11/1028/16/1542811_159889635.shtml）    
+重新生成 Session ID 经常用于阻止恶意用户对应用进行 `session fixation` 攻击。  
 
 如果你使用内置的 `LoginController` 的话，Laravel 会在认证期间自动重新生成 session ID，如果你需要手动重新生成 session ID，可以使用 `regenerate` 方法：  
 ```php
 $request->session()->regenerate();
 ```
+
+
+
+# 三、 添加自定义Session驱动
+## 1、 实现驱动
+自定义 Session 驱动需要实现 `SessionHandlerInterface` 接口，该接口包含少许我们需要实现的方法，比如一个基于 MongoDB 的 Session 驱动实现如下：  
+```php
+<?php
+
+namespace App\Extensions;
+
+class MongoHandler implements SessionHandlerInterface
+{
+    public function open($savePath, $sessionName) {}
+    public function close() {}
+    public function read($sessionId) {}
+    public function write($sessionId, $data) {}
+    public function destroy($sessionId) {}
+    public function gc($lifetime) {}
+}
+```
+>注：Laravel 默认并没有附带一个用于包含扩展的目录，你可以将扩展放置在任何地方，这里我们创建一个 `Extensions` 目录用于存放 `MongoHandler`。  
+
+由于这些方法并不是很容易理解，所以我们接下来快速过一遍每一个方法：  
+
+* `open` 方法用于基于文件的 Session 存储系统，由于 Laravel 已经有了一个 file Session 驱动，所以在该方法中不需要放置任何代码，可以将其置为空方法。
+* `close` 方法和 `open` 方法一样，也可以被忽略，对大多数驱动而言都用不到该方法。
+* `read` 方法应该返回与给定 `$sessionId` 相匹配的 Session 数据的字符串版本，从驱动中获取或存储 Session 数据不需要做任何序列化或其它编码，因为 Laravel 已经为我们做了序列化。
+* `write` 方法应该将给定 `$data` 写到持久化存储系统相应的 `$sessionId`, 例如 MongoDB, Dynamo 等等。再次重申，不要做任何序列化操作，Laravel 已经为我们处理好了。
+* `destroy` 方法从持久化存储中移除 `$sessionId` 对应的数据。
+* `gc` 方法销毁大于给定 `$lifetime` 的所有 Session 数据，对本身拥有过期机制的系统如 `Memcached` 和 `Redis` 而言，该方法可以留空。
+
+## 2、 注册驱动
+
+Session 驱动被实现后，需要将其注册到框架，要添加额外驱动到 Laravel Session 后端，可以使用 `Session` 门面上的 `extend` 方法。我们在某个服务提供者（已存在或新创建）的 `boot` 方法中调用该方法：  
+```php
+<?php
+
+namespace App\Providers;
+
+use App\Extensions\MongoSessionStore;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\ServiceProvider;
+
+class SessionServiceProvider extends ServiceProvider
+{
+    /**
+     * Perform post-registration booting of services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Session::extend('mongo', function($app) {
+            // Return implementation of SessionHandlerInterface...
+            return new MongoSessionStore;
+        });
+    }
+
+    /**
+     * Register bindings in the container.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+}
+```
+Session 驱动被注册之后，就可以在配置文件 `config/session.php` 中使用 `mongo` 驱动了。  
 
