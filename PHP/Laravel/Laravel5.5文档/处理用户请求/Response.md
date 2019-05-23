@@ -80,3 +80,17 @@ protected $except = [
 
 
 # 二、 重定向
+重定向响应是 `Illuminate\Http\RedirectResponse` 类的实例，包含了必要的头信息将用户重定向到另一个 URL，有很多方式来生成 `RedirectResponse` 实例，最简单的方法就是使用全局辅助函数 `redirect`：  
+```php
+Route::get('dashboard', function () {
+    return redirect('home/dashboard');
+});
+```
+有时候你想要将用户重定向到上一个请求的位置，比如，表单提交后，验证不通过，你就可以使用辅助函数 `back` 返回到前一个 URL（由于该功能使用了 Session，使用该方法之前确保相关路由位于 `web` 中间件组或者应用了 Session 中间件）：  
+```php
+Route::post('user/profile', function () {
+    // 验证请求...
+    return back()->withInput();
+});
+```
+
