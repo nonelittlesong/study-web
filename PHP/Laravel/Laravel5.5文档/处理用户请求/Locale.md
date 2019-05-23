@@ -17,3 +17,26 @@ return [
 ];
 ```
 
+## 1、 配置 Locale 选项
+应用默认语言存放在配置文件 `config/app.php` 中，当然，你可以修改该值来满足应用需要。你还可以在运行时使用 App 门面上的 `setLocale` 方法改变当前语言：  
+```php
+Route::get('welcome/{locale}', function ($locale) {
+    App::setLocale($locale);
+    //
+});
+```
+你还可以配置一个“备用语言”，当当前语言不包含给定语言行时备用语言被返回。和默认语言一样，备用语言也在配置文件 `config/app.php` 中配置：  
+```
+'fallback_locale' => 'en',
+```
+
+### \# 判断当前的本地语言
+你可以使用 App 门面上的 `getLocale` 和 `isLocale` 方法来获取当前的本地语言或者检查是否与给定本地语言匹配：  
+```php
+$locale = App::getLocale();
+
+if (App::isLocale('en')) {
+    //
+}
+```
+
