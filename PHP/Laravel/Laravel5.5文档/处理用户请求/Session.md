@@ -67,3 +67,65 @@ php artisan migrate
 
 
 # 二、 使用Session
+## 1、 获取数据
+* `session()`辅助函数
+* Request实例的`session`属性
+
+### \# Request实例
+控制器方法依赖通过 Laravel 服务容器自动注入：  
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+class UserController extends Controller{
+    /**
+     * 显示指定用户的属性
+     *
+     * @param  Request  $request
+     * @param  int  $id
+     * @return Response
+     */
+    public function show(Request $request, $id)
+    {
+        $value = $request->session()->get('key');
+
+        //
+    }
+}
+```
+从 Session 中获取数据的时候，还可以传递默认值作为第二个参数到 `get` 方法，默认值在指定键在 Session 中不存在时返回。如果你传递一个闭包作为默认值到 `get` 方法，该闭包会执行并返回执行结果：  
+```php
+$value = $request->session()->get('key', 'default');
+
+$value = $request->session()->get('key', function() {
+    return 'default';
+});
+```
+
+### \# 全局Session辅助函数
+还可以使用全局的 PHP 函数 `session` 来获取和存储 Session 数据。  
+如果只传递一个字符串参数到 `session` 方法，则返回该 Session 键对应的值；如果传递的参数是 key/value 键值对数组，则将这些数据保存到 Session：  
+```php
+Route::get('home', function () {
+    // 从session中获取数据...
+    $value = session('key');
+    // 指定默认值...
+    $value = session('key', 'default');
+    // 存储数据到session...
+    session(['key' => 'value']);
+});
+```
+>注：通过 HTTP 请求实例和辅助函数 `session` 处理数据并无实质性差别，这两个方法在测试用例中都可以通过 `assertSessionHas` 方法进行测试。  
+
+
+### \# 获取所有Session数据
+如果你想要从 Session 中获取所有数据，可以使用 `all` 方法：  
+```php
+$data = $request->session()->all();
+```
+
+### \# 判断Session中是否存在指定项
