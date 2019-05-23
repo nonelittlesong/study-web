@@ -197,3 +197,60 @@ public function withValidator($validator)
 
 
 ## 2、 授权表单请求
+表单请求类还包含了一个 `authorize` 方法，你可以通过该方法检查认证用户是否有权限更新指定资源。  
+例如，如果用户尝试更新一条博客评论，那么他必须是该评论的所有者。举个例子：  
+```php
+/**
+ * 判定用户是否有权限发起请求.
+ *
+ * @return bool
+ * @translator laravelacademy.org
+ */
+public function authorize()
+{
+    $comment = Comment::find($this->route('comment'));
+    return $comment && $this->user()->can('update', $comment);
+}
+```
+由于所有请求都继承自 Laravel 请求基类，我们可以使用 `user` 方法获取当前认证用户，还要注意上面这个例子中对 `route` 方法的调用。该方法赋予用户访问被调用路由 URI 参数的权限，比如下面这个例子中的 `{comment}` 参数：  
+```php
+Route::post('comment/{comment}');
+```
+如果 `authorize` 方法返回 `false`，一个包含 `403` 状态码的 HTTP 响应会自动返回而且控制器方法将不会被执行。  
+
+如果你计划在应用的其他部分调用授权逻辑，只需在 `authorize` 方法中简单返回 `true` 即可：  
+```
+/**
+ * 判断请求用户是否经过授权
+ *
+ * @return bool
+ */
+public function authorize(){
+    return true;
+}
+```
+
+## 3、 自定义错误消息
+你可以通过重写 `messages` 方法自定义表单请求使用的错误消息，该方法应该返回属性/规则对数组及其对应错误消息：  
+```php
+/**
+ * 获取被定义验证规则的错误消息
+ *
+ * @return array
+ * @translator laravelacademy.org
+ */
+public function messages(){
+    return [
+        'title.required' => 'A title is required',
+        'body.required'  => 'A message is required',
+    ];
+}
+```
+
+
+
+
+# 三、 手动创建验证器
+
+
+
