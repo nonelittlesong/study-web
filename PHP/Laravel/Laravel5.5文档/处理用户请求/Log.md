@@ -1,4 +1,4 @@
-一、 配置
+# 一、 配置
 ## 1、 错误详情
 * `config/app.php`中的`debug`
 * `.env`中的`APP_DEBUG`
