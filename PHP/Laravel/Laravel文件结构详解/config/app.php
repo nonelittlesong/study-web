@@ -37,8 +37,7 @@ return [
     | stack traces will be shown on every error that occurs within your
     | application. If disabled, a simple generic error page is shown.
     |
-    | 在开发过程中，应该设置为true
-    | 在生产环境中，应该设置为false
+    | 配置debug模式
     |
     */
 
