@@ -14,6 +14,7 @@
 <script type="text/javascript" src="{{ URL::asset('//code.angularjs.org/1.2.13/angular.js') }}"></script>
 ```
 
+### \# 可用asset()代替URL::asset()
 helper.php:  
 ```php
 if (! function_exists('asset')) {
