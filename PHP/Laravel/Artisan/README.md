@@ -4,6 +4,20 @@ php artisan make:controller /User/ListController
 ```
 
 # [创建视图](https://blog.csdn.net/qq_39603067/article/details/81057318)
+
+还是通过Composer安装：
+```
+composer require sven/artisan-view
+```
+安装完成后到config/app.php中注册服务提供者ArtisanViewServiceProvider到providers数组：
+```
+// config/app.php
+'providers'=> [
+...
+  Sven\ArtisanView\ArtisanViewServiceProvider::class,
+];
+```
+
 在视图根目录`views`下创建`index.blade.php`视图文件:  
 ```
 $ php artisan make:view index
