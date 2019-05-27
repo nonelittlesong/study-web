@@ -14,3 +14,19 @@
 <script type="text/javascript" src="{{ URL::asset('//code.angularjs.org/1.2.13/angular.js') }}"></script>
 ```
 
+helper.php:  
+```php
+if (! function_exists('asset')) {
+    /**
+     * Generate an asset path for the application.
+     *
+     * @param  string  $path
+     * @param  bool    $secure
+     * @return string
+     */
+    function asset($path, $secure = null)
+    {
+        return app('url')->asset($path, $secure);
+    }
+}
+```
