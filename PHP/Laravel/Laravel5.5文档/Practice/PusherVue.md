@@ -54,3 +54,121 @@ php artisan migrate
 ```
 
 # 业务代码实现
+## 1、 消息模型
+首先要为发送的消息创建一个模型类及其对应数据库迁移文件：  
+```
+php artisan make:model Message -m
+```
+在新生成的 `app/Messaage` 模型类中新增下面这行代码以方便批量赋值：  
+```php
+/**
+ * Fields that are mass assignable
+ *
+ * @var array
+ */
+protected $fillable = ['message'];
+```
+然后在 `databases/migrations` 目录下编写刚生成的 `messages` 对应迁移文件的 `up` 方法：  
+```php
+Schema::create('messages', function (Blueprint $table) {
+    $table->increments('id');
+    $table->integer('user_id')->unsigned();
+    $table->text('message');
+    $table->timestamps();
+});
+```
+最后执行迁移命令生成数据表 `messages`：  
+```
+php artisan migrate
+```
+
+## 2、 用户与消息的关联关系
+很显然，用户与消息之间是一对多的关系，在 `User` 模型类中新增关联方法：  
+```php
+/**
+ * A user can have many messages
+ *
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
+public function messages()
+{
+    return $this->hasMany(Message::class);
+}
+```
+接下来在 `Message` 模型类中定义与之相对的关联关系：  
+```php
+/**
+ * A message belong to a user
+ *
+ * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+ */
+public function user()
+{
+    return $this->belongsTo(User::class);
+}
+```
+
+## 3、 控制器代码
+创建控制器 `ChatsController` 实现具体业务逻辑：  
+```
+php artisan make:controller ChatsController
+```
+编写刚生成的控制器类 `app/Http/Controllers/ChatsController` 代码如下：  
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use Auth;
+use App\Message;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
+class ChatsController extends Controller
+{
+    public function __construct()
+    {
+        $this->middleware('auth');  // 登录用户才能访问
+    }
+
+    /**
+     * Show chats
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('chat');
+    }
+
+    /**
+     * Fetch all messages
+     *
+     * @return Message
+     */
+    public function fetchMessages()
+    {
+        return Message::with('user')->get();
+    }
+
+    /**
+     * Persist message to database
+     *
+     * @param  Request $request
+     * @return Response
+     */
+    public function sendMessage(Request $request)
+    {
+        $user = Auth::user();
+
+        $message = $user->messages()->create([
+            'message' => $request->input('message')
+        ]);
+
+        return ['status' => 'Message Sent!'];
+    }
+}
+```
+该控制器提供了三个业务方法，`index` 用于显示聊天室视图，`fetchMessages` 用户获取所有消息，`sendMessage` 用于发送消息。  
+
+## 4、 注册应用路由
