@@ -15,3 +15,10 @@ BROADCAST_DRIVER=pusher
 ```
 composer require pusher/pusher-php-server
 ```
+
+## 2、 设置Pusher凭证信息
+1. 访问 [Pusher 官网](https://pusher.com)，注册并登录到用户后台，创建一个新的 Channels App。
+2. 创建完成后即可在跳转页面中获取到 App Keys 相关信息。
+3. 将对应字段填充到聊天室应用根目录下的 .env 相应配置项即可。
+
+## 3、 前端资源初始化
