@@ -43,3 +43,12 @@ window.Echo = new Echo({
     encrypted: true
 });
 ```
+
+## 4、 用户认证脚手架代码
+```
+php artisan make:auth
+```
+编辑`.env`中数据库相关配置项，然后运行：  
+```
+php artisan migrate
+```
