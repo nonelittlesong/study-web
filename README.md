@@ -3,6 +3,7 @@
 * https://github.com/you-dont-need/You-Dont-Need-JavaScript
 * [dat.GUI](https://github.com/dataarts/dat.gui)  
 * https://www.tweenmax.com.cn/  
+* [http status](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 
 wiki
 * [创建mysql数据库](https://github.com/nonelittlesong/study-web/wiki/create-database)
