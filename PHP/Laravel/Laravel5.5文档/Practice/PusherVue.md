@@ -22,3 +22,24 @@ composer require pusher/pusher-php-server
 3. 将对应字段填充到聊天室应用根目录下的 .env 相应配置项即可。
 
 ## 3、 前端资源初始化
+我们使用 Laravel Mix 来编译前端 CSS 和 JavaScript：  
+```
+npm install
+```
+此外，Laravel 还提供了 JavaScript 库 Laravel Echo 来订阅和监听事件：  
+```
+npm install --save laravel-echo pusher-js
+```
+安装完成，还要告知 Laravel Echo 使用 Pusher，Laravel 已经在 `resources/assets/js/bootstrap.js` 中为我们提供了该实现，只不过默认注释起来了，只需要取消这段注释即可：  
+```js
+import Echo from 'laravel-echo'
+
+window.Pusher = require('pusher-js');
+
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: process.env.MIX_PUSHER_APP_KEY,
+    cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+    encrypted: true
+});
+```
