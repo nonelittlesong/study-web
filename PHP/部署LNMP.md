@@ -43,7 +43,7 @@ mysql_secure_installation
 
 # 四、 安装php
 ```
-sudo apt install php php-fpm php-mysql php-mbstring php-cgi php-xml
+sudo apt install php php-fpm php-mysql php-mbstring php-cgi php-xml php-curl
 ```
 Laravel框架需要`php-mbstring`。  
 
