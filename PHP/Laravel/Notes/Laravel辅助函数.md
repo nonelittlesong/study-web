@@ -1,3 +1,15 @@
+https://learnku.com/docs/laravel/5.5/helpers/1320  
+
+# abort()
+`abort` 函数抛出异常处理程序呈现的 HTTP 异常：  
+```php
+abort(401);
+```
+你也可以提供额外的响应文本和自定义响应标头：  
+```php
+abort(403, 'Unauthorized.', $headers);
+```
+
 # asset()
 使用内置的URL类上的asset()方法来引入css和js文件。  
 引入站内css和js：  
