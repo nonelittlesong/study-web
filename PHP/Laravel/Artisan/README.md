@@ -1,3 +1,5 @@
+https://laravel.com/docs/5.5/artisan  
+
 # 创建控制器
 ```
 php artisan make:controller /User/ListController
