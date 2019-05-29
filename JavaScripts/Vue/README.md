@@ -9,7 +9,8 @@
   * [Vue实例](#Vue实例)
   * [模板语法](#模板语法)
   * [计算属性和侦听器](#计算属性和侦听器)
-  
+  * [Class与Style绑定](#Class与Style绑定)
+
 </details>
 
 # Vue实例
