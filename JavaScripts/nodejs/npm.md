@@ -20,3 +20,7 @@
 * 之后运行npm install命令时，会自动安装X到node_modules目录中
 * 之后运行`npm install --production`或者注明NODE_ENV变量值为production时，不会自动安装X到node_modules目录中
 
+## 4、 使用原则:
+
+运行时需要用到的包使用`--save`，否则使用`--save-dev`。  
+
