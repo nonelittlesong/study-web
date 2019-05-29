@@ -84,3 +84,34 @@ mysql> revoke privileges on databasename.tablename from 'username'@'host';
 ```sh
 mysql> drop user 'username'@'host';
 ```
+
+# 六、 修改root用户密码
+编辑：  
+```
+sudo vim /etc/mysql/mysql.conf.d/mysqld.conf
+```
+添加：  
+```
+skip-grand-tables
+```
+保存后，重启mysql服务：  
+```
+systemctl restart mysql
+```
+
+进入mysql，选择mysql数据库：  
+```
+mysql
+mysql> use mysql
+```
+
+修改密码：  
+```
+update user set authentication_string=password('Root,1003') where user='root';
+```
+
+退出mysql命令行：  
+```
+mysql> flush privileges;
+mysql> exit;
+```
