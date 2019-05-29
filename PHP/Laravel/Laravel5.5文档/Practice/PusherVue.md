@@ -30,6 +30,13 @@ npm install
 ```
 npm install --save laravel-echo pusher-js
 ```
+npm查看安装过的包：  
+```
+npm list --depth 0
+# 全局
+npm list -g --depth 0
+```
+
 安装完成，还要告知 Laravel Echo 使用 Pusher，Laravel 已经在 `resources/assets/js/bootstrap.js` 中为我们提供了该实现，只不过默认注释起来了，只需要取消这段注释即可：  
 ```js
 import Echo from 'laravel-echo'
