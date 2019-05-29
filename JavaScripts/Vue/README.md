@@ -6,7 +6,9 @@
 <details>
   <summary>点击此处查看目录</summary>
   
-  * [Vue实例](#-Vue实例)
+  * [Vue实例](#Vue实例)
+  * [模板语法](#模板语法)
+  * [计算属性和侦听器](#计算属性和侦听器)
   
 </details>
 
