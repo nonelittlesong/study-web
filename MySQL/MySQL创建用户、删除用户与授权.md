@@ -115,3 +115,13 @@ update user set authentication_string=password('Root,1003') where user='root';
 mysql> flush privileges;
 mysql> exit;
 ```
+
+然后去掉或者注释掉配置文件中添加的语句:  
+```
+# skip-grand-tables
+```
+重启mysql服务器:  
+```
+systemctl restart mysql
+```
+完成。
