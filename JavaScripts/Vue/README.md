@@ -3,6 +3,12 @@
 * [菜鸟教程](http://www.runoob.com/vue2/vue-tutorial.html)
 * [Scrimba上的系列教程](https://scrimba.com/playlist/pXKqta)  
 
+<details>
+  <summary>点击此处查看目录</summary>
+  
+  * [Vue实例](#-Vue实例)
+  
+</details>
 
 # Vue实例
 管理vm中的各个组件的依赖关系。  
