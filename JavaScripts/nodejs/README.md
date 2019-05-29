@@ -18,3 +18,7 @@ $ sudo make install
 $ sudo npm install n -g
 ```
 
+# [使用国内镜像](https://blog.csdn.net/qq_39207948/article/details/79449633)
+```
+npm config set registry https://registry.npm.taobao.org
+```
