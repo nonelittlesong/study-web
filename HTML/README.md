@@ -11,6 +11,9 @@
 * 元素失去焦点时内容已改变。（`<textarea>`或`<input type="text">`）
 
 # \<input>
+### required
+必填字段。  
+
 ### multiple
 multiple属性允许用户输入到\<input>元素的多个值。  
 
