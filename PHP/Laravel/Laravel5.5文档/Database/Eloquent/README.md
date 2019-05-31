@@ -32,3 +32,12 @@ class Flight extends Model
 }
 ```
 
+## 2、 主键
+默认：`id`。  
+
+自定义：`protected $primaryKey`。  
+
+* 主键默认是一个递增的整数值。  
+* 如果使用的是非递增或者非数字的主键，须设置`public $incrementing = false`。
+* 如果主键不是一个整数，须定义`protected $keyType = 'string'`。
+
