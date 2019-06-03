@@ -50,3 +50,10 @@ Eloquent 会默认数据表中存在 `created_at` 和 `updated_at` 这两个字�
 * 自定义时间戳格式 - `protected $dateFormat = 'U';`。
 * 自定义时间戳字段名 - `const CREATED_AT = 'creation_date'; const UPDATED_AT = 'last_update';`。
 
+
+## 4、 数据库链接
+```php
+protected $connection = 'connection-name';
+```
+
+# 三、 检索多个模型
