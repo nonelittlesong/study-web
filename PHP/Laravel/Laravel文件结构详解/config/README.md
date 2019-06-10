@@ -5,4 +5,4 @@
 # services.php
 配置第三方服务：  
 
-* github第三方登录
+* github登录
