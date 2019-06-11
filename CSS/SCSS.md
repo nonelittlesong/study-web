@@ -1,3 +1,7 @@
+* [Sass Guidelines](https://sass-guidelin.es/#the-7-1-pattern)
+* [Sass 参考手册](http://sass.bootcss.com/docs/sass-reference/)
+
+
 SCSS即SASS的新语法，是Sassy CSS的简写，是CSS3语法的超集。  
 SASS是CSS3的一个扩展，增加了规则嵌套，变量，混合，选择器继承等等。  
 
