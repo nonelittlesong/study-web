@@ -1,3 +1,7 @@
+* [Passport官网](https://laravel.com/docs/5.5/passport)
+* [Passport中文](https://laravelacademy.org/post/8298.html)
+
+
 
 # 一、 安装
 ```
