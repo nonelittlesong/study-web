@@ -41,10 +41,16 @@ mysql>
 mysql> show tables;
 ```
 
-#### 查看指定表的属性：  
+### \# 查看指定表的属性：  
 ```sh
 mysql> desc tablename;
 ```
+### \# 删除表
+```sh
+mysql> drop table tablename;
+```
+
+
 
 # 4、 查看数据库端口
 ```sh
