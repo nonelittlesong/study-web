@@ -455,3 +455,13 @@ border-collapse 属性设置表格的边框是否被合并为一个单一的边�
 | nowrap | 文本不会换行 |
 | pre-wrap | 保留空白，但是会换行 |
 | pre-line | 合并空白符，但是保留换行符 |
+
+### 13. [clear](http://www.w3school.com.cn/cssref/pr_class_clear.asp)
+继承性： no  
+
+| 值 | 描述 |
+| --- | --- |
+| left | 在左侧不允许浮动元素 |
+| right | 在右侧不允许浮动元素 |
+| both | 两边不允许浮动元素 |
+| none | 默认值。允许两侧有浮动元素 |
