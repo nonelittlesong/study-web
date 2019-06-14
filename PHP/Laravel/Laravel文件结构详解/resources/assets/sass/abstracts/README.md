@@ -1,1 +1,1 @@
-* 变量文件
+* \_variables.scss - 变量文件
