@@ -10,7 +10,7 @@ obj: 要返回其枚举自身属性的对象。
 
 
 # 二、 window
-### 1. [setTimeout()](http://www.runoob.com/w3cnote/javascript-settimeout-usage.html)
+### 1. [setTimeout()](http://www.runoob.com/w3cnote/javascript-settimeout-usage.html) & [setInterval()](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/setInterval)
 语法：  
 setTimeout(要执行的代码, 等待时间);  
 setTimeout(函数, 等待时间);  
