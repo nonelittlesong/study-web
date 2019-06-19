@@ -1,8 +1,13 @@
 contents：  
+* [this](#this)
+* [js中(function(){...})()立即执行函数写法理解](#js中function立即执行函数写法理解)
 * [Canvas与Context](#canvas与context)
 * [Window](#window对象)
 * [addEventListener](#addeventlistener)
 * [Prototype](#prototype)
+
+# [this]
+函数声明中的this指向window。  
 
 # [js中(function(){...})()立即执行函数写法理解](https://www.cnblogs.com/chris-oil/p/4862083.html)
 要理解立即函数，先要理解一些基本概念。  
