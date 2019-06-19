@@ -4,6 +4,6 @@
 $result = mt_rand(0, 1) ? 'pass' : 'fail';
 ```
 
-## 1、 `rand()` & `mt_rand()` & 'random_int()`
+## 1、 `rand()` & `mt_rand()` & `random_int()`
 * `mt_rand()`最快，`random_int()`最慢
 * `random_int()`最安全
