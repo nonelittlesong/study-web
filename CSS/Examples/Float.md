@@ -11,8 +11,6 @@
 </div>
 ```
 ```css
-
-/* 方法一 */
 .son2::after {
     content: "";
     clear: both;
