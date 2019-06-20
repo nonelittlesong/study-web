@@ -20,9 +20,20 @@
 ```
 >注意： 是son2不是son1。  
 
-## 2、 `clear`属性
+## 2、 添加一个块级元素设置`clear`属性
 ```htm
 <div class="father">
     <div class="son1" style="float:left">我是浮动的子元素</div>
     <div class="son2">我是非浮动子元素</div>
+    <div class="clear"></div>
 </div>
+```
+```css
+.clear {
+    clear: both;
+}
+```
+`bootstrap`对其进行了封装。  
+
+
+
