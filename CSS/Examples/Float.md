@@ -6,15 +6,14 @@
 ## 1. `::after` 伪类
 ```htm
 <div class="father">
-    <div class="son">我是浮动的子元素</div>
+    <div class="son1" style="float:left">我是浮动的子元素</div>
+    <div class="son2">我是非浮动子元素</div>
 </div>
 ```
 ```css
-.son {
-    float: left;
-}
 
-.son::after {
+/* 方法一 */
+.son2::after {
     content: "";
     clear: both;
     display: block;
