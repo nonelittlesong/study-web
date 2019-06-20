@@ -38,3 +38,40 @@ function bootstrap_equalizer() {
   });
 }
 ```
+
+resize:  
+```js
+$(document).ready(function() {
+    //Initiate equalize on load
+    equalize();
+});
+
+//Equalize on resizing of window
+$(window).resize(function() {
+    removeHeights();
+    equalize();
+});
+
+function equalize(){
+
+    $(".container .row").each(function() {
+        var heights = $(this).find("p").map(function() {
+          return $(this).height();
+        }).get(),
+
+        maxHeight = Math.max.apply(null, heights);
+
+      $(this).find("p").height(maxHeight);
+
+    });
+}
+
+function removeHeights(){
+
+    $(".container .row").each(function() {
+
+      $(this).find("p").height("auto");
+
+    });
+}
+```
