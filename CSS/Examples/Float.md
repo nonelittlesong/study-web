@@ -41,7 +41,7 @@
     clear: both;
 }
 ```
-相当于：  
+相当于**在前面加了clear元素**：  
 ```htm
 <div class="father">
     <div class="son1" style="float:left">我是浮动的子元素</div>
