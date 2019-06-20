@@ -41,5 +41,17 @@
     clear: both;
 }
 ```
-
+相当于：  
+```htm
+<div class="father">
+    <div class="son1" style="float:left">我是浮动的子元素</div>
+    <div class="clear"></div>
+    <div class="son2">我是非浮动子元素</div>
+</div>
+```
+```css
+.clear {
+    clear: both;
+}
+```
 
