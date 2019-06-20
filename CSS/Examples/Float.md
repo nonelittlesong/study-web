@@ -55,3 +55,15 @@
 }
 ```
 
+## 4、 为父元素设置`overflow: hidden`
+```css
+.father {
+    overflow: hidden;
+}
+```
+
+## 5、 [BFC](https://blog.csdn.net/qq_40282732/article/details/88058145)
+前面的 `overflow` 方法已经使用了这个思想， BFC（Block Formatting Context） 块级格式上下文。 BFC 就好像一个城池的围墙，如果给父元素加上一个围墙（BFC），那么就能够让里面的元素无法逃脱父元素的区域，在表现形式上就可以达到清除浮动的效果。  
+
+>注意： 这种方法相当于让 `float` 失效了，并不是真正了解决父元素高度塌陷的问题。  
+
