@@ -11,3 +11,30 @@
 | class前缀 | .col-xs- | .col-sm- | .col-md- | .col-lg- |
 
 
+# [使列具有相同高度](https://stackoverflow.com/questions/23287206/same-height-column-bootstrap-3-row-responsive)
+```htm
+<div class="container">
+   <div class="row equalizer">
+      <div class="watch">
+         Column 1
+      </div>
+
+      <div class="watch">
+         Column 2
+      </div>
+   </div>
+</div>
+```
+```js
+function bootstrap_equalizer() {
+  $(".equalizer").each(function() {
+    var heights = $(this).find(".watch").map(function() {
+      return $(this).height();
+    }).get(),
+
+    maxHeight = Math.max.apply(null, heights);
+
+    $(".watch").height(maxHeight);
+  });
+}
+```
