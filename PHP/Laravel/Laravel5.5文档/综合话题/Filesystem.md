@@ -245,3 +245,73 @@ Storage::move('old/file1.jpg', 'new/file1.jpg');
 ```
 
 ## 1、 文件上传
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+class UserAvatarController extends Controller
+{
+    /**
+     * 更新用户头像.
+     *
+     * @param  Request  $request
+     * @return Response
+     * @translator laravelacademy.org
+     */
+    public function update(Request $request)
+    {
+        $path = $request->file('avatar')->store('avatars');
+
+        return $path;
+    }
+}
+```
+>这里有一些需要注意的重要事项，在这里我们只指定了目录名，而不是文件名。默认情况下，`store` 方法会基于文件内容自动生成文件名，这通过对文件内容进行 MD5 实现。`store` 方法会返回文件路径以便在数据库中保存文件路径和文件名。  
+
+你还可以调用 `Storage` 门面上的 `putFile` 方法来执行与上例同样的文件操作：  
+```php
+$path = Storage::putFile('avatars', $request->file('avatar'));
+```
+
+### \# 指定文件名
+`storeAs`：  
+```php
+$path = $request->file('avatar')->storeAs(
+    'avatars', $request->user()->id
+);
+```
+`putFileAs`：  
+```php
+$path = Storage::putFileAs(
+    'avatars', $request->file('avatar'), $request->user()->id
+);
+```
+
+### \# 指定磁盘
+传递磁盘名称作为 `store` 方法的第二个参数即可：  
+```php
+$path = $request->file('avatar')->store(
+    'avatars/'.$request->user()->id, 's3'
+);
+```
+
+## 2、 文件可见度
+public 或 private。  
+
+`put`：  
+```php
+use Illuminate\Support\Facades\Storage;
+Storage::put('file.jpg', $contents, 'public');
+```
+文件已被存储，通过 `getVisibility` 和 `setVisibility` 方法获取和设置：  
+```php
+$visibility = Storage::getVisibility('file.jpg');
+Storage::setVisibility('file.jpg', 'public');
+```
+
+
+# 删除文件
