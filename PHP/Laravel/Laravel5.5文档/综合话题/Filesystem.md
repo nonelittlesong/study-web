@@ -142,3 +142,59 @@ Storage::disk('s3')->put('avatars/1', $fileContents);
 
 
 # 三、 获取文件
+`get` 方法用于获取给定文件的内容，该方法将会返回该文件的原生字符串内容。需要注意的是，所有文件路径都是相对于配置文件中指定的磁盘默认根目录：  
+```php
+$contents = Storage::get('file.jpg');
+```
+`exists` 方法用于判断给定文件是否存在于磁盘上：  
+```php
+$exists = Storage::disk('s3')->exists('file.jpg');
+```
+
+## 1、 下载文件
+`download` 方法可用于生成强制用户浏览器下载给定路径文件的响应。`download` 方法接收一个文件名作为第二个参数用于决定用户下载时看到的文件名。最后，你可以传递一个 HTTP 请求头数组作为该方法的第三个参数：  
+```php
+return Storage::download('file.jpg');
+
+return Storage::download('file.jpg', $name, $headers);
+```
+
+## 2、 文件URL
+使用 `local` 或 `s3` 驱动时，可以使用 `url` 方法获取给定文件的 URI。如果你使用的是 `local` 驱动，通常会在给定路径前加上 `/storage`，并返回该文件的相对 URL；如果使用的是 `s3` 或 `rackspace` 驱动，则会返回完整的远程 URL：  
+```php
+use Illuminate\Support\Facades\Storage;
+$url = Storage::url('file1.jpg');
+```
+>注：记住，如果你在使用 `local` 驱动，所有需要公开访问的文件都应该存放在 `storage/app/public` 目录下，此外，你还需要创建一个指向 `storage/app/public` 目录的软链接 `public/storage`。  
+
+### \# 临时URL
+对于使用 `s3` 或 `rackspace` 驱动存储文件的系统，可以使用 `temporaryUrl` 方法创建临时 URL 到给定文件，该方法接收一个路径参数和指定 URL 何时过期的 `DateTime` 实例：   
+```php
+$url = Storage::temporaryUrl(
+    'file1.jpg', now()->addMinutes(5)
+);
+```
+
+### \# 自定义本地主机URL
+如果你想要预定义使用 `local` 驱动磁盘存放文件的主机，可以添加 `url` 选项到磁盘配置数组：  
+```
+'public' => [
+    'driver' => 'local',
+    'root' => storage_path('app/public'),
+    'url' => env('APP_URL').'/storage',
+    'visibility' => 'public',
+],
+```
+
+## 3、 文件元信息
+除了读写文件之外，Laravel 还可以提供文件本身的信息。例如，`size` 方法可用于以字节方式返回文件大小：  
+```php
+use Illuminate\Support\Facades\Storage;
+
+$size = Storage::size('file1.jpg');
+```
+`lastModified` 方法以 UNIX 时间戳格式返回文件最后一次修改时间：  
+```php
+$time = Storage::lastModified('file1.jpg');
+```
+
