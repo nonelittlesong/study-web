@@ -199,7 +199,7 @@ $time = Storage::lastModified('file1.jpg');
 ```
 
 
-# 三、 存储文件
+# 四、 存储文件
 * `put` 方法可用于存储原生文件内容到磁盘。
 * 此外，还可以传递一个 PHP 资源到 `put` 方法。
 
@@ -314,4 +314,110 @@ Storage::setVisibility('file.jpg', 'public');
 ```
 
 
-# 删除文件
+# 五、 删除文件
+`delete` 方法接收单个文件名或多个文件数组并将其从磁盘移除：  
+```php
+use Illuminate\Support\Facades\Storage;
+
+Storage::delete('file.jpg');
+Storage::delete(['file1.jpg', 'file2.jpg']);
+```
+如果需要的话你可以指定从哪个磁盘删除文件：  
+```php
+use Illuminate\Support\Facades\Storage;
+
+Storage::disk('s3')->delete('folder_path/file_name.jpg');
+```
+
+
+# 六、 目录
+## 1、 获取一个目录下的所有文件
+`files` 方法返回给定目录下的所有文件数组，如果你想要获取给定目录下包含子目录的所有文件列表，可以使用 `allFiles` 方法：  
+```php
+use Illuminate\Support\Facades\Storage;
+
+$files = Storage::files($directory);
+$files = Storage::allFiles($directory);
+```
+
+## 2、 获取一个目录下的所有子目录
+`directories` 方法返回给定目录下所有目录数组，此外，可以使用`allDirectories` 方法获取嵌套的所有子目录数组：  
+```php
+$directories = Storage::directories($directory);
+// 递归...
+$directories = Storage::allDirectories($directory);
+```
+
+## 3、 创建目录
+`makeDirectory` 方法将会创建给定目录，包含子目录（递归）：  
+```php
+Storage::makeDirectory($directory);
+```
+
+## 4、 删除目录
+`deleteDirectory` 方法用于移除目录，包括该目录下的所有文件：  
+```php
+Storage::deleteDirectory($directory);
+```
+
+
+# 七、 自定义文件系统
+为了设置自定义的文件系统，你需要一个 Flysystem 适配器，我们来添加一个社区维护的 Dropbox 适配器到项目中：  
+```
+composer require spatie/flysystem-dropbox
+```
+
+接下来，需要创建一个服务提供者如 `DropboxServiceProvider`。在该提供者的 `boot` 方法中，你可以使用 `Storage` 门面的 `extend` 方法定义自定义驱动：  
+```php
+<?php
+
+namespace App\Providers;
+
+use Storage;
+use League\Flysystem\Filesystem;
+use Illuminate\Support\ServiceProvider;
+use Spatie\Dropbox\Client as DropboxClient;
+use Spatie\FlysystemDropbox\DropboxAdapter;
+
+class DropboxServiceProvider extends ServiceProvider
+{
+    /**
+     * Perform post-registration booting of services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Storage::extend('dropbox', function ($app, $config) {
+            $client = new DropboxClient(
+                $config['authorizationToken']
+            );
+
+            return new Filesystem(new DropboxAdapter($client));
+        });
+    }
+
+    /**
+     * Register bindings in the container.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+}
+```
+
+`extend` 方法的第一个参数是驱动名称，第二个参数是获取 `$app` 和 `$config` 变量的闭包。该解析器闭包必须返回一个 `League\Flysystem\Filesystem` 实例。`$config` 变量包含了定义在配置文件 `config/filesystems.php` 中为特定磁盘定义的选项。  
+
+接下来，在配置文件 `config/app.php` 中注册服务提供者：  
+```php
+'providers' => [
+    // ...
+    App\Providers\DropboxServiceProvider::class,
+];
+```
+
+创建并注册扩展的服务提供者后，就可以使用配置文件 `config/filesystem.php` 中的 `dropbox` 驱动了。  
+
