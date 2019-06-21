@@ -26,4 +26,119 @@
 ],
 ```
 
+## 1、 公共磁盘
+`public` 磁盘用于存储可以被公开访问的文件，默认情况下， `public` 磁盘使用 `local` 驱动并将文件存储在 `storage/app/public` 目录下，要让这些文件可以通过 Web 浏览器访问到，还需要创建一个软链 `public/storage` 指向 `storage/app/public` ，这种方式可以将公开访问的文件保存在一个可以很容易被不同部署环境共享的目录。  
 
+要创建这个软链，可以使用 Artisan 命令 `storage:link` ：  
+```
+php artisan storage:link
+```
+文件被存储并且软链已经被创建的情况下，就可以使用辅助函数 `asset` 创建一个指向该文件的 URL：  
+```php
+echo asset('storage/file.txt');
+```
+
+## 2、 本地驱动
+使用 `local` 驱动的时候，所有的文件操作都相对于定义在配置文件中的 `root` 目录，默认情况下，该值设置为 `storage/app` 目录，因此，下面的方法将会存储文件到 `storage/app/file.txt`：
+```php
+Storage::disk('local')->put('file.txt', 'Contents');
+```
+
+## 3、 驱动预备知识
+### \# Composer包
+在使用 SFTP、Amazon S3 或 Rackspace 驱动之前，需要通过 Composer 安装相应的包：  
+
+* SFTP：league/flysystem-sftp ~1.0
+* Amazon S3: league/flysystem-aws-s3-v3 ~1.0
+* Rackspace: league/flysystem-rackspace ~1.0
+
+如果要考虑性能就必须要使用一个额外的缓存适配器：  
+
+* CachedAdapter: league/flysystem-cached-adapter ~1.0
+
+### \# S3 驱动配置
+S3 驱动配置信息位于配置文件 `config/filesystems.php` ，该文件包含 S3 驱动的示例配置数组。你可以使用自己的 S3 配置和认证信息编辑该数组。为了方便起见，这些环境变量和 AWS CLI 的命名规范一致。  
+
+### \# FTP 驱动配置
+Laravel 的 Flysystem 集成支持 FTP 操作，不过，框架默认的配置文件 `filesystems.php` 并没有提供示例配置。如果你需要配置一个FTP文件系统，可以使用以下示例配置：  
+```php
+'ftp' => [
+    'driver'   => 'ftp',
+    'host'     => 'ftp.example.com',
+    'username' => 'your-username',
+    'password' => 'your-password',
+
+    // Optional FTP Settings...
+    // 'port'     => 21,
+    // 'root'     => '',
+    // 'passive'  => true,
+    // 'ssl'      => true,
+    // 'timeout'  => 30,
+],
+```
+
+### \# SFTP 驱动配置
+Laravel 的 Flysystem 集成支持 SFTP 操作，不过，框架默认的 `filesystems.php` 配置文件并没有为此提供一个示例配置。如果你需要配置针对 SFTP 的文件系统配置，可以使用下面的示例配置：  
+```php
+'sftp' => [
+    'driver' => 'sftp',
+    'host' => 'example.com',
+    'username' => 'your-username',
+    'password' => 'your-password',
+
+    // Settings for SSH key based authentication...
+    // 'privateKey' => '/path/to/privateKey',
+    // 'password' => 'encryption-password',
+
+    // Optional SFTP Settings...
+    // 'port' => 22,
+    // 'root' => '',
+    // 'timeout' => 30,
+],
+```
+
+### \# Rackspace
+Laravel 的 Flysystem 集成还支持 Rackspace 操作，同样，默认配置文件 `filesystems.php` 也没有提供对应的示例配置，如果你需要配置 Rackspace 文件系统，可以使用以下示例配置：  
+```php
+'rackspace' => [
+    'driver'    => 'rackspace',
+    'username'  => 'your-username',
+    'key'       => 'your-key',
+    'container' => 'your-container',
+    'endpoint'  => 'https://identity.api.rackspacecloud.com/v2.0/',
+    'region'    => 'IAD',
+    'url_type'  => 'publicURL',
+], 
+```
+
+
+## 4、 缓存
+要为给定磁盘启用缓存，需要添加 `cache` 指令到磁盘的配置选项，`cache` 配置项应该是一个包含 `disk` 名称、`expire` 时间（以秒为单位）以及缓存前缀 `prefix` 的数组：  
+```php
+'s3' => [
+    'driver' => 's3',
+
+    // Other Disk Options...
+
+    'cache' => [
+        'store' => 'memcached',
+        'expire' => 600,
+        'prefix' => 'cache-prefix',
+    ],
+],
+```
+
+
+# 二、 获取磁盘实例
+我们可以使用 `Storage` 门面和上面配置的任意磁盘进行交互，例如，可以使用该门面上的 `put` 方法来存储头像到默认磁盘，如果调用 `Storage` 门面上的方法而没有调用 `disk` 方法，则调用的方法会自动被传递到默认磁盘：  
+```php
+use Illuminate\Support\Facades\Storage;
+Storage::put('avatars/1', $fileContents);
+```
+与多个磁盘进行交互时，可以使用 `Storage` 门面上的 `disk` 方法访问特定磁盘：  
+```php
+Storage::disk('s3')->put('avatars/1', $fileContents);
+```
+
+
+# 三、 获取文件
