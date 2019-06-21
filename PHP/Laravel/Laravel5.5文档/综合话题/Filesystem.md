@@ -198,3 +198,50 @@ $size = Storage::size('file1.jpg');
 $time = Storage::lastModified('file1.jpg');
 ```
 
+
+# 三、 存储文件
+* `put` 方法可用于存储原生文件内容到磁盘。
+* 此外，还可以传递一个 PHP 资源到 `put` 方法。
+
+```php
+use Illuminate\Support\Facades\Storage;
+
+Storage::put('file.jpg', $contents);
+Storage::put('file.jpg', $resource);
+```
+
+### \# 自动文件流
+如果你想要 Laravel 自动将给定文件流输出到对应存储路径，可以使用 `putFile` 或 `putFileAs` 方法，该方法接收 `Illuminate\Http\File` 或 `Illuminate\Http\UploadedFile` 实例，然后自动将文件流保存到期望的路径：  
+```php
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
+
+// 自动计算文件名的MD5值...
+Storage::putFile('photos', new File('/path/to/photo'));
+
+// 手动指定文件名...
+Storage::putFileAs('photos', new File('/path/to/photo'), 'photo.jpg');
+```
+这里有一些关于 `putFile` 方法的重要注意点，注意到我们只指定了目录名，默认情况下，`putFile` 方法会基于文件内容自动生成文件名。实现原理是对文件内容进行 MD5 哈希运算。  
+**`putFile` 方法会返回文件路径，包括文件名，以便于在数据库中进行存储。**  
+
+`putFile` 和 `putFileAs` 方法还接收一个用于指定存储文件“可见度”的参数，这在你将文件存储到云存储（如S3）平台并期望文件可以被公开访问时很有用：  
+```php
+Storage::putFile('photos', new File('/path/to/photo'), 'public');
+```
+
+### \# 添加内容到文件开头/结尾
+`prepend` 和 `append` 方法允许你轻松插入内容到文件开头/结尾：  
+```php
+Storage::prepend('file.log', 'Prepended Text');
+Storage::append('file.log', 'Appended Text');
+```
+
+### \# 拷贝 & 移动文件
+`copy` 方法将磁盘中已存在的文件从一个地方拷贝到另一个地方，而 `move` 方法将磁盘中已存在的文件从一定地方移到到另一个地方：  
+```php
+Storage::copy('old/file1.jpg', 'new/file1.jpg');
+Storage::move('old/file1.jpg', 'new/file1.jpg');
+```
+
+## 1、 文件上传
