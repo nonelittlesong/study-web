@@ -21,3 +21,5 @@ mixed json_decode($json_string [, $assoc = false [, $depth = 512 [, options = 0]
 
 # 二、 [PHP Session](https://www.runoob.com/php/php-sessions.html)
 ## 1、 开始PHP 
+
+# 三、 [文件](https://www.runoob.com/php/php-file.html)
