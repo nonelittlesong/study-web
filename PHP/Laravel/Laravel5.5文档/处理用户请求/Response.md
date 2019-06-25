@@ -190,6 +190,47 @@ return response()
         ->jsonp($request->input('callback'), ['name' => 'Abigail', 'state' => 'CA']);
 ```
 
+#### https://learnku.com/laravel/wikis/16057
+如果返回数组或模型（~或集合~），Laravel会自动转为json响应：  
+```php
+// 直接返回数组
+Route::get('/request-json-array', function(){
+
+    $array = array('foo', 'bar');
+
+    // 返回的就是 json 响应
+    return $array;
+
+});
+
+// 或者返回模型/集合
+
+Route::get('/request-json-model', function(){
+
+    // User 是  eloquent 模型
+    return User::all();
+
+});
+```
+使用 `->json()` 的好处是可以自定义更多的响应信息，如状态码、头信息等。`json()` 方法的定义如下：  
+```php
+/**
+* 返回一个新的 JSON 响应
+*
+* @param string|array $data
+* @param int $status
+* @param array $headers
+* @param int $options
+* @return \Symfony\Component\HttpFoundation\Response 
+* @static 
+*/
+public static function json($data = array(), $status = 200, $headers = array(), $options = 0){
+
+    return \Illuminate\Routing\ResponseFactory::json($data, $status, $headers, $options);
+}
+```
+
+
 ## 3、 文件下载
 `download` 方法用于生成强制用户浏览器下载给定路径文件的响应。`download` 方法接受文件名作为第二个参数，该参数决定用户下载文件的显示名称，你还可以将 HTTP 头信息作为第三个参数传递到该方法：  
 ```php
