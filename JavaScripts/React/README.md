@@ -18,6 +18,14 @@ npx create-react-app react-tutorial
 * Properties and methods in JSX are camelCase - `onclick` will become `onClick`.
 * Self-closing tags must end in a slash - e.g. \<img />
 
+JSX使用花括号内嵌JS代码（变量，方法，属性）：  
+```js
+const name = 'Tania';
+const heading = <h1>Hello, {name}</h1>
+```
+
+# Components
+
 
 # Troubleshootings
 ## 1、 name can no longer contain capital letters
