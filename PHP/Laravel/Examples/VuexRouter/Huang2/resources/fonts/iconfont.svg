@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2013-9-30: Created.
+-->
+<svg>
+<metadata>
+Created by iconfont
+</metadata>
+<defs>
+
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face
+    font-family="iconfont"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    ascent="896"
+    descent="-128"
+  />
+    <missing-glyph />
+    
+    <glyph glyph-name="pro-fail" unicode="&#58707;" d="M196.363 68.605c-174.174 174.174-174.174 456.566 0 630.74 174.173 174.173 456.565 174.173 630.739 0 174.174-174.174 174.174-456.566 0-630.74-174.174-174.174-456.566-174.174-630.74 0zM554.73 383.696l166.877 166.878L679.181 593 512.304 426.123 345.426 593 303 550.574l166.877-166.878L303 216.82l42.426-42.426L512.304 341.27 679.18 174.393l42.426 42.426L554.73 383.696z"  horiz-adv-x="1024" />
+
+    
+    <glyph glyph-name="pro-success" unicode="&#58708;" d="M512-62C265.681-62 66 137.681 66 384S265.681 830 512 830s446-199.681 446-446-199.681-446-446-446z m-21.976 285.027l292.547 292.547L740.145 558 447.598 265.453 284.426 428.625 242 386.198 447.768 180.43l42.426 42.427-0.17 0.17z"  horiz-adv-x="1024" />
+
+    
+
+
+  </font>
+</defs></svg>
