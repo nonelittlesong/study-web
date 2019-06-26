@@ -5,8 +5,10 @@
 * [React DOM](https://reactjs.org/docs/react-dom.html) - adds DOM-specific methods
 * [Babel](https://babeljs.io/) - a JavaScript compiler that let us use ES6+ in old browsers
 
-# `render()` 方法
+#### `render()` 方法
 类组件中唯一必需实现的方法。  
+
+
 
 # Troubleshootings
 ## 1、 name can no longer contain capital letters
