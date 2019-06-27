@@ -59,6 +59,14 @@ handleChange = event => {
   })
 }
 ```
+扩散运算符：  
+```
+handleSubmit = character => {
+  this.setState({ characters: [...this.state.characters, character] })
+}
+```
+
+
 
 # Troubleshootings
 ## 1、 name can no longer contain capital letters
