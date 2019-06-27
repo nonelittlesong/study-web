@@ -25,6 +25,29 @@ const heading = <h1>Hello, {name}</h1>
 ```
 
 # Components
+* class component
+* simple component
+```js
+const SimpleComponent = () => {
+    return (
+        ...
+    )
+}
+
+class ClassComponent extends Component {
+    render() {
+        return (
+            ...
+        )
+    }
+}
+```
+
+# Props
+子组件的属性值对应父组件的属性名。  
+
+# State
+
 
 
 # Troubleshootings
@@ -32,4 +55,11 @@ const heading = <h1>Hello, {name}</h1>
 用 [create-react-app](https://github.com/facebook/create-react-app) 创建项目，名称不能有大写。
 
 ## 2、 `render()` 方法
-类组件中唯一必需实现的方法。  
+类组件中唯一必需实现的方法。`return` 返回的元素只能有一个根节点。  
+>A class component must include `render()`, and the `return` can only return one parent element.
+
+## 3、 this
+class 中：  
+* const 常量引用时不能加 this。
+* 使用成员变量时要 this。
+
