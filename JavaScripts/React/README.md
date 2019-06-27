@@ -48,7 +48,16 @@ class ClassComponent extends Component {
 
 # State
 
+# Submitting From Data
+```js
+handleChange = event => {
+  const { name, value } = event.target
 
+  this.setState({
+    [name]: value, // 给“键”传递参数 动态键
+  })
+}
+```
 
 # Troubleshootings
 ## 1、 name can no longer contain capital letters
