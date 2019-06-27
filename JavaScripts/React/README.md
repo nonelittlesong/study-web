@@ -49,6 +49,7 @@ class ClassComponent extends Component {
 # State
 
 # Submitting From Data
+动态键：  
 ```js
 handleChange = event => {
   const { name, value } = event.target
