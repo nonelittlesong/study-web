@@ -66,6 +66,9 @@ handleSubmit = character => {
 }
 ```
 
+# Pulling in API Data
+Lifecycle is the order in which methods are called in React. Mounting refers to an item being inserted into the DOM.  
+
 
 
 # Troubleshootings
