@@ -69,6 +69,19 @@ handleSubmit = character => {
 # Pulling in API Data
 Lifecycle is the order in which methods are called in React. Mounting refers to an item being inserted into the DOM.  
 
+# Building and Deploying a React App
+```
+npm install --save-dev gh-pages
+```
+package.json:  
+```
+"scripts": {
+  // ...
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+},
+"homepage": "https://taniarascia.github.io/react-tutorial",
+```
 
 
 # Troubleshootings
