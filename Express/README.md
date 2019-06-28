@@ -22,3 +22,30 @@ entry point: (index.js)
 ```
 $ npm install express
 ```
+
+# Hello World
+```js
+const express = require('express');
+const app = express();
+app.get('/', (req, res) => res.send('Hello World'));
+app.listen(3000, () => console.log('Example app listening on port 3000'));
+```
+
+# express-generator
+安装：  
+```
+$ npm install express-generator -g
+```
+创建应用：  
+```
+$ express --view=pug myapp
+```
+安装所有依赖包：  
+```
+$ cd myapp
+$ npm install
+```
+启动程序：  
+```
+$ DEBUG=myapp:* npm start
+```
