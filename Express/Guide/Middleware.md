@@ -55,12 +55,6 @@ var mw = require('./my-middleware.js')
 app.use(mw({ option1: '1', option2: '2' }))
 ```
 
-# 官方或第三方中间件
-* [cookie-session](https://github.com/expressjs/cookie-session)
-* [express-session](https://www.npmjs.com/package/express-session)
-* [compression](https://github.com/expressjs/compression)
-
-
 # 使用中间件
 ## 1、 应用级别中间件
 * app.use()
