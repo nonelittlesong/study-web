@@ -70,7 +70,7 @@ req.params: {"userId": "42"}
 >**注：** 在 Express 4.x 中，`*` 不能被正常翻译。使用 `{0，}` 代替 `*`。
 
 
-## 路由回调
+# 路由回调
 ```js
 var cb0 = function (req, res, next) {
   console.log('CB0')
@@ -90,7 +90,7 @@ app.get('/example/d', [cb0, cb1], function (req, res, next) {
 })
 ```
 
-## 响应方法
+# 响应方法
 | 方法 | 描述 |
 | --- | --- |
 | res.downloand() | 下载一个文件 |
@@ -102,4 +102,54 @@ app.get('/example/d', [cb0, cb1], function (req, res, next) {
 | res.send() | 发送不同类型的响应 |
 | res.sendFile() | 字节流发送文件 |
 | res.sendStatus() | 发送响应状态 |
+
+# `app.route()`
+```js
+app.route('/book')
+  .get(function (req, res) {
+    res.send('Get a random book')
+  })
+  .post(function (req, res) {
+    res.send('Add a book')
+  })
+  .put(function (req, res) {
+    res.send('Update the book')
+  })
+```
+
+# `express.Router`
+模块化路由。  
+
+birds.js:  
+```js
+var express = require('express')
+var router = express.Router()
+
+// middleware that is specific to this router
+router.use(function timeLog (req, res, next) {
+  console.log('Time: ', Date.now())
+  next()
+})
+// define the home page route
+router.get('/', function (req, res) {
+  res.send('Birds home page')
+})
+// define the about route
+router.get('/about', function (req, res) {
+  res.send('About birds')
+})
+
+module.exports = router
+```
+在app中加载birds.js:  
+```js
+var birds = require('./birds')
+
+// ...
+
+app.use('/birds', birds)
+```
+The app will now be able to handle requests to /birds and /birds/about, as well as call the timeLog middleware function that is specific to the route.  
+
+
 
