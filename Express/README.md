@@ -49,3 +49,13 @@ $ npm install
 ```
 $ DEBUG=myapp:* npm start
 ```
+
+# Basic routing
+定义：  
+```js
+app.method(path, handler);
+```
+* app 是 Express 实例。
+* method 是 HTTP 请求方法，**使用小写**。
+* path 是服务器路径。
+* handler 是当路由匹配时执行的函数。
