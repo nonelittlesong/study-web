@@ -49,7 +49,7 @@ myArray.forEach(function (value, index, array) {
 });
 ```
 
-## 2、 遍历对象
+## 2、 遍历对象 `for-in`
 ```js
 if (objectName) {
     for (let propName in objectName) {
