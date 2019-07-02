@@ -18,14 +18,14 @@ for ($index = 0; $index < count($myArray); $index++) {
 ```
 
 # 遍历数组
-JavaScript：  
+JavaScript 的 `for-of`：  
 ```js
 for (let value of myArray) {
     console.log(value);
 }
 ```
 
-PHP:  
+PHP 的 `foreach-as`:  
 ```php
 foreach ($myArray as &$value) { // 如果要修改值，要添加&
     $value = $value * 2;
