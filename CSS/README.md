@@ -326,7 +326,7 @@ box-shadow: h-shadow v-shadow blur spread color inset;
 | --- | --- |
 | absolute | 相对于static以外的第一个父元素进行定位。元素的位置通过left，top，right，bottom属性进行规定。 |
 | fixed | 相对于浏览器窗口进行定位。通过left，top，right和bottom进行规定。 |
-| relative | |
+| relative | 相对于正常位置进行相对移动 |
 | static | 默认 |
 | inherit | |
 
