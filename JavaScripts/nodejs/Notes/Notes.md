@@ -1,5 +1,6 @@
 # [SyntaxError: import declarations may only appear at top level of a module](https://stackoverflow.com/questions/42237388/syntaxerror-import-declarations-may-only-appear-at-top-level-of-a-module)
 
+
 # [require，import区别](https://www.zhihu.com/question/56820346)
 ## 1、 require/exports 和 import/export 形式不一样
 require/exports 的用法只有以下三种简单的写法：  
