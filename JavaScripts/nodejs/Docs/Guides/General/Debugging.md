@@ -1,6 +1,6 @@
 # 开启 Inspector
 ```
---inspect
+node --inspect
 ```
 Inspector clients must know and specify host address, port, and UUID to connect.  
 
@@ -17,3 +17,9 @@ Inspector clients must know and specify host address, port, and UUID to connect.
 * [WebStorm](https://www.jetbrains.com/webstorm/)
 * [chrome-remote-interface](https://github.com/cyrus-and/chrome-remote-interface)
 * [gitpod](https://www.gitpod.io/)
+
+# 命令行选项
+`node inspect script.js`:  
+* Spawn child process to run user's script under --inspect flag; and use main process to run CLI debugger.  
+
+# 远程调试
