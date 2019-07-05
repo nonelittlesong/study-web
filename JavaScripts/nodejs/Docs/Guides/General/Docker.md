@@ -73,7 +73,7 @@ npm-debug.log
 
 # 创建镜像
 ```
-$ docker build -t your-favorite-name .
+$ docker build -t repositoryName:tagName .
 ```
 查看镜像：  
 ```
@@ -86,7 +86,7 @@ docker images
 * `-p` - 将公共端口重定向到私有端口。
 
 ```
-$ docker run -p 49160:8080 -d your-favorite-name
+$ docker run -p 49160:8080 -d repositoryName:tagName
 ```
 
 打印程序的输出：  
