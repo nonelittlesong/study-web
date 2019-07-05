@@ -106,3 +106,8 @@ Running on http://localhost:8080
 $ docker exec -it <container id> /bin/bash
 ```
 
+# 测试
+```
+curl -i localhost:49160
+```
+
