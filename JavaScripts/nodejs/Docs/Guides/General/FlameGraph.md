@@ -51,8 +51,11 @@ $ sysctl -a | more
 # sysctl -p
 ```
 
-## perf
+## perf（不好用，不如用0x）
 1. `sudo apt install linux-tools-common`
 2. 运行 `perf`，安装提示中缺失的内核模块。
 3. `sudo sysctl -w kernel.perf_event_paranoid=-1`
 4. `perf record -e cycles:u -g -- node --perf-basic-prof app.js`
+5. `perf script > perfs.out`
+6. `npm i -g stackvis`
+7. `stackvis perf < perfs.out > flamegraph.htm`
