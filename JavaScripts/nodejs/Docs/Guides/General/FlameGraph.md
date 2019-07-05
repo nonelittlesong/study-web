@@ -59,3 +59,8 @@ $ sysctl -a | more
 5. `perf script > perfs.out`
 6. `npm i -g stackvis`
 7. `stackvis perf < perfs.out > flamegraph.htm`
+
+## 0x
+```
+$ 0x -o app.js
+```
