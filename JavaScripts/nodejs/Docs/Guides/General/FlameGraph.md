@@ -1,3 +1,5 @@
+火焰图  
+
 # 用途
 可视化函数的CPU占用时间。  
 
@@ -39,12 +41,12 @@ $ sysctl -a | more
 * `/lib/sysctl.d/*.conf`
 * `/etc/sysctl.conf`
 
-**Persitent configuration:**  
-You need to edit the /etc/sysctl.conf file for setting system variables:  
+**持久化配置:**  
+编辑 `/etc/sysctl.conf`:  
 ```
 # vi /etc/sysctl.conf
 ```
-Modify or add in the file. Close and save the file. To Load in sysctl settings from the file specified or /etc/sysctl.conf if none given, enter:  
+保存文件后运行:  
 ```
 # sysctl -p
 ```
@@ -52,4 +54,5 @@ Modify or add in the file. Close and save the file. To Load in sysctl settings f
 ## perf
 1. `sudo apt install linux-tools-common`
 2. 运行 `perf`，安装提示中缺失的内核模块。
-3. `perf record -e cycles:u -g -- node --perf-basic-prof app.js`
+3. `sudo sysctl -w kernel.perf_event_paranoid=-1`
+4. `perf record -e cycles:u -g -- node --perf-basic-prof app.js`
