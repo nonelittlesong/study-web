@@ -106,6 +106,11 @@ Running on http://localhost:8080
 $ docker exec -it <container id> /bin/bash
 ```
 
+停止 container:  
+```
+$ docker stop <container id>
+```
+
 # 测试
 ```
 curl -i localhost:49160
