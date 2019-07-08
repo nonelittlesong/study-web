@@ -14,7 +14,8 @@ class EventServiceProvider extends ServiceProvider
      *
      * @var array
      */
-    protected $listen = [
+    protected $listen = [ 
+        // 事件键 => 监听器数组
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
