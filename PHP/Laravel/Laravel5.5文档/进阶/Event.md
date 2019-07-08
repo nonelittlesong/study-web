@@ -24,7 +24,8 @@ php artisan event:generate
 ```
 
 ## 2、 手动注册事件
-通常，我们需要通过 `EventServiceProvider` 的 `$listen` 数组注册事件，此外，你还可以在 `EventServiceProvider` 的 `boot` 方法中手动注册基于闭包的事件：  
+通常，我们需要通过 `EventServiceProvider` 的 `$listen` 数组注册事件，  
+此外，你还可以在 `EventServiceProvider` 的 `boot` 方法中手动注册基于闭包的事件：  
 ```php
 /**
  * 注册应用的其它事件.
@@ -51,7 +52,6 @@ $events->listen('event.*', function ($eventName, array $data) {
 ```
 
 # 定义事件
-事件类是一个处理与事件相关的简单数据容器，例如，假设我们生成的 `OrderShipped` 事件接收一个 `Eloquent ORM` 对象：  
 ```php
 <?php
 
@@ -78,7 +78,8 @@ class OrderShipped
     }
 }
 ```
-正如你所看到的，该事件类不包含任何特定逻辑，只是一个存放被购买的 `Order` 对象的容器，如果事件对象被序列化的话，事件使用的 `SerializesModels trait` 将会使用 PHP 的 `serialize` 函数序列化所有 `Eloquent` 模型。  
+该事件类不包含任何特定逻辑，只是一个存放被购买的 `Order` 对象的容器。  
+如果事件对象被序列化的话，事件使用的 `SerializesModels trait` 将会使用 PHP 的 `serialize` 函数序列化所有 `Eloquent` 模型。  
 
 # 定义监听器
 接下来，让我们看看示例事件的监听器，事件监听器在 `handle` 方法中接收事件实例，`event:generate` 命令将会自动在 `handle` 方法中导入相应的事件类和类型提示事件。在 `handle` 方法内，你可以执行任何需要的逻辑以响应事件：  
