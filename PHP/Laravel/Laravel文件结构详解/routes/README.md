@@ -24,3 +24,6 @@ Broadcast::channel('news', function ($user, $id) {
     return true;
 });
 ```
+
+# console.php
+* 自定义 artisan 命令。
