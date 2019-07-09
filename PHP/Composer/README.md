@@ -1,5 +1,6 @@
 * https://docs.phpcomposer.com/00-intro.html  
 * [Composer官网](https://getcomposer.org/download/)  
+* http://packagist.laravel-china.org/
 
 # 查看全局设置
 ```
