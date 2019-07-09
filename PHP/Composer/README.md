@@ -1,6 +1,10 @@
 * https://docs.phpcomposer.com/00-intro.html  
 * [Composer官网](https://getcomposer.org/download/)  
 
+# 查看全局设置
+```
+composer config -gl
+```
 
 # 一、 官网推荐下载方法：  
 ```sh
