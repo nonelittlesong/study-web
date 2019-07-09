@@ -1,8 +1,28 @@
+
 相关资料：  
 
 * [新建laravel项目的两种方法](https://www.jianshu.com/p/0941dcfc939a)  
 * [使用PHPStorm开发Laravel项目](https://blog.csdn.net/han_cui/article/details/80420252)  
 * [Laravel中文文档](https://learnku.com/docs/laravel/5.5/structure/1284#the-console-directory)  
+
+# Composer 创建 laravel
+* 使用 `laravel/installer` 安装
+* 使用 `create-project` 安装
+
+## 1、 laravel/installer
+```
+composer global require laravel/installer
+```
+安装完成后，通过 `laravel new [项目名称]` 来创建新项目：  
+```
+laravel new blog
+```
+该命令会在当前目录创建一个新的名为 blog 的项目。  
+
+## 2、 laravel/laravel
+```
+composer create-project laravel/laravel blog 5.8.* --prefer-dist
+```
 
 # 配置Laravel
 ## 1、 初始化配置
