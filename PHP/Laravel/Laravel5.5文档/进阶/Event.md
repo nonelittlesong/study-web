@@ -121,7 +121,7 @@ class SendShipmentNotification
 
 # 事件监听器队列
 如果监听器将要执行耗时任务比如发送邮件或者发送 HTTP 请求，那么将监听器放到队列是一个不错的选择。在队列化监听器之前，确保已经配置好队列并且在服务器或本地环境启动一个队列监听器。  
-要指定某个监听器需要放到队列，只需要让监听器类实现 `ShouldQueue` 接口即可，通过 Artisan 命令 `event:generate` 生成的监听器类已经将这个接口导入当前命名空间，所有你可以直接拿来使用：  
+要指定某个监听器需要放到队列，只需要让监听器类实现 `ShouldQueue` 接口即可:  
 ```php
 <?php
 
@@ -137,7 +137,7 @@ class SendShipmentNotification implements ShouldQueue
 ```
 
 ## 1、 自定义队列连接&队列名称
-在监听器类中定义 `$connection` 和 `$queue` 属性：  
+定义 `$connection`, `$queue` 和 `$delay` 属性：  
 ```php
 <?php
 
@@ -161,6 +161,13 @@ class SendShipmentNotification implements ShouldQueue
      * @var string|null
      */
     public $queue = 'listeners';
+    
+    /**
+     * 任务被处理之前的延迟时间（秒）
+     *
+     * @var int
+     */
+    public $delay = 60;
 }
 ```
 
@@ -208,6 +215,11 @@ class SendShipmentNotification implements ShouldQueue
         //
     }
 
+    /**
+     * 处理异常
+     * @param $event 事件实例
+     * @param $exception 异常
+     */
     public function failed(OrderShipped $event, $exception)
     {
         //
@@ -215,9 +227,8 @@ class SendShipmentNotification implements ShouldQueue
 }
 ```
 
-# 分发时间
-要分发一个事件，可以传递事件实例到辅助函数 `event`，这个辅助函数会分发事件到所有注册的监听器。由于辅助函数 `event` 全局有效，所以可以在应用的任何地方调用它：  
-（~什么是辅助函数~）  
+# 分发事件
+辅助函数 `event()`：  
 ```php
 <?php
 
@@ -247,8 +258,9 @@ class OrderController extends Controller
 ```
 >注：测试的时候，只需要断言特定事件被分发，无需真正触发监听器，Laravel 自带的测试函数让这一实现轻而易举。  
 
-# 事件订阅者
 
+
+# 事件订阅者
 ## 1、 编写事件订阅者
 订阅者需要定义一个 `subscribe` 方法，该方法中传入一个事件分发器实例。  
 你可以在给定的分发器中调用 `listen` 方法注册事件监听器：  
