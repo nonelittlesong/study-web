@@ -23,3 +23,17 @@
 * log
 * null
 
+# database.php
+不要修改此文件，在 `.env` 中配置。
+
+* 'default' - 读取 `.env` 中的 `DB_CONNECTION`，缺省值为'mysql'。
+* 'connections' - 配置数据库。
+* 'migrations'
+* 'redis'
+
+# queue.php
+不要修改此文件，在 `.env` 中配置。
+
+* 'default' - 读取 `.env` 文件中的 `QUEUE_CONNECTION`， 缺省值为'sync'。
+* 'connections' - 配置 queue。
+* 'failed'
