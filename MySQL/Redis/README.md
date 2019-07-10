@@ -25,7 +25,7 @@ redis> get foo
 "bar"
 ```
 
-# 进阶配置
+# [进阶配置](https://www.howtoing.com/how-to-install-and-configure-redis-on-ubuntu-16-04/)
 ## 1、 将二进制文件安装到系统上：  
 ```
 $ sudo make install
