@@ -5,7 +5,7 @@
 # 安装nodejs
 [清华大学开源软件镜像网站](https://mirrors.tuna.tsinghua.edu.cn/)  
 
-下载 node-release 预编译二进制文件压缩包并解压。或[官网](https://nodejs.org/en/download/)下载：  
+下载 nodejs-release 预编译二进制文件压缩包并解压。或[官网](https://nodejs.org/en/download/)下载：  
 
 ```sh
 $ ./configure
