@@ -24,7 +24,9 @@ redis + socket.io 方案：
 * Redis Pub/Sub - redis的订阅机制。laravel-echo-server本质上只是一个Redis订阅服务的订阅者。
 
 架构图：  
-![RedisSocket](https://github.com/nonelittlesong/study-resources/blob/master/images/Laravel/RedisSocket.png)
+
+![RedisSocket](https://github.com/nonelittlesong/study-resources/blob/master/images/Laravel/RedisSocket.png)  
+
 流程：  
 1. Laravel 通过广播发布一个 Event 对象到 Redis;
 2. Laravel Queue Worker（php artisan queue:work） 读取 Event 对象，使用 Pub/Sub 机制将 Event 对象发布出去;
