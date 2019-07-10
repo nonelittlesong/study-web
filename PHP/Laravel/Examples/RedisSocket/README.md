@@ -33,3 +33,103 @@ redis + socket.io 方案：
 3. laravel-echo-server（laravel-echo-server start） 通过 Pub/Sub 机制 监听到该 Event 对象;
 4. laravel-echo 使用 socket.io 与 laravel-echo-server 相连接。
 
+
+# Hello World
+## 1、 开启广播服务
+打开 `config/app.php`，找到 'providers' 属性，将 `App\Providers\BroadcastServiceProvider::class,` 前的注释去掉。  
+
+## 2、 注册频道路由
+`routes/channels.php`:  
+```php
+Broadcast::channel('news', function ($user, $id) { // 闭包用来判断是否有监听该频道的权限
+    return true;                                   // 让任何人都能监听该频道
+});
+```
+
+## 3、 定义Event
+```
+php artisan make:event News
+```
+* 增加对 ShouldBroadcast 的实现
+* 修改broadcastOn 方法，使用公共广播通道 news
+* 修改构造函数
+
+```php
+class News implements ShouldBroadcast
+{
+    use Dispatchable, InteractsWithSockets, SerializesModels;
+
+    public $message;
+
+    /**
+     * Create a new event instance.
+     *
+     * @param $message
+     *
+     * @return void
+     */
+    public function __construct($message)
+    {
+        $this->message = $message;
+    }
+
+    /**
+     * Get the channels the event should broadcast on.
+     *
+     * @return \Illuminate\Broadcasting\Channel|array
+     */
+    public function broadcastOn()
+    {
+        return new Channel('news'); // 公共频道
+    }
+}
+```
+
+## 4、 测试广播
+### 定义广播命令
+编辑 `routes/console.php`，新建 bignews 命令：  
+```php
+Artisan::command('bignews', function () {
+    broadcast(new News(date('Y-m-d h:i:s A') . ": BIG NEWS!"));
+    $this->comment(date('Y-m-d h:i:s A') . ": BIG NEWS!");
+})->describe('Monitor a broadcast');
+```
+
+### 配置 .env
+```
+...
+BROADCAST_DRIVER=redis
+...
+QUEUE_CONNECTION=redis
+...
+```
+
+### 执行 bignews 命令
+```
+php artisan bignews
+2019-07-10 07:44:37 AM: BIG NEWS!
+
+Process finished with exit code 0.
+```
+通过 redis-cli 查看 redis 中的数据：  
+```
+$ redis-cli
+127.0.0.1:6379> keys *
+1) "laravel_database_queues:default:notify"
+2) "laravel_database_queues:default"
+```
+开启 Laravel Queue Worker 消费 Event：  
+```
+$ php artisan queue:work
+```
+
+### 使用 laravel-echo-server 监听 Laravel Queue Worker 发布的 Event
+初始化 laravel-echo-server:  
+```
+$ laravel-echo-server init
+```
+开启：  
+```
+$ laravel-echo-server start
+```
+
