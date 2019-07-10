@@ -21,3 +21,7 @@ $ sudo npm install n -g
 ```
 npm config set registry https://registry.npm.taobao.org
 ```
+查看配置：  
+```
+$ npm config ls -l
+```
