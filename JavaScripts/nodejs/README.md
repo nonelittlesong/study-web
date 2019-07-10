@@ -3,9 +3,8 @@
 * [用源码安装nodejs](https://www.cnblogs.com/shengtaiyuan/p/10164823.html)
 
 # 安装nodejs
-[清华大学开源软件镜像网站](https://mirrors.tuna.tsinghua.edu.cn/)  
-
-下载 nodejs-release 预编译二进制文件压缩包并解压。或[官网](https://nodejs.org/en/download/)下载：  
+[清华大学开源软件镜像网站](https://mirrors.tuna.tsinghua.edu.cn/)或[官网](https://nodejs.org/en/download/)  
+下载**源码**压缩包并解压。  
 
 ```sh
 $ ./configure
