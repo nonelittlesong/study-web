@@ -1,3 +1,7 @@
+参考：  
+* https://blog.csdn.net/nsrainbow/article/details/80428769
+
+
 # 一、 环境
 * ubuntu16.04
 * nginx 1.10.3
