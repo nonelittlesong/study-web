@@ -134,7 +134,7 @@ $ laravel-echo-server start
 ```
 
 
-## 页面
+## 5、 页面
 ### 导入 laravel-echo 和 socket.io-client
 打开 `/resources/js/bootstrap.js`，添加：  
 ```js
