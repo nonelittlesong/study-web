@@ -43,3 +43,9 @@ if (! function_exists('asset')) {
     }
 }
 ```
+
+### \# asset() vs mix()
+laravel 自带了 laravel-mix，用于对js， css， 图片等静态资源打包，生成的文件会是: js文件原名 + hash + .js后缀。  
+所以，使用 `mix('app.js')` 去匹配对应的 `app+hash+.js`（项目public目录下会有一个mix-manifest.json, 这里面保存了两者的对应关系，每次打包静态资源的时候都会更新该文件）。  
+
+而有些时候我们并不希望静态资源的名称中被加上hash值（大部分情况是独自引入的非nodejs模块的第三方库），这个时候就可以直接使用asset方法，它就是直接简单粗暴地找你给它名称的文件。  
