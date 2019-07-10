@@ -118,7 +118,7 @@ $ redis-cli
 1) "laravel_database_queues:default:notify"
 2) "laravel_database_queues:default"
 ```
-开启 Laravel Queue Worker 消费 Event：  
+### 开启 Laravel Queue Worker 消费 Event：  
 ```
 $ php artisan queue:work
 ```
@@ -131,5 +131,54 @@ $ laravel-echo-server init
 开启：  
 ```
 $ laravel-echo-server start
+```
+
+
+## 页面
+### 导入 laravel-echo 和 socket.io-client
+打开 `/resources/js/bootstrap.js`，添加：  
+```js
+import Echo from 'laravel-echo'
+window.io = require('socket.io-client');
+ 
+window.Echo = new Echo({
+    broadcaster: 'socket.io',
+    host: window.location.hostname + ':6001'
+});
+```
+
+### 创建blade
+newsroom.blade.php:  
+```htm
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>News Room</title>
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+</head>
+<body>
+<div class="content">
+    News Room
+</div>
+<script src="{{ mix('js/app.js') }}"></script>
+<script>
+    Echo.channel('laravel_database_news')
+        .listen('News', (e) => {
+        console.log(e.message);
+    });
+</script>
+</body>
+</html>
+```
+>**注:** 客户端频道添加了前缀 `laravel_database_`。
+
+### 添加web路由
+web.php:  
+```php
+Route::view('newsroom', 'newsroom');
 ```
 
