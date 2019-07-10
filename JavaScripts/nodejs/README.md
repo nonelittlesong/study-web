@@ -5,7 +5,7 @@
 # 安装nodejs
 [清华大学开源软件镜像网站](https://mirrors.tuna.tsinghua.edu.cn/)  
 
-下载源码压缩包并解压。  
+下载noderelease源码压缩包并解压。  
 
 ```sh
 $ ./configure
