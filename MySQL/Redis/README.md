@@ -113,3 +113,47 @@ sudo mkdir /var/lib/redis
 sudo chown -R redis:redis /var/lib/redis
 sudo chmod -R 770 /var/lib/redis
 ```
+
+## 5、 启动服务
+启动：  
+```
+sudo systemctl start redis
+```
+查看状态：  
+```
+sudo systemctl status redis
+```
+开机启动：  
+```
+sudo systemctl enable redis
+# 输出
+Created symlink from /etc/systemd/system/multi-user.target.wants/redis.service to /lib/systemd/system/redis.service.
+```
+
+## 6、 测试
+运行内置的客户端：  
+```
+redis-cli
+127.0.0.1:6379> ping
+PONG
+127.0.0.1:6379> set test "It's working!"
+OK
+127.0.0.1:6379> get test
+"It's working!"
+127.0.0.1:6379> exit
+```
+
+重启 redis：  
+```
+sudo systemctl restart redis
+```
+重启客户端：  
+```
+redis-cli
+```
+仍可得到 test 的值：  
+```
+127.0.0.1:6379> get test
+"It's working!"
+```
+
