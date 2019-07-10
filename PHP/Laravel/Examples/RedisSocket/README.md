@@ -1,4 +1,4 @@
-# 环境
+# 一、 环境
 * ubuntu16.04
 * nginx 1.10.3
 * php 7.3.6
@@ -13,7 +13,7 @@
 * `npm install --save socket.io-client`
 * `npm install --save laravel-echo`
 
-# 广播架构
+# 二、 广播架构
 redis + socket.io 方案：  
 * laravel-echo-server - 使用 socket.io 机制实现的 broadcasting 服务端。
 * laravel-echo - laravel-echo是 laravel broadcasting 的客户端。 laravel-echo 有两种连接机制可选： pusher 和 socket.io。
@@ -34,7 +34,7 @@ redis + socket.io 方案：
 4. laravel-echo 使用 socket.io 与 laravel-echo-server 相连接。
 
 
-# Hello World
+# 三、 Hello World
 ## 1、 开启广播服务
 打开 `config/app.php`，找到 'providers' 属性，将 `App\Providers\BroadcastServiceProvider::class,` 前的注释去掉。  
 
