@@ -30,7 +30,7 @@ php composer-setup.php --version=1.0.0-alpha8
 ### Preview / Snapshot Releases
 By default the installer and composer self-update will download stable versions only. If you would like to help test pre-release versions you can use the --preview flag on either installer or self-update. For snapshot builds which are done from the latest Composer commit, you can use the --snapshot flag.  
 
-## 2、 全局配置
+## 2、 全局运行
 ```
 $ sudo mv composer.phar /usr/local/bin/composer
 ```
