@@ -308,8 +308,8 @@ store.commit({
 # 1、 Mutation 遵循 Vue 的响应规则
 1. 最好提前在 store 中初始化好所有需要的属性。
 2. 当需要在对象上添加新属性时，你应该：
-   * 使用 `Vue.set(obj, 'newProp', 123)`，或者
-   * 以新对象替换老对象
+  * 使用 `Vue.set(obj, 'newProp', 123)`，或者
+  * 以新对象替换老对象
      ```
      state.obj = { ...state.obj, newProp: 123 }
      ```
