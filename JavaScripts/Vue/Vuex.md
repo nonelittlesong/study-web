@@ -1,6 +1,6 @@
 * [Vuex官方教程](https://vuex.vuejs.org/zh/guide/state.html)
 
-# 项目结构
+# Demo
 app.js:  
 注入 store（名字必须是 store）。  
 ```js
