@@ -305,18 +305,34 @@ store.commit({
 })
 ```
 
-# 1、 Mutation 遵循 Vue 的响应规则
+## 1、 Mutation 遵循 Vue 的响应规则
 1. 最好提前在 store 中初始化好所有需要的属性。
 2. 当需要在对象上添加新属性时，你应该：
-  * 使用 `Vue.set(obj, 'newProp', 123)`，或者
-  * 以新对象替换老对象
+   * 使用 `Vue.set(obj, 'newProp', 123)`，或者
+   * 以新对象替换老对象
      ```
      state.obj = { ...state.obj, newProp: 123 }
      ```
      
+## 2、 在组件中提交 Mutation
+```js
+import { mapMutations } from 'vuex';
 
-
-
+export default {
+    // ...
+    methods: {
+        ...mapMutations([
+            'increment', // 将 this.increment() 映射为 this.$store.commit('increment')
+            
+            // `mapMutations` 也支持 payload
+            'incrementBy' // 将 this.incrementBy(amount) 映射为 this.$store.commit('incrementBy', amount)
+        ]),
+        ...mapMutations({
+            add: 'increment' // 将 this.add() 映射为 this.$store.commit('increment')
+        })
+    }
+}
+```
 
 
 # [Action](https://vuex.vuejs.org/zh/guide/actions.html)
@@ -324,8 +340,8 @@ Action类似于Mutation，不同在于：
 * Action 提交的是 mutation，而不是直接变更状态。
 * Action 可以包含任意异步操作。
 
-`Action` 函数接受一个与 `store` 实例具有相同方法和属性的 `context` 对象。  
-实践中，我们会经常用到 ES2015 的 [参数解构](https://github.com/lukehoban/es6features#destructuring) 来简化代码:  
+**`Action` 函数接受一个与 `store` 实例具有相同方法和属性的 `context` 对象。**  
+[参数解构](https://github.com/lukehoban/es6features#destructuring) 来简化代码:  
 ```js
 actions: {
   increment ({ commit }) {
@@ -335,8 +351,9 @@ actions: {
 ```
 
 ## 1、 分发 Action
+Action 通过 `store.dispatch` 方法触发：  
 ```js
-store.dispatch('increment');
+store.dispatch('increment'); // increment 是 Action 名
 ```
 
 Actions 支持同样的载荷方式和对象方式进行分发：  
@@ -374,4 +391,62 @@ export default {
 }
 ```
 
+## 3、 组合 Action
+Action 通常是异步的，那么如何知道 action 什么时候结束呢？更重要的是，我们如何才能组合多个 action，以处理更加复杂的异步流程？  
+
+首先，你需要明白 store.dispatch 可以处理被触发的 action 的处理函数返回的 Promise，并且 store.dispatch 仍旧返回 Promise：  
+```js
+actions: {
+  actionA ({ commit }) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        commit('someMutation')
+        resolve()
+      }, 1000)
+    })
+  }
+}
+```
+现在你可以：  
+```js
+store.dispatch('actionA').then(() => {
+  // ...
+})
+```
+在另外一个 action 中也可以：  
+```js
+actions: {
+  // ...
+  actionB ({ dispatch, commit }) {
+    return dispatch('actionA').then(() => {
+      commit('someOtherMutation')
+    })
+  }
+}
+```
+最后，如果我们利用 async / await  
+
+，我们可以如下组合 action：  
+```js
+// 假设 getData() 和 getOtherData() 返回的是 Promise
+
+actions: {
+  async actionA ({ commit }) {
+    commit('gotData', await getData())
+  },
+  async actionB ({ dispatch, commit }) {
+    await dispatch('actionA') // 等待 actionA 完成
+    commit('gotOtherData', await getOtherData())
+  }
+}
+```
+一个 store.dispatch 在不同模块中可以触发多个 action 函数。在这种情况下，只有当所有触发函数完成后，返回的 Promise 才会执行。  
+
 # [Module](https://vuex.vuejs.org/zh/guide/modules.html)
+
+* 对于模块内部的 mutation 和 getter，接收的第一个参数是模块的局部状态对象。
+* 对于模块内部的 action，局部状态通过 context.state 暴露出来，根节点状态则为 context.rootState。  
+* 对于模块内部的 getter，根节点状态会作为第三个参数暴露出来。
+* 模块内部的 action、mutation 和 getter 是注册在全局命名空间的——这样使得多个模块能够对同一 mutation 或 action 作出响应。
+
+
