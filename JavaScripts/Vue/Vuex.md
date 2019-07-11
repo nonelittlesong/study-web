@@ -7,7 +7,7 @@ app.js:
 import Vue from 'vue';
 import store from './store';
 
-Vue.component('detect-component', require('./components/DetectComponent').default);
+Vue.component('demo-component', require('./components/DemoComponent').default);
 
 new Vue({
     store // 把 store 对象提供给 “store” 选项，这可以把 store 实例注入所有子组件
@@ -22,20 +22,20 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-import {detections} from "./modules/detections";
+import {demos} from "./modules/demos";
 
 export default new Vuex.Store({
     modules: {
-        detections
+        demos
     }
 });
 ```
 
-数据模块 detections.js：  
+数据模块 demos.js：  
 ```js
-import DefectionAPI from '../api/detectionApi';
+import DemoAPI from '../api/demoApi';
 
-export const detections = {
+export const demos = {
     state: {
         totalOK: 0,
         totalNG: 0,
@@ -83,10 +83,10 @@ export const detections = {
 };
 ```
 
-detectionApi.js:  
+demosApi.js:  
 定义异步的 api 请求。  
 ```js
-import {HUANG_CONFIG} from "../config";
+import {CONFIG} from "../config";
 
 export default {
     /**
@@ -94,7 +94,7 @@ export default {
      * @returns {*}
      */
     getResult: function () {
-        return axios.get(HUANG_CONFIG.API_URL + '/detect');
+        return axios.get(CONFIG.API_URL + '/detect');
         // return axios.get('/api/v1/detect');
     }
 }
