@@ -166,12 +166,158 @@ computed: mapState([
 ```
 
 ## 4、 对象展开运算符
-`mapState()` 返回的是对象。要和局部计算属性混合使用，需要
+`mapState()` 返回的是对象。要和局部计算属性混合使用，需要[对象展开运算符](https://github.com/tc39/proposal-object-rest-spread)  
+```js
+computed: {
+    ...mapState({
+        // ...
+    }),
+    
+    localComputed () {
+        // ...
+    },
+    
+    ...
+}
+```
+
 
 
 # [Getter](https://vuex.vuejs.org/zh/guide/getters.html)
+获取派生状态 getter，相当于 store 的计算属性。  
+例如，对列表进行过滤并计数：  
+```js
+computed: {
+    doneTodosCount() {
+        return this.$store.state.todos.filter(todo => todo.done).length;
+    }
+}
+```
+getter 的返回值会根据他的依赖缓存起来，只有当依赖值变化时才会被重新计算：  
+```js
+const store = new Vuex.Store({
+  state: {
+    todos: [
+      { id: 1, text: '...', done: true },
+      { id: 2, text: '...', done: false }
+    ]
+  },
+  getters: {
+    doneTodos: state => {
+      return state.todos.filter(todo => todo.done)
+    }
+  }
+})
+```
+
+## 1、 通过属性访问
+Getter 会被暴露为 store.getters 对象，可以用属性的形式访问这些值：  
+```js
+store.getters.doneTodos; // -> [{id: 1, text: '...', done: true}]
+```
+Getter 也可以接受其他 getters 作为第二个参数：  
+```js
+getters: {
+    // ...
+    doneTodosCount: (state, getters) => {
+        return getters.doneTodos.length;
+    }
+}
+```
+```js
+store.getters.doneTodosCount; // -> 1
+```
+在组件中使用：  
+```js
+computed: {
+    doneTodosCount() {
+        return this.$store.getters.doneTodosCount; // 全局的 store 实例注入到了 每个组件的 $store属性中
+    }
+}
+```
+
+## 2、 通过方法访问
+**让 getter 返回一个函数，来实现给 getter 传参：**  
+```js
+getters: {
+    //...
+    getTodoById: (state) => (id) => {
+        return state.todos.find(todo => todo.id === id);
+    }
+}
+```
+**组件通过方法访问 getter 时，不会缓存结果。**
+
+## 3、 `mapGetters()` 函数
+仅仅是将 getter 映射到 计算属性：  
+```js
+import { mapGetters } from 'vuex'
+
+export default {
+    // ...
+    computed: {
+        // 使用对象展开符，将 getter 混入到 computed 对象中
+        ...mapGetters([
+            'doneTodosCount',
+            'anotherGetter',
+            // ...
+        ])
+    }
+}
+```
+区别名，要用**对象形式**:  
+```js
+mapGetters({
+    // 把 `this.doneCount` 映射为 `this.$store.getters.doneTodosCount`
+    doneCount: 'doneTodosCount'
+});
+```
+
+~通过方法访问的 Getter 能否映射为 computed 属性？~
+
+
+
 
 # [Mutation](https://vuex.vuejs.org/zh/guide/mutations.html)
+* 修改 state 中的状态的唯一途径。  
+* 必须是同步的。
+* **payload 通常是一个对象，这样可以包含多个字段。**
+
+mutation:  
+```js
+// ...
+mutations: {
+  increment (state, payload) {
+    state.count += payload.amount
+  }
+}
+```
+commit:  
+```js
+store.commit('increment', {
+  amount: 10
+})
+
+// 对象风格
+store.commit({
+  type: 'increment',
+  amount: 10
+})
+```
+
+# 1、 Mutation 遵循 Vue 的响应规则
+1. 最好提前在 store 中初始化好所有需要的属性。
+2. 当需要在对象上添加新属性时，你应该：
+   * 使用 `Vue.set(obj, 'newProp', 123)`，或者
+   * 以新对象替换老对象
+     ```
+     state.obj = { ...state.obj, newProp: 123 }
+     ```
+     
+
+
+
+
 
 # [Action](https://vuex.vuejs.org/zh/guide/actions.html)
 Action类似于Mutation，不同在于：  
