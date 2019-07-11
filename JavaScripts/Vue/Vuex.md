@@ -31,9 +31,9 @@ export default new Vuex.Store({
 });
 ```
 
-detections.js：  
+数据模块 detections.js：  
 ```js
-import DefectionAPI from '../api/detection';
+import DefectionAPI from '../api/detectionApi';
 
 export const detections = {
     state: {
@@ -83,7 +83,7 @@ export const detections = {
 };
 ```
 
-detection.js:  
+detectionApi.js:  
 定义异步的 api 请求。  
 ```js
 import {HUANG_CONFIG} from "../config";
