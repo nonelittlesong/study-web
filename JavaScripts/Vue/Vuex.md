@@ -2,6 +2,7 @@
 
 # 项目结构
 app.js:  
+注入 store（名字必须是 store）。  
 ```js
 import Vue from 'vue';
 import store from './store';
@@ -13,7 +14,8 @@ new Vue({
 }).$mount('#app');
 ```
 
-store.js
+store.js：  
+定义实例 store， 打包各个数据模块。  
 ```js
 import Vue from 'vue';
 import Vuex from 'vuex';
@@ -29,7 +31,7 @@ export default new Vuex.Store({
 });
 ```
 
-detections.js
+detections.js：  
 ```js
 import DefectionAPI from '../api/detection';
 
