@@ -10,7 +10,7 @@ import store from './store';
 Vue.component('demo-component', require('./components/DemoComponent').default);
 
 new Vue({
-    store // 把 store 对象提供给 “store” 选项，这可以把 store 实例注入所有子组件
+    store // 把 store 对象提供给 “store” 选项，这可以把 store 实例从根组件注入所有子组件
 }).$mount('#app');
 ```
 
@@ -125,6 +125,47 @@ export const HUANG_CONFIG = {
 ```
 
 # [State](https://vuex.vuejs.org/zh/guide/state.html)
+## 1、 单一状态树
+用一个对象包含所有的应用层级状态，作为单一数据源。  
+## 2、 store注入
+通过在根实例中注册 `store` 选项，该 `store` 实例会注入到根组件下的所有子组件中，且子组件能通过 `this.$store` 访问到。  
+```js
+computed: {
+    count () { // count 计算属性
+        return this.$store.state.count
+    }
+}
+```
+## 3、 `mapState()` 辅助函数
+```js
+// 在单独构建的版本中辅助函数为 Vuex.mapState
+import { mapState } from 'vuex'
+
+export default {
+  // ...
+  computed: mapState({
+    // 箭头函数可使代码更简练
+    count: state => state.count,
+
+    // 传字符串参数 'count' 等同于 `state => state.count`
+    countAlias: 'count',
+
+    // 为了能够使用 `this` 获取局部状态，必须使用常规函数
+    countPlusLocalState (state) {
+      return state.count + this.localCount
+    }
+  })
+}
+```
+当映射的 computed 属性和 state 的字节点名称相同时，我们也可以给 `mapState()` 传递一个字符串数组：  
+```js
+computed: mapState([
+    // 映射 this.count 为 store.state.count
+    'count'
+])
+```
+
+## 4、 
 
 
 # [Getter](https://vuex.vuejs.org/zh/guide/getters.html)
