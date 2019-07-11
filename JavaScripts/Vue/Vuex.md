@@ -165,7 +165,8 @@ computed: mapState([
 ])
 ```
 
-## 4、 
+## 4、 对象展开运算符
+`mapState()` 返回的是对象。要和局部计算属性混合使用，需要
 
 
 # [Getter](https://vuex.vuejs.org/zh/guide/getters.html)
