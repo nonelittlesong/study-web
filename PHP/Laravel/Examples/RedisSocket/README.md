@@ -171,8 +171,8 @@ newsroom.blade.php:
 <script src="{{ mix('js/app.js') }}"></script>
 <script>
     Echo.channel('laravel_database_news')
-        .listen('News', (e) => {
-        console.log(e.message); // e 和 Event 的属性名必须保持一致
+        .listen('News', (e) => { // e 有两个属性， socket 和 message（由 laravel 事件类所定义的属性名决定）
+        console.log(e.message);  // message 和 Event 的属性名必须保持一致
     });
 </script>
 </body>
