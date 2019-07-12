@@ -179,7 +179,7 @@ newsroom.blade.php:
 </html>
 ```
 >**注:** 客户端频道添加了前缀 `laravel_database_`。  
-**e 和 Event 的属性名必须保持一致。**socket会缓存该属性名，修改程序后应重启 `laravel-echo-server`。  
+>**e 和 Event 的属性名必须保持一致。** socket会缓存该属性名，修改程序后应重启 `laravel-echo-server`。  
 
 
 ### 添加web路由
