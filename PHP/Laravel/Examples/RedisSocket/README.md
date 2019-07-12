@@ -63,7 +63,7 @@ class News implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $message;
+    public $message; // php对象和数组传递到js，会转成js对象
 
     /**
      * Create a new event instance.
