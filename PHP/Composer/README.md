@@ -14,6 +14,10 @@ php -r "if (hash_file('sha384', 'composer-setup.php') === '48e3236262b34d30969dc
 php composer-setup.php
 php -r "unlink('composer-setup.php');"
 ```
+```
+mv composer.phar /usr/local/bin/composer
+```
+
 ## 1、 Installer Options
 ### --install-dir
 You can install composer to a specific directory by using the --install-dir option and providing a target directory. Example:
