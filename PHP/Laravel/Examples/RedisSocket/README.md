@@ -54,12 +54,12 @@ Broadcast::channel('news', function ($user, $id) { // 闭包用来判断是否�
 ```
 php artisan make:event News
 ```
-* 增加对 ShouldBroadcast 的实现
+* **增加对 ShouldBroadcast 的实现**
 * 修改broadcastOn 方法，使用公共广播通道 news
 * 修改构造函数
 
 ```php
-class News implements ShouldBroadcast
+class News implements ShouldBroadcast // 不要忘了 implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
