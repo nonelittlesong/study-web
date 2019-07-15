@@ -157,7 +157,7 @@ io.on('connection', function(socket) {
     socket.broadcast.emit('hi');
 });
 ```
-发送给所有人，包括发送者：  
+简化发送给所有人：  
 ```js
 io.on('connection', function(socket) {
     socket.on('chat message', function(msg) {
