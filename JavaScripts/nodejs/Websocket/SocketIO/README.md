@@ -151,7 +151,7 @@ io.on('connection', function(socket) {
 ```js
 io.emit('some event', { for: 'everyone' });
 ```
-发送给所有人除了特定的socket：  
+给其他人广播：  
 ```js
 io.on('connection', function(socket) {
     socket.broadcast.emit('hi');
