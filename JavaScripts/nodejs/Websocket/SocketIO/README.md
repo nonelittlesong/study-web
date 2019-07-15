@@ -145,3 +145,44 @@ io.on('connection', function(socket) {
     });
 });
 ```
+
+# 广播
+发送给所有人：  
+```js
+io.emit('some event', { for: 'everyone' });
+```
+发送给所有人除了特定的socket：  
+```js
+io.on('connection', function(socket) {
+    socket.broadcast.emit('hi');
+});
+```
+发送给所有人，包括发送者：  
+```js
+io.on('connection', function(socket) {
+    socket.on('chat message', function(msg) {
+        io.emit('chat message', msg);
+    });
+});
+```
+
+客户端：  
+```htm
+<script>
+  $(function () {
+    var socket = io();
+    $('form').submit(function(e){
+      e.preventDefault(); // prevents page reloading
+      socket.emit('chat message', $('#m').val());
+      $('#m').val('');
+      return false;
+    });
+    socket.on('chat message', function(msg){
+      $('#messages').append($('<li>').text(msg));
+    });
+  });
+</script>
+```
+
+# examples
+https://github.com/socketio/socket.io/tree/master/examples  
