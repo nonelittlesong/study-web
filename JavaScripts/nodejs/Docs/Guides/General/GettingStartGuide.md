@@ -17,3 +17,26 @@ server.listen(port, hostname, () => {
 ```
 
 终端输入`node app.js`，然后访问`http://127.0.0.1:3000`。
+
+express + socket.io  
+```js
+const http = require('http');
+const port = process.env.PORT || 3000;
+const path = require('path');
+// express
+const express = require('express');
+const app = express();
+// socket.io
+const server = http.createServer(app);
+const io = require('socket.io')(server);
+
+server.listen(port, () => {
+    console.log('Server listening at port %d', port);
+});
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+io.on('connection', (socket) => {
+  // ...
+});
+```
