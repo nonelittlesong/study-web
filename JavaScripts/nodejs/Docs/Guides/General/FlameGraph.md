@@ -1,13 +1,10 @@
 火焰图  
-
-# 用途
 可视化函数的CPU占用时间。  
 
-# 创建
 * [0x](https://www.npmjs.com/package/0x)
 * perf
 
-## [sysctl](https://www.cyberciti.biz/faq/reload-sysctl-conf-on-linux-using-sysctl/)
+# [sysctl](https://www.cyberciti.biz/faq/reload-sysctl-conf-on-linux-using-sysctl/)
 The sysctl command is used to modify Linux kernel variables at runtime.  
 The variables are read and write from /proc/sys/ location using procfs.  
 
@@ -51,7 +48,7 @@ $ sysctl -a | more
 # sysctl -p
 ```
 
-## perf（不好用，不如用0x）
+# 一、 perf（不好用，不如用0x）
 1. `sudo apt install linux-tools-common`
 2. 运行 `perf`，安装提示中缺失的内核模块。
 3. `sudo sysctl -w kernel.perf_event_paranoid=-1`
@@ -60,7 +57,8 @@ $ sysctl -a | more
 6. `npm i -g stackvis`
 7. `stackvis perf < perfs.out > flamegraph.htm`
 
-## 0x
+# 二、 0x
 ```
+$ sudo npm install -g 0x
 $ 0x -o app.js
 ```
