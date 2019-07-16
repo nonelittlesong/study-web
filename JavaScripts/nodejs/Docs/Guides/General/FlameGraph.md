@@ -4,6 +4,22 @@
 * [0x](https://www.npmjs.com/package/0x)
 * perf
 
+# 一、 perf（不好用，不如用0x）
+1. `sudo apt install linux-tools-common`
+2. 运行 `perf`，安装提示中缺失的内核模块。
+3. `sudo sysctl -w kernel.perf_event_paranoid=-1`
+4. `perf record -e cycles:u -g -- node --perf-basic-prof app.js`
+5. `perf script > perfs.out`
+6. `npm i -g stackvis`
+7. `stackvis perf < perfs.out > flamegraph.htm`
+
+# 二、 0x
+```
+$ sudo npm install -g 0x
+$ 0x -o app.js
+```
+
+
 # [sysctl](https://www.cyberciti.biz/faq/reload-sysctl-conf-on-linux-using-sysctl/)
 The sysctl command is used to modify Linux kernel variables at runtime.  
 The variables are read and write from /proc/sys/ location using procfs.  
@@ -46,19 +62,4 @@ $ sysctl -a | more
 保存文件后运行:  
 ```
 # sysctl -p
-```
-
-# 一、 perf（不好用，不如用0x）
-1. `sudo apt install linux-tools-common`
-2. 运行 `perf`，安装提示中缺失的内核模块。
-3. `sudo sysctl -w kernel.perf_event_paranoid=-1`
-4. `perf record -e cycles:u -g -- node --perf-basic-prof app.js`
-5. `perf script > perfs.out`
-6. `npm i -g stackvis`
-7. `stackvis perf < perfs.out > flamegraph.htm`
-
-# 二、 0x
-```
-$ sudo npm install -g 0x
-$ 0x -o app.js
 ```
