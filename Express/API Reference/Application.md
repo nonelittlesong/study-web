@@ -2,12 +2,12 @@
 ## app.use()
 挂载中间件。  
 
-语法：  
+### 语法：  
 ```
 app.use([path,] callback[, callback..])
 ```
 
-参数：  
+### 参数：  
 * path - 默认'/'
   * 表述路径的字符串
   * path pattern
@@ -19,12 +19,12 @@ app.use([path,] callback[, callback..])
   * 中间件数组
   * 上面的混合形式
   
-描述：  
+### 描述：  
 * 中间件会挂载到路径和子路径。  
 * 中间件会按顺序执行，包含中间件的顺序很重要。
 
 
-`express.static`中间件：  
+### `express.static`中间件：  
 加载静态资源：  
 ```js
 // GET /style.css etc
