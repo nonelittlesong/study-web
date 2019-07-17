@@ -16,7 +16,7 @@ https://docs.npmjs.com/files/package.json
 # name
 规则：  
 * 不多于214个字符
-* 不能用 . 和 _ 开头
+* 不能用 \. 和 \_ 开头
 * 不能大写
 * 不要含有URL不安全的字符
 
