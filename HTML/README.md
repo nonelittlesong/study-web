@@ -1,6 +1,10 @@
 # \<!DOCTYPE html>
 如果没有规定!DOCTYPE，可能产生意想不到的结果。  
 
+# \<a>
+### download属性
+在HTML5中download是\<a>标签的新属性。  
+
 # [\<body>](https://blog.csdn.net/javaloveiphone/article/details/51098972)
 宽默认为100%，高默认为0。  
 
@@ -9,6 +13,19 @@
 * 对于`<input type="radio">`和`<input type="checkbox">`，元素激活时触发。  
 * 用户明确提交更改（如`<input type="date">`选取日期，`<input type="file">`选取文件）。  
 * 元素失去焦点时内容已改变。（`<textarea>`或`<input type="text">`）
+
+# [\<dt>](https://www.runoob.com/tags/tag-dt.html)
+The \<dt> tag defines a term/name in a description list. The \<dt> tag is used in conjunction with \<dl> (defines a description list) and \<dd> (describes each term/name).  
+
+Code example
+```htm
+<dl>
+  <dt>Coffee<dt>
+  <dd>Black hot drink<dd>
+  <dt>Milk<dt>
+  <dd>White cold drink<dd>
+<dl>
+```
 
 # \<input>
 ### required
@@ -37,6 +54,3 @@ HTML5中的新元素标签\<nav>用来将具有导航性质的链接划分在一
 nav元素是一个可以用来作为页面导航的链接组;其中的导航元素链接到其他页面或当前页面的其他部分。并不是所有的链接组都要被放进\<nav>元素。例如：在页脚中通常会有一组链接，包括服务条款、首页、版权声明等;这是使用\<footer>元素是最恰当的。  
 一个页面可以拥有多个\<nav>元素。  
 
-# \<a>
-### download属性
-在HTML5中download是\<a>标签的新属性。  
