@@ -11,7 +11,7 @@ server.listen(port, () => {
     console.log('Server listening at port %d', port);
 });
 
-// Routing 路由
+// 中间件，加载静态资源
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Chatroom 聊天室
