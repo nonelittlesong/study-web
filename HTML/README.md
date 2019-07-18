@@ -62,6 +62,7 @@ accept属性只能与\<input type="file">配合使用。
   
 ## 2、 name
 * viewport - 它提供有关视口初始大小的提示，仅供移动设备使用。
+
   | Value | 可能值 | 描述 |
   | --- | --- | --- |
   | width | 一个正整数或者字符串 `device-width` | 以 pixels（像素）为单位，定义 viewport 宽度 |
