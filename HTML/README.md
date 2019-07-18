@@ -1,18 +1,18 @@
 # \<!DOCTYPE html>
 如果没有规定!DOCTYPE，可能产生意想不到的结果。  
 
+# 事件
+### change
+* 对于`<input type="radio">`和`<input type="checkbox">`，元素激活时触发。  
+* 用户明确提交更改（如`<input type="date">`选取日期，`<input type="file">`选取文件）。  
+* 元素失去焦点时内容已改变。（`<textarea>`或`<input type="text">`）
+
 # \<a>
 ### download属性
 在HTML5中download是\<a>标签的新属性。  
 
 # [\<body>](https://blog.csdn.net/javaloveiphone/article/details/51098972)
 宽默认为100%，高默认为0。  
-
-# 事件
-### change
-* 对于`<input type="radio">`和`<input type="checkbox">`，元素激活时触发。  
-* 用户明确提交更改（如`<input type="date">`选取日期，`<input type="file">`选取文件）。  
-* 元素失去焦点时内容已改变。（`<textarea>`或`<input type="text">`）
 
 # [\<dt>](https://www.runoob.com/tags/tag-dt.html)
 The \<dt> tag defines a term/name in a description list. The \<dt> tag is used in conjunction with \<dl> (defines a description list) and \<dd> (describes each term/name).  
