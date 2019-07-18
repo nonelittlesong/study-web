@@ -27,6 +27,10 @@ Code example
 <dl>
 ```
 
+# \<img>
+img 是行内块元素，它有 vertical-align 属性，它的默认值是 baseline。  
+将div中的img图片的vertical-align设置为top或middle或bottom等等就可以删除空白，在div保证line-height 为1的前提下，div的高度等于img的高度，改变div 的line-height的值会改变div的高度。  
+
 # \<input>
 ### required
 必填字段。  
