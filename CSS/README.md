@@ -438,6 +438,8 @@ border-collapse 属性设置表格的边框是否被合并为一个单一的边�
 可继承性： no
 假如在一行之上只有极少的空间可供浮动元素，那么这个元素会跳至下一行，这个过程会持续到某一行拥有足够的空间为止。  
 
+float 会使 `margin: auto` 无效。  
+
 ### 11. [text-overflow](http://www.w3school.com.cn/cssref/pr_text-overflow.asp)
 可继承性： no
 
