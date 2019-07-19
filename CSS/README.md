@@ -334,7 +334,7 @@ box-shadow: h-shadow v-shadow blur spread color inset;
 当一个元素的 position 是 absolute，他的父元素是 static：  
 该元素的 top 是前一个非 absolute 兄弟元素的 bottom。  
 
-
+absolute 渲染在 static 上面。  
 
 # [line-height](http://www.w3school.com.cn/cssref/pr_dim_line-height.asp)  
 文本行高。**不允许负值。**  
