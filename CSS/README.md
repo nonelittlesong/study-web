@@ -338,6 +338,8 @@ box-shadow: h-shadow v-shadow blur spread color inset;
 line-height与font-size的计算值之差（在css中成为行间距）分为两半，分别加到一个文本行的顶部和底部。可以包含这些内容的最小宽就是行宽。  
 **button如果不设置line-height，line-height会根据字体大小自动调整，但相同字体不同文字有时会得到不同的line-height。**  
 
+设置 span 的 `line-height` 与 父元素 div 的高度相等，使 span 垂直居中。  
+
 # [flex](https://blog.csdn.net/u013451157/article/details/79011679)  
 简写属性：  
 * flex-grow: 定义项目的放大比例，默认为0。
