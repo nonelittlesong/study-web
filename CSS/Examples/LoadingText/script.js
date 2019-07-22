@@ -36,6 +36,6 @@ $(document>.ready(function() {
     elem.removeClass('start');
     setCSSVars(elem, min, max, minMove, maxMove);
     void elem[0].offsetWidth;
-    elem.addClass('start');
+    elem.addClass('start'); /* 通过 class 控制动画 */
   }
 });
