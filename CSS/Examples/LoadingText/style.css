@@ -15,13 +15,15 @@
   --move-y: 0;
   --move-y-s: 0;
   --delay: 0ms;
-  display: block;
   position: absolute;
   top: 0;
   left: 0;
+  
+  display: block; /* 使 width 生效 */
   width: 1px;
-  text-indent: calc(var(--x) * -1);
+  text-indent: calc(var(--x) * -1); /* 每个 span 截取一部分 */
   overflow: hidden;
+  
   transform: translate(var(--x), var(--y));
 }
 
