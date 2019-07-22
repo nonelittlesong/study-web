@@ -1,4 +1,4 @@
-用 div 实现 textarea。  
+[用 div 实现 textarea](https://codepen.io/nonelittlesong/pen/voNBOw)。  
 
 ```css
 #textarea {
