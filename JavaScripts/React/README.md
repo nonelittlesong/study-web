@@ -5,8 +5,39 @@
 * [React DOM](https://reactjs.org/docs/react-dom.html) - adds DOM-specific methods
 * [Babel](https://babeljs.io/) - a JavaScript compiler that let us use ES6+ in old browsers
 
+React 不是框架。  
 
 # Create React App
+方法一：  
+```js
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Hello React!</title>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      class App extends React.Component {
+        render() {
+          return <h1>Hello world!</h1>
+        }
+      }
+
+      ReactDOM.render(<App />, document.getElementById('root'))
+    </script>
+  </body>
+</html>
+```
+方法二：  
 ```
 npx create-react-app react-tutorial
 ```
