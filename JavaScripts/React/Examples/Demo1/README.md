@@ -163,3 +163,100 @@ plugins: [
 
 
 # redux
+## 1、 创建目录
+1. src/actions
+2. src/reducers
+3. src/store
+
+## 2、 安装依赖
+```
+npm install --save redux react-redux
+```
+
+## 3、 actions
+在 actions 文件夹下创建 index.js 文件：  
+```js
+export const increment = () => {
+  return {
+    type: 'INCREMENT',
+  };
+};
+```
+
+## 4、 reducers
+在 reducers 文件夹下创建 index.js 文件：  
+```js
+const initialState = {
+  number: 0
+};
+
+const incrementReducer = (state = initialState, action) => {
+  switch(action.type) {
+    case 'INCREMENT': {
+      state.number += 1
+      return { ...state }
+      break
+    };
+    default: return state;
+  }
+};
+export default incrementReducer;
+```
+
+## 5、 store.js
+```js
+import { createStore } from 'redux';
+import incrementReducer from './reducers/index';
+
+const store = createStore(incrementReducer);
+
+export default store;
+```
+
+## 6、 app.js
+```js
+import App from './src/views/App';
+import ReactDom from 'react-dom';
+import React from 'react';
+import store from './src/store';
+import { Provider } from 'react-redux';
+
+ReactDom.render(
+    <Provider store={store}>
+        <App />
+    </Provider>
+, document.getElementById('root'));
+```
+
+## 7、 更新组件
+```js
+import React from 'react';
+import { connect } from 'react-redux';
+import { increment } from '../../actions/index';
+
+class App extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    onClick() {
+        this.props.dispatch(increment())
+    }
+
+    render() {
+        return (
+            <div>
+                <div>current number： {this.props.number} <button onClick={()=>this.onClick()}>点击+1</button></div>
+
+            </div>
+        );
+    }
+}
+export default connect(
+    state => ({
+        number: state.number
+    })
+)(App);
+```
+
