@@ -40,6 +40,8 @@ React 不是框架。
 方法二：  
 ```
 npx create-react-app react-tutorial
+cd react-tutorial
+npm start
 ```
 * use Webpack to automatically compile React, JSX, and ES6, auto-prefix CSS files
 * use ESLint to test and warn about mistakes in the code
