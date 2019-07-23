@@ -370,3 +370,87 @@ Babel 为了解决这个问题，提供了单独的包babel-runtime供编译模�
   ]
 }
 ```
+
+
+# 六、 react-router
+```
+npm install --save react-router-dom -D
+```
+
+更新 app.js 入口文件，添加路由匹配规则：  
+```js
+import App from './src/views/App';
+import ReactDom from 'react-dom';
+import React from 'react';
+import store from './src/store';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+const About = () => <h2>页面一</h2>;
+const Users = () => <h2>页面二</h2>;
+
+ReactDom.render(
+    <Provider store={store}>
+        <Router>
+            <Switch>
+                <Route path="/" exact component={App} />
+                <Route path="/about/" component={About} />
+                <Route path="/users/" component={Users} />
+            </Switch>
+        </Router>
+    </Provider>
+, document.getElementById('root'));
+```
+
+
+更新组件：  
+```js
+import React from 'react';
+import { connect } from 'react-redux';
+import { increment } from '../../actions/index';
+import { Link } from "react-router-dom";
+
+
+class App extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    onClick() {
+        this.props.dispatch(increment())
+    }
+
+    onClick2() {
+        this.props.dispatch({ type: 'INCREMENT_ASYNC' })
+    }
+
+    render() {
+        return (
+            <div>
+                <div>react-router 测试</div>
+                <nav>
+                    <ul>
+                    <li>
+                        <Link to="/about/">页面一</Link>
+                    </li>
+                    <li>
+                        <Link to="/users/">页面二</Link>
+                    </li>
+                    </ul>
+                </nav>
+
+                <br/>
+                <div>redux & redux-saga测试</div>
+                <div>current number： {this.props.number} <button onClick={()=>this.onClick()}>点击+1</button></div>
+                <div>current number： {this.props.number} <button onClick={()=>this.onClick2()}>点击2秒后+1</button></div>
+            </div>
+        );
+    }
+}
+export default connect(
+    state => ({
+        number: state.number
+    })
+)(App);
+```
