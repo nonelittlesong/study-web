@@ -269,7 +269,7 @@ npm install --save redux-saga
 
 ## 1、 src/sagas/index.js
 ```js
-import { delay } from 'redux-saga'
+import { delay } from 'redux-saga/effects'
 import { put, takeEvery } from 'redux-saga/effects'
 
 export function* incrementAsync() {
