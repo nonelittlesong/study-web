@@ -1,3 +1,5 @@
+https://segmentfault.com/a/1190000017945643  
+
 # 初始化
 ```
 npm init
@@ -260,3 +262,72 @@ export default connect(
 )(App);
 ```
 
+# redux-saga
+```
+npm install --save redux-saga
+```
+
+## 1、 src/sagas/index.js
+```js
+import { delay } from 'redux-saga'
+import { put, takeEvery } from 'redux-saga/effects'
+
+export function* incrementAsync() {
+  yield delay(2000)
+  yield put({ type: 'INCREMENT' })
+}
+
+export function* watchIncrementAsync() {
+  yield takeEvery('INCREMENT_ASYNC', incrementAsync)
+}
+```
+
+## 2、 更新 store.js
+```js
+import { createStore, applyMiddleware } from 'redux';
+import incrementReducer from './reducers/index';
+import createSagaMiddleware from 'redux-saga'
+import { watchIncrementAsync } from './sagas/index'
+
+const sagaMiddleware = createSagaMiddleware()
+const store = createStore(incrementReducer, applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(watchIncrementAsync)
+export default store;
+```
+
+## 3、 修改组件
+新增异步提交按钮：  
+```js
+import React from 'react';
+import { connect } from 'react-redux';
+import { increment } from '../../actions/index';
+
+class App extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    onClick() {
+        this.props.dispatch(increment())
+    }
+
+    onClick2() {
+        this.props.dispatch({ type: 'INCREMENT_ASYNC' })
+    }
+
+    render() {
+        return (
+            <div>
+                <div>current number： {this.props.number} <button onClick={()=>this.onClick()}>点击+1</button></div>
+                <div>current number： {this.props.number} <button onClick={()=>this.onClick2()}>点击2秒后+1</button></div>
+            </div>
+        );
+    }
+}
+export default connect(
+    state => ({
+        number: state.number
+    })
+)(App);
+```
