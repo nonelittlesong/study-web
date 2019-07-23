@@ -73,3 +73,64 @@ index.html:
 ```
 
 # Babel
+```
+npm install -D babel-loader @babel/core @babel/preset-env @babel/preset-react
+```
+更新 webpack.config.js:  
+```js
+  module: {
+    rules: [
+      {
+        test: /\.js$/, // 匹配.js文件
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      }
+    ]
+  }
+```
+创建并配置 .babelrc:  
+```js
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"]
+}
+```
+
+# HtmlWebPackPlugin
+这个插件最主要的作用是将js代码通过\<script>标签注入到HTML文件中。  
+```
+npm install -D html-webpack-plugin
+```
+更新 webpack.config.js：  
+```js
+const path = require('path');
+
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  entry: './app.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'my-first-webpack.bundle.js'
+  },
+  mode: 'development',
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: './index.html',
+      filename: path.resolve(__dirname, 'dist/index.html')
+    })
+  ]
+};
+```
