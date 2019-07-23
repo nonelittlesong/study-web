@@ -4,7 +4,7 @@ npm init
 touch app.js
 ```
 
-# webpack
+# 一、 webpack
 ```
 npm install --save webpack
 npm install -D webpack-cli
@@ -29,7 +29,7 @@ module.exports = {
 }
 ```
 
-# React
+# 二、 React
 ```
 npm install --save react react-dom
 ```
@@ -72,7 +72,7 @@ index.html:
 </html>
 ```
 
-# Babel
+# 三、 Babel
 ```
 npm install -D babel-loader @babel/core @babel/preset-env @babel/preset-react
 ```
@@ -97,7 +97,8 @@ npm install -D babel-loader @babel/core @babel/preset-env @babel/preset-react
 }
 ```
 
-# HtmlWebPackPlugin
+# 四、 Plugins
+## HtmlWebPackPlugin
 这个插件最主要的作用是将js代码通过\<script>标签注入到HTML文件中。  
 ```
 npm install -D html-webpack-plugin
@@ -135,8 +136,7 @@ module.exports = {
 };
 ```
 
-
-# webpack-dev-server
+## webpack-dev-server
 ```
 npm install -D webpack-dev-server
 ```
@@ -162,7 +162,7 @@ plugins: [
 ```
 
 
-# redux
+# 五、 redux
 ## 1、 创建目录
 1. src/actions
 2. src/reducers
