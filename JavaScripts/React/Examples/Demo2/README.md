@@ -14,5 +14,21 @@ https://github.com/Nealyang/React-Express-Blog-Demo
 * [antd](https://www.npmjs.com/package/antd) - 一套 React 组件。
 * [axios](https://www.npmjs.com/package/axios) - 为浏览器和 node.js 实现的基于 Promise 的 HTTP 客户端。
 * [bluebird](https://www.npmjs.com/package/bluebird) - Bluebird 是早期 Promise 的一种实现，它提供了丰富的方法和语法糖，一方面降低了 Promise 的使用难度，一当面扩展了 Promise 的功能。
+* [body-parser](https://www.npmjs.com/package/body-parser) - 请求体解析中间件。
+* [compression](https://www.npmjs.com/package/compression） - 压缩中间件。
+* [connect-history-api-fallback](https://www.npmjs.com/package/connect-history-api-fallback) - SPA 404 解决方案。
+* [cookie-parser](https://www.npmjs.com/package/cookie-parser) - cookie 解析中间件。
+* [cookies](https://www.npmjs.com/package/cookies) - 获取和设置 cookies。
+* [dateformat](https://www.npmjs.com/package/dateformat) - 日期格式。
+* [echarts-for-react](https://www.npmjs.com/package/echarts-for-react) - Echarts 的 React 封装。
+* [express](https://www.npmjs.com/package/express) - web 框架。
+* [express-session](https://www.npmjs.com/package/express-session) - session 中间件。
+* [http-proxy](https://www.npmjs.com/package/http-proxy) - 代理。
+* [markdown](https://www.npmjs.com/package/markdown)
+* [mongoose](https://mongoosejs.com/) - elegant mongodb object modeling for node.js。
+* [qs](https://www.npmjs.com/package/qs) - A querystring parsing and stringifying library with some added security。
+* [react-addons-pure-render-mixin](https://www.npmjs.com/package/react-addons-pure-render-mixin)
+* [react-helmet](https://www.npmjs.com/package/react-helmet) - 管理 head。
+* 
 
 </details>
