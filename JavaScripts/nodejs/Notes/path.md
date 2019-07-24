@@ -15,7 +15,7 @@ path.join('foo', {}, 'bar')
 TypeError: Arguments to path.join must be strings'
 ```
 
-## 2、 路径解析： `path.resolve([from ...], to);
+## 2、 路径解析： `path.resolve([from ...], to)`
 `path.resolve()` 方法可以将多个路径解析为一个规范化的绝对路径。其处理方式类似于对这些路径逐一进行cd操作，与cd操作不同的是，这引起路径可以是文件，并且可不必实际存在（resolve()方法不会利用底层的文件系统判断路径是否存在，而只是进行路径字符串操作）。例如：  
 ```js
 path.resolve('foo/bar', '/tmp/file/', '..', 'a/../subfile')
