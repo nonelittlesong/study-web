@@ -1,4 +1,4 @@
-# join 与 resolve 的区别
+# 一、 join 与 resolve 的区别
 ## 1、 连接路径： `path.join([path1][, path2][, ...])`
 `path.join()` 方法可以连接任意多个路径字符串。  
 `path.join()` 方法在接边路径的同时也会对路径进行规范化。例如：  
