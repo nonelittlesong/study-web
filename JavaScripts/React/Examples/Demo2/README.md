@@ -21,7 +21,6 @@ https://github.com/Nealyang/React-Express-Blog-Demo
 * [cookies](https://www.npmjs.com/package/cookies) - 获取和设置 cookies。
 * [dateformat](https://www.npmjs.com/package/dateformat) - 日期格式。
 * [echarts-for-react](https://www.npmjs.com/package/echarts-for-react) - Echarts 的 React 封装。
-* [express](https://www.npmjs.com/package/express) - web 框架。
 * [express-session](https://www.npmjs.com/package/express-session) - session 中间件。
 * [http-proxy](https://www.npmjs.com/package/http-proxy) - 代理。
 * [markdown](https://www.npmjs.com/package/markdown)
@@ -29,6 +28,10 @@ https://github.com/Nealyang/React-Express-Blog-Demo
 * [qs](https://www.npmjs.com/package/qs) - A querystring parsing and stringifying library with some added security。
 * [react-addons-pure-render-mixin](https://www.npmjs.com/package/react-addons-pure-render-mixin)
 * [react-helmet](https://www.npmjs.com/package/react-helmet) - 管理 head。
-* 
+* [react-slick](https://www.npmjs.com/package/react-slick) - [slick carousel](http://kenwheeler.github.io/slick/) 的 react 端。
+* [remark](https://remark.js.org/) - 解析和编译 markdown。
+* [remark-react](https://www.npmjs.com/package/remark-react) - markdown 转 react。
+* [serialize-javascript](https://www.npmjs.com/package/serialize-javascript)
+* [serve-favicon](https://www.npmjs.com/package/serve-favicon) - 网站图标中间件。
 
 </details>
