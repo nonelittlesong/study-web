@@ -4,6 +4,22 @@ https://github.com/Nealyang/React-Express-Blog-Demo
 <summary>devDependencies</summary>
 
 * [autoprefixer](https://www.npmjs.com/package/autoprefixer)
+* [@babel/cli](https://babeljs.io/docs/en/next/babel-cli.html) - [babel](https://babeljs.io/) 命令行。
+* [@babel/core](https://babeljs.io/docs/en/next/babel-core.html) - babel 核心。
+* [babel-loader](https://www.npmjs.com/package/babel-loader) - 用 babel 和 webpack 转义 JS文件。
+* [babel-plugin-import](https://www.npmjs.com/package/babel-plugin-import)
+* [babel-plugin-react-transform](https://www.npmjs.com/package/babel-plugin-react-transform) - 弃用。
+* [babel-plugin-transform-class-properties](https://www.npmjs.com/package/babel-plugin-transform-class-properties) - 转化 ES2005的类静态属性 和 ES2006属性初始化语法申明。
+* [babel-plugin-transform-remove-console](https://www.npmjs.com/package/babel-plugin-transform-remove-console) - 去除 console.*。
+* [@babel/plugin-transform-runtime](https://babeljs.io/docs/en/babel-plugin-transform-runtime) - 重用 Babel 的 辅助函数。
+* [@babel/polyfill](https://babeljs.io/docs/en/babel-polyfill)
+* [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env)
+* [@babel/preset-react](https://babeljs.io/docs/en/babel-preset-react)
+* [babel-preset-react-hmre](https://www.npmjs.com/package/babel-preset-react-hmre)
+* [@babel/preset-stage-0](https://babeljs.io/docs/en/babel-preset-stage-0/) - Babel 7 弃用了所有 stage。
+* [@babel/register](https://babeljs.io/docs/en/babel-register) - 动态编译。
+* [@babel/runtime](https://babeljs.io/docs/en/babel-runtime)
+
 * [clean-webpack-plugin](https://www.npmjs.com/package/clean-webpack-plugin) - remove/clean your build folder(s)。
 * [cross-env](https://www.npmjs.com/package/cross-env) - 解决跨平台问题。
 * [nodemon](https://www.npmjs.com/package/nodemon) - 封装 node 命令，监听文件修改时重启。
