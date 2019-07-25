@@ -31,7 +31,18 @@ https://github.com/Nealyang/React-Express-Blog-Demo
 * [node-loader](https://www.npmjs.com/package/node-loader)
 * [node-sass](https://www.npmjs.com/package/node-sass)
 * [nodemon](https://www.npmjs.com/package/nodemon) - 封装 node 命令，监听文件修改时重启。
+* [open-browser-webpack-plugin](https://www.npmjs.com/package/open-browser-webpack-plugin)
+* [postcss-loader](https://www.npmjs.com/package/postcss-loader)
+* [progress-bar-webpack-plugin](https://www.npmjs.com/package/progress-bar-webpack-plugin) - webpack 进度条。
+* [react-hot-loader](https://www.npmjs.com/package/react-hot-loader)
+* [redbox-react](https://www.npmjs.com/package/redbox-react)
+* [sass-loader](https://www.npmjs.com/package/sass-loader)
+* [style-loader](https://www.npmjs.com/package/style-loader)
+* [url-loader](https://www.npmjs.com/package/url-loader) - 把文件转为 base64 URIs。
+* [webpack](https://www.webpackjs.com/)
 * [webpack-dev-middleware](https://www.npmjs.com/package/webpack-dev-middleware) - 一般和 webpack-hot-middleware 配合使用，实现热加载功能。（[segmentfault](https://segmentfault.com/a/1190000011761306)）
+* [webpack-hot-middleware](https://www.npmjs.com/package/webpack-hot-middleware)
+* [webpack-isomorphic-tools](https://www.npmjs.com/package/webpack-isomorphic-tools)
 
 </details>
 
