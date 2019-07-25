@@ -19,9 +19,12 @@ https://github.com/Nealyang/React-Express-Blog-Demo
 * [@babel/preset-stage-0](https://babeljs.io/docs/en/babel-preset-stage-0/) - Babel 7 弃用了所有 stage。
 * [@babel/register](https://babeljs.io/docs/en/babel-register) - 动态编译。
 * [@babel/runtime](https://babeljs.io/docs/en/babel-runtime)
-
 * [clean-webpack-plugin](https://www.npmjs.com/package/clean-webpack-plugin) - remove/clean your build folder(s)。
+* [concurrently](https://www.npmjs.com/package/concurrently) - 并行运行命令。
 * [cross-env](https://www.npmjs.com/package/cross-env) - 解决跨平台问题。
+* [css-loader](https://www.npmjs.com/package/css-loader) - 将 `@import` 和 `url()` 翻译为 `import/require()`，并解析他们。
+* [file-loader](https://www.npmjs.com/package/file-loader) - 解析 `import/require()` 文件为 url 并发送到输出目录。
+* [html-webpack-plugin](https://www.webpackjs.com/plugins/html-webpack-plugin/) - 生成 HTML。
 * [nodemon](https://www.npmjs.com/package/nodemon) - 封装 node 命令，监听文件修改时重启。
 * [webpack-dev-middleware](https://www.npmjs.com/package/webpack-dev-middleware) - 一般和 webpack-hot-middleware 配合使用，实现热加载功能。（[segmentfault](https://segmentfault.com/a/1190000011761306)）
 
