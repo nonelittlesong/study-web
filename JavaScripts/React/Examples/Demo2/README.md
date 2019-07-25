@@ -3,7 +3,7 @@ https://github.com/Nealyang/React-Express-Blog-Demo
 <details>
 <summary>devDependencies</summary>
 
-* [autoprefixer](https://www.npmjs.com/package/autoprefixer)
+* [autoprefixer](https://www.npmjs.com/package/autoprefixer) - 自动添加浏览器前缀。
 * [@babel/cli](https://babeljs.io/docs/en/next/babel-cli.html) - [babel](https://babeljs.io/) 命令行。
 * [@babel/core](https://babeljs.io/docs/en/next/babel-core.html) - babel 核心。
 * [babel-loader](https://www.npmjs.com/package/babel-loader) - 用 babel 和 webpack 转义 JS文件。
