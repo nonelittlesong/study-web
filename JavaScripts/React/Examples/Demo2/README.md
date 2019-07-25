@@ -28,6 +28,7 @@ https://github.com/Nealyang/React-Express-Blog-Demo
 * [install](https://www.npmjs.com/package/install)
 * [less](http://lesscss.org/)
 * [less-loader](https://www.npmjs.com/package/less-loader)
+* [mini-css-extract-plugin](https://www.npmjs.com/package/mini-css-extract-plugin) - 提取 CSS。
 * [node-loader](https://www.npmjs.com/package/node-loader)
 * [node-sass](https://www.npmjs.com/package/node-sass)
 * [nodemon](https://www.npmjs.com/package/nodemon) - 封装 node 命令，监听文件修改时重启。
