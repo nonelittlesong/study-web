@@ -4,6 +4,7 @@ https://github.com/Nealyang/React-Express-Blog-Demo
 <summary>devDependencies</summary>
 
 * [autoprefixer](https://www.npmjs.com/package/autoprefixer)
+* [clean-webpack-plugin](https://www.npmjs.com/package/clean-webpack-plugin) - remove/clean your build folder(s)。
 * [cross-env](https://www.npmjs.com/package/cross-env) - 解决跨平台问题。
 * [nodemon](https://www.npmjs.com/package/nodemon) - 封装 node 命令，监听文件修改时重启。
 * [webpack-dev-middleware](https://www.npmjs.com/package/webpack-dev-middleware) - 一般和 webpack-hot-middleware 配合使用，实现热加载功能。（[segmentfault](https://segmentfault.com/a/1190000011761306)）
