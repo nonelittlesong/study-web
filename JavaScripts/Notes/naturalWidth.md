@@ -10,8 +10,8 @@ function getImgNaturalDimensions(img) {
     var image = new Image();
     image.src = img.src;
     image.onload = function() {
-      nWidth = image.naturalWidth;
-      nHeight = image.naturalHeight;
+      nWidth = image.width;
+      nHeight = image.height;
     }
   }
 }
