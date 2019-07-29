@@ -1,7 +1,7 @@
 参考：  
 * [MDN Canvas 教程](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial)
 
-# \<canvas> 元素
+# 一、 \<canvas> 元素
 ```htm
 <canvas id="tutorial" width="300" height="150"></canvas>
 ```
