@@ -78,3 +78,22 @@ main {
     width: 18;
     height: 10em;
 }
+```
+
+### line-height
+让 div 中的文本垂直剧中，设置 line-height 等于 div 的 height：  
+```htm
+<div class="father">
+  <span>垂直居中</span>
+</div>
+```
+```css
+.father {
+  width: 100%;
+  height: 4vw;
+}
+
+span {
+  line-height: 4vw;
+}
+```
