@@ -11,7 +11,7 @@
 
 
 
-# toDataURL
+## 1、 toDataURL
 导出 canvas 的图像：  
 ```js
 var drawing = document.getElementById("drawing");
