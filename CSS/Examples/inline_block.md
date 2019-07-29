@@ -4,7 +4,7 @@
 * 如果是一个块级元素，就对它自身应用`margin:auto`。
 
 ## 2、 垂直居中
-### 基于绝对定位
+### 1） 基于绝对定位
 #### \# 一个早期的垂直居中方法，要求元素有固定的宽度和高度
 ```css
 main {
@@ -39,7 +39,7 @@ main {
 ```
 
 
-### 基于 viewport
+### 2） 基于 viewport
 **margin的百分比值是以父元素的宽度作为解析基准的。**  
 ```css
 main {
@@ -52,7 +52,7 @@ main {
 它只适用于在视口中居中的场景。  
 
 
-### 基于 Flexbox
+### 3） 基于 Flexbox
 * 先给父元素设置：`display： flex`
 * 再给自身设置：`margin: auto`
 ```css
@@ -80,7 +80,7 @@ main {
 }
 ```
 
-### line-height
+### 4） line-height
 让 div 中的文本垂直剧中，设置 line-height 等于 div 的 height：  
 ```htm
 <div class="father">
