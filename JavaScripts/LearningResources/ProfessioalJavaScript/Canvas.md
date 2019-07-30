@@ -25,3 +25,17 @@ if (drawing.getContext) {
 }
 ```
 
+# 二、 context
+## 1、 fill 和 stroke
+```js
+ctx.fillStyle = "red";
+ctx.strokeStyle = "#00FF00";
+```
+
+## 2、 矩形
+1. fillRect()
+2. strokeRect()
+3. clearRect()
+
+
+## 3、 路径
