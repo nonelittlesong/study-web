@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Message</title>
+  <style>
+    #message_pannel {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      line-height: 3em;
+      width: 100%;
+      background-color: #000000;
+      color: #FFFF00;
+      font-size: small;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <div id="message_pannel"></div>
+  
+<script>
+
+var VIA_THEME_MESSAGE_TIMEOUT_MS = 2500;
+
+var _via_message_clear_timer;
+
+function show_message(msg, t) {
+  if (_via_message_clear_timer) {
+    clearTimeout(_via_message_clear_timer); // stop any previous timeouts
+  }
+  var timeout = t;
+  if (typeof t === 'undefined') {
+    timeout = VIA_THEME_MESSAGE_TIMEOUT_MS;
+  }
+  document.getElementById('message_pannel').innerHTML = msg;
+  _via_message_clear_timer = setTimeout(function() {
+    document.getElementById('message_pannel').innerHTML = ' ';
+  }, timeout);
+}
+
+</script>
+</body>
+</html>
