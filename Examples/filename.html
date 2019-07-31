@@ -1,0 +1,20 @@
+<input type="file" name="file" id="file" class="input_text80"></input>
+
+<script>
+// method 1
+var file = $('#file').val();
+var filename = getFileName(file);
+
+function getFileName(str) {
+  var pos = str.lastIndexOf('\\');
+  return str.substring(pos+1);
+}
+
+// method 2
+var file = $('#file').val();
+var strFileName = file.replace(/^.+?\([^\]+?)(.[^.\]*?)?$/gi, '$1'); // 文件名不带后缀
+var FileExt = file.replace(/.+./, ''); // 后缀
+
+// method 3
+var file = $('#file').val();
+var filename = file.substring(file.lastIndexOf('\\')+1);
