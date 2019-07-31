@@ -12,7 +12,7 @@ function getFileName(str) {
 
 // method 2
 var file = $('#file').val();
-var strFileName = file.replace(/^.+?\([^\]+?)(.[^.\]*?)?$/gi, '$1'); // 文件名不带后缀
+var strFileName = file.replace(/^.+?\([^\]+?)(.[^.\]*?)?$/gi,"$1"); // 文件名不带后缀
 var FileExt = file.replace(/.+./, ''); // 后缀
 
 // method 3
