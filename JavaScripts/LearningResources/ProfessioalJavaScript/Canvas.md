@@ -26,6 +26,11 @@ if (drawing.getContext) {
 ```
 
 # 二、 context
+## scale
+对之后绘制的图形的定位和宽高进行缩放。  
+不会修改之前的图形。  
+修改 canvas 的宽高会重置 context。  
+
 ## 1、 fill 和 stroke
 ```js
 ctx.fillStyle = "red";
