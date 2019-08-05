@@ -12,7 +12,7 @@ $ make
 $ sudo make install
 ```
 
-安装n：  
+安装[n](https://github.com/tj/n)：  
 ```sh
 $ sudo npm install n -g
 ```
