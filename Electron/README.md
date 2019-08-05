@@ -28,7 +28,7 @@ function createWindow () {
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true      // 在“渲染进程”中可以使用 node 特性
     }
   })
 
