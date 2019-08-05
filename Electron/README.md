@@ -3,6 +3,11 @@
 可以视 Electron 为小型的 Chromium 浏览器。  
 
 * [官网](https://electronjs.org/)
+* CLIs
+  * [Electron Forge](https://www.electronforge.io/)
+  * [Electron Builder](https://www.electron.build/)
+  * [Electron React Boilerplate](https://electron-react-boilerplate.js.org/)
+  
 
 # 安装
 ```
