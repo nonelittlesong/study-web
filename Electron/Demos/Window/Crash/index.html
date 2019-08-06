@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Crash</title>
+</head>
+<body>
+  <button id="process-crash">打开Crash测试窗体</button>
+  <button id="process-hang">打开Hang测试窗体</button>
+  <script>
+const { BrowserWindow, dialog } = require('electron').remote;
+const path = require('path');
+
+const processCrashBtn = document.getElementById('process-crash');
+const processHangBtn = document.getElementById('process-hang');
+
+processHangBtn.addEventListener('click', (event) => {
+  const hangWinPath = path.join('file://', __dirname, 'process-hang.html');
+  let win = new BrowserWindow({
+    width: 400,
+    height: 320,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  });
+
+  win.on('unresponsive', () => {
+    const options = {
+      type: 'info',
+      title: '渲染器进程被挂起',
+      message: '这个进程已经被挂起',
+      buttons: ['重载', '关闭']
+    };
+
+    dialog.showMessageBox(options, (index) => {
+      if (index === 0) win.reload();
+      else win.close();
+    });
+  });
+
+  win.on('close', () => {
+    win = null;
+  });
+
+  win.webContents.openDevTools();
+
+  win.loadURL(hangWinPath);
+  win.show();
+});
+
+    
+processCrashBtn.addEventListener('click', (event) => {
+  const crashWinPath = path.join('file://', __dirname, 'process-crash.html');
+  let win = new BrowserWindow({
+    width: 400,
+    height: 320,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  });
+
+  win.webContents.openDevTools();
+
+  win.webContents.on('crashed', () => {
+    const options = {
+      type: 'info',
+      title: '渲染器进程崩溃',
+      message: '这个进程已崩溃',
+      buttons: ['重载', '关闭']
+    }
+
+    dialog.showMessageBox(options, (index) => {
+      if (index === 0) win.reload();
+      else win.close();
+    });
+  });
+
+  win.on('close', () => {
+    win = null;
+  });
+
+  win.loadURL(crashWinPath);
+  win.show();
+});
+  </script>
+</body>
+</html>
