@@ -35,8 +35,10 @@ console.log('var: ' + arr2.join(', ')); // var: 3, 3, 3
 console.log('let: ' + arr4.join(', ')); // let: 0, 1, 2
 ```
 
-## 2、 const
-
+## 2、 [const](https://www.w3school.com.cn/js/js_const.asp)
+### \# 常量对象
+* 可以修改常量对象的属性。  
+* 不可以对常量对象重新赋值。
 
 
 
