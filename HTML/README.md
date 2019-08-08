@@ -14,6 +14,10 @@
 # [\<body>](https://blog.csdn.net/javaloveiphone/article/details/51098972)
 宽默认为100%，高默认为0。  
 
+# [\<code>](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/code)
+HTML \<code> 元素呈现一段计算机代码。默认情况下，他以浏览器的默认等宽字体显示。  
+
+
 # [\<dt>](https://www.runoob.com/tags/tag-dt.html)
 The \<dt> tag defines a term/name in a description list. The \<dt> tag is used in conjunction with \<dl> (defines a description list) and \<dd> (describes each term/name).  
 
@@ -82,5 +86,11 @@ HTML5中的新元素标签\<nav>用来将具有导航性质的链接划分在一
 nav元素是一个可以用来作为页面导航的链接组;其中的导航元素链接到其他页面或当前页面的其他部分。并不是所有的链接组都要被放进\<nav>元素。例如：在页脚中通常会有一组链接，包括服务条款、首页、版权声明等;这是使用\<footer>元素是最恰当的。  
 一个页面可以拥有多个\<nav>元素。  
 
-# \<pre>
-pre 元素可以定义
+# [\<pre>](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/pre)
+pre 元素表示预定义格式文本。  
+在该元素中的文本通常按照原文件中的编排，以等宽字体的形式展现出来，文本中的空白符（比如空格和换行符）都会显示出来。  
+**紧跟在 \<pre> 开始标签后的换行符也会被省略。**  
+
+>**注：** 需要将该元素中的’<‘转义为’\&lt;‘。  
+
+
