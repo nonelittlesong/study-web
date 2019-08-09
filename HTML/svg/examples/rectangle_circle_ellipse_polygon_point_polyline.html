@@ -1,0 +1,47 @@
+<body>
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <defs>
+        <symbol id="shape_rectangle">
+          <title>Rectangular region shape</title>
+          <rect width="20" height="12" x="6" y="10" stroke-width="2"/>
+        </symbol>
+        <symbol id="shape_circle">
+          <title>Circular region shape</title>
+          <circle r="10" cx="16" cy="16" stroke-width="2"/>
+        </symbol>
+        <symbol id="shape_ellipse">
+          <title>Elliptical region shape</title>
+          <ellipse rx="12" ry="8" cx="16" cy="16" stroke-width="2"/>
+        </symbol>
+        <symbol id="shape_polygon">
+          <title>Polygon region shape</title>
+          <path d="M 15.25,2.2372 3.625,11.6122 6,29.9872 l 20.75,-9.625 2.375,-14.75 z" stroke-width="2"/>
+        </symbol>
+        <symbol id="shape_point">
+          <title>Point region shape</title>
+          <circle r="3" cx="16" cy="16" stroke-width="2"/>
+        </symbol>
+        <symbol id="shape_polyline">
+          <title>Polyline region shape</title>
+          <!--<path d="M 15.25,2.2372 3.625,11.6122 6,29.9872 l 20.75,-9.625" stroke-width="2"/>-->
+          <path d="M 2,12 10,24 18,12 24,18" stroke-width="2"/>
+          <circle r="1" cx="2" cy="12" stroke-width="2"/>
+          <circle r="1" cx="10" cy="24" stroke-width="2"/>
+          <circle r="1" cx="18" cy="12" stroke-width="2"/>
+          <circle r="1" cx="24" cy="18" stroke-width="2"/>
+        </symbol>
+      </defs>
+    </svg>
+    
+    <button class="leftsidebar_accordion active">Region Shape</button>
+        <div class="leftsidebar_accordion_panel show">
+          <ul class="region_shape">
+            <li id="region_shape_rect" class="selected" onclick="select_region_shape('rect')" title="Rectangle"><svg height="32" viewbox="0 0 32 32"><use xlink:href="#shape_rectangle"></use></svg></li>
+            <li id="region_shape_circle" onclick="select_region_shape('circle')" title="Circle"><svg height="32" viewbox="0 0 32 32"><use xlink:href="#shape_circle"></use></svg></li>
+            <li id="region_shape_ellipse" onclick="select_region_shape('ellipse')" title="Ellipse"><svg height="32" viewbox="0 0 32 32"><use xlink:href="#shape_ellipse"></use></svg></li>
+            <li id="region_shape_polygon" onclick="select_region_shape('polygon')" title="Polygon"><svg height="32" viewbox="0 0 32 32"><use xlink:href="#shape_polygon"></use></svg></li>
+            <li id="region_shape_point" onclick="select_region_shape('point')" title="Point"><svg height="32" viewbox="0 0 32 32"><use xlink:href="#shape_point"></use></svg></li>
+            <li id="region_shape_polyline" onclick="select_region_shape('polyline')" title="Polyline"><svg height="32" viewbox="0 0 32 32"><use xlink:href="#shape_polyline"></use></svg></li>
+          </ul>
+    </div>
+</body>
