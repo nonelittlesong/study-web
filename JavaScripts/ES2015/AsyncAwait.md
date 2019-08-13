@@ -151,7 +151,7 @@ async function f() {
     throw new Error("Whoops!");
 }
 ```
-<br/>
+
 `try..catch`:  
 ```js
 async function f() {
@@ -164,7 +164,8 @@ async function f() {
     }
 }
 ```
-如果没有 `try..catch`，可以使用 `.catch`：  
+
+如果没有 `try..catch`，可以使用 `.catch`：   
 ```js
 async function f() {
     let response = await fetch(http://no-such-url');
