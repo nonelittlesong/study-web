@@ -19,3 +19,12 @@ dialog.showOpenDialog(mainWindow, {
   console.log(err)
 })
 ```
+
+# dialog.showSaveDialog(\[browserWindow, ]options)
+* browserWindow
+* options
+
+返回 `Promise<Object>`:  
+* `canceled` - 是否取消
+* `filePath` - String
+* `bookmarks`
