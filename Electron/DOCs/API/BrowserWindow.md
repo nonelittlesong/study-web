@@ -25,7 +25,7 @@ child.once('ready-to-show', () => {
 
 # 静态方法
 ## 1、 BrowserWindow.fromWebContents(webContents)
-* webContents - WebContents
+* webContents
 
 返回 BrowserWindow - 拥有给定 webContents 的窗口。
 
