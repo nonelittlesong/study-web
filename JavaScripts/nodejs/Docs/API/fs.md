@@ -27,5 +27,5 @@ let pathElements = xmldoc.getElementsByTagName('path');
 let imgPath = pathElements[0].firstChild.nodeValue;
 let xmlPath = imgPath.substring(0, lastIndexOf('.')) + '.xml';
 
-fs.writeFileSync(xmlPath, data); // 文件不存在会创建文件
+fs.writeFileSync(xmlPath, data); // 文件不存在不会创建
 ```
