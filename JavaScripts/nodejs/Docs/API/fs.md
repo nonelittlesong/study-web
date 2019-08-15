@@ -14,6 +14,7 @@ const fileSizeInMegabytes = fileSizeInBytes / 1000000.0;
 参考：  
 * [JS String 对象](https://www.w3school.com.cn/jsref/jsref_obj_string.asp)  
 * [fs.writeFileSync()](http://nodejs.cn/api/fs.html#fs_fs_writefilesync_file_data_options)
+* [fs.existsSync(path)](http://nodejs.cn/api/fs.html#fs_fs_existssync_path)
 
 同步：  
 ```js
