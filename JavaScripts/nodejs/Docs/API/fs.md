@@ -27,5 +27,5 @@ let xmldoc = new DOMParser().parseFromString(data, 'text/xml');
 let pathElements = xmldoc.getElementsByTagName('path');
 let xmlPath = pathElements[0].firstChild.nodeValue;
 
-fs.writeFileSync(xmlPath, data);
+fs.writeFileSync(xmlPath, data); // 文件不存在会创建文件
 ```
