@@ -22,10 +22,10 @@ const fileSizeInMegabytes = fileSizeInBytes / 1000000.0;
 
 let fs = require('fs');
 
-//let xmlPath = imgPath.substring(0, lastIndexOf('.')) + '.xml';
 let xmldoc = new DOMParser().parseFromString(data, 'text/xml');
 let pathElements = xmldoc.getElementsByTagName('path');
-let xmlPath = pathElements[0].firstChild.nodeValue;
+let imgPath = pathElements[0].firstChild.nodeValue;
+let xmlPath = imgPath.substring(0, lastIndexOf('.')) + '.xml';
 
 fs.writeFileSync(xmlPath, data); // 文件不存在会创建文件
 ```
