@@ -25,7 +25,7 @@ let fs = require('fs');
 let xmldoc = new DOMParser().parseFromString(data, 'text/xml');
 let pathElements = xmldoc.getElementsByTagName('path');
 let imgPath = pathElements[0].firstChild.nodeValue;
-let xmlPath = imgPath.substring(0, lastIndexOf('.')) + '.xml';
+let xmlPath = imgPath.substring(0, imgPath.lastIndexOf('.')) + '.xml';
 
-fs.writeFileSync(xmlPath, data); // 文件不存在不会创建
+fs.writeFileSync(xmlPath, xmldoc); // 文件不存在不会创建
 ```
