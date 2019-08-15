@@ -23,16 +23,16 @@ const fileSizeInMegabytes = fileSizeInBytes / 1000000.0;
 let fs = require('fs');
 
 //console.log(xmlitem);
-let xmlstr = xmlitem.replace(/\r\n/g, "") // 不会修改原字符串
-                    .replace(/\n/g, "")
-                    .replace(/\s/g, "");
-const xmldoc = new DOMParser().parseFromString(xmlstr, 'text/xml');
+const xmldoc = new DOMParser().parseFromString(xmlitem, 'text/xml');
 const pathElements = xmldoc.getElementsByTagName('path');
 const imgPath = pathElements[0].firstChild.nodeValue;
 const xmlPath = imgPath.substring(0, imgPath.lastIndexOf('.')) + '.xml';
+const pathstr = xmlPath.replace(/\r\n/g, "") // 不会修改原字符串
+                       .replace(/\n/g, "")
+                       .replace(/(^\s*)|(\s*$)/g, "");
 //console.log(xmlPath);
 // 异步
-fs.writeFile(xmlPath, xmlitem, (err) => { // 文件不存在会创建
+fs.writeFile(pathstr, xmlitem, (err) => { // 文件不存在会创建
   if (err) console.log(err);
 });
 // 同步
