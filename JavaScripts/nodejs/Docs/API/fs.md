@@ -38,3 +38,20 @@ fs.writeFile(pathstr, xmlitem, (err) => { // 文件不存在会创建
 // 同步
 fs.writeFileSync(xmlPath, xmlitem); // 文件不存在会创建
 ```
+
+## 3、 删除文件
+```js
+"use strict";
+
+const fs = require('fs');
+
+try {
+  fs.unlinkSync(path);
+} catch(err) {
+  console.log(err);
+  return; // 循环中使用 break;
+}
+
+...
+```
+
