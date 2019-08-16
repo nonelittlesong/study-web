@@ -40,6 +40,7 @@ fs.writeFileSync(xmlPath, xmlitem); // 文件不存在会创建
 ```
 
 ## 3、 删除文件
+* [fs.unlinkSync(path)](http://nodejs.cn/api/fs.html#fs_fs_unlinksync_path) - 同步地删除文件或符号链接。
 ```js
 "use strict";
 
@@ -49,7 +50,7 @@ try {
   fs.unlinkSync(path);
 } catch(err) {
   console.log(err);
-  return; // 循环中使用 break;
+  return; // break;/continue;
 }
 
 ...
