@@ -50,7 +50,8 @@ try {
   fs.unlinkSync(path);
 } catch(err) {
   console.log(err);
-  return; // break;/continue;
+  //return;/break;/continue;
+  throw err;
 }
 
 ...
