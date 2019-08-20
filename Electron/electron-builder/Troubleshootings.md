@@ -26,6 +26,6 @@ info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this comm
 
 package.json 必须配置 `author`  
 或者  
-配置 `linux` 的 [maintainer](https://www.electron.build/configuration/linux)。  
+electron-builder.yml 配置 `linux` 的 [maintainer](https://www.electron.build/configuration/linux)。  
 
 
