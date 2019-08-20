@@ -1,13 +1,15 @@
 # electron-builder.yml
 
 - [YAML官网](https://yaml.org/)
+- [Common Configuration](https://www.electron.build/configuration/configuration)
+- https://juejin.im/post/5bc53aade51d453df0447927
 
 ```yml
 appId: com.example.app
 copyright: Example co
 productName: MyApp
 
-asar: true
+asar: true             # 是否压缩程序源代码，不会打包 node modules
 
 directories:
   buildResources: dist-assets/
