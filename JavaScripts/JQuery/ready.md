@@ -1,3 +1,7 @@
+参考：  
+- https://www.sitepoint.com/jquery-document-ready-plain-javascript/
+- [domReady](https://github.com/ded/domready)
+
 在 `jQuery 3.0` 中，除了 `$(handler)` 之外，其他 ready 方法都被弃用。  
 
 # ready 和 load
