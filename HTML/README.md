@@ -14,6 +14,12 @@
 # [\<body>](https://blog.csdn.net/javaloveiphone/article/details/51098972)
 宽默认为100%，高默认为0。  
 
+原生js获取body：  
+```js
+console.log(document.body);
+console.log(document.getElementsByTagName('body')[0])
+```
+
 # [\<code>](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/code)
 HTML \<code> 元素呈现一段计算机代码。默认情况下，他以浏览器的默认等宽字体显示。  
 
