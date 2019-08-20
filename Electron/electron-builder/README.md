@@ -42,6 +42,7 @@ linux:
   target:
     - deb
     - AppImage
+  category: Utility
 ```
 
 # package.json
