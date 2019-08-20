@@ -116,3 +116,9 @@ linux:
 }
 ```
 
+devDependencies:  
+
+- [prettier](https://prettier.io/) - code formatter
+- [rimraf](https://www.npmjs.com/package/rimraf) - The UNIX command `rm -rf` for node
+- [npm-run-all](https://www.npmjs.com/package/npm-run-all) - 同步或异步执行 npm 脚本。
+
