@@ -3,8 +3,10 @@
 
 
 # Event
-### 1、 event.stopPropagation()
+### 1、 stopPropagation()
 阻止捕获和冒泡阶段当前事件的进一步传播。  
+### 2、 currentTarget
+事件的当前目标。  
 
 
 # HTMLCanvasElement
