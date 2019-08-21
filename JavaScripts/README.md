@@ -51,3 +51,13 @@ canvas.toDataURL(type, encoderOptions);
 ### 1. [原始宽高](https://www.cnblogs.com/snandy/p/3704218.html)
 * naturalWidth
 * naturalHeight
+
+
+# 五、 Element
+### 1、 [clientLeft & clientTop](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientLeft)
+- 只读。  
+- 表示元素左边框和上边框的宽度。
+
+### 2、 [demensions-client](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientHeight)
+![demensions-client.png](https://github.com/nonelittlesong/study-resources/blob/master/images/JS/Dimensions-client.png)
+
