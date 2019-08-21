@@ -2,6 +2,11 @@
 * [MDN Web API](https://developer.mozilla.org/zh-CN/docs/Web/API)
 
 
+# Event
+### 1、 event.stopPropagation()
+阻止捕获和冒泡阶段当前事件的进一步传播。  
+
+
 # HTMLCanvasElement
 ### 1. [toDataURL()](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toDataURL)
 语法：  
