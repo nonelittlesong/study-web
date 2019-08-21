@@ -56,7 +56,8 @@ canvas.toDataURL(type, encoderOptions);
 # 五、 Element
 
 ### 1、 [demensions-client](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientHeight)
-![demensions-client.png](https://github.com/nonelittlesong/study-resources/blob/master/images/JS/Dimensions-client.png)
+
+![demensions-client.png](https://github.com/nonelittlesong/study-resources/blob/master/images/JS/Dimensions-client.png)  
 
 #### \# [clientLeft & clientTop](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientLeft)
 - 只读。  
