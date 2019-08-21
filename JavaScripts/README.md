@@ -55,14 +55,18 @@ canvas.toDataURL(type, encoderOptions);
 
 # 五、 [Element](https://developer.mozilla.org/zh-CN/docs/Web/API/Element)
 ## 1、 demensions
+都是只读！  
+
 demensions-client:  
 ![demensions-client.png](https://github.com/nonelittlesong/study-resources/blob/master/images/JS/Dimensions-client.png)  
 
 demensions-offset:  
 ![demensions-offset.png](https://github.com/nonelittlesong/study-resources/blob/master/images/JS/Dimensions-offset.png)
 
-#### \# [clientLeft & clientTop](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientLeft)
-- 只读。  
-- 表示元素左边框和上边框的宽度。
+- clientLeft & clientTop  
+  表示元素左边框和上边框的宽度。  
+- offsetLeft & offsetTop  
+  左上角相对于 `HTMLElement.offsetParent` 的偏移量。 `transform` 不会影响这个值。  
+  
 
-### 2、 [
+
