@@ -76,8 +76,8 @@ Flexbox 的另一个好处在于，它还可以将匿名容器（即没有被标
 ```css
 main {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
     width: 18;
     height: 10em;
 }
