@@ -3,7 +3,7 @@
 
 # [document](https://developer.mozilla.org/zh-CN/docs/Web/API/Document)
 ## 2、 方法
-### [querySelector(selectors)]
+### querySelector(selectors)
 - 返回值 >> 匹配的第一个Element对象。
 
 
