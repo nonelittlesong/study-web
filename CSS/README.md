@@ -75,8 +75,12 @@
 | resize | 用户能否对元素的尺寸进行调整 |
 
 ### 1. [box-sizing](http://www.w3school.com.cn/cssref/pr_box-sizing.asp)
+假如您需要并排放置两个带边框的框，可通过将 box-sizing 设置为 "border-box"。  
+这可令浏览器呈现出带有指定宽度和高度的框，并把边框和内边距放入框中。  
+
 * content-box: 高度和宽度分别应用到元素的内容框。在宽度和高度之外绘制元素的内边距和边框。  
 * border-box: 为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。通过从已设定的高度和宽度分别减去边框和内边距才能得到内容的宽度和高度。
+
 
 ### 2. [outline](http://www.w3school.com.cn/cssref/pr_outline.asp)
 继承性： no  
