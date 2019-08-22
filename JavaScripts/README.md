@@ -1,6 +1,12 @@
 * [The Modern JavaScript Tutorial](https://github.com/nonelittlesong/study-web/edit/master/JavaScripts/README.md)
 * [MDN Web API](https://developer.mozilla.org/zh-CN/docs/Web/API)
 
+# [document](https://developer.mozilla.org/zh-CN/docs/Web/API/Document)
+## 2、 方法
+### [querySelector(selectors)]
+- 返回值 >> 匹配的第一个Element对象。
+
+
 
 # Event
 ### 1、 stopPropagation()
