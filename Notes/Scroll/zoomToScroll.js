@@ -29,6 +29,8 @@ canvas_panel.addEventListener('wheel', function(e) {
   let boardland = 0.1;
   let x_rate = (cursor_x - boardland * w) / (w - 2 * boardland * w);
   let y_rate = (cursor_y - boardland * h) / (h - 2 * boardland * h);
+  x_rate = Math.min(Math.max(x_rate, 0), 1);
+  y_rate = Math.min(Math.max(y_rate, 0), 1);
 
   if (e.ctrlKey) {
     if (e.deltaY < 0) {
