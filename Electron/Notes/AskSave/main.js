@@ -13,3 +13,8 @@ ipcMain.on('reqaction', (event, payload) => {
       break;
   }
 });
+
+/**
+ * 方案二
+ * 主进程不添加额外代码
+ */
