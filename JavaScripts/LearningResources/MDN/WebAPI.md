@@ -8,7 +8,8 @@
 
 # [Element](https://developer.mozilla.org/en-US/docs/Web/API/Element)
 ## 1、Element.classList
-### toggle(string\[, force])
+### \# 方法
+#### toggle(string\[, force])
 - 当只有一个参数时：切换 class value; 即如果类存在，则删除它并返回false，如果不存在，则添加它并返回true。
 - 当存在第二个参数时：如果第二个参数的计算结果为true，则添加指定的类值，如果计算结果为false，则删除它
 
