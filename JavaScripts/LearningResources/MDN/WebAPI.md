@@ -34,7 +34,7 @@ canvas.toDataURL(type, encoderOptions);
 包含dataURI的DOMString。  
 
 # [HTMLElement](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement)
-## 1、 demensions
+## demensions
 都是只读！  
 
 demensions-client:  
@@ -47,7 +47,15 @@ demensions-offset:
   表示元素左边框和上边框的宽度。  
 - offsetLeft & offsetTop  
   左上角相对于 `HTMLElement.offsetParent` 的偏移量。 `transform` 不会影响这个值。  
-  
+
+## focus()
+语法： `element.focus(options)`  
+
+options：  
+
+- `preventScroll` >> true 使浏览器不会自动滚动使焦点在视野内。
+
+
 # Image
 ### 1. [原始宽高](https://www.cnblogs.com/snandy/p/3704218.html)
 * naturalWidth
