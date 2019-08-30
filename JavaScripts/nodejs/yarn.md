@@ -1,5 +1,5 @@
 参考：  
-- [yarn doc](https://yarn.bootcss.com/docs/migrating-from-npm/)
+- [yarn doc](https://yarn.bootcss.com/docs/usage/)
 - https://blog.csdn.net/mocoe/article/details/86751925
 - [淘宝镜像](https://npm.taobao.org/)
 - https://docs.npmjs.com/files/package.json#dependencies
