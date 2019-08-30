@@ -3,6 +3,21 @@
 
 该配置会被 `webpack-dev-server` 使用。  
 
+底层包：  
+- [webpack-dev-middleware](https://www.npmjs.com/package/webpack-dev-middleware)
+- [http-proxy-middleware](https://www.npmjs.com/package/http-proxy-middleware)
+
+# open
+是否自动打开浏览器：  
+```
+module.exports = {
+  //...
+  devServer: {
+    open: true
+  }
+};
+```
+
 # port
 webpack.config.js  
 ```
