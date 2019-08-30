@@ -5,6 +5,7 @@
 * https://www.tweenmax.com.cn/  
 * [http status](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 * [腾讯云 开发者手册](https://cloud.tencent.com/developer/devdocs)
+* https://github.com/fyuanfen/note
 
 wiki
 * [创建mysql数据库](https://github.com/nonelittlesong/study-web/wiki/create-database)
