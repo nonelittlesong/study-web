@@ -9,6 +9,7 @@ redux 流程图：
 ```
 yarn add redux
 yarn add react-redux
+yarn add redux-saga
 
 # optional
 yarn add redux-devtools --dev
