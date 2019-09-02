@@ -25,6 +25,12 @@
 
 **如果将参数传递给生成器的 `next()` 方法，则该值将成为生成器当前 `yield` 操作返回的值。**  
 
+**Generators 不可构造：**  
+```
+function* f() {}
+var obj = new f; // throws "TypeError: f is not a constructor
+```
+
 
 ## 3、 例子
 ### \# yield*
