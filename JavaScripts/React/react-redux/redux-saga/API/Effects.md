@@ -45,3 +45,6 @@
 当 put **没有** 被缓存而是被 taker 立即消费掉的时候，这个 effect 是阻塞型的。假如有错误被抛到了这些 taker 当中，那这个错误将会冒泡回到 saga 里面。  
 
 
+## select(selector, ...args)
+
+## take
