@@ -4,6 +4,7 @@
 * [React](https://reactjs.org/docs/react-api.html) - the React top level API
 * [React DOM](https://reactjs.org/docs/react-dom.html) - adds DOM-specific methods
 * [Babel](https://babeljs.io/) - a JavaScript compiler that let us use ES6+ in old browsers
+* React 服务器渲染
 
 React 不是框架。  
 
