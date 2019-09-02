@@ -24,9 +24,26 @@
 * 达到return语句。IteratorResult返回给调用者，value有return指定，并且done为true。
 
 **如果将参数传递给生成器的 `next()` 方法，则该值将成为生成器当前 `yield` 操作返回的值。**  
+```js
+function* logGenerator() {
+  console.log(0);
+  console.log(1, yield);
+  console.log(2, yield);
+  console.log(3, yield);
+}
+
+var gen = logGenerator();
+
+// the first call of next executes from the start of the function
+// until the first yield statement
+gen.next();             // 0
+gen.next('pretzel');    // 1 pretzel
+gen.next('california'); // 2 california
+gen.next('mayonnaise'); // 3 mayonnaise
+```
 
 **Generators 不可构造：**  
-```
+```js
 function* f() {}
 var obj = new f; // throws "TypeError: f is not a constructor
 ```
@@ -54,25 +71,6 @@ console.log(gen.next().value); // 11
 console.log(gen.next().value); // 12
 console.log(gen.next().value); // 13
 console.log(gen.next().value); // 20
-```
-
-### \# Generators 的参数
-```js
-function* logGenerator() {
-  console.log(0);
-  console.log(1, yield);
-  console.log(2, yield);
-  console.log(3, yield);
-}
-
-var gen = logGenerator();
-
-// the first call of next executes from the start of the function
-// until the first yield statement
-gen.next();             // 0
-gen.next('pretzel');    // 1 pretzel
-gen.next('california'); // 2 california
-gen.next('mayonnaise'); // 3 mayonnaise
 ```
 
 ### \# Generators 的 return 语句
