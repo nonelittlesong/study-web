@@ -5,6 +5,7 @@
 * [React DOM](https://reactjs.org/docs/react-dom.html) - adds DOM-specific methods
 * [Babel](https://babeljs.io/) - a JavaScript compiler that let us use ES6+ in old browsers
 * React 服务器渲染
+* [React Hot Loader](https://gaearon.github.io/react-hot-loader/getstarted/)
 
 React 不是框架。  
 
