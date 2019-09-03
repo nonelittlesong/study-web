@@ -14,3 +14,8 @@ yarn add redux-saga
 # optional
 yarn add redux-devtools --dev
 ```
+
+# 二、 要点
+
+- `reducer` - 形如 `(state, action) => state` 的纯函数。**当 `state` 变化时，应该返回全新的对象。**
+
