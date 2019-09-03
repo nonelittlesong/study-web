@@ -17,5 +17,7 @@ yarn add redux-devtools --dev
 
 # 二、 要点
 
-- `reducer` - 形如 `(state, action) => state` 的纯函数。**当 `state` 变化时，应该返回全新的对象。**
+- `reducer` - 形如 `(state, action) => state` 的纯函数。描述 `action` 如何改变 `state`。**当 `state` 变化时，应该返回全新的对象。**
+- `action` - `action` 描述已发生事件的普通对象。
+
 
