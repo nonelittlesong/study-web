@@ -1,6 +1,9 @@
 
 - [UMD](https://github.com/umdjs/umd) >> Universal Module Definition。
 - [Redux DevTools](https://github.com/reduxjs/redux-devtools)
+- [Redux 视频教程](http://cn.redux.js.org/docs/introduction/LearningResources.html)
+- [Redux 学习资料](http://cn.redux.js.org/docs/introduction/LearningResources.html)
+- [Redux 示例](http://cn.redux.js.org/docs/introduction/Examples.html)
 
 redux 流程图：  
 ![redux.png](https://github.com/nonelittlesong/study-resources/blob/master/images/React/redux.png)  
