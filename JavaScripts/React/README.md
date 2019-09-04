@@ -6,6 +6,7 @@
 * [Babel](https://babeljs.io/) - a JavaScript compiler that let us use ES6+ in old browsers
 * React 服务器渲染
 * [React Hot Loader](https://gaearon.github.io/react-hot-loader/getstarted/)
+* [Webpack Boilerplate](https://github.com/taniarascia/webpack-boilerplate)
 
 React 不是框架。  
 
