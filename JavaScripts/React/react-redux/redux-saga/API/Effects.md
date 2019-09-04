@@ -48,3 +48,25 @@
 ## select(selector, ...args)
 
 ## take
+等待指定的 `action`。  
+### 1、 take(pattern)
+在发起与 `pattern` 匹配的 `action` 之前，Generator 将暂停。  
+
+pattern:  
+- 空或 `'*'` - 匹配所有 action。  
+- 函数 - 匹配 `pattern(action)` 为 true 的 action。
+  >注意: 如果 pattern 函数上定义了 toString，action.type 将改用 pattern.toString 来测试。这个设定在你使用 action 创建函数库（如 redux-act 或 redux-actions）时非常有用。
+- `String` - 匹配 `action.type === pattern` 的 action。
+- `Array` - 数组中的每一项运用上述规则。
+
+>middleware 提供了一个特殊的 action —— END。如果你发起 END action，则无论哪种 pattern，只要是被 take Effect 阻塞的 Sage 都会被终止。假如被终止的 Saga 下仍有分叉（forked）任务还在运行，那么它在终止任务前，会先等待其所有子任务均被终止。  
+
+### 2、 take.maybe(pattern)
+与 `take(pattern)` 相同，但在 `END action` 时不自动终止 Saga。  
+
+### 3、 take(channel)
+从指定的 `Channel` 中等待一条特定消息。  
+
+### 4、 take.maybe(channel)
+与 `take(channel)` 相同，但在 `END action` 时不自动地终止 Saga。  
+
