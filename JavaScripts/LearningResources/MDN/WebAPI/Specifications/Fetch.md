@@ -1,3 +1,5 @@
+不如 [axios](https://github.com/nonelittlesong/study-web/tree/master/JSLibrary/axios)  
+
 ## 语法
 ```
 Promise<Response> fetch(input[, init]);
