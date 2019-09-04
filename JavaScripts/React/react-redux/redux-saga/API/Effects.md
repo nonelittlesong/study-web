@@ -1,4 +1,4 @@
-## apply(context, fn, [args])
+## apply(context, fn, \[args])
 `call([context, fn], ...args)` 的另一种写法。  
 
 
@@ -9,10 +9,10 @@
 - fn: Function - 一个 Generator 函数, 也可以是一个返回 Promise 或任意其它值的普通函数。
 - args: Array\<any> - 传递给 fn 的参数数组。
 
-### 2、 call([context, fn], ...args) && call({context, fn}, ...args)
+### 2、 call(\[context, fn], ...args) && call({context, fn}, ...args)
 传递 `this` 上下文给 `fn`。  
 
-### 3、 call([context, fnName], ...args)
+### 3、 call(\[context, fnName], ...args)
 支持用字符串传递 `fn`。  
 
 
@@ -28,8 +28,20 @@
 >
 >在 fn 终止之前，middleware 会保持暂停状态。
 
-### 2、 cps([context, fn], ...args)
+### 2、 cps(\[context, fn], ...args)
 传递 `this` 上下文 给 `fn`。  
+
+
+## fork
+非阻塞（后台）执行。  
+### 1、 fork(fn, ...args)
+- `fn: Function` - 一个 Generator 或返回 Promise的函数。
+- `args: Array<any>` - `fn` 的参数。
+
+返回 [Task](https://redux-saga-in-chinese.js.org/docs/api/) 对象。  
+
+### 2、 fork(\[context, fn], ...args)
+支持使用 `this` 上下文调用分叉函数。  
 
 
 ## put
@@ -46,6 +58,12 @@
 
 
 ## select(selector, ...args)
+- `selector: Function` - 一个 `(state, ...args) => args` 的函数。
+- `args: Array<any>` - 传递给 `selector` 的参数，将追加在 `getState` 后。
+
+如果调用 select 的参数为空（即 yield select()），那么 effect 会取得完整的 state（与调用 getState() 的结果相同）。
+
+>重要提醒：在向 store 发起 action 时，middleware 首先会把 action 转发给 reducers，然后通知 Sagas。这意味着，当你查询 Store 的 state 时，你获得的是 action 被应用 **后** 的 state。 但是，只有当所有后续中间件都以同步的形式调用 next(action) 时，才能保证此行为。如果有任何后续 middleware 异步地调用 next(action)（虽然不常见，但存在这种可能），那么 saga 会在 action 被应用 **前** 获得 state。因此，建议检查每一个后续的 middleware 的来源，以确保是通过同步的形式调用 next(action)；或者确保 redux-saga 是调用链中的最后一个中间件。  
 
 ## take
 等待指定的 `action`。  
