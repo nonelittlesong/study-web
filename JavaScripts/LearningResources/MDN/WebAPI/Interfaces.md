@@ -55,6 +55,9 @@ options：
 
 - `preventScroll` >> true 使浏览器不会自动滚动使焦点在视野内。
 
+>**注意：**  
+>`focus` 影响按键事件的监听，不影响鼠标事件的监听。  
+
 
 # Image
 ### 1. [原始宽高](https://www.cnblogs.com/snandy/p/3704218.html)
