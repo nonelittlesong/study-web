@@ -7,3 +7,12 @@
 >**注:**  
 `react-router-dom` 依赖 `react-router`。基于浏览器环境的开发，只需要安装 `react-router-dom` ；基于 `react-native `环境的开发，只需要安装 `react-router-native`。  
 
+**资源:**  
+
+- [React-Router 中文文档](http://react-guide.github.io/react-router-cn/)
+
+
+# 一、 安装配置
+```
+yarn add react-router
+```
