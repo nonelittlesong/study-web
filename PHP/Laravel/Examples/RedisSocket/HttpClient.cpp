@@ -1,3 +1,7 @@
+/**
+ * 编译 g++ HttpClient.cpp -o HttpClient -lcurl
+ */
+
 #include <curl/curl.h>
 #include <string>
 #include <cstring>
