@@ -1,7 +1,3 @@
-/**
- * 编译 g++ HttpClient.cpp -o HttpClient -lcurl
- */
-
 #include <curl/curl.h>
 #include <string>
 #include <cstring>
@@ -22,15 +18,16 @@ int main(int argc, char *argv[]) {
   strcpy(resultJsonData, strJson.c_str());
 
   curl_slist *pHeaders = NULL;
-  curl_slist_append(pHeaders, "Content-Type: application/json");
-  curl_slist_append(pHeaders, "charset: utf-8");
+
+  pHeaders=curl_slist_append(pHeaders, "Content-Type:application/json;charset=UTF-8");
 
   pCurl = curl_easy_init();
   if (pCurl)
   {
-    curl_easy_setopt(pCurl, CURLOPT_URL, "http://127.0.0.1:100/api/result");
+    curl_easy_setopt(pCurl, CURLOPT_URL, "http://127.0.0.1:3000/api/result");
     curl_easy_setopt(pCurl, CURLOPT_TIMEOUT, 1);
     curl_easy_setopt(pCurl, CURLOPT_HTTPHEADER, pHeaders);
+    curl_easy_setopt(pCurl, CURLOPT_POST, 1);
     
     curl_easy_setopt(pCurl, CURLOPT_POSTFIELDS, resultJsonData);
     /* if we don't provide POSTFIELDSIZE, libcurl will strlen() by itself */
@@ -47,6 +44,7 @@ int main(int argc, char *argv[]) {
     }
     
     /* always cleanup */
+    curl_slist_free_all(pHeaders);
     curl_easy_cleanup(pCurl);
   }
   return 0;
