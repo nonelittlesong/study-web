@@ -1,7 +1,7 @@
 
 - [vue-cli](https://cli.vuejs.org/zh/)
 
-# 一、 安装
+## 一、 安装
 ```
 sudo npm install -g @vue/cli
 # OR
@@ -23,3 +23,11 @@ Error: NO_MODULES
 ```
 export NODE_ENV=dev
 ```
+
+### 1、 vue-cli
+```
+sudo npm install -g @vue/cli-init
+
+vue init webpack my-project
+```
+
