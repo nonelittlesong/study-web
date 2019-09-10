@@ -32,3 +32,6 @@ vue init webpack my-project
 ```
 
 ## 二、 [webpack](http://vuejs-templates.github.io/webpack/)（vue-cli 版）
+参考：  
+- [Vue+MySQL+Express小试牛刀](https://segmentfault.com/a/1190000008176208) by segmentfault
+
