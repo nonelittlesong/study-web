@@ -75,3 +75,21 @@ import 'bootstrap'
 </style>
 ```
 
+### 1、 webpack 配置 scss
+
+- https://github.com/vuejs/vue-loader/issues/363
+- https://github.com/vuejs-templates/webpack-simple/blob/master/template/webpack.config.js
+- https://segmentfault.com/q/1010000005346260
+
+```js
+{
+    test: /\.s[a|c]ss$/,
+    loader: 'style!css!sass'
+}
+```
+
+### 2、 TypeError: this.getResolve is not a function
+`sass-loader` 版本太高？  
+```
+yarn add sass-loader@7.3.1
+```
