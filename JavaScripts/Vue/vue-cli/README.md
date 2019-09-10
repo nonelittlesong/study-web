@@ -11,3 +11,15 @@ vue create my-project
 # OR
 vue ui
 ```
+
+创建项目报错：  
+```
+Error: NO_MODULES
+    at importProject (/usr/local/lib/node_modules/@vue/cli/node_modules/@vue/cli-ui/apollo-server/connectors/projects.js:363:11)
+    at progress.wrap (/usr/local/lib/node_modules/@vue/cli/node_modules/@vue/cli-ui/apollo-server/connectors/projects.js:355:12)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+```
+解决方案：  
+```
+export NODE_ENV=dev
+```
