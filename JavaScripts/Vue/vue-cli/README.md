@@ -35,3 +35,43 @@ vue init webpack my-project
 参考：  
 - [Vue+MySQL+Express小试牛刀](https://segmentfault.com/a/1190000008176208) by segmentfault
 
+## 三、 [bootstrap4](https://segmentfault.com/a/1190000015706096)
+
+安装 `jquery`, `bootstrap`, `popper.js`:  
+```
+yarn add jquery bootstrap popper.js
+```
+安装 `node-sass`, `sass-loader`:  
+```
+yarn add node-sass sass-loader
+```
+在 `webpack.base.conf.js` 中添加：  
+```js
+var webpack = require('webpack');
+...
+plugins: [
+  new webpack.ProvidePlugin({
+    $: "jquery",
+    jQuery: "jquery"
+  })
+],
+...
+```
+在 js 中使用：  
+```js
+import 'bootstrap'
+// require('bootstrap')
+```
+在 scss 中使用：  
+```
+// app.css
+// Bootstrap
+@import '~bootstrap/scss/bootstrap.scss';
+```
+在 vue 中导入 scss：  
+```
+<style lang="scss">
+@import "./assets/sass/app.scss";
+</style>
+```
+
