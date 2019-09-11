@@ -12,7 +12,24 @@
 - [React-Router 中文文档](http://react-guide.github.io/react-router-cn/)
 
 
-# 一、 安装配置
+## 一、 安装配置
 ```
-yarn add react-router
+yarn add react-router-dom
+```
+
+## 二、 react-router-dom
+
+- [BrowserRouter](https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/modules/BrowserRouter.js)
+- [HashRouter](https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/modules/HashRouter.js)
+
+导入：  
+```js
+import {Link} from 'react-router-dom';
+
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch,
+    Redirect
+} from 'react-router-dom';
 ```
