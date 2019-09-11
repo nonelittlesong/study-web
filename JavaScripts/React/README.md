@@ -80,9 +80,10 @@ class ClassComponent extends Component {
 ```
 
 # Props
-子组件的属性值对应父组件的属性名。  
+>通过 `this.props` 访问外部数据。  
 
 # State
+>通过 `this.state` 访问内部数据。
 
 # Submitting From Data
 动态键：  
