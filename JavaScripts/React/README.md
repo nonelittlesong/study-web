@@ -82,6 +82,13 @@ class ClassComponent extends Component {
 # Props
 >通过 `this.props` 访问外部数据。  
 
+## 1、 props.children
+- 如果当前组件没有子节点，它就是 `undefined`。
+- 如果有一个子节点，数据类型是 `Object`。
+- 如果有多个子节点，数据类型是 `Array`。
+
+可以使用 `React.Children.map` 便历子节点。  
+
 # State
 >通过 `this.state` 访问内部数据。
 
