@@ -21,7 +21,7 @@ yarn add react-router-dom
 
 - [BrowserRouter](https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/modules/BrowserRouter.js)
 - [HashRouter](https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/modules/HashRouter.js)
-- Link - 必须在 `Router` 内。
+- Link - [必须在 `Router` 内](https://blog.csdn.net/Zhooson/article/details/84101213)。
 
 导入：  
 ```js
