@@ -353,6 +353,9 @@ line-height与font-size的计算值之差（在css中成为行间距）分为两
 设置 span 的 `line-height` 与 父元素 div 的高度相等，使 span 垂直居中。  
 
 # [flex](https://blog.csdn.net/u013451157/article/details/79011679)  
+参考：  
+- https://blog.csdn.net/aliven1/article/details/78853725
+
 简写属性：  
 * flex-grow: 定义项目的放大比例，默认为0。
 * flex-shrink: 定义项目的缩小比例，默认为1。
