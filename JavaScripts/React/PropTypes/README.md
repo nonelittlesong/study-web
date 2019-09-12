@@ -1,5 +1,6 @@
 
 - [prop-types](https://www.npmjs.com/package/prop-types) - 仅在开发模式下进行检查。
+- [使用 PropTypes 进行类型检查](https://react.docschina.org/docs/typechecking-with-proptypes.html)
 
 **Installation:**  
 ```
