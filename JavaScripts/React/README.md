@@ -49,7 +49,7 @@ npm start
 * use Webpack to automatically compile React, JSX, and ES6, auto-prefix CSS files
 * use ESLint to test and warn about mistakes in the code
 
-# JSX
+# [JSX](https://zh-hans.reactjs.org/docs/introducing-jsx.html)
 * `className` is used instead of `class` for adding CSS classes, as `class` is a reserved keyword in JavaScript.
 * Properties and methods in JSX are camelCase - `onclick` will become `onClick`.
 * Self-closing tags must end in a slash - e.g. \<img />
