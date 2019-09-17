@@ -79,8 +79,9 @@ class ClassComponent extends Component {
 }
 ```
 
-# Props
->通过 `this.props` 访问外部数据。  
+# Props & State
+- 通过 `this.props` 访问外部数据。通过 `this.state` 访问内部数据。
+- `props` 不可修改，`state` 可以修改。
 
 ## 1、 props.children
 - 如果当前组件没有子节点，它就是 `undefined`。
@@ -89,8 +90,6 @@ class ClassComponent extends Component {
 
 可以使用 `React.Children.map` 便历子节点。  
 
-# State
->通过 `this.state` 访问内部数据。
 
 # Submitting From Data
 动态键：  
