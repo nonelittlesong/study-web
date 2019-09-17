@@ -99,4 +99,5 @@ pre 元素表示预定义格式文本。
 
 >**注：** 需要将该元素中的’<‘转义为’\&lt;‘。  
 
-
+# [\<span>](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/span)
+`span` 是 行内元素。  
