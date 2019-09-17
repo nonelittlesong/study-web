@@ -34,7 +34,7 @@ class NameForm extends React.Component {
 }
 ```
 
-## 非受控组件
+## [非受控组件](https://zh-hans.reactjs.org/docs/uncontrolled-components.html)
 表单数据将交由 DOM 节点来处理。  
 ```js
 class NameForm extends React.Component {
