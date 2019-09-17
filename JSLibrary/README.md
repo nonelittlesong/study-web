@@ -5,4 +5,6 @@
 ## ESlint
 
 - 不要使用 `++` 和 `--`。
-- [Forbid certain propTypes (react/forbid-prop-types)](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-prop-types.md) - [React PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes)
+- [react/forbid-prop-types](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-prop-types.md) - [React PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes)
+- no-restricted-globals  
+  - `isNaN()` - `Number.isNaN()`
