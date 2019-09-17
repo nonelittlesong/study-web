@@ -18,7 +18,11 @@ Similar to getFieldProps, but add some helper warnings and you can write onXX di
 </form>
 ```
 
-## 自定义表单控件
+## 例子
+### 1、 自定义表单控件
+- 提供受控属性 `value` 或其它与 `valuePropName` 的值同名的属性。  
+- 提供 `onChange` 事件或 `trigger` 的值同名的事件。
+
 ```js
 const { Form, Input, Select, Button } = antd;
 
