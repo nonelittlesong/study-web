@@ -1,13 +1,13 @@
 
 - [rc](http://react-component.github.io/badgeboard/)
 
-## Form
+## 一、 Form
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- | 
 | layout | 表单布局 | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |
 
-## this.props.form
+## 二、 this.props.form
 经过 `Form.create` 包装过的组件自带 `this.props.form` 属性。  
 
 ### getFieldDecorator(name:String, option: Object) => (React.Node) => React.Node
@@ -20,6 +20,10 @@ Similar to getFieldProps, but add some helper warnings and you can write onXX di
 
 ### validateFields(\[fieldNames: string\[]], \[options: object], callback(errors, values)) => void
 
+
+## 三、 Form.Item
+### props
+- `extra<string|ReactNode>` - 额外的提示信息，和 `help` 类似，当需要错误信息和提示文案同时出现时，可以使用这个。
 
 
 ## 例子
