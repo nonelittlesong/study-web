@@ -17,6 +17,8 @@ Similar to getFieldProps, but add some helper warnings and you can write onXX di
   {getFieldDecorator('name', otherOptions)(<input />)}
 </form>
 ```
+#### options
+- `getValueFromEvent<function(..args)>` - 可以把 onChange 的参数（如 event）转化为控件的值
 
 ### validateFields(\[fieldNames: string\[]], \[options: object], callback(errors, values)) => void
 
