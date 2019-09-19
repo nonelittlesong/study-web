@@ -34,3 +34,10 @@ nodemon.json:
   "ext": "js,json"
 }
 ```
+
+简单版：  
+```json
+{
+  "watch": ["src/server/"]
+}
+```
