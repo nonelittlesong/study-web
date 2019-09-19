@@ -1,7 +1,14 @@
 
-- `action<string|(file) => Promise>` - 上传的地址。
-- `headers<object>` - 设置上传的请求头。
-- `name<string>` - 发到后台的文件参数名，默认 file。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| accept | 上传文件类型 | string | 无 |
+| directory | 上传文件夹 | boolean | false |
+| beforeUpload | 返回 false 停止上传。支持 Promise | (file, fileList) => boolean \| Promise | 无 |
+| fileList | 已经上传的文件列表 | object\[] | 无 |
+| multiple | 是否支持多选文件上传 | boolean | false |
+| onChange | 长传中、完成、失败都会调用这个函数 | Function | 无 |
+| onRemove | 点击移除文件时回调，返回值是 false 时不移除。支持 Promise | Function(file): boolean \| Promise | 无 |
 
 
 ## 例子
