@@ -5,3 +5,5 @@
 实现了 `FormData` 的对象可以直接用 `for...of`，不需要 [`entries()`](https://developer.mozilla.org/en-US/docs/Web/API/FormData/entries):  
 `for (var p of myFormData)` 和 `for (var p of myFormData.entries())` 的效果一样。  
 
+## 方法
+### FormData.append()
