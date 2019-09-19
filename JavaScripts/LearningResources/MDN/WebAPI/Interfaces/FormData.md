@@ -13,7 +13,7 @@ formData.append(name, value, filename);
 ```
 
 - `name` - 域名。它的数据保存在 `value` 中。
-- `value` - 域的值。可以是 `USVString` 或 `Blob`（包括子类 `File`）。
+- `value` - 域的值。可以是 `USVString` 或 [`Blob`](https://developer.mozilla.org/en-US/docs/Web/API/FormData/append)（包括子类 [`File`](https://developer.mozilla.org/en-US/docs/Web/API/File)）。
 - `filename`
   - 当第二个参数是 `Blob`，默认是 "blob"。
   - 当第二个参数是 `File`，默认是文件名。
