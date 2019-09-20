@@ -4,6 +4,7 @@
 - [Express 中间件----body-parser](https://www.jianshu.com/p/ea0122ad1ac0)
 - [四种常见的 POST 提交数据方式](https://imququ.com/post/four-ways-to-post-data-in-http.html#simple_thread) by Jerry Qu
 - [body-parser npm](https://www.npmjs.com/package/body-parser)
+- [nodejs](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/)
 
 可以解析 JSON、 Raw、 文本、 URL-encode。  
 ```js
