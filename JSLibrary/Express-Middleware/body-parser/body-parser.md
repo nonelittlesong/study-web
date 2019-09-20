@@ -1,4 +1,4 @@
-请求体解析中间件。  
+请求体解析中间件（body parsing middleware）。  
 
 参考：  
 - [Express 中间件----body-parser](https://www.jianshu.com/p/ea0122ad1ac0)
