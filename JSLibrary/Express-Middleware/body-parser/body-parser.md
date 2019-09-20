@@ -44,7 +44,7 @@ options:
 2. limit - 设置请求的最大数据量。默认为'100kb'
 3. reviver - 传递给JSON.parse()方法的第二个参数，详见JSON.parse()
 4. strict - 设置为true时，仅会解析Array和Object两种格式；设置为false会解析所有JSON.parse支持的格式。默认为true
-5. type - 该选项用于设置为指定MIME类型的数据使用当前解析中间件。这个选项可以是一个函数或是字符串，当是字符串是会使用type-is来查找MIMI类型；当为函数是，中间件会通过fn(req)来获取实际值。默认为application/json。
+5. type - 该选项用于设置为指定MIME类型的数据使用当前解析中间件。这个选项可以是一个函数或是字符串，当是字符串是会使用type-is来查找MIMI类型；当为函数是，中间件会通过fn(req)来获取实际值。默认为 `application/json`。
 6. verify - 这个选项仅在verify(req, res, buf, encoding)时受支持
 
 ### bodyParser.urlencoded(options)
@@ -54,7 +54,7 @@ options:
 2. inflate - 设置为true时，deflate压缩数据会被解压缩；设置为true时，deflate压缩数据会被拒绝。默认为true。
 3. limit - 设置请求的最大数据量。默认为'100kb'
 4. parameterLimit - 用于设置URL编码值的最大数据。默认为1000
-5. type - 该选项用于设置为指定MIME类型的数据使用当前解析中间件。这个选项可以是一个函数或是字符串，当是字符串是会使用type-is来查找MIMI类型；当为函数是，中间件会通过fn(req)来获取实际值。默认为application/octet-stream。
+5. type - 该选项用于设置为指定MIME类型的数据使用当前解析中间件。这个选项可以是一个函数或是字符串，当是字符串是会使用type-is来查找MIMI类型；当为函数是，中间件会通过fn(req)来获取实际值。默认为 `application/x-www-form-urlencoded`。
 6. verify - 这个选项仅在verify(req, res, buf, encoding)时受支持
 
 ### bodyParser.raw(options)
@@ -63,7 +63,7 @@ Buffer 值放在 `req.body` 中。
 options：  
 1. inflate - 设置为true时，deflate压缩数据会被解压缩；设置为true时，deflate压缩数据会被拒绝。默认为true。
 2. limit - 设置请求的最大数据量。默认为'100kb'
-3. type - 该选项用于设置为指定MIME类型的数据使用当前解析中间件。这个选项可以是一个函数或是字符串，当是字符串是会使用type-is来查找MIMI类型；当为函数是，中间件会通过fn(req)来获取实际值。默认为application/octet-stream。
+3. type - 该选项用于设置为指定MIME类型的数据使用当前解析中间件。这个选项可以是一个函数或是字符串，当是字符串是会使用type-is来查找MIMI类型；当为函数是，中间件会通过fn(req)来获取实际值。默认为 `application/octet-stream`。
 4. verify - 这个选项仅在verify(req, res, buf, encoding)时受支持
 
 ### bodyParser.text(options)
@@ -73,5 +73,5 @@ options：
 1. defaultCharset - 如果Content-Type后没有指定编码时，使用此编码。默认为'utf-8'
 2. inflate - 设置为true时，deflate压缩数据会被解压缩；设置为true时，deflate压缩数据会被拒绝。默认为true。
 3. limit - 设置请求的最大数据量。默认为'100kb'
-4. type - 该选项用于设置为指定MIME类型的数据使用当前解析中间件。这个选项可以是一个函数或是字符串，当是字符串是会使用type-is来查找MIMI类型；当为函数是，中间件会通过fn(req)来获取实际值。默认为application/octet-stream。
+4. type - 该选项用于设置为指定MIME类型的数据使用当前解析中间件。这个选项可以是一个函数或是字符串，当是字符串是会使用type-is来查找MIMI类型；当为函数是，中间件会通过fn(req)来获取实际值。默认为 `text/plain`。
 5. verify - 这个选项仅在verify(req, res, buf, encoding)时受支持
