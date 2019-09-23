@@ -1,4 +1,7 @@
-# 一、 模块封装器
+
+- [require() 源码解读](http://www.ruanyifeng.com/blog/2015/05/require.html)
+
+## 一、 模块封装器
 在执行代码前， Node.js 会使用一个如下的函数封装器将其封装：  
 ```js
 (function(exports, require, module, __filename, __dirname) {
@@ -10,7 +13,7 @@
   * 实现者可以用于从模块中导出值的 module 和 exports 对象。
   * 包含模块绝对文件名和目录路径的快捷变量 __filename 和 __dirname。
   
-# 二、 module.exports
+## 二、 module.exports
 例子：  
 ```js
 // a.js
@@ -30,7 +33,7 @@ a.on('ready', () => {
 });
 ```
 
-## 1、 对 `module.exports` 的赋值必须立即完成
+### 1、 对 `module.exports` 的赋值必须立即完成
 x.js:  
 ```
 setTimeout(() => {
@@ -43,7 +46,7 @@ const x = require('./x');
 console.log(x.a);
 ```
 
-## 2、 快捷方式
+### 2、 快捷方式
 `module.exports.f = ...` 可以简写成 `exports.f = ...`。  
 
 `require()`的假设实现：  
