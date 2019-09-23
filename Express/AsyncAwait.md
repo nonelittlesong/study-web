@@ -1,6 +1,7 @@
 
 - [多个连续的箭头函数与柯里化](https://blog.csdn.net/allanGold/article/details/86667908)
 - [Using async/await in ExpressJS middlewares](https://www.acuriousanimal.com/2018/02/15/express-async-middleware.html)
+- [让 Express 支持 async/await](https://www.v2ex.com/t/396012)
 
 express 使用 `async` 函数作为中间件，必须进行异常处理：  
 ```js
