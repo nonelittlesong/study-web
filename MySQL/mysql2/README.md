@@ -3,6 +3,7 @@
 - [How can prepared statements protect from SQL injection attacks?](https://stackoverflow.com/questions/8263371/how-can-prepared-statements-protect-from-sql-injection-attacks)
 - [mysql2 npm](https://www.npmjs.com/package/mysql2)
 - [NodeJS mysql2 使用心得](https://blog.csdn.net/u010379324/article/details/51228569)
+- [mysqljs/mysql](https://github.com/mysqljs/mysql#mysql)
 
 安装： `yarn add mysql2`。  
 
