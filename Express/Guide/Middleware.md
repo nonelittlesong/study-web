@@ -56,7 +56,7 @@ app.use(mw({ option1: '1', option2: '2' }))
 ```
 
 ## 使用中间件
-### 1、 应用级别中间件
+### 1、 应用级中间件
 * app.use()
 * app.method()
 
