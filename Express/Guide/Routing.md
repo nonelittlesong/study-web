@@ -1,6 +1,6 @@
-# 路由方法
-## `app.all()`
-`app.all()` 用来加载中间件：  
+## [路由方法](http://www.expressjs.com.cn/en/4x/api.html#app.METHOD)
+
+### `app.all()`
 ```js
 app.all('/secret', function(req, res, next) {
     console.log('Accessing the secret section ...');
@@ -8,14 +8,12 @@ app.all('/secret', function(req, res, next) {
 });
 ```
 
-# 路由路径
+## 路由路径
 * [path-to-regexp](https://www.npmjs.com/package/path-to-regexp) - express 使用 path-to-regexp 匹配路径。
 * [Express Route Tester](http://forbeslindesay.github.io/express-route-tester/) - 在线测试路径的工具。
-* `（[\$])` - 在路径中使用美元符号。
+* `（[\$])` - 匹配请求中的美元符号。
 
->**注**: Query strings are not part of the route path.
-
-## 1、 模式匹配
+### 1、 模式匹配
 ```js
 app.get('/ab?cd', function (req, res) {    // 匹配 acd 和 abcd
   res.send('ab?cd')
@@ -34,7 +32,7 @@ app.get('/ab(cd)?e', function (req, res) { // 匹配 abe abcde
 })
 ```
 
-## 2、 正则
+### 2、 正则
 ```js
 app.get(/a/, function (req, res) {      // 匹配所有包含“a“的路径
   res.send('/a/')
@@ -45,11 +43,17 @@ app.get(/.*fly$/, function (req, res) { // 匹配以fly结尾的路径
 })
 ```
 
-# 路由参数
-## 1、 `:name`  
-路由参数的名字必须由 `word characters`(A-Za-z0-9_) 组成。  
+## 路由参数
+**保存在 `req.params` 中：**  
+```
+Route path: /users/:userId/books/:bookId
+Request URL: http://localhost:3000/users/34/books/8989
+req.params: { "userId": "34", "bookId": "8989" }
+```
 
-## 2、 `-` 和 `.` 的特殊用途：  
+>路由参数的名字必须由 `word characters`(A-Za-z0-9_) 组成。  
+
+**`-` 和 `.` 在路径中会按字面翻译，但在参数中会有特殊用途：**  
 ```
 Route path: /flights/:from-:to
 Request URL: http://localhost:3000/flights/LAX-SFO
@@ -60,17 +64,16 @@ Request URL: http://localhost:3000/plantae/Prunus.persica
 req.params: { "genus": "Prunus", "species": "persica" }
 ```
 
-## 3、 使用正则进行限定：  
+**使用正则限定参数：**  
 ```
 Route path: /user/:userId(\d+)
 Request URL: http://localhost:3000/user/42
 req.params: {"userId": "42"}
 ```
-
 >**注：** 在 Express 4.x 中，`*` 不能被正常翻译。使用 `{0，}` 代替 `*`。
 
 
-# 路由回调
+## 路由回调
 ```js
 var cb0 = function (req, res, next) {
   console.log('CB0')
@@ -90,7 +93,7 @@ app.get('/example/d', [cb0, cb1], function (req, res, next) {
 })
 ```
 
-# 响应方法
+## 响应方法
 | 方法 | 描述 |
 | --- | --- |
 | res.downloand() | 下载一个文件 |
@@ -103,7 +106,7 @@ app.get('/example/d', [cb0, cb1], function (req, res, next) {
 | res.sendFile() | 字节流发送文件 |
 | res.sendStatus() | 发送响应状态 |
 
-# `app.route()`
+## `app.route()`
 ```js
 app.route('/book')
   .get(function (req, res) {
@@ -117,7 +120,7 @@ app.route('/book')
   })
 ```
 
-# `express.Router`
+## `express.Router`
 模块化路由。  
 
 birds.js:  
