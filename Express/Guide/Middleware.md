@@ -13,11 +13,11 @@
 * Built-in middleware
 * Third-party middleware
 
-# 加载顺序
+## 加载顺序
 * 多个中间件按加载顺序执行。
 * 中间件必须在 route 之前加载。
 
-# 给 `req` 添加属性
+## 中间件给请求添加属性
 ```js
 var express = require('express')
 var app = express()
@@ -38,8 +38,8 @@ app.get('/', function (req, res) {
 app.listen(3000)
 ```
 
-# 注册中间件
-要想使你的中间件能够被注册，export 一个带有 options 对象或其他参数的函数，函数返回基于这些参数的中间件的实现。  
+## 可配置的中间件
+要想使你的中间件能够被配置，export 一个带有 options 对象或其他参数的函数，函数返回基于这些参数的中间件的实现。  
 my-middleware.js
 ```js
 module.exports = function(options) {
@@ -55,8 +55,8 @@ var mw = require('./my-middleware.js')
 app.use(mw({ option1: '1', option2: '2' }))
 ```
 
-# 使用中间件
-## 1、 应用级别中间件
+## 使用中间件
+### 1、 应用级别中间件
 * app.use()
 * app.method()
 
@@ -79,7 +79,7 @@ app.get('/user/:id', function (req, res, next) {
 })
 ```
 
-## 2、 Router级别中间件
+### 2、 Router级别中间件
 To skip the rest of the router’s middleware functions, call next('router') to pass control back out of the router instance.  
 
 This example shows a middleware sub-stack that handles GET requests to the /user/:id path.  
@@ -103,7 +103,7 @@ app.use('/admin', router, function (req, res) {
 })
 ```
 
-## 3、 错误处理中间件
+### 3、 错误处理中间件
 **必须要有四个参数。**  
 ```js
 app.use(function (err, req, res, next) {
@@ -112,13 +112,13 @@ app.use(function (err, req, res, next) {
 })
 ```
 
-## 4、 内置中间件
+### 4、 内置中间件
 
 * [express.static](http://www.expressjs.com.cn/en/4x/api.html#express.static) serves static assets such as HTML files, images, and so on.
 * [express.json](http://www.expressjs.com.cn/en/4x/api.html#express.json) parses incoming requests with JSON payloads. **NOTE: Available with Express 4.16.0+**
 * [express.urlencoded](http://www.expressjs.com.cn/en/4x/api.html#express.urlencoded) parses incoming requests with URL-encoded payloads. **NOTE: Available with Express 4.16.0+**
 
-## 5、 第三方中间件
+### 5、 第三方中间件
 ```
 $ npm install cookie-parser
 ```
