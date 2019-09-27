@@ -1,4 +1,3 @@
-middleware 比 controller 多个参数 `next`。  
 
 功能：  
 * 执行代码。
