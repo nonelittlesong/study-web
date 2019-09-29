@@ -155,9 +155,9 @@ app.use(function (err, req, res, next) {
 
 ### 4、 内置中间件
 
-* [express.static](http://www.expressjs.com.cn/en/4x/api.html#express.static) serves static assets such as HTML files, images, and so on.
-* [express.json](http://www.expressjs.com.cn/en/4x/api.html#express.json) parses incoming requests with JSON payloads. **NOTE: Available with Express 4.16.0+**
-* [express.urlencoded](http://www.expressjs.com.cn/en/4x/api.html#express.urlencoded) parses incoming requests with URL-encoded payloads. **NOTE: Available with Express 4.16.0+**
+* [express.static](http://www.expressjs.com.cn/en/4x/api.html#express.static) 加载静态资源。
+* [express.json](http://www.expressjs.com.cn/en/4x/api.html#express.json) 解析 JSON payloads 请求。
+* [express.urlencoded](http://www.expressjs.com.cn/en/4x/api.html#express.urlencoded) 解析 URL-encoded payloads 请求
 
 ### 5、 第三方中间件
 ```
