@@ -1,12 +1,12 @@
-# 获取错误
-在同步代码中抛出的错误， `route handlers` 和 `middleware` 不需要处理：  
+## 获取错误
+同步代码 - 抛出错误：  
 ```js
 app.get("/", function (req, res) {
   throw new Error("BROKEN"); // Express will catch this on its own.
 });
 ```
 
-在异步代码中抛出的错误，必须传递给`next()`：  
+异步代码 - 错误必须传递给`next()`：  
 ```js
 app.get("/", function (req, res, next) {
   fs.readFile("/file-does-not-exist", function (err, data) {
@@ -31,9 +31,7 @@ app.get("/", [
 ]);
 ```
 
-不管使用哪种方式，请确保 Express 获得了异常。  
-
-# 默认 `error handler`
+## 默认 `error handler`
 放在中间件栈最下面。  
 
-# 自定义 `error handler`
+## 自定义 `error handler`
