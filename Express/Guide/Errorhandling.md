@@ -33,5 +33,6 @@ app.get("/", [
 
 ## 默认 `error handler`
 放在中间件栈最下面。  
+把 `NODE_ENV` 设置为 `production`，不发送 `stack trace` 到客户端。  
 
 ## 自定义 `error handler`
