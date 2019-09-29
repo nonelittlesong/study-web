@@ -60,8 +60,8 @@ app.use(mw({ option1: '1', option2: '2' }))
 * app.use()
 * app.method()
 
-To skip the rest of the middleware functions from a router middleware stack, call next('route') to pass control to the next route. NOTE: next('route') will work only in middleware functions that were loaded by using the app.METHOD() or router.METHOD() functions.  
-This example shows a middleware sub-stack that handles GET requests to the /user/:id path.  
+`next('route')` 把控制权传递给下一个路由。  
+只能在 `app.METHOD()` 和 `router.METHOD()` 中生效。  
 ```js
 app.get('/user/:id', function (req, res, next) {
   // if the user ID is 0, skip to the next route
