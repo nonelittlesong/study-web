@@ -58,10 +58,9 @@ app.use(mw({ option1: '1', option2: '2' }))
 ## 使用中间件
 ### 1、 应用级中间件
 * app.use()
-* app.method()
+* app.METHOD()
 
-`next('route')` 把控制权传递给下一个路由。  
-只能在 `app.METHOD()` 和 `router.METHOD()` 中生效。  
+一个 `path` 可以定义多个 `route`。 `next('route')` 把控制权传递给下一个路由。只能在 `app.METHOD()` 和 `router.METHOD()` 中生效。  
 ```js
 app.get('/user/:id', function (req, res, next) {
   // if the user ID is 0, skip to the next route
@@ -80,9 +79,51 @@ app.get('/user/:id', function (req, res, next) {
 ```
 
 ### 2、 Router级别中间件
-To skip the rest of the router’s middleware functions, call next('router') to pass control back out of the router instance.  
+- router.use()
+- router.METHOD()
 
-This example shows a middleware sub-stack that handles GET requests to the /user/:id path.  
+`next('route')`:  
+```js
+var app = express()
+var router = express.Router()
+
+// a middleware function with no mount path. This code is executed for every request to the router
+router.use(function (req, res, next) {
+  console.log('Time:', Date.now())
+  next()
+})
+
+// a middleware sub-stack shows request info for any type of HTTP request to the /user/:id path
+router.use('/user/:id', function (req, res, next) {
+  console.log('Request URL:', req.originalUrl)
+  next()
+}, function (req, res, next) {
+  console.log('Request Type:', req.method)
+  next()
+})
+
+// a middleware sub-stack that handles GET requests to the /user/:id path
+router.get('/user/:id', function (req, res, next) {
+  // if the user ID is 0, skip to the next router
+  if (req.params.id === '0') next('route')
+  // otherwise pass control to the next middleware function in this stack
+  else next()
+}, function (req, res, next) {
+  // render a regular page
+  res.render('regular')
+})
+
+// handler for the /user/:id path, which renders a special page
+router.get('/user/:id', function (req, res, next) {
+  console.log(req.params.id)
+  res.render('special')
+})
+
+// mount the router on the app
+app.use('/', router)
+```
+
+`next('router')`:  
 ```js
 var app = express()
 var router = express.Router()
