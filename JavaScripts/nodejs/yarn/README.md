@@ -4,7 +4,15 @@
 - [淘宝镜像](https://npm.taobao.org/)
 - https://docs.npmjs.com/files/package.json#dependencies
 
-# 查看配置
+## 使用
+初始化：  
+```sh
+yarn init
+```
+
+
+## 配置
+### 查看配置
 ```
 yarn config list
 
@@ -12,7 +20,7 @@ npm config get registry
 yarn config get registry
 ```
 
-# 设置镜像
+### 设置镜像
 ```
 # 设置临时镜像
 $ npm --registry https://registry.npm.taobao.org install express
@@ -22,13 +30,13 @@ $ npm config set registry https://registry.npm.taobao.org
 $ yarn config set registry https://registry.npm.taobao.org
 ```
 
-# 单独设置镜像
+### 单独设置镜像
 ```
 $ npm config set electron_mirror https://npm.taobao.org/mirrors/electron/
 $ yarn config set electron_mirror https://npm.taobao.org/mirrors/electron/
 ```
 
-# --verbose
+### --verbose
 ```
 $ npm install --verbose electron
 $ yarn add --verbose electron
