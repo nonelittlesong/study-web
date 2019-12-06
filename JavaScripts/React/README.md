@@ -10,7 +10,7 @@
 
 React 不是框架。  
 
-# Create React App
+## 创建 React 应用
 方法一：  
 ```js
 <!DOCTYPE html>
