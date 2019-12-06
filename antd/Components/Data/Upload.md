@@ -1,8 +1,8 @@
 
 
-| 参数 | 说明 | 类型 | 默认值 |
+| 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| accept | 上传文件类型 | string | 无 |
+| accept | [上传文件类型](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) | string | 无 |
 | directory | 上传文件夹 | boolean | false |
 | beforeUpload | 返回 false 停止上传。支持 Promise | (file, fileList) => boolean \| Promise | 无 |
 | fileList | 已经上传的文件列表 | object\[] | 无 |
