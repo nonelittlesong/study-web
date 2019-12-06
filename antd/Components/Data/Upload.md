@@ -14,7 +14,7 @@
 ## 例子
 ### 1、 在 Form 中使用 Upload
 ```js
-normFile = e => {
+formFile = e => {
   console.log('Upload event:', e);
   if (Array.isArray(e)) {
     return e;
