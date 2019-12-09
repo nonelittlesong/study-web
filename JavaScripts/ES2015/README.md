@@ -57,12 +57,3 @@ console.log('let: ' + arr4.join(', ')); // let: 0, 1, 2
 `() => statement`  
 
 
-## 三、 模块
-### 1、 import
-```js
-import name from 'module-name';
-import * as name from 'module-name';
-import { member } from 'module-name';
-import { member as alias } from 'module-name';
-import 'module-name';
-```
