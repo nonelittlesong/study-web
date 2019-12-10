@@ -7,6 +7,7 @@
 * React 服务器渲染
 * [React Hot Loader](https://gaearon.github.io/react-hot-loader/getstarted/)
 * [Webpack Boilerplate](https://github.com/taniarascia/webpack-boilerplate)
+* [容器组件和展示组件相分离](https://segmentfault.com/a/1190000006845396)
 
 React 不是框架。  
 
