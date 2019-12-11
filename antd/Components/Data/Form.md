@@ -7,11 +7,6 @@
 ### getFieldDecorator()
 `getFieldDecorator(name:String, option: Object) => (React.Node) => React.Node`  
 
-```js
-<form>
-  {getFieldDecorator('name', otherOptions)(<input />)}
-</form>
-```
 **options**  
 - `initialValue`  
 - `triggr` - string，收集节点值的时机。  
