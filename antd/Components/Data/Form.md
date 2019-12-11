@@ -7,14 +7,15 @@
 ### getFieldDecorator()
 `getFieldDecorator(name:String, option: Object) => (React.Node) => React.Node`  
 
-和 `getFieldProps()` 类似, 添加了一些辅助警告并且可直接在 react 节点属性写 onXX 。  
 ```js
 <form>
   {getFieldDecorator('name', otherOptions)(<input />)}
 </form>
 ```
 **options**  
-- `initialValue` 
+- `initialValue`  
+- `triggr` - string，收集节点值的时机。  
+- `valuePropName` - string，节点值的属性名。如 Switch 的是 checked。  
 
 ### validateFields(\[fieldNames: string\[]], \[options: object], callback(errors, values)) => void
 
