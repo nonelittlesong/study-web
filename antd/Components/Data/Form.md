@@ -8,15 +8,13 @@
 `getFieldDecorator(name:String, option: Object) => (React.Node) => React.Node`  
 
 和 `getFieldProps()` 类似, 添加了一些辅助警告并且可直接在 react 节点属性写 onXX 。  
-
 ```js
 <form>
   {getFieldDecorator('name', otherOptions)(<input />)}
 </form>
 ```
-
-#### options
-- `getValueFromEvent<function(..args)>` - 可以把 onChange 的参数（如 event）转化为控件的值
+**options**  
+- `initialValue` 
 
 ### validateFields(\[fieldNames: string\[]], \[options: object], callback(errors, values)) => void
 
