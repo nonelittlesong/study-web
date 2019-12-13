@@ -9,7 +9,8 @@
 
 **资源:**  
 
-- [React-Router 中文文档](http://react-guide.github.io/react-router-cn/)
+- [React-Router 中文文档](http://react-guide.github.io/react-router-cn/)  
+- [History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API)  
 
 
 ## 一、 安装配置
