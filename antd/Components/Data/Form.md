@@ -1,6 +1,8 @@
 
 - [rc](http://react-component.github.io/badgeboard/)
 
+![antd-redux.png](https://github.com/nonelittlesong/study-resources/blob/master/images/antd-redux.png)  
+
 ## form 属性
 经过 `Form.create` 包装过的组件自带 `this.props.form` 属性。  
 
