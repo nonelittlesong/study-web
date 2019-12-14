@@ -12,6 +12,14 @@ yarn init
 
 
 ## 配置
+### 环境变量
+ubuntu16 编辑  
+`vim ~/.profile`  
+```
+PATH="$PATH:`yarn global bin`"
+```
+`source ~/.profile
+`
 ### 查看配置
 ```
 yarn config list
