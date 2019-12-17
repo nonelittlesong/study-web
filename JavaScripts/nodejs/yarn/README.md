@@ -1,8 +1,9 @@
 参考：  
-- [yarn doc](https://yarn.bootcss.com/docs/usage/)
-- [electron 下载失败](https://blog.csdn.net/mocoe/article/details/86751925)
-- [淘宝镜像](https://npm.taobao.org/)
-- https://docs.npmjs.com/files/package.json#dependencies
+- [yarn doc](https://yarn.bootcss.com/docs/usage/)  
+- [electron 下载失败](https://blog.csdn.net/mocoe/article/details/86751925)  
+- [淘宝镜像](https://npm.taobao.org/)  
+- https://docs.npmjs.com/files/package.json#dependencies  
+- [CLI 指南](https://yarnpkg.com/zh-Hans/docs/cli/)  
 
 ## 使用
 初始化：  
