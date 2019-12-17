@@ -4,7 +4,9 @@
 ![antd-redux.png](https://github.com/nonelittlesong/study-resources/blob/master/images/antd-redux.png)  
 
 ## form 属性
-经过 `Form.create` 包装过的组件自带 `this.props.form` 属性。  
+
+- `form` - 经过 `Form.create` 包装过的组件自带 `this.props.form` 属性。  
+- `hideRequiredMark` - 隐藏所有表单项的必选标记。  
 
 ### getFieldDecorator()
 `getFieldDecorator(name:String, option: Object) => (React.Node) => React.Node`  
