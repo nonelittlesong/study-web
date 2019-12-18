@@ -90,8 +90,34 @@ const MyContext = React.createContext(defaultValue);
 <MyContext.Provider value={/* 某个值 */}>
 ```
 当 Provider 的 value 值发生变化时，他内部的所有消费组件都会重新渲染。  
-：warning: Provider 及其内部 consumer 组件都不受制于 shouldComponentUpdate 函数，因此当 consumer 组件在其祖先组件退出更新的情况下也能更新。  
+Provider 及其内部 consumer 组件都不受制于 shouldComponentUpdate 函数，因此当 consumer 组件在其祖先组件退出更新的情况下也能更新。  
 
+### Class.contextType
+
+>**注意：**  
+>只能通过该 API 订阅单一 context。  
+
+### Context.Consumer
+```jsx
+<MyContext.Consumer>
+  {value => /* 基于 context 值进行渲染*/}
+</MyContext.Consumer>
+```
+让你在函数式组件中订阅 context。  
+传递给函数的 value 值等同于往上组件树离这个 context 最近的 Provider 提供的 value 值。如果没有对应的 Provider，value 参数等同于传递给 createContext() 的 defaultValue。  
+
+### Context.displayName
+
+context 对象接受一个名为 displayName 的 property，类型为字符串。React DevTools 使用该字符串来确定 context 要显示的内容。  
+
+示例，下述组件在 DevTools 中将显示为 MyDisplayName：  
+```jsx
+const MyContext = React.createContext(/* some value */);
+MyContext.displayName = 'MyDisplayName';
+
+<MyContext.Provider> // "MyDisplayName.Provider" 在 DevTools 中
+<MyContext.Consumer> // "MyDisplayName.Consumer" 在 DevTools 中
+```
 
 ## 几个可以直接获取 Context 的地方
 
