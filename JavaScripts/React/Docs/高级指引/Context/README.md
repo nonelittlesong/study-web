@@ -80,8 +80,26 @@ class ThemedButton extends React.Component {
 }
 ```
 
+## 几个可以直接获取 Context 的地方
 
-## API
+实例属性：  
 
-### React.createContext
+- this.context
 
+构造函数：  
+
+- constructor(props, context)
+
+生命周期：  
+
+- componentWillReceiveProps(nextProps, nextContext)
+- shouldComponentUpdate(nextProps, nextState, nextContext)
+- componentWillUpdate(nextProps, nextState, nextContext)
+
+无状态组件：  
+
+```js
+const StatelessComponent = (props, context) => {
+  // ...
+}
+```
