@@ -1,7 +1,13 @@
 
+- [聊一聊我对 React Context 的理解以及应用](https://www.jianshu.com/p/eba2b76b290b)  
+
 组件之间共享一些全局的数据，无需通过 props 传递。  
 
 地区偏好，主题 UI，用户认证，首选语言  
+
+- react-redux 的 `<Provider />` 通过 `Context` 提供一个全局的 `store`。  
+- 拖拽组件 react-dnd 通过 `Context` 在组件中分发 DOM 的 Drag 和 Drop 事件。  
+- 路由组件 react-router 通过 `Context` 管理路由状态。  
 
 ## 如何使用 Context
 
