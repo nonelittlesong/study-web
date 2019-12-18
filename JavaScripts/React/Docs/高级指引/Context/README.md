@@ -80,6 +80,19 @@ class ThemedButton extends React.Component {
 }
 ```
 
+### React.createContext
+```jsx
+const MyContext = React.createContext(defaultValue);
+```
+
+### Context.Provider
+```jsx
+<MyContext.Provider value={/* 某个值 */}>
+```
+当 Provider 的 value 值发生变化时，他内部的所有消费组件都会重新渲染。  
+：warning: Provider 及其内部 consumer 组件都不受制于 shouldComponentUpdate 函数，因此当 consumer 组件在其祖先组件退出更新的情况下也能更新。  
+
+
 ## 几个可以直接获取 Context 的地方
 
 实例属性：  
