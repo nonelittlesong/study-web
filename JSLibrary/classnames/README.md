@@ -25,3 +25,21 @@ classNames(null, false, 'bar', undefined, 0, 1, { baz: null }, ''); // => 'bar 1
 const buttonType = 'primary'
 classNames({ [`btn-${buttonType}`]: true });
 ```
+
+### 应用于 React
+```jsx
+var classNames = require('classnames');
+
+var Button = React.createClass({
+  // ...
+  render () {
+    var btnClass = classNames({
+      btn: true,
+      'btn-pressed': this.state.isPressed,
+      'btn-over': !this.state.isPressed && this.state.isHovered
+    });
+    return <button className={btnClass}>{this.props.label}</button>;
+  }
+});
+```
+
