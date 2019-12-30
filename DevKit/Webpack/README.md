@@ -26,6 +26,14 @@ module.exports = {
 ### 对象语法
 用法： `entry: {[entryChunkName: string]: string|Array<string>}`  
 
+## 输出
+
+最低要求：  
+
+- `filename` - 输出文件名
+- `path` - 输出的绝对路径
+
+
 
 ## 插件
 ### 1、 DllPugin
