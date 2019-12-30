@@ -18,6 +18,15 @@ module.exports = {
 };
 ```
 
+## 入口
+
+### 单个入口（简写）语法
+用法： `entry: string|Array<string>`  
+
+### 对象语法
+用法： `entry: {[entryChunkName: string]: string|Array<string>}`  
+
+
 ## 插件
 ### 1、 DllPugin
 * https://juejin.im/post/5c665c6151882562986ce988
