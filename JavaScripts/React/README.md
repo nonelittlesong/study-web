@@ -2,6 +2,7 @@
 
 - https://github.com/yezihaohao/react-admin  
 - https://github.com/zhaoyu69/antd-spa  
+- https://github.com/z-9527/react-admin-master  
 
 资源：  
 * [React官网](https://react.docschina.org/)  
