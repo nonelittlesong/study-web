@@ -1,10 +1,12 @@
 Less是一门CSS预处理语言，它扩展了CSS，增加了变量，Mixin，函数等特性。  
 
-# 注释
+- [lesscss.org](http://lesscss.org/)  
+
+## 注释
 * // 只在less中显示
 * /\*\*/ 会在编译好的css文件中显示
 
-# 变量
+## 变量
 * 定义变量用@  
   * less中的写法：  
     ```css
@@ -20,7 +22,7 @@ Less是一门CSS预处理语言，它扩展了CSS，增加了变量，Mixin，�
     }
     ```
   
-# 混合
+## 混合
 * 不带参数的混合:  
   ```less
   @ly_width: 100px;
@@ -68,7 +70,7 @@ Less是一门CSS预处理语言，它扩展了CSS，增加了变量，Mixin，�
   }
   ```
   
-# 运算
+## 运算
 运算提供了加减乘除操作，还可以做属性值和颜色的运算：  
 ```less
 @ly_width: 100px;
@@ -77,8 +79,7 @@ Less是一门CSS预处理语言，它扩展了CSS，增加了变量，Mixin，�
 }
 ```
 
-# 嵌套
-个人不喜欢嵌套。  
+## 嵌套 
 可以在一个选择器中嵌套另一个选择器：  
 ```less
 @ly_width: 100px;
@@ -97,7 +98,7 @@ Less是一门CSS预处理语言，它扩展了CSS，增加了变量，Mixin，�
 &代表上一层选择器的名字。  
 
 
-# @arguments
+## @arguments
 可以包含所有的参数一起处理：  
 ```less
 .border(@border_width;@border_style;@border_color) {
@@ -108,7 +109,7 @@ Less是一门CSS预处理语言，它扩展了CSS，增加了变量，Mixin，�
 }
 ```
 
-# 匹配模式
+## 匹配模式
 ```less
 //定义上,下,左,右边框的样式
 .border(top;@border_width:5px;@border_color:red){
