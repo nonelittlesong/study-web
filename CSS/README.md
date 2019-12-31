@@ -303,6 +303,7 @@ transform: translateY(-50%);
 | :checked | input:checked | 选择每个被选中的\<input>元素 | 3 |
 | :not(selector) | :not(p) | 选择非\<p>每个元素 | 3 |
 | ::selection | ::selection | 选择被用户选取的元素部分 | 3 |
+| :global | | 使用 global 声明的 class，不会被编译成哈希串 | |
 
 # 阴影
 ### [box-shadow](http://www.w3school.com.cn/cssref/pr_box-shadow.asp)  
