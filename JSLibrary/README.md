@@ -28,7 +28,7 @@
 }
 ```
 
-### 3、 常见错误
+## 常见配置
 - 不要使用 `++` 和 `--`。
 - [react/forbid-prop-types](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-prop-types.md) - [React PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes)
 - no-restricted-globals  
