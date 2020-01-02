@@ -32,3 +32,7 @@
 - no-restricted-globals  
   - `isNaN()` - `Number.isNaN()`
 - `no-nested-ternary` - 不推荐使用嵌套的三元符，会导致代码难读。  
+
+## react
+### react/prop-types
+React 需要对属性的类型定义。  
