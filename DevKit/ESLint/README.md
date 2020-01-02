@@ -26,8 +26,9 @@
 }
 ```
 
-## 3、 常见错误
+## 3、 常见配置
 - 不要使用 `++` 和 `--`。
 - [react/forbid-prop-types](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-prop-types.md) - [React PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes)
 - no-restricted-globals  
   - `isNaN()` - `Number.isNaN()`
+- `no-nested-ternary` - 不推荐使用嵌套的三元符，会导致代码难读。  
