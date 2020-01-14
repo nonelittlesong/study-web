@@ -1,4 +1,14 @@
 
+## [mapStateToProps & mapDispatchToProps](https://blog.csdn.net/suwu150/article/details/79415085)
+
+### mapStateToProps(state, ownProps)
+`ownProps` 即组件本身的 `props`。  
+如果传入了 `ownProps`，那么当 `props` 发生变化时，也会调用 `mapStateToProps`。  
+
+### mapDispatchToProps
+
+
+
 - [UMD](https://github.com/umdjs/umd) >> Universal Module Definition。
 - [Redux DevTools](https://github.com/reduxjs/redux-devtools)
 - [Redux 视频教程](http://cn.redux.js.org/docs/introduction/LearningResources.html)
