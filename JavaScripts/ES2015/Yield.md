@@ -123,3 +123,4 @@ console.log(Array.from(new Foo)); // [ 1, 2 ]
 console.log(Array.from(SomeObj)); // [ 'a', 'b' ]
 ```
 
+## 二、 [yield & Promise](https://www.jianshu.com/p/c1b8b89c4905)  
