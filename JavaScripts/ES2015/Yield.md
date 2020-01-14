@@ -1,6 +1,6 @@
-# 一、 [yield](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/yield)
+## 一、 [yield](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/yield)
 `yield` 关键字用来暂停和恢复一个生成器函数（[function*](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/function*)或[遗留的生成器函数](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/Legacy_generator_function))。  
-## 1、 语法
+### 1、 语法
 ```
 [rv] = yield [expression]
 ```
@@ -9,7 +9,7 @@
 **`rv`**  
 返回传递给生成器的`next()`方法的可选值，以恢复其执行。  
 
-## 2、 描述
+### 2、 描述
 `yield` 关键字使生成器函数执行暂停， `yield` 关键字后面的表达式的值返回给生成器的调用者。它可以被认为是一个基于生成器的 `return` 关键字。  
 
 `yield` 关键字返回一个 `IteratorResult` 对象，它有两个属性：  
@@ -49,8 +49,8 @@ var obj = new f; // throws "TypeError: f is not a constructor
 ```
 
 
-## 3、 例子
-### \# yield*
+### 3、 例子
+#### \# yield*
 ```js
 function* anotherGenerator(i) {
   yield i + 1;
@@ -73,7 +73,7 @@ console.log(gen.next().value); // 13
 console.log(gen.next().value); // 20
 ```
 
-### \# Generators 的 return 语句
+#### \# Generators 的 return 语句
 ```js
 function* yieldAndReturn() {
   yield "Y";
@@ -87,7 +87,7 @@ console.log(gen.next()); // { value: "R", done: true }
 console.log(gen.next()); // { value: undefined, done: true }
 ```
 
-### \# Generators 作为对象的属性
+#### \# Generators 作为对象的属性
 ```js
 const someObj = {
   *generator () {
@@ -103,7 +103,7 @@ console.log(gen.next()); // { value: 'b', done: false }
 console.log(gen.next()); // { value: undefined, done: true }
 ```
 
-### \# [Generator as a computed property](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*#Generator_as_a_computed_property)
+#### \# [Generator as a computed property](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*#Generator_as_a_computed_property)
 ```js
 class Foo {
   *[Symbol.iterator] () {
