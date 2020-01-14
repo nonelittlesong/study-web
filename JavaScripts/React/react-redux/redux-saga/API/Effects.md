@@ -4,7 +4,7 @@
 
 ## call()
 ### 1、 call(fn, ...args)
-执行返回 Promise 或其他值的普通函数。  
+执行一个 `Generator` 函数或执行一个返回 `Promise` 或其他值的普通函数。  
 
 - fn: Function - 一个 Generator 函数, 也可以是一个返回 Promise 或任意其它值的普通函数。
 - args: Array\<any> - 传递给 fn 的参数数组。
