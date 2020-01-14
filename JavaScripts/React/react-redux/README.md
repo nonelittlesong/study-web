@@ -7,6 +7,9 @@
 
 ### mapDispatchToProps
 
+- https://blog.csdn.net/genius_yym/article/details/64130120
+
+## shit
 
 
 - [UMD](https://github.com/umdjs/umd) >> Universal Module Definition。
