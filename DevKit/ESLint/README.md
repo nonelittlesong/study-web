@@ -33,12 +33,16 @@
   - `isNaN()` - `Number.isNaN()`
 - `no-nested-ternary` - 不推荐使用嵌套的三元符，会导致代码难读。  
 
-## react
+### `no-case-declarations`
+声明的变量可在整个 `switch` 块中被访问。  
+因此，要用花括号将整个 `case` 括起来。  
 
-### react/jsx-props-no-spreading
+### react
+
+#### react/jsx-props-no-spreading
 JSX 的属性强制不使用扩展语法。  
 提高可读性，避免传递不必要的属性，在传递错误属性时可以发出警告。  
 
-### react/prop-types
+#### react/prop-types
 React 需要对属性的类型定义。  
 
