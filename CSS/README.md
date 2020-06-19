@@ -344,7 +344,7 @@ absolute 渲染在 static 上面。
 ## 1、 父元素 relative，子元素 absolute
 由于 absolute 脱离了文档流，所以父元素无法自适应子元素的高度。  
 
-# [line-height](http://www.w3school.com.cn/cssref/pr_dim_line-height.asp)  
+# [line-height](https://developer.mozilla.org/zh-CN/docs/Web/CSS/line-height)  
 文本行高。**不允许负值。**  
 继承性: yes。  
 该属性会影响行框的布局。在应用到一个块级元素时，它定义了该元素中基线之间的最小距离而不是最大距离。  
