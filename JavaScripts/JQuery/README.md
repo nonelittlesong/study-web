@@ -1,5 +1,5 @@
-* [jQuery官网](https://api.jquery.com/)
-* [RunNoob](https://www.runoob.com/jquery/jquery-tutorial.html)
+- [jQuery官网](https://api.jquery.com/)
+- [RunNoob](https://www.runoob.com/jquery/jquery-tutorial.html)
 
 # 一、 JQuery事件
 ### 1. [ready() 方法](http://www.w3school.com.cn/jquery/event_ready.asp)
