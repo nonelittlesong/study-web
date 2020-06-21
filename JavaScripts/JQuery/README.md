@@ -1,7 +1,12 @@
 - [jQuery官网](https://api.jquery.com/)
 - [RunNoob](https://www.runoob.com/jquery/jquery-tutorial.html)
 
-# 一、 JQuery事件
+## Notes
+#### Element 与 JQuery
+`e.target` 是 Element，不是 JQuery 对象。   
+
+
+## 一、JQuery事件
 ### 1. [ready() 方法](http://www.w3school.com.cn/jquery/event_ready.asp)
 在文档加载后激活函数：  
 * $(document).ready(function)
@@ -15,7 +20,7 @@
 ### 2. [click() 方法](http://www.w3school.com.cn/jquery/event_click.asp)
 $(selector).click()  
 
-# 二、 JQuery属性操作
+## 二、JQuery 属性操作
 ### 1. [val() 方法](http://www.w3school.com.cn/jquery/attributes_val.asp)
 val()方法返回或设置被选元素的值。  
 * $(selector).val() 返回selector的值。
@@ -44,7 +49,7 @@ $(document).ready(function(){
 </html>
 ```
 
-# 三、 [Ajax](https://api.jquery.com/category/ajax/)
+## 三、[Ajax](https://api.jquery.com/category/ajax/)
 ## 1、 JQuery.ajax()
 语法：  
 * `jQuery.ajax(url\[, settings])`
