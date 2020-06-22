@@ -251,7 +251,7 @@ transform: translateY(-50%);
 
 # [CSS选择器](http://www.w3school.com.cn/cssref/css_selectors.asp)
 **子元素选择器>**  
-只选儿子不选孙子。  
+只选儿子不选孙子。(空格包括孙子）  
 **相邻兄弟选择器+**  
 选紧跟在后面的弟弟。  
 **弟弟选择器～**  
