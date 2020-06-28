@@ -9,21 +9,23 @@
   * [Electron React Boilerplate](https://electron-react-boilerplate.js.org/)
 * [Electron API Demos](https://github.com/electron/electron-api-demos)
 
-# 安装
+## 安装
 ```
-npm i -D electron@latest
+# npm
+$ npm i -D electron@latest
+# yarn
+$ yarn add electron@latest --dev
 ```
 
-# Hello World
+## [Hello World](https://www.electronjs.org/docs/tutorial/first-app)
 ```js
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow } = require('electron');
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
-let win
+// 创建一个对 BrowserWindow 的全局引用，避免窗口因为垃圾回收关闭
+let win;
 
 function createWindow () {
-  // Create the browser window.
+  // 创建窗口
   win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -32,13 +34,13 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // 加载主进程
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // 打开测试工具，同 F12
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
+  // 窗口“已经”关闭后调用
   win.on('closed', () => {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
@@ -47,37 +49,46 @@ function createWindow () {
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// 在初始化完成后并准备好创建窗口时，调用
+// 有些接口只能在此事件发生后使用
+// v6
+// app.on('ready', createWindow)
+// v9
+app.whenReady().then(createWindow);
+
+// 在所有窗口关闭后退出
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+  // MAC 系统除外
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
-  if (win === null) {
-    createWindow()
+  // MAC 系统重新唤醒窗口
+  // v6
+  // if (win === null) {
+  //   createWindow()
+  // }
+  // v9
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow();
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// 可以在这里添加你的主进程代码；
+// 或写在独立的文件中，在这里 require 他们。
 ```
+
 ```htm
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
   </head>
   <body>
     <h1>Hello World!</h1>
@@ -87,3 +98,6 @@ app.on('activate', () => {
   </body>
 </html>
 ```
+
+## 实例
+- [labeltools](https://github.com/nonelittlesong/my-via)  
