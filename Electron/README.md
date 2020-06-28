@@ -18,6 +18,7 @@ $ yarn add electron@latest --dev
 ```
 
 ## [Hello World](https://www.electronjs.org/docs/tutorial/first-app)
+main.js：  
 ```js
 const { app, BrowserWindow } = require('electron');
 
@@ -80,7 +81,7 @@ app.on('activate', () => {
 // 可以在这里添加你的主进程代码；
 // 或写在独立的文件中，在这里 require 他们。
 ```
-
+index.html：  
 ```htm
 <!DOCTYPE html>
 <html>
@@ -98,6 +99,9 @@ app.on('activate', () => {
   </body>
 </html>
 ```
+
+>[CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)  
+
 
 ## 实例
 - [labeltools](https://github.com/nonelittlesong/my-via)  
