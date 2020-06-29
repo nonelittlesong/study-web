@@ -362,6 +362,8 @@ console.log(typeof o.fn); // function
 ```diff
 - Source map error: Error: request failed with status 404
 ```
+解决办法：  
+去掉文件中的 `/*# sourceMappingURL=xxxxxx.xx.map */`。  
 
 ## [Window对象](http://www.w3school.com.cn/jsref/dom_obj_window.asp)
 Window对象表示浏览器中打开的窗口。  
