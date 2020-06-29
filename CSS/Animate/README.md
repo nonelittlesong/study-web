@@ -1,1 +1,2 @@
 - [Animate.css 官网](https://animate.style/)  
+- [Glide](https://github.com/nickpettit/glide)  
