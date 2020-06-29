@@ -12,75 +12,51 @@ contents：
 
 </details>
 
-# [this]
-函数声明中的this指向window。  
+# [addEventListener](http://www.runoob.com/jsref/met-element-addeventlistener.html)
+element.addEventListener(event, function, useCapture)  
 
-# [js中(function(){...})()立即执行函数写法理解](https://www.cnblogs.com/chris-oil/p/4862083.html)
-要理解立即函数，先要理解一些基本概念。  
-#### 函数声明，函数表达式，匿名函数
-* 函数声明： function fnName(){...};使用function关键字声明一个函数，并给函数命名。  
-* 函数表达式： var fnName = function(){...};使用function关键子声明，但未给函数命名，最后将匿名函数赋予一个变量。  
-* 匿名函数： function(){...};使用function关键字声明一个函数，但未给函数声明，叫作匿名函数。匿名函数属于函数表达式。匿名函数有很多作用，赋予一个变量则创建函数，赋予一个事件则成为事件处理程序或创建闭包等。  
+| 参数 | 描述 |
+| --- | --- |
+| event | 字符串，指定事件名 |
+| function | 指定事件触发时执行的函数 |
+| useCapture | 可选。布尔值，指定事件是在捕获或冒泡阶段执行 |
 
-#### 函数声明与函数表达式的不同之处
-1. Javascript引擎在解析时会“函数声明提升”（Function declaration Hoisting）当前执行环境上的函数声明，而函数表达式必须等到解析器执行到它所在的行时，才会自上而下一行一行地解析函数表达式。  
-2. 函数表达式可以在后面加括号立即调用该函数。  
+#### 事件集合
+1. 鼠标事件：
+   * click 单击
+   * dbclick 双击
+   * mousedown 鼠标按下
+   * mouseout 鼠标移走
+   * mouseover 鼠标移入
+   * mouseup 鼠标弹起
+   * mousemove 鼠标移动
+2. 键盘事件：
+   * keydown 键按下
+   * keypress 键按下并松开
+   * keyup 键弹起
+3. HTML事件：
+   * load 加载页面
+   * unload 卸载离开页面
+   * change 改变内容
+   * scroll 滚动
+   * focus 获得焦点
+   * blur 失去焦点
 
-```js
-fnName(); // OK，因为提升了函数声明
-function fnName() {
-    ...
-}
+#### 鼠标/键盘属性
+| 属性 | 描述 |
+| --- | --- |
+| altKey | 返回事件触发时，ATL键是否被按下 |
+| button | 事件触发时，哪个鼠标按钮被点击 |
+| clientX | 鼠标指针的水平坐标 |
+| clientY | 鼠标指针的垂直坐标 |
+| ctrlKey | 事件触发时，ctrl键是否被按下 |
+| metaKey | 事件触发时，meta键是否被按下 |
+| relatedTarget | 返回与事件的目标节点相关的节点 |
+| screenX | |
+| screenY | |
+|shiftKey | shift键是否被按下 |
 
-fnName2(); // 错误
-var fnName2 = function() {
-    ...
-}
-
-var fnName3 = function() {
-    alert("hello world");
-}(); // 会立即调用函数
-
-function fnName4() {
-    alert("hello world");
-}() // 不会报错，但解析器会忽略后面的括号
-
-function() {
-    console.log("hello world");
-}(); // 语法错误，没有进行赋值操作
-```
-
-(function(){...})()和(function(){...}())  
-```js
-(function(a){
-    console.log(a);   //firebug输出123,使用（）运算符
-})(123);
  
-(function(a){
-    console.log(a);   //firebug输出1234，使用（）运算符
-}(1234));
- 
-!function(a){
-    console.log(a);   //firebug输出12345,使用！运算符
-}(12345);
- 
-+function(a){
-    console.log(a);   //firebug输出123456,使用+运算符
-}(123456);
- 
--function(a){
-    console.log(a);   //firebug输出1234567,使用-运算符
-}(1234567);
- 
-var fn=function(a){
-    console.log(a);   //firebug输出12345678，使用=运算符
-}(12345678)
-```
-可以看到输出结果，在function前面加!,+,-,=甚至是逗号都能得到函数立即执行的结果。这是因为他们将函数声明转换为函数表达式，消除了歧义。  
-加()是最安全的做法。  
-作用：  
-javascript中没有私有作用域的概念，使用这种技术可以模拟一个私有作用域。  
-JQuery使用的就是这种技术，将JQuery代码包裹在(function(window,undefined){...jquery代码...}(window)中，可以达到保护JQuery内部变量的作用。  
 
 # [Canvas与Context](https://blog.csdn.net/h15882065951/article/details/70232080)
 #### 基本用法
@@ -255,64 +231,72 @@ context.fillRect(30, 30, 200, 200);
 #### 径向渐变
 createRadialGradient()创建径向渐变对象，它接收6个参数：起始圆的圆心xy坐标和半径r;结束圆的圆心xy坐标和半径R。  
 
-# [Window对象](http://www.w3school.com.cn/jsref/dom_obj_window.asp)
-Window对象表示浏览器中打开的窗口。  
-如果文档包含框架（frame或iframe标签），浏览器会为HTML文档创建一个window对象，并为每个框架创建一个额外的window对象。  
-#### Window对象集合
+# [js中(function(){...})()立即执行函数写法理解](https://www.cnblogs.com/chris-oil/p/4862083.html)
+要理解立即函数，先要理解一些基本概念。  
+#### 函数声明，函数表达式，匿名函数
+* 函数声明： function fnName(){...};使用function关键字声明一个函数，并给函数命名。  
+* 函数表达式： var fnName = function(){...};使用function关键子声明，但未给函数命名，最后将匿名函数赋予一个变量。  
+* 匿名函数： function(){...};使用function关键字声明一个函数，但未给函数声明，叫作匿名函数。匿名函数属于函数表达式。匿名函数有很多作用，赋予一个变量则创建函数，赋予一个事件则成为事件处理程序或创建闭包等。  
 
-| 集合 | 描述 |
-| ------ | ------ |
-| frames\[] | 返回窗口中所有命名的框架。<br>该集合是Window对象数组，每个Window对象在窗口中含有一个框架或<iframe>。属性frames.length存放在数组frames[]中含有的元素的个数。注意，frames[]数组中引用的框架可能还包含框架，他们自己也有frames[]数组。 |
+#### 函数声明与函数表达式的不同之处
+1. Javascript引擎在解析时会“函数声明提升”（Function declaration Hoisting）当前执行环境上的函数声明，而函数表达式必须等到解析器执行到它所在的行时，才会自上而下一行一行地解析函数表达式。  
+2. 函数表达式可以在后面加括号立即调用该函数。  
 
-#### Window对象属性
-| 属性 | 描述 |
-| ---- | ---- |
-| innerHeight | 返回窗口的文档显示区的高度 |
-| innerWidth | 返回窗口的文档显示区的宽度 |
+```js
+fnName(); // OK，因为提升了函数声明
+function fnName() {
+    ...
+}
 
-# [addEventListener](http://www.runoob.com/jsref/met-element-addeventlistener.html)
-element.addEventListener(event, function, useCapture)  
+fnName2(); // 错误
+var fnName2 = function() {
+    ...
+}
 
-| 参数 | 描述 |
-| --- | --- |
-| event | 字符串，指定事件名 |
-| function | 指定事件触发时执行的函数 |
-| useCapture | 可选。布尔值，指定事件是在捕获或冒泡阶段执行 |
+var fnName3 = function() {
+    alert("hello world");
+}(); // 会立即调用函数
 
-#### 事件集合
-1. 鼠标事件：
-   * click 单击
-   * dbclick 双击
-   * mousedown 鼠标按下
-   * mouseout 鼠标移走
-   * mouseover 鼠标移入
-   * mouseup 鼠标弹起
-   * mousemove 鼠标移动
-2. 键盘事件：
-   * keydown 键按下
-   * keypress 键按下并松开
-   * keyup 键弹起
-3. HTML事件：
-   * load 加载页面
-   * unload 卸载离开页面
-   * change 改变内容
-   * scroll 滚动
-   * focus 获得焦点
-   * blur 失去焦点
+function fnName4() {
+    alert("hello world");
+}() // 不会报错，但解析器会忽略后面的括号
 
-#### 鼠标/键盘属性
-| 属性 | 描述 |
-| --- | --- |
-| altKey | 返回事件触发时，ATL键是否被按下 |
-| button | 事件触发时，哪个鼠标按钮被点击 |
-| clientX | 鼠标指针的水平坐标 |
-| clientY | 鼠标指针的垂直坐标 |
-| ctrlKey | 事件触发时，ctrl键是否被按下 |
-| metaKey | 事件触发时，meta键是否被按下 |
-| relatedTarget | 返回与事件的目标节点相关的节点 |
-| screenX | |
-| screenY | |
-|shiftKey | shift键是否被按下 |
+function() {
+    console.log("hello world");
+}(); // 语法错误，没有进行赋值操作
+```
+
+(function(){...})()和(function(){...}())  
+```js
+(function(a){
+    console.log(a);   //firebug输出123,使用（）运算符
+})(123);
+ 
+(function(a){
+    console.log(a);   //firebug输出1234，使用（）运算符
+}(1234));
+ 
+!function(a){
+    console.log(a);   //firebug输出12345,使用！运算符
+}(12345);
+ 
++function(a){
+    console.log(a);   //firebug输出123456,使用+运算符
+}(123456);
+ 
+-function(a){
+    console.log(a);   //firebug输出1234567,使用-运算符
+}(1234567);
+ 
+var fn=function(a){
+    console.log(a);   //firebug输出12345678，使用=运算符
+}(12345678)
+```
+可以看到输出结果，在function前面加!,+,-,=甚至是逗号都能得到函数立即执行的结果。这是因为他们将函数声明转换为函数表达式，消除了歧义。  
+加()是最安全的做法。  
+作用：  
+javascript中没有私有作用域的概念，使用这种技术可以模拟一个私有作用域。  
+JQuery使用的就是这种技术，将JQuery代码包裹在(function(window,undefined){...jquery代码...}(window)中，可以达到保护JQuery内部变量的作用。 
 
 # [Prototype](https://www.cnblogs.com/dengpeng1004/p/5317245.html)
 作用： 为一个特定的类声明通用的变量和函数。  
@@ -370,3 +354,21 @@ console.log(typeof o.fn); // function
 #### protptype
 为了解决每个实例对象都会复制相同的实例方法。  
 默认情况下prototype属性会默认获得一个constructor属性，这个属性是一个指向prototype所在函数的指针。  
+
+# [this]
+函数声明中的this指向window。  
+
+# [Window对象](http://www.w3school.com.cn/jsref/dom_obj_window.asp)
+Window对象表示浏览器中打开的窗口。  
+如果文档包含框架（frame或iframe标签），浏览器会为HTML文档创建一个window对象，并为每个框架创建一个额外的window对象。  
+#### Window对象集合
+
+| 集合 | 描述 |
+| ------ | ------ |
+| frames\[] | 返回窗口中所有命名的框架。<br>该集合是Window对象数组，每个Window对象在窗口中含有一个框架或<iframe>。属性frames.length存放在数组frames[]中含有的元素的个数。注意，frames[]数组中引用的框架可能还包含框架，他们自己也有frames[]数组。 |
+
+#### Window对象属性
+| 属性 | 描述 |
+| ---- | ---- |
+| innerHeight | 返回窗口的文档显示区的高度 |
+| innerWidth | 返回窗口的文档显示区的宽度 |
