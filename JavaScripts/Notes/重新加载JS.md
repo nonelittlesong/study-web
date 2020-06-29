@@ -12,7 +12,7 @@ function loadJs(file)
 }
 ```
 
-## 通过添加id
+**通过添加id：**  
 ```js
 function reloadAbleJSFn(id,newJS)
 {
@@ -28,7 +28,7 @@ function reloadAbleJSFn(id,newJS)
 }
 ```
 
-## jquery 实现
+**jquery 实现：**  
 ```js
 <head>
     <script type="text/javascript" src="../jquery.js"></script> 
@@ -47,3 +47,5 @@ function reloadAbleJSFn(id,newJS)
     <button type="button" id="loadButton">Load</button>
 </body>
 ```
+
+## 频繁请求的问题
