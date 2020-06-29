@@ -3,12 +3,12 @@
 contents：  
 </summary>
 
-* [this](#this)
-* [js中(function(){...})()立即执行函数写法理解](#js中function立即执行函数写法理解)
-* [Canvas与Context](#canvas与context)
-* [Window](#window对象)
 * [addEventListener](#addeventlistener)
+* [Canvas与Context](#canvas与context)
 * [Prototype](#prototype)
+* [js中(function(){...})()立即执行函数写法理解](#js中function立即执行函数写法理解)
+* [this](#this)
+* [Window](#window对象)
 
 </details>
 
