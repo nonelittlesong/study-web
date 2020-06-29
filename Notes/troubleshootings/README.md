@@ -7,7 +7,7 @@ contents：
 * [Canvas与Context](#canvas与context)
 * [Prototype](#prototype)
 * [js中(function(){...})()立即执行函数写法理解](#js中function立即执行函数写法理解)
-* [Source map error](#Sourcemaperror)
+* [Source map error](#Source-map-error)
 * [this](#this)
 * [Window](#window对象)
 
