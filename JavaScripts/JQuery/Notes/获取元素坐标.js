@@ -13,5 +13,6 @@ var y = $('#id').position().top;
 
 
 // =============== JS 实现 ===============
+// https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect
 // Element.getBoundingClientRect() 方法返回元素的大小及其相对于视口的位置。
 var rect = element.getBoundingClientRect();
