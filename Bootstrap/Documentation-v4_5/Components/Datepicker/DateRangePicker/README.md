@@ -21,4 +21,6 @@
   - timePickerIncrement: (number) - 可选时间的间隔。  
   - timePicker24Hour: (true/false) - 使用 24 小时制。  
   - timePickerSeconds: (true/false) - 添加秒的选择框。  
-
+- autoApply: (true/fasle) - 隐藏提交和取消按钮。  
+- opens: ('left'/'right'/'center') - 选择器出现位置。左边、右边、正下方。  
+- drops: ('down'/'up'/'auto') - 
