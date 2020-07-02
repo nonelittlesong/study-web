@@ -22,6 +22,9 @@
   - timePicker24Hour: (true/false) - 使用 24 小时制。  
   - timePickerSeconds: (true/false) - 添加秒的选择框。  
 - autoApply: (true/fasle) - 隐藏提交和取消按钮。  
+  - buttonClasses: (string) - 添加在取消和应用按钮上的 CSS 类名。  
+  - applyButtonClasses: (string) - 添加在应用按钮上的 CSS 类名。  
+  - cancelButtonClasses: (string) - 添加在取消按钮上的 CSS 类名。  
 - opens: ('left'/'right'/'center') - 选择器和绑定组件对齐方式：左对齐、又对齐、居中。  
 - drops: ('down'/'up'/'auto') - 选择器出现位置。  
 
