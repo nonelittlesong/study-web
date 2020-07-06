@@ -1,4 +1,3 @@
-├ ─ └ 
 
 可以视 Electron 为小型的 Chromium 浏览器。  
 
