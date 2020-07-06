@@ -14,3 +14,7 @@ Electron 使用了 Chromium 多进程架构。每个网页都拥有一个自己�
 >**注意：**  
 >native Node.js 模块需要先编译后使用！！  
 >[Electron 使用 native Node 模块](https://www.electronjs.org/docs/tutorial/using-native-node-modules#using-native-node-modules)  
+
+## [性能](https://www.electronjs.org/docs/tutorial/performance)
+
+### 1) 谨慎地加载模块
