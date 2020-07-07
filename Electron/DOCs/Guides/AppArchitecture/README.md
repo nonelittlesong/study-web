@@ -18,3 +18,26 @@ Electron 使用了 Chromium 多进程架构。每个网页都拥有一个自己�
 ## [性能](https://www.electronjs.org/docs/tutorial/performance)
 
 ### 1) 谨慎地加载模块
+
+### 2) 过早地加载和执行代码
+以 Visual Studio 代码为例。当你打开一个文件，它会立刻展示没有高亮的内容，优先实现和文本的交互功能。  
+
+>ES6 的 import 如何延迟加载？？  
+
+### 3) 阻塞主进程
+
+1. 对于需要长期占用 CPU 繁重任务，使用 [worker threads](https://nodejs.org/api/worker_threads.html)，考虑将他们移动到 BrowserWindow，或（作为最后手段）生成一个专用进程。  
+2. 尽可能避免使用同步 IPC 和 remote 模块。  
+3. 避免在主线程使用阻塞的 I/O 操作。  
+
+### 4) 阻塞渲染进程
+
+- [requestIdleCallback()](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)  
+- [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)  
+
+### 5) 不必要的 polyfills
+
+### 6) 不必要或阻塞的网络请求
+
+### 7) 打包你的代码
+webpack  
