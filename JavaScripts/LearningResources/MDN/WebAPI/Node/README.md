@@ -2,6 +2,19 @@
 
 ## 属性
 
+### [Node.parentNode & Node.parentElement](https://stackoverflow.com/questions/8685739/difference-between-dom-parentnode-and-parentelement)
+用 `parentNode` ！！
+```js
+document.body.parentNode; // the <html> element
+document.body.parentElement; // the <html> element
+
+document.documentElement.parentNode; // the document node
+document.documentElement.parentElement; // null
+
+(document.documentElement.parentNode === document);  // true
+(document.documentElement.parentElement === document);  // false
+```
+
 ### Node.textContent
 表示一个节点及其后代的文本内容。  
 #### 语法
