@@ -24,9 +24,13 @@ child.once('ready-to-show', () => {
 ```
 
 # 静态方法
-## 1、 BrowserWindow.fromWebContents(webContents)
+## BrowserWindow.fromWebContents(webContents)
 * webContents
 
 返回 BrowserWindow - 拥有给定 webContents 的窗口。
 
+## BrowserWindow.getFocusedWindow()
+返回当前获得焦点的窗口。  
+>**注意：**  
+>可用于创建模态窗口时，设置 parent 选项。  
 
