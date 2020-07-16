@@ -7,6 +7,6 @@ yarn add popper.js # 不是 popper
 
 ```js
 window.$ = window.jQuery = require('jquery');
-window.Popper = require('popper').default;
+window.Popper = require('popper');
 require('bootstrap');
 ```
