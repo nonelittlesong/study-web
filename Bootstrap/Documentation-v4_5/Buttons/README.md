@@ -15,7 +15,7 @@
 <button type="button" class="btn btn-link">Link</button>
 ```
 
-## 按钮标签
+## `<a>` & `<input>`
 当使用 `<a>` 标签时，需要添加 `role="button"`，告诉屏幕阅读器这个标签的目的。  
 
 ## 轮廓按钮
