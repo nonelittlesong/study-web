@@ -1,4 +1,4 @@
-# dialog.showOpenDialog(\[browserWindow, ]options[, callback])
+## dialog.showOpenDialog(\[browserWindow, ]options[, callback])
 * browserWindow - 父窗体，使 dialog 成为模态窗体。
 * options
 * callback - 选择文件后调用，路径数组为参数。
@@ -20,7 +20,7 @@ dialog.showOpenDialog(mainWindow, {
 })
 ```
 
-# dialog.showSaveDialog(\[browserWindow, ]options)
+## dialog.showSaveDialog(\[browserWindow, ]options)
 * browserWindow
 * options
 
