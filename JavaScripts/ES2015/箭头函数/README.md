@@ -76,3 +76,35 @@ func();
 ```
 
 ## 箭头函数的 this
+箭头函数的 this 在定义函数时绑定。  
+
+`setTimeout` 中箭头函数的例子：  
+```js
+var obj = {
+  func: function() {
+    console.log(this);
+  },
+  say: function() {
+    setTimeout(() => {
+      console.log(this);
+    });
+  }
+}
+obj.func();          // obj
+obj.say();           // obj
+var obj2 = 'obj2';
+obj.say.call(obj2);  // obj2
+```
+
+匿名箭头函数的例子：  
+```js
+var a = 11;
+function test2() {
+  this.a = 22;
+  return () => {
+    console.log(this.a);
+  };
+}
+var x = new test2()(); // 22
+```
+
