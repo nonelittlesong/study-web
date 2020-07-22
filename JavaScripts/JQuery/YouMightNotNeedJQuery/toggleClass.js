@@ -1,5 +1,5 @@
 // 参考
-// https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+// https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList
 // https://stackoverflow.com/questions/195951/how-can-i-change-an-elements-class-with-javascript
 // https://stackoverflow.com/questions/18880890/how-do-i-toggle-an-elements-class-in-pure-javascript
 
