@@ -7,5 +7,5 @@
  * Toggle an element's class in pure JavaScript
  */
 // Using a class instead, see note http://www.2ality.com/2012/08/ids-are-global.html
-const menu = document.querySelector('.menu')
-menu.classList.toggle('hidden-phone');
+const element = document.querySelector('.classname')
+element.classList.toggle('xxx');
