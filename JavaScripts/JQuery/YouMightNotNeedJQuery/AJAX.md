@@ -1,3 +1,6 @@
+alternatives  
+- [fetch https](https://github.com/github/fetch)  
+
 ## JSON
 jquery  
 ```js
