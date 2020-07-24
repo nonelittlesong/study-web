@@ -2,17 +2,21 @@ alternatives
 - [bonzo](https://github.com/ded/bonzo)  
 - [$dom](https://github.com/julienw/dollardom)  
 
-## Add & Has Class
+## Add & Has & Remove & toggle Class
 jquery
 ```js
 $(el).addClass(className);
 $(el).hasClass(className);
+$(el).removeClass(className);
+$(el).toggleClass(className);
 ```
 
 IE10+  
 ```js
 el.classList.add(className);
 el.classList.contains(className);
+el.classList.remove(className);
+el.classList.toggle(className);
 ```
 
 ## After
@@ -48,15 +52,17 @@ IE8+
 target.insertAdjacentElement('beforebegin', element);
 ```
 
-## Append
+## Append & Prepend
 jquery  
 ```js
 $(parent).append(el);
+$(parent).prepend(el);
 ```
 
 IE8+  
 ```js
 parent.appendChild(el);
+parent.insertBefore(el, parent.firstChild);
 ```
 
 ## Children & Parent
@@ -170,40 +176,63 @@ IE8+
 document.querySelectorAll('.my #awesome selector');
 ```
 
-## Get Attributes
+## Get & Remove & Set Attributes
 jquery  
 ```js
 $(el).attr('tabindex');
+$(el).removeAttr('tabindex');
+$(el).attr('tabindex', 3);
 ```
 
 IE8+  
 ```js
 el.getAttribute('tabindex');
+el.removeAttribute('tabindex');
+el.setAttribute('tabindex', 3);
 ```
 
-## Get Height & Width
+## Get & Set Height & Width
 jquery  
 ```js
 $(el).height();
 $(el).width();
+// set
+$(el).height(val);
+$(el).width(val);
 ```
 
 IE9+  
 ```js
 parseFloat(getComputedStyle(el, null).height.replace('px', ''));
 parseFloat(getComputedStyle(el, null).width.replace('px', ''));
+// set
+function setHeight(el, val) {
+    if (typeof val === "function") val = val();
+    if (typeof val === "string") el.style.height = val;
+    else el.style.height = val + "px";
+}
+setHeight(el, val);
+function setWidth(el, val) {
+    if (typeof val === "function") val = val();
+    if (typeof val === "string") el.style.width = val;
+    else el.style.width = val + "px";
+}
+setWidth(el, val);
+
 ```
 
-## Get HTML
+## Get & Set HTML
 #### innerHTML
 jquery  
 ```js
 $(el).html();
+$(el).html(string);
 ```
 
 IE8+  
 ```js
 el.innerHTML;
+el.innerHTML = string;
 ```
 
 #### outerHTML
@@ -218,27 +247,31 @@ el.outerHTML;
 ```
 
 
-## Get Style
+## Get & Set Style
 jquery  
 ```js
 $(el).css(ruleName);
+$(el).css('border-width', '20px');
 ```
 
 IE9+  
 ```js
 getComputedStyle(el)[ruleName];
+el.style.borderWidth = '20px';
 ```
 
 
-## GetText
+## Get & Set Text
 jquery  
 ```js
 $(el).text();
+$(el).text(string);
 ```
 
 IE9+  
 ```js
 el.textContent;
+el.textContent = string;
 ```
 
 
@@ -289,15 +322,21 @@ matches(el, '.my-class');
 ```
 
 
-## Next & Prev
+## Next & Prev & Siblings
 jquery  
 ```js
 $(el).next();
+$(el).prev();
+$(el).siblings();
 ```
 
 IE9+  
 ```js
 el.nextElementSibling;
+el.previousElementSibling;
+Array.prototype.filter.call(el.parentNode.children, function (child) {
+  return child !== el;
+});
 ```
 
 
@@ -348,6 +387,7 @@ el.offsetWidth;
 jquery  
 ```js
 $(el).outerHeight(true);
+// with margin
 $(el).outerWidth(true);
 ```
 
@@ -373,6 +413,53 @@ outerWidth(el);
 ```
 
 
+## Position
+jquery  
+```js
+// 相对于 offsetParent 的位置
+$(el).position();
+// 相对于视口的位置
+var offset = el.offset();
+{
+  top: offset.top - document.body.scrollTop,
+  left: offset.left - document.body.scrollLeft
+}
+```
 
-  
+IE8+  
+```js
+// 相对于 offsetParent 的位置
+{
+  left: el.offsetLeft,
+  top: el.offsetTop
+}
+// 相对于视口的位置
+el.getBoundingClientRect();
+```
+
+
+## Remove
+jquery  
+```js
+$(el).remove();
+```
+
+IE8+  
+```js
+el.parentNode.removeChild(el);
+```
+
+## Replace from HTML
+jquery  
+```js
+$(el).replaceWith(string);
+```
+
+IE8+  
+```js
+el.outerHTML = string;
+```
+
+
+
 
