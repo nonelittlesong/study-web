@@ -19,7 +19,7 @@ el.classList.remove(className);
 el.classList.toggle(className);
 ```
 
-## After
+## After & Before
 位置命名的可视化展示  
 ```html
 <!-- beforebegin -->
@@ -34,23 +34,15 @@ foo
 jquery  
 ```js
 $(target).after(element);
-```
-
-IE8+  
-```js
-target.insertAdjacentElement('afterend', element);
-```
-
-## Before
-jquery  
-```js
 $(target).before(element);
 ```
 
 IE8+  
 ```js
+target.insertAdjacentElement('afterend', element);
 target.insertAdjacentElement('beforebegin', element);
 ```
+
 
 ## Append & Prepend
 jquery  
