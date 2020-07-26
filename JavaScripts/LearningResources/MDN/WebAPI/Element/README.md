@@ -12,3 +12,8 @@
 使用 `trim()` 去掉字符串前后空格。  
 
 ## 方法
+
+### [insertAdjacentElement()](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/insertAdjacentElement)  
+>**注意：**  
+>1. 多个节点使用该方法插入**同一个元素**，只有最后一个生效。  
+>2. 
