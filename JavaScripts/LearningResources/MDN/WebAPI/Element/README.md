@@ -16,4 +16,13 @@
 ### [insertAdjacentElement()](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/insertAdjacentElement)  
 >**注意：**  
 >1. 多个节点使用该方法插入**同一个元素**，只有最后一个生效。  
->2. 
+
+```js
+const htmlPlaceholer = '<span class="ant-select-selection-placeholder">Please select dataset</span>';
+const $placeHolder = parseHTML(htmlPlaceholer)[0];
+console.log($placeHolder);
+$datasetSelection.insertAdjacentElement('afterend', $placeHolder);
+$placeHolder.parentNode.removeChild($placeHolder);
+console.log($placeHolder);            // <span class="ant-select-selection-placeholder">Please select dataset</span>
+console.log($placeHolder.parentNode); // null
+```
