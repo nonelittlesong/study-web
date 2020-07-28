@@ -1,12 +1,14 @@
 参考:   
-* [Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)  
-* [codepen](https://codepen.io/)
-* https://github.com/you-dont-need/You-Dont-Need-JavaScript
-* [dat.GUI](https://github.com/dataarts/dat.gui)  
-* https://www.tweenmax.com.cn/  
-* [http status](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
-* [腾讯云 开发者手册](https://cloud.tencent.com/developer/devdocs)
-* https://github.com/fyuanfen/note
+- HTTP
+  - [Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)  
+  - [HTTP 响应代码](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status/101)  
+- [codepen](https://codepen.io/)
+- https://github.com/you-dont-need/You-Dont-Need-JavaScript
+- [dat.GUI](https://github.com/dataarts/dat.gui)  
+- https://www.tweenmax.com.cn/  
+- [http status](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+- [腾讯云 开发者手册](https://cloud.tencent.com/developer/devdocs)
+- https://github.com/fyuanfen/note
 
 wiki
 * [创建mysql数据库](https://github.com/nonelittlesong/study-web/wiki/create-database)
