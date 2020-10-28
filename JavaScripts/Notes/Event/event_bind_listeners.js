@@ -20,3 +20,6 @@ window.addEventListener('keydown', (ev) => {
 // 输出
 // 6
 // 6
+
+// 为具名函数传递参数
+// https://blog.csdn.net/weixin_34128534/article/details/91382233?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param
