@@ -1,7 +1,25 @@
 * http://nodejs.cn/api/fs.html
 
-# 例子
-## 1、 文件信息
+## 例子
+### 1、 是否存在
+```js
+// fs.exists(path, callback) 已弃用
+// 不建议在调用 fs.open()、 fs.readFile() 或 fs.writeFile() 之前使用 fs.stat() 检查文件的存在性。
+// 不要在调用 fs.open()、 fs.readFile() 或 fs.writeFile() 之前使用 fs.access() 检查文件的可访问性。
+// 这样做会引入竞态条件，因为其他进程可能会在两个调用之间更改文件的状态。
+
+if (!fs.existsSync('文件')) {
+  console.log('文件夹不存在');
+  return;
+}
+const stats = fs.statSync('文件');
+if (!stats.isDirectory()) {
+  console.log('不是一个文件夹');
+  return;
+}
+```
+
+### 2、 文件信息
 ```js
 const fs = require("fs"); //Load the filesystem module
 const stats = fs.statSync("myfile.txt");
@@ -10,7 +28,7 @@ const fileSizeInBytes = stats.size;
 const fileSizeInMegabytes = fileSizeInBytes / 1000000.0;
 ```
 
-## 2、 写文件
+### 3、 写文件
 参考：  
 * [JS String 对象](https://www.w3school.com.cn/jsref/jsref_obj_string.asp)  
 * [fs.writeFileSync()](http://nodejs.cn/api/fs.html#fs_fs_writefilesync_file_data_options)
@@ -39,7 +57,7 @@ fs.writeFile(pathstr, xmlitem, (err) => { // 文件不存在会创建
 fs.writeFileSync(xmlPath, xmlitem); // 文件不存在会创建
 ```
 
-## 3、 删除文件
+### 4、 删除文件
 * [fs.unlinkSync(path)](http://nodejs.cn/api/fs.html#fs_fs_unlinksync_path) - 同步地删除文件或符号链接。
 ```js
 "use strict";
