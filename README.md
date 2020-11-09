@@ -1,4 +1,4 @@
-参考   
+参考:   
 - HTTP
   - [Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)  
   - [HTTP 响应代码](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status/101)  
