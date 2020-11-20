@@ -9,25 +9,25 @@ notes：
 * [systemctl](https://github.com/nonelittlesong/study-ubuntu/blob/master/systemctl.md)
 * [查看进程](https://github.com/nonelittlesong/study-ubuntu)
 
-# 配置nginx ver.2
-https://blog.csdn.net/lgyaxx/article/details/79507525  
+# 配置 Nginx Ver.2
+
+- https://blog.csdn.net/lgyaxx/article/details/79507525  
 
 在`/etc/nginx/nginx.conf`中，有：  
 ```
 include /etc/nginx/sites-enabled/*;
 ```
->类似Apache的配置，Nginx配置中也存在`sites-available`这个文件夹，不过与Apache略有不同的是，Nginx配置完`vhost`后，使用`symbolic link`将配置文件链接至`sites-enabled`文件夹。  
 
-那么我们首先打开Nginx配置：  
+>类似 Apache 的配置，Nginx 配置中也存在 `sites-available` 这个文件夹，不过与 Apache 略有不同的是，Nginx 配置完 `vhost` 后，使用 `symbolic link` 将配置文件链接至 `sites-enabled` 文件夹。    
+
+那么我们首先打开 Nginx 配置：  
 ```sh
 $ cd /etc/nginx/sites-available
 $ cp default mysite.com
 ```
-可以看到，我们将sites-available文件夹下的default配置文件拷贝后，生成了我们需要修改的名为mysite.com的配置文件。打开这个文件：  
-```
-$ vim mysite.com
-```
-可以看到，里面有一段这样的配置：  
+
+可以看到，我们将 sites-available 文件夹下的 default 配置文件拷贝后，生成了我们需要修改的名为 mysite.com 的配置文件。  
+打开这个文件，可以看到，里面有一段这样的配置：  
 ```
 # Virtual Host configuration for example.com 
 # 
@@ -48,7 +48,8 @@ $ vim mysite.com
 #       } 
 #}
 ```
-我在文章头部已经说过，我的Laravel项目文件在/var/www/myproject中，我们假设我们将要使用mysite.com这个域名作为我们网站地址。那么我们将以上配置做出修改如下：  
+
+我的 Laravel 项目文件在 `/var/www/myproject` 中，假设我们将要使用 mysite.com 这个域名作为我们网站地址，那么我们将以上配置做出修改如下：  
 ```
 server {
         listen 80;
@@ -80,9 +81,9 @@ server {
 }
 ```
 
-可以看到，我们在server_name中加上了`mysite.com`及`www.mysite.com`这个alias，所以两者都可以用来访问我们的项目。  
-
-index后面我们添加了index.php，因为我们需要php来动态加载页面。  
+可以看到：  
+`server_name` 中加上了 `mysite.com` 及 `www.mysite.com` 这个 alias，所以两者都可以用来访问我们的项目。  
+`index` 后面添加了 `index.php`，因为我们需要 php 来动态加载页面。    
 
 接下来我们看到  
 ```
@@ -90,26 +91,28 @@ location / {
   try_files $uri $uri/ /index.php?$query_string;
 }
 ```
-这段location配置非常重要，注意我们在try_files的最后，添加了/index.php?$query_string。这一步非常重要，因为为了使Laravel正常工作，所有的请求都应该被传递给Laravel本身，即所有的请求都被传递给了index.php，Laravel的应用主文件。如果这一步没有配置，那么我们只能够打开项目主页，其余页面将无法跳转。  
+这段 location 配置非常重要，注意我们在 `try_files` 的最后，添加了 `/index.php?$query_string`。这一步非常重要，因为为了使 Laravel 正常工作，所有的请求都应该被传递给 Laravel 本身，即所有的请求都被传递给了 index.php，Laravel的应用主文件。如果这一步没有配置，那么我们只能够打开项目主页，其余页面将无法跳转。  
+&nbsp;  
 
 ```
 location ~ \.php$ {
   include snippets/fastcgi-php.conf;
   fastcgi_pass unix:/run/php/php7.2-fpm.sock;
 }
-这一段中我们设置好php-fpm的相关配置。然后保存退出。
+```
+这一段中我们设置好 php-fpm的相关配置。然后保存退出。  
 
-接下来我们输入  
+接下来我们输入：  
 ```sh
 $ sudo ln -s /etc/nginx/sites-available/mysite.com /etc/nginx/sites-enabled/
 ```
-以激活我们的网站。注意：这里一定要使用绝对路径，而不能使用相对路径（例如../sites-available），切记。  
+以激活我们的网站。**注意：这里一定要使用绝对路径，而不能使用相对路径（例如../sites-available），切记**。  
 
 完成后，我们重启Nginx：  
 ```sh
 $ sudo systemctl restart nginx
 ```
-好了，这样一来，mysite.com就成功地被指向我们的项目地址，并且nginx可以正常处理请求加载出页面了。  
+好了，这样一来，mysite.com 就成功地被指向我们的项目地址，并且 nginx 可以正常处理请求加载出页面了。    
 
 其他配置：  
 ```
