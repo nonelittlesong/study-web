@@ -139,7 +139,7 @@ $ sudo systemctl restart nginx
 ```
 
 # 配置nginx
-在`/etc/php/7.3/fpm/pool.d/www.conf`中，有：  
+在 `/etc/php/7.3/fpm/pool.d/www.conf` 中，有：  
 ```
 listen = /run/php/php7.3-fpm.sock
 ```
@@ -147,9 +147,9 @@ listen = /run/php/php7.3-fpm.sock
 ```
 fastcgi_pass unix:/run/php/php7.3-fpm.sock
 ```
-## 1、 
 
 # 常用指令
+
 ### 查看端口
 ```sh
 lsof -i:端口号
@@ -158,14 +158,15 @@ netstat -tunlp |grep 端口号
 ```
 
 # Troubleshootings
+
 ## 1、 localhost被其他程序（如digits）占用
-卸载digits：  
+卸载 digits：  
 ```
 $ sudo apt-get remove digits
 $ sudo apt-get autoremove
 ```
 ## 2、 [解决Nginx php-fpm配置有误引起的502错误](https://www.centos.bz/2017/07/nginx-php-fpm-502-error/)
-修改nginx.conf:  
+修改 nginx.conf:  
 将`astcgi_pass 127.0.0.1:9000;`  
 修改为`fastcgi_pass unix:/run/php/php7.0-fpm.sock;`  
 
