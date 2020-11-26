@@ -5,3 +5,11 @@
 * https://www.bootstrapcdn.com/fontawesome/  
 * https://github.com/MaxCDN/bootstrapcdn/  
 * http://fontawesome.dashgame.com/  
+
+## NodeJS 导入 Bootstrap
+
+```js
+window.$ = window.jQuery = require('jquery');
+window.Popper = require('popper.js');
+require('bootstrap');
+```
