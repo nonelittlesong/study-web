@@ -1,109 +1,148 @@
-# Troubleshootings
-### 1. change
+# Event
+
+JS 事件的触发和处理
+
+## 1. Troubleshootings
+
+### 1.1. change 事件
+
 事件会在元素的内容发生改变时发生。  
 事件也可以用于单选框和复选框改变后触发的事件。  
-onchange属性可用于input,select和textarea。  
 
-# 一、 事件流
-### 1. 事件冒泡
-事件由子元素向父元素传递。  
+`onchange` 属性可用于 input, select 和 textarea。  
 
-### 2. 事件捕获
-事件由父元素向子元素传递。  
+## 2. 事件流
 
-### 3. DOM事件流
-事件流包括三个阶段：  
-1. 事件捕获阶段 - 不涉及事件目标
+1. 事件捕获阶段 — 不涉及事件目标
 2. 处于目标阶段
 3. 事件冒泡阶段
 
-# 二、 事件处理程序
-### 1. HTML事件处理程序（不建议用）  
+## 3. 事件处理程序
+
+### 3.1. DOM2 级事件处理程序
+
+`addEventListener()` 和 `removeEventListener()`
+
+接受3个参数：
+
+1. 事件名
+2. 函数 — 事件处理程序
+3. `true` 表示在捕获阶段调用函数，`false` 表示在冒泡阶段处理函数。
+
+**优点**
+
+- 可以添加多个事件处理程序，按照添加顺序执行。
+
+通过 `addEventListener()` 添加的事件处理程序只能通过 `removeEventListener()` 移除。  
+这意味着「匿名函数」不能被移除。
+
+### 3.2. HTML事件处理程序（不建议用）
+
+通过 HTML 元素的 `onxxxx` 属性绑定事件处理函数。
+
+**缺点**
+
+1. 可能在**元素未加载完全**时触发事件。
+2. 扩展事件处理程序的作用域链在不同浏览器中有不同的结果。
 
 ```
 <input type="button" value="Click Me" onclick="alert('Clicked')" />
 ```
-event：  
+
+`event`:
+
 ```
 <input type="button" value="Click Me" onclick="alert(event.type)" />
 ```
-this:  
+
+`this`:
+
 ```
 <input type="button" value="Click Me" onclick="alert(this.value)" />
 ```
-关于这个动态创建的onclick函数，另一个有意思的地方是它扩展作用域的方式。在这个函数内部，可以像访问局部变量一样访问document及该元素本身的成员。  
-这个函数使用with像下面这样扩展作用域：  
+
+#### 原理
+
+关于这个动态创建的 onclick 函数，另一个有意思的地方是它扩展作用域的方式。在这个函数内部，可以像访问局部变量一样访问 document 及该元素本身的成员。  
+
+这个函数使用 with 像下面这样扩展作用域：
+
 ```js
 function() {
   with(document) {
     with(this) {
-      // 元素属性至
+      // 元素属性值
     }
   }
 }
 ```
-因此，可以省略this： `onclick="alert(value)"`。  
 
-如果是表单元素，有：  
-```
+因此，可以省略 `this`： `onclick="alert(value)"`。
+
+&nbsp;  
+如果是表单元素，有：
+
+```js
 function() {
   with(document) {
     with(this.form) {
       with(this) {
-        // 元素属性至
+        // 元素属性值
       }
     }
   }
 }
-
+```
+```html
 <form method="post>
   <input type="text" name="username" value=""/>
   <input type="button" value="Echo Username" onclick="alert(username.value)" />
 </form>
 ```
 
-**缺点**:  
-1. 用户可能在元素未加载完全是触发事件。  
-2. 扩展事件处理程序的作用域链在不同浏览器中有不同的结果。
+### 3.3. DOM0 事件处理程序
 
-### 2. DOM0事件处理程序
-绑定事件：  
+调用 DOM 对象的 `onxxxx` 方法。
+
+#### 绑定事件
+
 ```js
 var btn = document.getElementById("myBtn");
 btn.onclick = function() {
   alert(this.id);
 }
 ```
-解绑：  
+
+#### 解绑
+
 ```js
 btn.onclick = null;
 ```
-这种方式也会将HTML事件处理程序解绑。  
 
-### 3. DOM2级事件处理程序
-addEventListener()和removeEventListener（）。  
-接受3个参数：  
-1. 事件名
-2. 函数，事件处理程序
-3. true表示在捕获阶段调用函数，false表示在冒泡阶段处理函数。  
+:warning: 这种方式也会将 HTML 事件处理程序解绑！
 
-**可以添加多个事件处理程序，按照添加顺序执行。**  
+### 3.4. IE 事件处理程序
 
-通过addEventListener()添加的事件处理程序只能通过removeEventListener()移除。这意味着**匿名函数**。  
+`attachEvent()` 和 `detachEvent()`。
 
-### 4. IE事件处理程序
-attachEvent()和detachEvent()。  
-接受两个参数：事件名和事件处理函数。  
-click事件中，attachEvent()的第一个参数是"onclick",而非DOM的addEventListener()中的"click"。  
-attachEvent的作用域是全局作用域，而DOM0是其所属元素。  
-attachEvent也可以添加多个事件处理程序，调用顺序与添加顺序相反。  
+接受两个参数：
 
-### 5. 跨浏览器的事件处理程序
-addhandler():  
+- 事件名
+- 事件处理函数
 
-# 三、 事件对象
-### 1. DOM中的事件对象
-event:  
+click 事件中，`attachEvent()` 的第一个参数是 `onclick`，而非 DOM 的 `addEventListener()` 中的 `click`。  
+`attachEvent()` 的作用域是全局作用域，而 DOM0 是其所属元素。  
+`attachEvent()` 也可以添加多个事件处理程序，调用顺序与添加顺序相反。  
+
+### 3.5. 跨浏览器的事件处理程序
+
+`addhandler()`
+
+## 4. 事件对象
+
+### 4.1. DOM 中的事件对象
+
+event:
 
 | 属性/方法 | 类型 | 读/写 | 说明 |
 | --- | --- | --- | --- |
@@ -121,7 +160,8 @@ event:
 | type | String | 只读 | 被v触发的事件类型 |
 | view | AbstractView | 只读 | 与事件关联的抽象视图。等同于发生事件的window对象 |
 
-this, currentTarget和target：  
+this, currentTarget 和 target：
+
 ```js
 // 如果直接将事件处理程序给了目标元素，则this，currentTarget和target包含相同的值
 var btn = document.getElementById("myBtn");
@@ -137,7 +177,7 @@ document.body.onclick = function(event) {
 }
 ```
 
-### 2. IE中的事件对象
+### 4.2. IE 中的事件对象
 
 | 属性/方法 | 类型 | 读/写 | 说明 |
 | --- | --- | --- | --- |
@@ -146,10 +186,11 @@ document.body.onclick = function(event) {
 | srcElement | Element | 只读 | 事件的目标（与DOM中的target属性相同） |
 | type | String | 只读 | 被触发的事件类型 |
 
-### 3. 跨浏览器的事件对象
+### 4.3. 跨浏览器的事件对象
 
-# 四、 事件类型
-* UI事件
+## 5. 事件类型
+
+* UI 事件
 * 焦点事件
 * 鼠标事件
 * 滚轮事件
@@ -158,7 +199,8 @@ document.body.onclick = function(event) {
 * 合成事件，当为IME输入字符时触发
 * 变动事件，当底层DOM结构发生变化时触发
 
-### 1. UI事件
+### 5.1. UI事件
+
 * load
 * unload
 * abort
@@ -167,17 +209,20 @@ document.body.onclick = function(event) {
 * resize: 当窗口或框架的大小发生变化时在window或框架上面触发。
 * scroll
 
-### 2. 焦点事件
+### 5.2. 焦点事件
+
 * blur
 * focus
 * focusin
 * focusout
 
-### 3. 鼠标与滚轮事件
+### 5.3. 鼠标与滚轮事件
 
-# 五、 内存和性能
-### 1. 事件委托
-只在DOM树的最高曾添加一个事件处理程序：  
+## 6. 内存和性能
+
+### 6.1. 事件委托
+
+只在 DOM 树的最高曾添加一个事件处理程序：  
 ```js
 var list = document.getElementById("myLinks");
 EventUtil.addHandler(list, "click", function(event) {
@@ -197,11 +242,14 @@ EventUtil.addHandler(list, "click", function(event) {
   }
 });
 ```
-### 2. 移除事件处理程序
-dangling event handler:  
+###
+ 2. 移除事件处理程序
+dang6.ling event 
+handler:  
 * 从文档中移除带有事件处理程序的元素时。
+
   ```
-  <div id = "myDiv">
+的：：s html <div id = "myDiv">
     <input type="button" value="Click Me" id = "myBtn">
   </div>
   <script type="text/javascript>
@@ -216,17 +264,22 @@ dangling event handler:
 * 卸载页面时。
 
 # 六、 模拟事件
-### 1. DOM中的事件模拟
-createEvent():
-* UIEvents
+## 7. . DO
+M中的事件模拟
+crea7.teEvent():
+
+`* UIEvents
+`
 * MouseEvents
 * MutationEvents
 * HTMLEvents
 
 1. 模拟鼠标事件  
-initMouseEvent()和dispatchEvent():  
-```js
-var btn = document.getElementById("myBtn");
+#### 7.1.initMouse
+ent()和dispatchEvent():  
+````js
+
+` `` var btn = document.getElementById("myBtn");
 // 创建事件对象
 var event = document.createEvent("MouseEvents");
 // 初始化事件对象
@@ -236,7 +289,8 @@ btn.dispatchEvent(event);
 ```
 
 2. 模拟键盘事件  
-```js
+#### 7.1.```js
+
 var textbox = document.getElementById("myTextbox"), event;
 
 // 以DOM3级方式创建事件对象
@@ -250,13 +304,21 @@ textbox.dispatchEvent(event);
 ```
 
 3. 模拟其他事件  
-
+#### 7.1.
 4. 自定义DOM事件
-createEvent("CustomEvent"):  
+#### 7.1.create Eve nt
+("CustomEvent"):  
 返回的对象有个initCustomEvent()方法，接收如下4个参数：  
 * type
+
 * bubbles
 * cancelable
 * detail
 
 ### 2. IE中的事件模拟
+
+.7## 方法
+
+8. #### preventDefault()
+阻止事件8.1. 的默认动作，但事件还会继续传播。  
+如果要阻止事件继续传播，要调用 [stopPropagation()](https://developer.mozilla.org/zh-CN/docs/Web/API/Event/stopPropagation) 或 [stopImmediatePropagation()](https://developer.mozilla.org/zh-CN/docs/Web/API/Event/stopImmediatePropagation)。  

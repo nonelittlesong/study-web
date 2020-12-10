@@ -24,3 +24,7 @@ mysql> source /home/abc/abc.sql  # 导入备份数据库
 ```
 
 ### 1.4. mysqlimport
+
+## 2. 查看配置端口
+
+- https://www.cnblogs.com/2016024291-/p/9045548.html
