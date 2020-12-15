@@ -1,5 +1,6 @@
+# Electron
 
-可以视 Electron 为小型的 Chromium 浏览器。  
+可以视 Electron 为小型的 Chromium 浏览器。
 
 * [官网](https://electronjs.org/)
 * CLIs
@@ -9,7 +10,16 @@
 * [Electron API Demos](https://github.com/electron/electron-api-demos)
 * [Electron Fiddle](https://www.electronjs.org/fiddle)  
 
-## 安装
+<details>
+<summary>Resources</summary>
+
+- [electron-boilerplate](https://github.com/sindresorhus/electron-boilerplate)
+- [awesome-electron](https://github.com/sindresorhus/awesome-electron)
+
+</details>
+
+## 1. 安装
+
 ```
 # npm
 $ npm i -D electron@latest
@@ -17,8 +27,10 @@ $ npm i -D electron@latest
 $ yarn add electron@latest --dev
 ```
 
-## [Hello World](https://www.electronjs.org/docs/tutorial/first-app)
-main.js：  
+## 2. [Hello World](https://www.electronjs.org/docs/tutorial/first-app)
+
+main.js：
+
 ```js
 const { app, BrowserWindow } = require('electron');
 
@@ -81,8 +93,10 @@ app.on('activate', () => {
 // 可以在这里添加你的主进程代码；
 // 或写在独立的文件中，在这里 require 他们。
 ```
-index.html：  
-```htm
+
+index.html：
+
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -103,5 +117,6 @@ index.html：
 >[CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)  
 
 
-## 实例
+## 3. 实例
+
 - [labeltools](https://github.com/nonelittlesong/my-via)  

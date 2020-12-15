@@ -1,3 +1,5 @@
+# package.json 规范
+
 https://docs.npmjs.com/files/package.json  
 
 ```
