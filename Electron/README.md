@@ -27,7 +27,17 @@ $ npm i -D electron@latest
 $ yarn add electron@latest --dev
 ```
 
-## 2. [Hello World](https://www.electronjs.org/docs/tutorial/first-app)
+## 2. 实例
+
+- [labeltools](https://github.com/nonelittlesong/my-via)  
+
+## Electron 架构
+
+- [一图浅析electron架构 - CSDN](https://blog.csdn.net/sinat_41170942/article/details/79455766)  
+- [Electron Application Architecture](https://www.electronjs.org/docs/tutorial/application-architecture)  
+- [从 VSCode 看大型 IDE 技术架构 - 知乎](https://zhuanlan.zhihu.com/p/96041706)  
+
+## [Hello World](https://www.electronjs.org/docs/tutorial/first-app)
 
 main.js：
 
@@ -115,8 +125,3 @@ index.html：
 ```
 
 >[CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)  
-
-
-## 3. 实例
-
-- [labeltools](https://github.com/nonelittlesong/my-via)  

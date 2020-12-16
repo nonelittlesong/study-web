@@ -339,10 +339,11 @@ box-shadow: h-shadow v-shadow blur spread color inset;
 | static | 默认 |
 | inherit | |
 
-当一个元素的 position 是 absolute，他的父元素是 static：  
-该元素的 top 是前一个非 absolute 兄弟元素的 bottom。  
+## 1. absolute
 
-absolute 渲染在 static 上面。  
+**该元素的 top 是前一个非 absolute 兄弟元素的 bottom。**
+
+absolute 渲染在 static 上面。
 
 ## 1、 父元素 relative，子元素 absolute
 由于 absolute 脱离了文档流，所以父元素无法自适应子元素的高度。  
