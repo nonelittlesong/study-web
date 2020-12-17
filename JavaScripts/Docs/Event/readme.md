@@ -1,6 +1,15 @@
 # Event
 
-JS 事件的触发和处理
+JS 事件的触发和处理。
+
+<details>
+<summary>Table of Contents</summary>
+
+| 标题 | 内容 |
+| --- | --- |
+| [_via_event.js](https://github.com/nonelittlesong/study-web/blob/master/JavaScripts/Docs/Event/_via_event.js) — 牛津大佬的自定义事件 | |
+
+</details>
 
 ## 1. Troubleshootings
 
@@ -222,7 +231,8 @@ document.body.onclick = function(event) {
 
 ### 6.1. 事件委托
 
-只在 DOM 树的最高曾添加一个事件处理程序：  
+只在 DOM 树的最高曾添加一个事件处理程序：
+
 ```js
 var list = document.getElementById("myLinks");
 EventUtil.addHandler(list, "click", function(event) {
@@ -242,14 +252,16 @@ EventUtil.addHandler(list, "click", function(event) {
   }
 });
 ```
-###
- 2. 移除事件处理程序
-dang6.ling event 
-handler:  
-* 从文档中移除带有事件处理程序的元素时。
 
-  ```
-的：：s html <div id = "myDiv">
+### 6.2. 移除事件处理程序
+
+dangling event handler:
+
+* 从文档中移除带有事件处理程序的元素时
+
+```
+<html>
+  <div id = "myDiv">
     <input type="button" value="Click Me" id = "myBtn">
   </div>
   <script type="text/javascript>
@@ -260,26 +272,26 @@ handler:
       document.getElementById("myDiv").innerHTML = "Processing...";
     };
   </script>
-  ```
-* 卸载页面时。
+</html>
+```
 
-# 六、 模拟事件
-## 7. . DO
-M中的事件模拟
-crea7.teEvent():
+* 卸载页面时
 
-`* UIEvents
-`
+## 7. 模拟事件
+
+### 7.1. DOM中的事件模拟
+
+createEvent():
+
+* UIEvents
 * MouseEvents
 * MutationEvents
 * HTMLEvents
 
-1. 模拟鼠标事件  
-#### 7.1.initMouse
-ent()和dispatchEvent():  
-````js
+#### 7.1.1. 模拟鼠标事件
 
-` `` var btn = document.getElementById("myBtn");
+```js
+var btn = document.getElementById("myBtn");
 // 创建事件对象
 var event = document.createEvent("MouseEvents");
 // 初始化事件对象
@@ -288,9 +300,9 @@ event.initMouseEvent("click", true, true, document.defaultView, 0, 0, 0, 0, 0, f
 btn.dispatchEvent(event);
 ```
 
-2. 模拟键盘事件  
-#### 7.1.```js
+#### 7.1.2 模拟键盘事件
 
+```js
 var textbox = document.getElementById("myTextbox"), event;
 
 // 以DOM3级方式创建事件对象
@@ -303,22 +315,26 @@ if (document.implementation.hasFeature("KeyboardEvent", "3.0")) {
 textbox.dispatchEvent(event);
 ```
 
-3. 模拟其他事件  
-#### 7.1.
-4. 自定义DOM事件
-#### 7.1.create Eve nt
-("CustomEvent"):  
-返回的对象有个initCustomEvent()方法，接收如下4个参数：  
-* type
+#### 7.1.3 模拟其他事件
 
+待补充···
+
+#### 7.1.4 自定义DOM事件
+
+`createEvent("CustomEvent")`
+
+返回的对象有个 `initCustomEvent()` 方法，接收如下4个参数：
+
+* type
 * bubbles
 * cancelable
 * detail
 
-### 2. IE中的事件模拟
+### 7.2. IE中的事件模拟
 
-.7## 方法
+待补充···
 
-8. #### preventDefault()
-阻止事件8.1. 的默认动作，但事件还会继续传播。  
+## 8. preventDefault()
+
+阻止事件的默认动作，但事件还会继续传播。  
 如果要阻止事件继续传播，要调用 [stopPropagation()](https://developer.mozilla.org/zh-CN/docs/Web/API/Event/stopPropagation) 或 [stopImmediatePropagation()](https://developer.mozilla.org/zh-CN/docs/Web/API/Event/stopImmediatePropagation)。  
