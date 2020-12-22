@@ -3,12 +3,14 @@
 <details>
 <summary>Table of Contents</summary>
 
-- [subFiles]() — 获得指定目录的子文件(夹)。
+- [readdir](https://github.com/nonelittlesong/study-web/tree/master/nodejs/Docs/API/fs/readdir) — 获得指定目录的子文件(夹)
+- [async readdir](https://gist.github.com/nonelittlesong/85bda4645c12c3a7f32ca4681f1d772d)
 
 </details>
 
-## 例子
-### 1、 是否存在
+## 1. 例子
+### 1.1. 是否存在
+
 ```js
 // fs.exists(path, callback) 已弃用
 // 不建议在调用 fs.open()、 fs.readFile() 或 fs.writeFile() 之前使用 fs.stat() 检查文件的存在性。
@@ -26,7 +28,12 @@ if (!stats.isDirectory()) {
 }
 ```
 
-### 2、 文件信息
+### 1.2. 文件信息
+
+stat 可以获得的信息：
+
+待补充···
+
 ```js
 const fs = require("fs"); //Load the filesystem module
 const stats = fs.statSync("myfile.txt");
@@ -35,12 +42,15 @@ const fileSizeInBytes = stats.size;
 const fileSizeInMegabytes = fileSizeInBytes / 1000000.0;
 ```
 
-### 3、 写文件
-参考：  
-* [JS String 对象](https://www.w3school.com.cn/jsref/jsref_obj_string.asp)  
-* [fs.writeFileSync()](http://nodejs.cn/api/fs.html#fs_fs_writefilesync_file_data_options)
-* [fs.existsSync(path)](http://nodejs.cn/api/fs.html#fs_fs_existssync_path)
-* [字符串去空格](http://www.hangge.com/blog/cache/detail_1771.html)
+### 1.3. 写文件
+
+参考：
+
+- [JS String 对象](https://www.w3school.com.cn/jsref/jsref_obj_string.asp)  
+- [fs.writeFileSync()](http://nodejs.cn/api/fs.html#fs_fs_writefilesync_file_data_options)
+- [fs.existsSync(path)](http://nodejs.cn/api/fs.html#fs_fs_existssync_path)
+- [字符串去空格](http://www.hangge.com/blog/cache/detail_1771.html)
+- Stream
 
 ```js
 "use strict";
@@ -64,8 +74,10 @@ fs.writeFile(pathstr, xmlitem, (err) => { // 文件不存在会创建
 fs.writeFileSync(xmlPath, xmlitem); // 文件不存在会创建
 ```
 
-### 4、 删除文件
-* [fs.unlinkSync(path)](http://nodejs.cn/api/fs.html#fs_fs_unlinksync_path) - 同步地删除文件或符号链接。
+### 1.4. 删除文件
+
+- [fs.unlinkSync(path)](http://nodejs.cn/api/fs.html#fs_fs_unlinksync_path) - 同步地删除文件或符号链接。
+
 ```js
 "use strict";
 
@@ -78,7 +90,5 @@ try {
   //return;/break;/continue;
   throw err;
 }
-
 ...
 ```
-

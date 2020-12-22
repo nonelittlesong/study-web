@@ -1,5 +1,12 @@
 # 引用类型
 
+<details>
+<summary>Table of Contents</summary>
+
+- Flatten | 扁平化数组
+
+</details>
+
 ## 1. 概览
 
 ### 1.1. [基本数据类型](https://developer.mozilla.org/en-US/docs/Glossary/Primitive)
