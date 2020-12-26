@@ -36,7 +36,7 @@ input 元素的默认类型是 text，由于不存在 foobar 类型，所以
 IDL 属性依旧为 text，但内容属性为 foobar。
 
 <br>
-**修改 IDL 属性，不一定会改变内容属性：**
+**修改 IDL 属性，不一定会改变内容属性**：
 
 ```js
 $input.value = 'I am value';
