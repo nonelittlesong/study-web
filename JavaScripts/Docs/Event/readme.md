@@ -197,7 +197,7 @@ document.body.onclick = function(event) {
 
 ### 4.3. 跨浏览器的事件对象
 
-## 5. 事件类型
+## 5. [事件类型](https://developer.mozilla.org/en-US/docs/Web/Events)
 
 * UI 事件
 * 焦点事件
