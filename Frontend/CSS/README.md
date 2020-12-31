@@ -2,6 +2,7 @@
 
 - [CSS Portal](https://www.cssportal.com/)
 - [reset.css - 重置 stylesheet 以减少样式冲突](https://meyerweb.com/eric/tools/css/reset/)  
+- [css-protips | github](https://github.com/AllThingsSmitty/css-protips) — 必读，一些 CSS 的技巧。
 
 ## Reset CSS v2.0
 ```css
