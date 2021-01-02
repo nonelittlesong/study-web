@@ -9,6 +9,8 @@ throw true;     // generates an exception with the value true
 throw new Error('Required');  // generates an error object with the message of Required
 ```
 
+另见 [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
+
 ## 1. 抛出自定义对象
 
 ```js
