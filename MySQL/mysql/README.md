@@ -15,6 +15,7 @@ mysql> create database abc;      # 创建数据库
 mysql> use abc;                  # 使用已创建的数据库 
 mysql> set names utf8;           # 设置编码
 mysql> source /home/abc/abc.sql  # 导入备份数据库
+mysql> use mysql;                # 退出当前数据库
 ```
 
 ### 1.3. load data
