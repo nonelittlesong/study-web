@@ -4,7 +4,8 @@
 
 References
 
-- [How to use Array.prototype.filter with async?](https://stackoverflow.com/questions/47095019/how-to-use-array-prototype-filter-with-async)
+- [How to use Array.prototype.filter with async? | stackoverflow](https://stackoverflow.com/questions/47095019/how-to-use-array-prototype-filter-with-async)
+- [Asynchronous array functions in Javascript](https://advancedweb.hu/asynchronous-array-functions-in-javascript/)
 
 **不能！**
 
