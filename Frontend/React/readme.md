@@ -1,73 +1,36 @@
-项目实战:  
+# [开始](https://zh-hans.reactjs.org/docs/getting-started.html)
 
-- https://github.com/yezihaohao/react-admin  
-- https://github.com/zhaoyu69/antd-spa  
-- https://github.com/z-9527/react-admin-master  
+项目实战：
 
-资源：  
-* [React官网](https://react.docschina.org/)  
+- [react-admin](https://github.com/yezihaohao/react-admin)
+- [antd-spa](https://github.com/zhaoyu69/antd-spa)
+- [react-admin-master](https://github.com/z-9527/react-admin-master)
+
+资源：
+
+* [React官网](https://react.docschina.org/)
 * [Tania Rascia 的 React 概览](https://www.taniarascia.com/getting-started-with-react/)
-* [React](https://reactjs.org/docs/react-api.html) - the React top level API
 * [React DOM](https://reactjs.org/docs/react-dom.html) - adds DOM-specific methods
-* [Babel](https://babeljs.io/) - a JavaScript compiler that let us use ES6+ in old browsers
-* React 服务器渲染
+* [Babel](https://babeljs.io/) - JS 编译器
 * [React Hot Loader](https://gaearon.github.io/react-hot-loader/getstarted/)
 * [Webpack Boilerplate](https://github.com/taniarascia/webpack-boilerplate)
 * [容器组件和展示组件相分离](https://segmentfault.com/a/1190000006845396)
 
-React 不是框架。  
-
 ## 创建 React 应用
-方法一：  
-```js
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
 
-    <title>Hello React!</title>
+- 方法 1 — [通过 HTML 的 script 标签引入 React](https://zh-hans.reactjs.org/docs/add-react-to-a-website.html)
+- 方法 2 — [使用集成的工具链](https://zh-hans.reactjs.org/docs/create-a-new-react-app.html)
+  - 学习 React 或创建一个新的单页面应用 — [Create React App](https://github.com/facebook/create-react-app)
+  - 用 Node.js 构建服务端渲染的网站 — [Next.js](https://nextjs.org/learn/basics/create-nextjs-app)
+  - 面向内容的静态网站 — [Gatsby](https://www.gatsbyjs.com/docs/)
+  - 打造组件库或将 React 集成到现有代码仓库
+    - [Neutrino](https://neutrinojs.org/) 把 [webpack](https://webpack.js.org/) 的强大功能和简单预设结合在一起。并且包括了 React 应用和 React 组件的预设。
+    - [Nx](https://nx.dev/react) 是针对全栈 monorepo 的开发工具包，其内置了 React，Next.js，Express 等。
+    - [Parcel](https://parceljs.org/) 是一个快速的、零配置的网页应用打包器，并且可以搭配 React 一起工作。
+    - [Razzle](https://github.com/jaredpalmer/razzle) 是一个无需配置的服务端渲染框架，但它提供了比 Next.js 更多的灵活性。
 
-    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
-  </head>
+## Components
 
-  <body>
-    <div id="root"></div>
-
-    <script type="text/babel">
-      class App extends React.Component {
-        render() {
-          return <h1>Hello world!</h1>
-        }
-      }
-
-      ReactDOM.render(<App />, document.getElementById('root'))
-    </script>
-  </body>
-</html>
-```
-方法二：  
-```
-npx create-react-app react-tutorial
-cd react-tutorial
-npm start
-```
-* use Webpack to automatically compile React, JSX, and ES6, auto-prefix CSS files
-* use ESLint to test and warn about mistakes in the code
-
-# [JSX](https://zh-hans.reactjs.org/docs/introducing-jsx.html)
-* `className` is used instead of `class` for adding CSS classes, as `class` is a reserved keyword in JavaScript.
-* Properties and methods in JSX are camelCase - `onclick` will become `onClick`.
-* Self-closing tags must end in a slash - e.g. \<img />
-
-JSX使用花括号内嵌JS代码（变量，方法，属性）：  
-```js
-const name = 'Tania';
-const heading = <h1>Hello, {name}</h1>
-```
-
-# Components
 * class component
 * simple component
 ```js
