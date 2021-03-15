@@ -1,18 +1,22 @@
 # study-websocket
-nothing but holy shit
 
-参考：  
+参考：
+
 - [C++ WebSocket 库 | 简书](https://www.jianshu.com/p/64e36cd3ed1a)  
 - [C++ 使用 websocket 协议 | 简书](https://www.jianshu.com/p/37c0ec230218)  
+- [WebSocket | MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/WebSocket) - 是基于 TCP 协议的全双工协议，在建立连接时要借助 HTTP 协议。
 
 ## websocket 实现
+
 - C  
   - [uWebSockets github](https://github.com/uNetworking/uWebSockets)  
 - JS  
   - [uWebsockets nodejs](https://github.com/uNetworking/uWebSockets.js)  
-
-
-## websocket 协议数据格式详解
+  - [Socket.IO](https://socket.io/) - 是一个封装了 WebSocket、基于 Node 的 JavaScript 框架，包括 client 的 JavaScript 和 server 的 Node。
+  - [SockJS | npm](https://www.npmjs.com/package/sockjs)
+  - [ws | npm](https://www.npmjs.com/package/ws)
+  
+## websocket 协议数据格式
 
 ```
 0                   1                   2                   3
