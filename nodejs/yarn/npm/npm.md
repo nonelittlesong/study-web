@@ -6,4 +6,7 @@
 
 ```
 npm ls -g --depth 0
+
+# yarn
+yarn global list
 ```
