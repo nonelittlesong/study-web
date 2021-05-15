@@ -1,3 +1,7 @@
+# [ECharts](https://echarts.apache.org/zh/feature.html)
+
+底层依赖矢量图形库 [ZRender](https://github.com/ecomfe/zrender)。
+
 文档：  
 * https://echarts.baidu.com/echarts2/doc/doc.html
 * https://echarts.baidu.com/api.html#action.tooltip

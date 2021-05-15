@@ -1,13 +1,11 @@
 # [Xterm](https://xtermjs.org/)
 
-特点：
+资源：
 
-- 支持 bash、vim 和 tmux，支持鼠标事件。
-- 性能好，支持 GPU 加速渲染。
-- 支持丰富的 unicode，支持 CJK、emojis 和 IMEs。
-- 不含其他依赖。
-- 辅助功能，支持 screenReaderMode。
-- 超链接、主题、插件和文档。
+- [ysk2014/webshell | github](https://github.com/ysk2014/webshell)
+- [juanlao7/remolacha | github](https://github.com/juanlao7/remolacha)
+- [alemures/ssh-manager | github](https://github.com/alemures/ssh-manager)
+- [wonderful-panda/inazuma | github](https://github.com/wonderful-panda/inazuma)
 
 ## 开始
 

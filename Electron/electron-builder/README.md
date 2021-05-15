@@ -2,126 +2,30 @@
 
 - [YAML官网](https://yaml.org/)
 - [Common Configuration](https://www.electron.build/configuration/configuration)
-- https://juejin.im/post/5bc53aade51d453df0447927
+- [electron-builder 打包见解 | 掘金](https://juejin.im/post/5bc53aade51d453df0447927)
 
-```yml
-appId: com.example.app
-copyright: Example co
-productName: MyApp
+## 配置
 
-asar: true             # 是否压缩程序源代码，不会打包 node modules
+### extraResources
 
-directories:
-  buildResources: dist-assets/
-  output: dist/
+- [electron-builder is not bundling the python files | stackoverflow](https://stackoverflow.com/questions/51182226/electron-builder-is-not-bundling-the-python-files)
+- [Cannot get asar-unpack to work | #390](https://github.com/electron-userland/electron-builder/issues/390)
+- [Run python script in Electron app | stackoverflow](https://stackoverflow.com/questions/41199981/run-python-script-in-electron-app)
 
-files:
-  - package.json
-  - init.js
-  - build/
-  - node_modules/
+fields：
 
-dmg:
-  contents:
-    - type: link
-      path: /Applications
-      x: 410
-      y: 150
-    - type: file
-      x: 130
-      y: 150
+- from — 匹配需要拷贝的文件
+- to — 目标路径
 
-mac:
-  target: dmg
-  category: public.app-category.tools
+相对于项目目录的[文件通配符](https://www.electron.build/file-patterns)，把文件或目录拷贝到应用的资源目录（MacOS是 `Contents/Resources`，Linux 和 Windows 是 `resources`）。
 
-win:
-  target: nsis
+### extraFiles
 
-linux:
-  target:
-    - deb
-    - AppImage
-  category: Utility
-```
+和 `extraResources` 相同，但是将文件拷贝到应用的内容目录中（MacOS 是 `Content`，Linux 和 Windows 是 root 目录）。
 
-# package.json
-```json
-{
-  "name": "electron-react-redux-boilerplate",
-  "version": "0.0.0",
-  "description": "electron-react-redux-boilerplate",
-  "main": "init.js",
-  "author": {
-    "name": "Jordan Schroter",
-    "email": "email@author.com"
-  },
-  "repository": "https://github.com/jschr/electron-react-redux-boilerplate",
-  "license": "MIT",
-  "dependencies": {
-    "@babel/register": "^7.0.0",
-    "connected-react-router": "^5.0.1",
-    "history": "^4.6.3",
-    "prop-types": "^15.5.10",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-redux": "^5.0.2",
-    "react-router": "^4.1.2",
-    "redux": "^4.0.0",
-    "redux-actions": "^2.2.1",
-    "redux-localstorage": "^0.4.1",
-    "redux-thunk": "^2.2.0"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.1.2",
-    "@babel/core": "^7.1.2",
-    "@babel/node": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.1.0",
-    "@babel/plugin-proposal-decorators": "^7.1.2",
-    "@babel/preset-env": "^7.1.0",
-    "@babel/preset-react": "^7.0.0",
-    "babel-eslint": "^10.0.1",
-    "browser-sync": "^2.23.6",
-    "chai": "^4.1.0",
-    "electron": "^3.0.0",
-    "electron-builder": "^20.0.7",
-    "electron-devtools-installer": "^2.2.4",
-    "electron-mocha": "^6.0.1",
-    "eslint": "^5.1.0",
-    "eslint-config-prettier": "^3.1.0",
-    "eslint-plugin-react": "^7.1.0",
-    "npm-run-all": "^4.0.1",
-    "prettier": "^1.13.7",
-    "redux-mock-store": "^1.2.2",
-    "rimraf": "^2.5.4"
-  },
-  "scripts": {
-    "postinstall": "electron-builder install-app-deps",
-    "develop": "npm run private:compile -- --source-maps true && run-p -r private:watch private:serve",
-    "test": "electron-mocha --renderer -R spec --require @babel/register test/**/*.spec.js",
-    "lint": "eslint --no-ignore scripts app test *.js",
-    "format": "npm run private:format -- --write",
-    "check-format": "npm run private:format -- --list-different",
-    "pack": "run-s private:clean private:compile private:build:all",
-    "pack:mac": "run-s private:clean private:compile private:build:mac",
-    "pack:win": "run-s private:clean private:compile private:build:win",
-    "pack:linux": "run-s private:clean private:compile private:build:linux",
-    "private:build:all": "electron-builder -mwl",
-    "private:build:mac": "electron-builder --mac",
-    "private:build:win": "electron-builder --win",
-    "private:build:linux": "electron-builder --linux",
-    "private:watch": "npm run private:compile -- --source-maps true --watch --skip-initial-build",
-    "private:serve": "babel-node scripts/serve.js",
-    "private:compile": "babel app/ --copy-files --out-dir build",
-    "private:clean": "rimraf build",
-    "private:format": "prettier \"babel.config.js\" \"scripts/*.js\" \"app/**/*.js\" \"test/**/*.js\""
-  }
-}
-```
+### asar
 
-devDependencies:  
-
-- [prettier](https://prettier.io/) - code formatter
-- [rimraf](https://www.npmjs.com/package/rimraf) - The UNIX command `rm -rf` for node
-- [npm-run-all](https://www.npmjs.com/package/npm-run-all) - 同步或异步执行 npm 脚本。
-
+- `asar = true` — 将源代码打包进 `archive`
+- `smartUnpack = true` — 自动 unpack 可执行文件
+- `ordering` — String
+- `asarUnpack` — `Array<String>`，不压缩进 asar 中的文件。

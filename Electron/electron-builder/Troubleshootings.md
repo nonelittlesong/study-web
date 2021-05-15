@@ -1,7 +1,9 @@
-# 一、 electron
-`electron` 必须放在 `devDependencies` 中。  
+# 一、electron
 
-# 二、 author
+`electron` 必须放在 `devDependencies` 中。
+
+# 二、author
+
 ```
 ⨯ Please specify author 'email' in the application package.json
 
@@ -27,5 +29,3 @@ info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this comm
 package.json 必须配置 `author`  
 或者  
 electron-builder.yml 配置 `linux` 的 [maintainer](https://www.electron.build/configuration/linux)。  
-
-
