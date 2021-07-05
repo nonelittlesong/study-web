@@ -44,10 +44,10 @@ DELETE FROM table_name;
 DROP TABLE table_name;
 ```
 
-## 3. AFTER TABLE
+## 3. ALTER TABLE
 
-- `AFTER TABLE` 用于添加、删除或修改表的列。
-- `AFTER TABLE` 也用于添加和删除约束。
+- `ALTER TABLE` 用于添加、删除或修改表的列。
+- `ALTER TABLE` 也用于添加和删除约束。
 
 ```
 # 添加列
@@ -65,7 +65,7 @@ MODIFY COLUMN column_name datatype;
 
 ## 4. 约束
 
-可以在 `CREATE TABLE` 和 `AFTER TABLE` 语句中创建约束。
+可以在 `CREATE TABLE` 和 `ALTER TABLE` 语句中创建约束。
 
 ```
 CREATE TABLE table_name (
@@ -110,7 +110,7 @@ CREATE TABLE Persons (
     CONSTRAINT UC_Person UNIQUE (ID,LastName)
 );
 
-# AFTER TABLE
+# ALTER TABLE
 ALTER TABLE Persons
 ADD UNIQUE (ID);
 ALTER TABLE Persons
@@ -151,6 +151,8 @@ DROP PRIMARY KEY;
 
 ### 4.4. FOREIGN KEY
 
+- [Cannot change column used in a foreign key constraint | stackoverflow](https://stackoverflow.com/questions/13606469/cannot-change-column-used-in-a-foreign-key-constraint)
+
 外键指一个表的一个或多个 field，是另一个表的主键。
 
 ```
@@ -172,7 +174,7 @@ CREATE TABLE Orders (
     REFERENCES Persons(PersonID)
 );
 
-# AFTER TABLE
+# ALTER TABLE
 ALTER TABLE Orders
 ADD FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);
 
@@ -183,6 +185,58 @@ FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);
 # 删除 FOREIGN KEY 约束
 ALTER TABLE Orders
 DROP FOREIGN KEY FK_PersonOrder;
+```
+
+#### 4.4.1. Cannot change column used in a foreign key constraint
+
+1）方案一
+
+锁住两个表的写操作：
+
+```
+LOCK TABLES 
+    favorite_food WRITE,
+    person WRITE;
+```
+
+删除外键：
+
+```
+ALTER TABLE favorite_food
+    DROP FOREIGN KEY fk_fav_food_person_id,
+    MODIFY person_id SMALLINT UNSIGNED;
+```
+
+现在可以修改主键：
+
+```
+ALTER TABLE person MODIFY person_id SMALLINT UNSIGNED AUTO_INCREMENT;
+```
+
+重新添加外键：
+
+```
+ALTER TABLE favorite_food
+    ADD CONSTRAINT fk_fav_food_person_id FOREIGN KEY (person_id)
+        REFERENCES person (person_id);
+```
+
+解锁：
+
+```
+UNLOCK TABLES;
+```
+
+2）方案二
+
+关闭外键检查，不要用于正式产品中：
+
+```
+SET FOREIGN_KEY_CHECKS = 0;
+
+/* DO WHAT YOU NEED HERE */
+
+SET FOREIGN_KEY_CHECKS = 1;
 ```
 
 ### 4.5. CHECK
@@ -227,7 +281,7 @@ CREATE TABLE Orders (
     OrderDate date DEFAULT CURRENT_DATE()
 );
 
-# AFTER
+# ALTER
 ALTER TABLE Persons
 ALTER City SET DEFAULT 'Sandnes';
 
@@ -247,6 +301,9 @@ ON table_name (column1, column2, ...);
 # 添加不可重复的索引
 CREATE UNIQUE INDEX index_name
 ON table_name (column1, column2, ...);
+
+# 查看索引
+SHOW INDEX FROM table_name;
 
 # 删除索引
 ALTER TABLE table_name
@@ -270,16 +327,18 @@ CREATE TABLE Persons (
 ALTER TABLE Persons AUTO_INCREMENT=100;
 ```
 
-## 5. [导入 .sql 文件](https://www.runoob.com/mysql/mysql-database-import.html)
+## 5. [导入导出 .sql 文件](https://www.runoob.com/mysql/mysql-database-import.html)
 
-### 5.1. mysql
+### 5.1. 导入
+
+mysql
 
 ```
 # 注意权限
 $ mysql -u<user> -p<password> < <sqlfile.sql>
 ```
 
-### 5.2. source
+source
 
 ```
 mysql> create database abc;      # 创建数据库
@@ -289,13 +348,22 @@ mysql> source /home/abc/abc.sql  # 导入备份数据库
 mysql> use mysql;                # 退出当前数据库
 ```
 
-### 5.3. load data
+load data
 
 ```
-
 ```
 
-### 5.4. mysqlimport
+mysqlimport
+
+### 5.2. 导出
+
+```
+# 导出完整数据：表结构+数据
+mysqldump -u用户名 -p 数据库名 > 数据库名.sql
+
+# 只导出表结构
+mysqldump -u用户名 -p -d 数据库名 > 数据库名.sql
+```
 
 ## 6. 查看配置端口
 
