@@ -1,5 +1,9 @@
 # 模块
 
+```html
+<script type="module" src="index.js"></script>
+```
+
 ## 1. export
 
 export 创建 JS 模块导出函数、对象或者基本数据值，可以被 import 导入。
@@ -59,13 +63,14 @@ export { default } from ...;
 
 ## 2. import
 
-import 只能在 type="module" 的 script 中使用。  
-import() 不需要 type="module"。  
+`import` 只能在 `type="module"` 的 script 中使用。  
+`import()` 不需要 `type="module"`。  
 
 ## 2.1. 语法
 
 ```js
-import defaultExport from 'module-name';
+// 可以使用任意的名字导入 default
+import anyName from 'module-name';
 import * as name from 'module-name';
 
 import { export1 } from 'module-name';

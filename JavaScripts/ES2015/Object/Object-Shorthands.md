@@ -1,30 +1,32 @@
-# 对象字面量的属性简写
+# 对象字面量简写
 
-## properties
-属性的 value 名与 key 相同，可以将 key 省略：  
+## 属性
+
+属性的 value 名与 key 相同，可以将 key 省略：
+
 ```js
-var foo = {
+const foo = {
   x: x,
   y: y,
   z: z
 };
-
-var foo = {
+// 可简写为
+const foo = {
   x,
   y,
   z
 };
 ```
 
-## methods
-属性的 value 是匿名函数：  
+## 方法
+
 ```js
-var foo = {
+const foo = {
   a: function() {},
   b: function() {}
 };
-
-var foo = {
+// 可简写为
+const foo = {
   a() {},
   b() {}
 };

@@ -9,6 +9,25 @@
 - ES6 Class 不存在「变量提升」。这种规定与类的继承有关，必须保证子类在父类之后定义。
 - ES6 Class 不能使用 `const/let` 修饰属性和方法。
 
-## 2. this
+## 2. Getters & Setters
 
+```java
+class Book {
+  constructor(author) {
+    this._author = author;
+  }
+  // getter
+  get writer() {
+    return this._author;
+  }
+  // setter
+  set writer(updatedAuthor) {
+    this._author = updatedAuthor;
+  }
+}
 
+const novel = new Book('anonymous');
+console.log(novel.writer);
+novel.writer = 'newAuthor';
+console.log(novel.writer);
+```

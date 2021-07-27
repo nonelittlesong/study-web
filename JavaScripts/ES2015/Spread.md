@@ -1,17 +1,20 @@
-在需要可迭代对象的元素作为参数的函数中，把可迭代对象拆散。  
+# Spread
 
-# 语法
-函数调用：  
-```
+## 1. 语法
+
+函数调用：
+
+```js
 myFunction(...iterableObj);
 ```
 
-数字或字符串：  
-```
+数字或字符串：
+
+```js
 [...iterableObj, '4', 'five', 6];
 ```
 
-对象(new in ECMAScript 2018)：  
-```
+对象： 
+```js
 let objClone = { ...obj };
 ```
