@@ -2,11 +2,17 @@
 
 参考：
 
-- [yarn doc](https://yarn.bootcss.com/docs/usage/)  
-- [electron 下载失败](https://blog.csdn.net/mocoe/article/details/86751925)  
-- [淘宝镜像](https://npm.taobao.org/)  
-- https://docs.npmjs.com/files/package.json#dependencies  
-- [CLI 指南](https://yarnpkg.com/zh-Hans/docs/cli/)  
+- [yarn doc](https://yarnpkg.com/getting-started)
+- [electron 下载失败](https://blog.csdn.net/mocoe/article/details/86751925)
+- [淘宝镜像](https://npm.taobao.org/)
+- https://docs.npmjs.com/files/package.json#dependencies
+- [CLI 指南](https://yarnpkg.com/zh-Hans/docs/cli/)
+
+## 0. 安装
+
+```
+$ npm install -g yarn
+```
 
 ## 1. [从 npm 迁往 yarn](https://yarn.bootcss.com/docs/migrating-from-npm/)
 
