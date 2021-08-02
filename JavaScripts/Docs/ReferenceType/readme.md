@@ -11,9 +11,14 @@
 
 ### 1.1. [基本数据类型](https://developer.mozilla.org/en-US/docs/Glossary/Primitive)
 
-基本： undefined, null, boolean, number, string, [symbol](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol), [bigint](https://developer.mozilla.org/zh-CN/docs/Glossary/BigInt)  
-
-复杂： object
+- undefined
+- null
+- boolean
+- number
+- string
+- object
+- [symbol](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
+- [bigint](https://developer.mozilla.org/zh-CN/docs/Glossary/BigInt)  
 
 ### 1.2. 字符串
 
@@ -31,14 +36,12 @@
 利用逻辑或的特性，在变量赋值时提供备用值，避免将 null 或 undefined 赋值给变量：
 
 ```js
-var myObject = preferredObject || backupObject
+let myObject = preferredObject || backupObject
 ```
 
-## 2. 引用类型
+## 2. Object
 
-### 2.1. Object
-
-#### 2.1.1 创建Object实例有两种方式
+### 2.1. 创建 Object 实例有两种方式
 
 第一种：
 
@@ -60,7 +63,7 @@ var person = {
 // 可以用对象字面量封装可选参数
 ```
 
-#### 2.1.2 访问对象属性的两种方式
+### 2.2. 访问对象属性的两种方式
 
 1. `person["name"]`
 2. `person.name`
@@ -72,7 +75,7 @@ var propertyName = "name";
 person[propertyName];
 ```
 
-#### 2.1.3 [Object.assign()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+### 2.3. [Object.assign()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
 
 将所有「可枚举属性」的值从一个或多个源对象复制到目标对象。它将返回目标对象。
 
@@ -89,9 +92,9 @@ console.log(returnedTarget);
 // expected output: Object { a: 1, b: 4, c: 5 }
 ```
 
-### 2.2 Array
+## 3. Array
 
-#### 2.2.1 创建数组
+### 3.1. 创建数组
 
 ```js
 // 方式1
@@ -111,16 +114,16 @@ colors[2] = "yellow" // 新增第3项
 colors.length // 可写
 ```
 
-#### 2.2.2 判断某个变量是否为 Array
+### 3.2. 判断某个变量是否为 Array
 
 ```js
 value instanceof Array;
 Array.isArray(value);
 ```
 
-#### 2.2.3 转换方法
+### 3.3. 转换方法
 
-```
+```js
 var colors = ["red", "blue"];
 alert(colors.toString()); // red,blue
 alert(colors.valueOf()); // red,blue
@@ -131,7 +134,7 @@ alert(colors); // red,blue 后台会调用toString()
 - `toString()` — 调用每一项的 `toString()`，然后用 `,` 拼接。
 - `colors.join("×××")` — 可替换拼接符号。
 
-#### 2.2.4 栈方法
+### 3.4. 栈方法
 
 >:warning: 会修改原数组
 
@@ -148,12 +151,12 @@ a.b = 3;
 console.log(c[0].b); // 3
 ```
 
-#### 2.2.5 队列方法
+### 3.5. 队列方法
 
 >:warning: 会修改原数组
 
 - `shift()` — 删除并返回队首元素。
-* `unshift(...)` — 队首添加任意项，返回新数组长度。
+- `unshift(...)` — 队首添加任意项，返回新数组长度。
 
 >**正确使用栈和队列：**  
 >
@@ -162,7 +165,7 @@ console.log(c[0].b); // 3
 >3. unshift + pop = 反向队列
 >4. unshift + shift = 反向栈
 
-#### 2.2.6. 重排序方法
+### 3.6. 重排序方法
 
 >:warning: 会修改原数组
 
@@ -187,19 +190,19 @@ values.sort(compare);
 alert(values); // 0,1,5,10,15
 ```
 
-#### 2.2.7. 操作方法
+### 3.7. 操作方法
 
->:warning: 「不」修改原数组
+不修改原数组：
 
 - concat(...) 基于当前数组，在末尾添加n项，形成一个新数组。（非变异）  
 - slice() 接受0/1/2个参数。（非变异）  
-  0个参数： 返回原数组的副本
+  0个参数： 返回原数组的副本  
   1个参数： 基于起始位置到数组末尾，创建一个新数组  
   2个参数： 基于起始位置到结束位置（不包括结束位置），创建一个新的数组  
   **参数为负数： 正参数=负参数+数组长度**  
   起始位置大于结束位置： 返回空数组  
   
-修改原数组：  
+修改原数组：
 
 * splice(起始位, 删除数, 添加项)  
   * 删除 - (起始位, 删除数)
@@ -222,9 +225,10 @@ indexOf(目标, 起始位\~可选), lastIndexOf(目标, 起始位\~可选)
 | some() | 对数组的每一项运行给定函数，如果该函数对任一项返回true，则返回true。 |
 
 **以上方法都不会修改数组中的值。**  
+
 每个方法都接受两个参数：  
-* 要在每一项上运行的函数。参数： value, index, array。  
-* 运行该函数的作用域对象---影响this的值。  
+- 要在每一项上运行的函数。参数： value, index, array。  
+- 运行该函数的作用域对象---影响this的值。  
 
 
 **缩小方法**  
@@ -242,7 +246,7 @@ var sum = values.reduce(function(prev, cur, index, array) {
 alert(sum); // 15
 ```
 
-### 3. [Date类型](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+## 4. [Date类型](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
 
 定义：
 
@@ -280,54 +284,88 @@ var y2k = new Date(2000, 0); // 基于系统的本地时区
 var start = +new Date();
 ```
 
-#### 继承的方法
+### 4.1. 继承的方法
 toLocaleString(), toString(), valueOf()  
 valueOf()返回Date的毫秒值，可用来比较Date大小。  
 
-#### 日期格式化方法
+### 4.2. 日期格式化方法
 toDateString(), toTimeString(), toLocaleDateString(), toLocaleTimeString(), 
 toUTCString()  
 
-#### 日期/时间组件方法
+### 4.3. 日期/时间组件方法
 直接取得和设Date中的待定部分。  
 
-### 4. RegExp类型
-定义：  
+## 5. RegExp
+
+*定义：*
+
 ```js
-
-var expression = / pattern / flags ;
+let expression = /pattern/flags;
 ```
-flags:  
-1. g 全局模式（global），即模式将被应用于所有的字符串，而非在发现第一个匹配项时立即停止。
-2. i 不区分大小写（case-insensitive）。
-3. m 多行模式（multiline），即达到一行文本末尾时还会继续查找下一行中是否存在与模式匹配的项。
 
-元字符：  
-( \[ { \ ^ | ) ? * + . ] }  
+*flags：*
 
-使用RegExp构造函数创建正则表达式：  
+1. `g` 全局模式（global），即模式将被应用于所有的字符串，而非在发现第一个匹配项时立即停止。
+2. `i` 不区分大小写（case-insensitive）。
+3. `m` 多行模式（multiline），即达到一行文本末尾时还会继续查找下一行中是否存在与模式匹配的项。
+
+*元字符：*
+
+- `()`
+- `[]`
+- `{}` — 设计匹配字符个数的范围
+  - `{a,b}`
+  - `{a,}`
+  - `{a}`
+- `^` — 开头，在 `[]` 中使用表示【非】。
+- `$`
+- `|`
+- `.`
+- `+`
+- `*` — 左边的字符出现任意次
+- `?` — 没有或全部。match 时，Lazy，最短优先。
+- `(?=...)` — positive lookahead
+- `(?!...)` — negative lookahead
+
+*缩写：*
+
+- `\w` — `[A-Za-z0-9_]`
+- `\W` — `[^A-Za-z0-9_]`
+- `\d` — `[0-9]`
+- `\D` — `[^0-9]`
+- `\s` — 匹配空白字符，类似于 `[\r\t\f\n\v]`
+- `\S` — 匹配非空白字符
+
+使用 RegExp 构造函数创建正则表达式：
+
 ```js
 var pattern1 = /[bc]at/i;
 var pattern2 = new RegExp("[bc]at", "i");
 ```
 
-ECMAScript5明确规定，使用正则表达式字面量必须像直接调用RegExp构造函数一样，每次都创建新的RegExp实例。  
+ECMAScript5 明确规定，使用正则表达式字面量必须像直接调用 RegExp 构造函数一样，每次都创建新的 RegExp 实例。  
 
-**RegExp实例属性**  
-1. global 布尔值，是否设置了g
-1. ignoreCase 布尔值，是否设置了i
-1. multiline 布尔值，是否设置了m
-1. lastIndex 整数，表示开始搜索下一个匹配项的字符位置，从0开始算起。
-1. source 正则表达式的字符串表示，按照字面量形式而非传入构造函数中的字符串模式返回。
+### 5.1. RegExp 实例属性
 
-**RegExp实例方法**  
-*exec()*  
-exec()接受一个参数，及要应用模式的字符串，然后返回包含第一个匹配项信息的数组;或者在没有匹配项的情况下返回null。  
-返回的数组虽然是Array的实例，但额外包含两个属性：index和input：  
-* index: 表示匹配项在字符串中的位置。
-* input: 表示应用正则表达式的字符串。  
+1. `global` — 布尔值，是否设置了g
+1. `ignoreCase` — 布尔值，是否设置了i
+1. `multiline` — 布尔值，是否设置了m
+1. `lastIndex` — 整数，表示开始搜索下一个匹配项的字符位置，从 0 开始算起。
+1. `source` — 正则表达式的字符串表示，按照字面量形式而非传入构造函数中的字符串模式返回。
 
-在数组中，第一项是与整个模式匹配的字符串，其他项是与模式中捕获组匹配的字符串：  
+### 5.2. RegExp 实例方法
+
+#### 5.2.1. `exec()`
+
+`exec()` 接受一个参数，及要应用模式的字符串，然后返回包含第一个匹配项信息的数组；或者在没有匹配项的情况下返回 null。
+
+返回的数组虽然是 Array 的实例，但额外包含两个属性，`index` 和 `input`：
+
+- index — 匹配项在字符串中的位置
+- input — 应用正则表达式的字符串
+
+在数组中，第一项是与整个模式匹配的字符串，其他项是与模式中捕获组匹配的字符串：
+
 ```js
 var text = "mom and dad and baby";
 var pattern = /mom( and dady (and baby)?)?/gi;
@@ -338,12 +376,16 @@ alert(matches[0]); // "mom and dad and baby
 alert(matches[1]); // " and dad and baby"
 alert(matches[2]); // " and baby"
 ```
-对于exec()而言，即使模式中设置了g，每次也只返回一个匹配项。  
-在不设置g时，在同一个字符串多次调用exec(),始终返回地一个匹配信息。  
-设置了g， 每次调用都会在字符串中查找新的匹配项。  
 
-*test*  
-return boolean  
+对于 `exec()` 而言，即使模式中设置了 `g`，每次也只返回一个匹配项：
+
+- 不设置 `g` — 在同一个字符串多次调用 `exec()`，始终返回地一个匹配信息。
+- 设置了 `g` — 每次调用都会在字符串中查找新的匹配项。
+
+#### 5.2.2. `test()`
+
+- return — boolean
+
 ```js
 var text = "000-00-0000";
 var pattern = /\d{3}-\d{2}-\d{4}/;
@@ -351,75 +393,79 @@ if (pattern.test(text)) {
     alert("The pattern was matched.");
 }
 ```
-正则表达式的valueOf()返回正则表达式本身。  
 
-**RegExp构造函数属性**  
-相当于静态属性。  
+正则表达式的 valueOf() 返回正则表达式本身。
+
+### 5.3. RegExp 构造函数属性
+
+相当于静态属性。
 
 | 长属性名 | 短属性名 | 说明 |
 | ------ | ------ | ------ |
 | input | $_ | 最近一次要匹配的字符串 |
 | lastMatch | $& | 最近一次的匹配项 |
 | lastParen | $+ | 最近一次匹配的捕获组 |
-| leftContext | $\` | input字符串中lastMatch之前的文本 |
+| leftContext | $\` | input 字符串中 lastMatch 之前的文本 |
 | multiline | $* | 布尔值，表示是否所有的表达式都使用多行模式。 |
-| rightContext | $' | Input字符串中lastMatch之后的文本 |
+| rightContext | $' | Input 字符串中 lastMatch 之后的文本 |
 
-**模式的局限性**  
-ECMAScript不支持的正则表达式：  
-。。。
+## 6. Function
 
-### 5. Function类型
 **没有重载**  
 函数名相当于指针，“重载”会使函数名指向新的函数。  
 
 **函数申明与函数表达式**  
-函数声明优先解析。  
-函数表达式必须等到解析器解析到其所在行。  
+函数声明优先解析。函数表达式必须等到解析器解析到其所在行。  
 
-**作为值的函数**  
-函数名作参数：  
+### 6.1. 作为值的函数
+
+函数名作参数：
+
 ```js
 function callSomeFunction(someFunction, someArgument) {
-    return someFunction(someArgument);
+  return someFunction(someArgument);
 }
 function add10(num) {
-    return num + 10;
+  return num + 10;
 }
 var result1 = callSomeFunction(add10, 10);
 alert(result); // 20
 ```
-函数作为返回值：  
+
+函数作为返回值：
+
 ```js
 function createComparisonFunction(propertyName) {
-    return function(object1, object2) {
-        var value1 = object1[propertyName];
-        var value2 = object2[propertyName];
-        if (value1 < value2) {
-            return -1;
-        } else if (value1 > value2) {
-            return 1;
-        } else {
-            return 0;
-        }
-    };
+  return function(object1, object2) {
+    var value1 = object1[propertyName];
+    var value2 = object2[propertyName];
+    if (value1 < value2) {
+      return -1;
+    } else if (value1 > value2) {
+      return 1;
+    } else {
+      return 0;
+    }
+  };
 }
 ```
 
-**函数内部属性**  
-*arguments*  
+### 6.2. 函数内部属性
+
+*arguments*
+
 ```js
 // 阶乘
 function factorial(num) {
-    if (num <= 1) {
-        return 1;
-    } else {
-        return num * arguments.callee(num-1)
-    }
+  if (num <= 1) {
+    return 1;
+  } else {
+    return num * arguments.callee(num - 1);
+  }
 }
 ```
 
-*this*  
+*this*
 
 ```js
 window.color = "red";
@@ -431,18 +477,23 @@ sayColor();
 o.sayColor = sayColor;
 o.sayColor();
 ```
-*caller*  
-这个属性中保存着调用当前函数的函数的引用。  
 
-**函数属性和方法**  
-属性：  
-1. length: 函数希望接收的`命名参数`的个数。
-2. prototype: 保存实例方法。不可枚举，使用for-in无法发现。
+*caller*
 
-非继承的方法：
-1. apply():  
-   apply()方法接受两个参数：作用域和参数数组。  
-   ```
+这个属性中保存着调用当前函数的函数的引用。 
+
+### 6.3. 函数属性和方法
+
+#### 6.3.1. 属性
+
+1. `length` — 函数希望接收的【命名参数】的个数。
+2. `prototype` — 保存实例方法。不可枚举，使用 `for-in` 无法发现。
+
+#### 6.3.2. 非继承的方法
+
+1. `apply()`  
+   `apply()` 方法接受两个参数：作用域和参数数组。  
+   ```js
    function sum(num1, num2) {
        return num1 + num2;
    }
@@ -453,16 +504,16 @@ o.sayColor();
        return sum.apply(this, [num1, num2]);
    }
    ```
-2. call()  
-   与apply（）类似，只是参数不同。  
-   ```
+2. `call()`  
+   与 `apply` 类似，只是参数不同。  
+   ```js
    function callSum(num1, num2) {
        return sum.call(this, sum1, sum2);
    }
    ```
-3. bind()  
-   函数实例与this值绑定：  
-   ```
+3. `bind()`  
+   函数实例与 this 值绑定：  
+   ```js
    window.color = "red";
    var o = {color: "blue"};
    function sayColor() {
@@ -471,70 +522,74 @@ o.sayColor();
    var objectSayColor = sayColor.bind(o);
    objectSayColor();
    ```
-   
-继承的方法： toLocaleString(), toString(), valueOf()。
 
-### 2.6. 基本包装类型
+#### 6.3.3. 继承的方法
+
+- toLocaleString()
+- toString()
+- valueOf()
+
+## 7. 基本包装类型
 
 不建议显式地创建基本包装类型的对象。
 
-#### 2.6.1 Boolean
+### 7.1. Boolean
 
-永远不要使用Boolean对象。
+永远不要使用 Boolean 对象。
 
-#### 2.6.2 Number
+### 7.2. Number
 
 格式化方法：
 
-1. `toFixed()`  
-   ```
+1. `toFixed()` — 小数位  
+   ```js
    var num = 10;
    alert(num.toFixed(2)); //"10.00"
    ```
-2. `toExponential()`  
-   ```
+2. `toExponential()` — 指数  
+   ```js
    num.toExponential(1); // "1.0e+1"
    ```
-3. `toPrecision()`  
-   `toPrecision()`方法可以表现 1 到 21 位小数。  
+3. `toPrecision()` — 精确度  
+   `toPrecision()` 方法可以表现 1 到 21 位小数。  
    
-#### 2.6.3 String
+### 7.3. String
 
-##### 属性
+#### 属性
 
 - `length` — 即使字符串中包含双字节字符，也算一个字符。
 
-##### 字符方法
+#### 字符方法
 
 1. `charAt() / charCodeAt() / []`
-   ```
+   ```js
    var stringValue = "hello world";
    alert(stringValue.charAt(1));     //"e"
    alert(stringValue.charCodeAt(1)); //"101"
    alert(stringValue[1]);            //"e"
    ```
 
-##### 字符串位置方法
+#### 字符串位置方法
 
 1. `indexOf() / lastIndexOf()`  
    `lastIndexOf()` 是从后向前搜索。
 
-##### 字符串操作方法
+#### 字符串操作方法
 
 1. `concat()` — 将一个或多个字符串拼接起来。  
    原字符串不变。  
 2. `slice() / substr() / substring()`  
    不会修改字符串本身。
 
-##### trim()
+#### trim()
 
 不修改原字符串。
 
-##### 字符串大小写转换方法
+#### 字符串大小写转换方法
 
 toLowerCase(), toUpperCase()  
 
-##### 字符串的模式匹配方法
+#### 字符串的模式匹配方法
 
 1. `match()`
 2. `search()`
@@ -546,11 +601,11 @@ toLowerCase(), toUpperCase()
    - `separator` 必须为，字符串或正则表达式。  
    - `howmany` (可选)返回的数组的最大长度。  
 
-##### localeCompare()
+#### localeCompare()
 
 比较字符串大小。
 
-##### fromCharCode()
+#### fromCharCode()
 
 String 构造函数本身的一个静态方法。
 
@@ -558,11 +613,11 @@ String 构造函数本身的一个静态方法。
 alert(String.fromCharCode(104,101,108,108,111)); // "hello"
 ```
 
-### 2.7. 单体内置对象
+### 7.4. 单体内置对象
 
-#### 2.7.1. Global
+#### 7.4.1. Global
 
-isNaN(), isFinite(), parseInt(), parseFloat()都是Global的方法。
+isNaN(), isFinite(), parseInt(), parseFloat() 都是 Global 的方法。
 
 1. URI编码方法  
    `encodeURI()` 和 `ehcodeURIComponent()` 
@@ -571,11 +626,11 @@ isNaN(), isFinite(), parseInt(), parseFloat()都是Global的方法。
 3. Global 对象的属性  
 4. window 对象  
 
-#### 2.7.2. Math
+#### 7.4.2. Math
 
 与我们直接编写的计算功能相比，Math对象提供的计算功能执行起来要快很多。
 
-##### 属性
+#### 属性
 
 | 属性 | 说明 |
 | ------ | ------ |
@@ -588,16 +643,17 @@ isNaN(), isFinite(), parseInt(), parseFloat()都是Global的方法。
 | Math.SQRT1_2 | 1/2的平方根 |
 | Math.SQRT2 | 2的平方根 |
 
-##### 方法
+#### 方法
 
 1. `min()` 和 `max()`  
-   ```
+   ```js
    var values = [1, 2, 3, 4, 5];
    var max = Math.max.apply(Math, values);
    ```
 2. 舍入方法 — `Math.ceil()`, `Math.floor()`, `Math.round()`
 3. `random()` — 返回介于 0 到 1 之间的随机数，不包括 0 和 1。 
-4. 其他方法  
+4. 其他方法
+
    | 方法 | 说明 |
    | ------ | ------ |
    | Math.abs(num) | num的绝对值 |
@@ -612,4 +668,3 @@ isNaN(), isFinite(), parseInt(), parseFloat()都是Global的方法。
    | Math.cos(x) | 返回x的余弦值 |
    | Math.sin(x) | 返回x的正弦值 |
    | Math.tan(x) | 返回x的正切值 |
-
