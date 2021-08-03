@@ -311,7 +311,7 @@ let expression = /pattern/flags;
 
 *元字符：*
 
-- `()`
+- `()` - 组，`\数字` 代表第n个组。
 - `[]`
 - `{}` — 设计匹配字符个数的范围
   - `{a,b}`
@@ -408,6 +408,14 @@ if (pattern.test(text)) {
 | leftContext | $\` | input 字符串中 lastMatch 之前的文本 |
 | multiline | $* | 布尔值，表示是否所有的表达式都使用多行模式。 |
 | rightContext | $' | Input 字符串中 lastMatch 之后的文本 |
+
+### 5.4. 访问捕获组
+
+```js
+"Code Camp".replace(/(\w+)\s(\w+)/, '$2 $1');
+// 返回 Camp Code
+```
+
 
 ## 6. Function
 
