@@ -37,14 +37,18 @@ http.listen(3000, function() {
 
 
 # 服务 HTML
-`send` 换 `sendFile`:  
-``js
+
+`send` 换 `sendFile`:
+
+```js
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/index.html');
 }
 ```
-index.html:  
-```htm
+
+index.html:
+
+```html
 <!doctype html>
 <html>
   <head>
@@ -68,7 +72,6 @@ index.html:
   </body>
 </html>
 ```
-
 
 # 集成 Socket.IO
 两部分：  
