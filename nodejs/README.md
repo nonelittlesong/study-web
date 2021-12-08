@@ -1,10 +1,7 @@
 # NodeJS
 
-JS 后端语言！
-
-- [菜鸟教程](https://www.runoob.com/nodejs/nodejs-tutorial.html)
 - [npm中文文档](https://www.npmjs.com.cn/)
-- [用源码安装nodejs（是源码不是release）](https://www.cnblogs.com/shengtaiyuan/p/10164823.html)
+- [用源码安装nodejs（是源码不是release）](https://www.cnblogs.com/shengtaiyuan/p/10164823.html) — 不推荐
 - [JS Style](https://github.com/airbnb/javascript)
 
 ## 1. [NVM](https://github.com/nvm-sh/nvm) 安装 NodeJS
@@ -68,9 +65,9 @@ Usage: n [options] [COMMAND] [args]
 
 Commands:
 
-  n                              Display downloaded Node.js versions and install selection
-  n latest                       Install the latest Node.js release (downloading if necessary)
-  n lts                          Install the latest LTS Node.js release (downloading if necessary)
+  n                              显示安装的 Node.js 版本Display downloaded Node.js versions and install selection
+  n latest                       安装最新 Node.js
+  n lts                          安装最新稳定版 Node.js
   n <version>                    Install Node.js <version> (downloading if necessary)
   n install <version>            Install Node.js <version> (downloading if necessary)
   n run <version> [args ...]     Execute downloaded Node.js <version> with [args ...]
