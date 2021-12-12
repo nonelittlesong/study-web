@@ -1,0 +1,47 @@
+{
+  "type": "AdaptiveCard",
+  "body": [{
+    "type": "TextBlock",
+    "text": "Update from Sharepoint",
+    "spacing": "Medium",
+    "size": "Large",
+    "weight": "Bolder"
+  }, {
+    "type": "TextBlock",
+    "text": "A new item was added to a list",
+    "size": "Medium",
+    "spacing": "None"
+  }, {
+    "type": "FactSet",
+    "facts": [{
+      "title": "百分数",
+      "value": "@{mul(triggerOutputs()?['body/OData__x767e__x5206__x6570_'], 100)}%"
+    }, {
+      "title": "Field1",
+      "value": "@{triggerOutputs()?['body/jgjgj/Value']}"
+    }, {
+      "title": "审核人 Email",
+      "value": "@{triggerOutputs()?['body/OData__x5ba1__x6838__x4eba_/Email']}"
+    }, {
+      "title": "空白符",
+      "value": "@{triggerOutputs()?['body/OData__x7a7a__x767d__x7b26_']}"
+    }]
+  }, {
+    "type": "ActionSet",
+    "actions": [{
+      "type": "Action.OpenUrl",
+      "title": "Link to item",
+      "url": "@{triggerOutputs()?['body/{Link}']}"
+    }, {
+      "type": "Action.OpenUrl",
+      "title": "Folder path",
+      "url": "@{triggerOutputs()?['body/{Path}']}"
+    }, {
+      "type": "Action.OpenUrl",
+      "title": "Full path",
+      "url": "@{triggerOutputs()?['body/{FullPath}']}"
+    }]
+  }],
+  "version": "1.2",
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json"
+}

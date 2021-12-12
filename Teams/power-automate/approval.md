@@ -1,6 +1,8 @@
 
 - [connectors/Approvals](https://docs.microsoft.com/en-us/connectors/approvals/)
 - [microsoft teams approvals with custom connectors](https://docs.microsoft.com/en-us/power-automate/teams/approvals-custom-connector)
+- [approvals 执行时间限制](https://docs.microsoft.com/en-us/power-automate/modern-approvals#create-long-running-approvals)
+
 
 
 
@@ -15,5 +17,5 @@
    - `Name` — 初始化变量的名称
    - `Value` — `多选人员Email;`
 
-## 2. [长期执行的 approvals](https://docs.microsoft.com/en-us/power-automate/modern-approvals#create-long-running-approvals)
+## 2. 附件
 
