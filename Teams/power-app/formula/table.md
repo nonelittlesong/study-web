@@ -123,6 +123,13 @@ Lookup(Table, Formula[, ReductionFormula])
 
 函数返回 `Formula` 计算为 true 的【第一条】记录，如果 `ReductionFormula` 不为空，结果将记录缩减为一个值。
 
+## `Patch`
+
+- 修改或创建数据源中一条或多条记录
+- 合并数据源外的记录
+
+
+
 ## `Search`
 
 ```
