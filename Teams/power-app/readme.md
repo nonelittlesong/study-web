@@ -1,11 +1,11 @@
 
 - [power app](https://docs.microsoft.com/zh-cn/powerapps/teams/understand-power-apps-studio)
 
+网页版没 Teams 版好用。
+
 删除应用：
 
 `Teams Power Apps` -> `生成` -> `查看全部`。
-
-
 
 ## 模型驱动应用
 
