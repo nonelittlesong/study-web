@@ -1,7 +1,5 @@
 
-- [power app](https://docs.microsoft.com/zh-cn/powerapps/teams/understand-power-apps-studio)
-
-网页版没 Teams 版好用。
+# [power app](https://docs.microsoft.com/zh-cn/powerapps/teams/understand-power-apps-studio)
 
 删除应用：
 
