@@ -1,8 +1,9 @@
-# margin
-margin的%是父元素宽度的%。  
-所以，应使用vh/vw替代%。  
+## margin
 
-# 去掉div与body间的留白
+`margin` 的 % 是父元素【宽度】的 %，应使用 `vh/vw` 替代 %。
+
+## 去掉 div 与 body 间的空白
+
 ```css
 html, body {
   width: 100vw;

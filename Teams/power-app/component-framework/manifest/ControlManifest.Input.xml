@@ -21,6 +21,7 @@
       -->
     </external-service-usage>
     <!-- property 结点定义一个指定的可配置的数据，数据来自于 CDS -->
+    <!-- 修改了 property，需要运行 npm run refreshTypes，生成 ManifestTypes.d.ts -->
     <property name="sampleProperty" display-name-key="Property_Display_Key" description-key="Property_Desc_Key" of-type="SingleLine.Text" usage="bound" required="true" />
     <!--
       of-type 属性也可是 of-type-group 属性

@@ -12,7 +12,6 @@
 * [单位](#单位)
 * [transition](#transition)
 * [transform](#transform)
-* [CSS选择器](#CSS选择器)
 * [阴影](#阴影)
 * [position](#position)
 * [line-height](#line-height)
@@ -250,63 +249,6 @@ transform: translateY(-50%);
 -o-transform: translateY(-50%);
 ```
 
-# [CSS选择器](http://www.w3school.com.cn/cssref/css_selectors.asp)
-**子元素选择器>**  
-只选儿子不选孙子。(空格包括孙子）  
-**相邻兄弟选择器+**  
-选紧跟在后面的弟弟。  
-**弟弟选择器～**  
-选择所有后面的弟弟。  
-
-| 选择器 | 例子 | 例子描述 | CSS |
-| --- | --- | --- | --- |
-| .class | .intro | 选择class="intro"的所有元素 | 1 |
-| #id | #firstname | 选择id="firstname"的所有元素 | 1 |
-| * | * | 选择所有元素 | 2 |
-| element | p | 选择所有\<p>元素 | 1 |
-| element,element | div,p | 选择所有\<div>和\<p>元素 | 1 |
-| element element | div p | 选择\<div>内的所有\<p>元素 | 1 |
-| element>element | div>p | 选择父元素是\<div>的所有\<p>元素 | 2 |
-| element+element | div+p | 选择所有紧跟在\<div>后面的\<p>元素 | 2 |
-| element~element | div~p | 选择前面有\<div>的所有\<p>元素 | 3 |
-| \[attribute] | \[target] | 选择有target属性的所有元素 | 2 |
-| \[attribute=value] | \[target=\_blank] | 选择target="\_blank"的所有元素 | 2 |
-| \[attribute~=value] | \[title~=flower] | 选择title属性包含单词“flower“的所有元素 | 2 |
-| \[attribuye\|=value] | \[lang\|=en] | 选择属性lang以"en"开头的所有元素 | 2 |
-| \[attribute^=value] | a\[src^="https"] | 选择其src属性以"https"开头的所有\<a>元素 | 3 |
-| \[attirbute$=value] | a\[src$=".pdf"] | 选择其src属性以".pdf"结尾的所有\<a>元素 | 3 |
-| \[attribute*=value] | a\[src*="abc"] | 选择其src属性包含"abc"字串的每个\<a>元素 | 3 |
-| :link | a:link | 选择所有未被访问的链接 | 1 |
-| :visited | a:visited | 选择所有已被访问的链接 | 1 |
-| :active | a:active | 选择活动链接 | 1 |
-| :hover | a:hover | 选择鼠标指针位于其上的链接 | 1 |
-| :focus | input:focus | 选择获得焦点的input元素 | 2 |
-| :first-letter | p:first-letter | 选择每个\<p>元素的首字母 | 1 |
-| :first-line | p:first-line | 选择每个\<p>元素的首行 | 1 |
-| :first-child | p:first-child | 选择属于父元素的第一个子元素的每个\<p>元素 | 2 |
-| :before | p:before | 在每个\<p>元素的内容之前插入内容 | 2 |
-| ：after | p:after | 在每个\<p>元素的内容之后插入元素 | 2 |
-| :lang(language) | p:lang(it) | 选择带有以"it"开头的lang属性值的每个\<p>元素 | 2 |
-| :first-of-type | p:first-of-type | 选择属于其父元素的首个\<p>元素的\<p>元素 | 3 |
-| :last-of-type | p:last-of-type | 选择属于其父元素的最后一个\<p>元素的\<p>元素 | 3 |
-| :only-of-type | p:only-of-type | 选择属于其父元素唯一的\<p>元素的\<p>元素 | 3 |
-| :nth-of-type(n) | p:nth-of-type(2) | 选择属于其父元素的第二个\<p>元素的每个\<p>元素 | 3 |
-| :nth-last-of-type(n) | p:nth-last-of-type(2) | 同上，但重最后一个子元素开始计数 | 3 |
-| :only-child | p:only-child | 选择属于其父元素唯一的子元素的\<p>元素 | 3 |
-| :nth-child(n) | p:nth-child(2) | 选择属于其父元素的第二个子元素的每个\<p>元素 | 3 |
-| :nth-last-child(n) | p:nth-last-child(2) | 同上，重最后一个子元素开始计数 | 3 |
-| :last-child | p:last-child | 选择属于其父元素的最后一个子元素的每个\<p>元素 | 3 |
-| :root | :root | 选择文档的根元素 | 3 |
-| :empty | p:empty | 选择没有子元素的每个\<p>元素（包括文本节点） | 3 |
-| :target | #news\:target | 选择当前活动的#news元素 | 3 |
-| :enabled | input:enabled | 选择每个启用的\<input>元素 | 3 |
-| :disabled | input:disabled | 选择每个禁用的\<input>元素 | 3 |
-| :checked | input:checked | 选择每个被选中的\<input>元素 | 3 |
-| :not(selector) | :not(p) | 选择非\<p>每个元素 | 3 |
-| ::selection | ::selection | 选择被用户选取的元素部分 | 3 |
-| :global | | 使用 global 声明的 class，不会被编译成哈希串 | |
-
-### [css 中能否选取父元素？](https://www.zhihu.com/question/20443379)
 
 # 阴影
 ### [box-shadow](http://www.w3school.com.cn/cssref/pr_box-shadow.asp)  

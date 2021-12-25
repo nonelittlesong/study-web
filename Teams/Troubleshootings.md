@@ -1,12 +1,18 @@
 
+limitations:
+
+1. [流程有时间限制 30 天](https://docs.microsoft.com/en-us/business-applications-release-notes/april19/microsoft-flow/increased-run-duration)
+2. [请求的限制 - 5000 每人天](https://www.erpsoftwareblog.com/2020/10/the-benefits-and-limitations-to-using-parse-json-power-automate-and-dynamics-365-business-central/)
+
 | 目录 | 问题 | 相关链接 | 状态 |
 | --- | --- | --- | --- |
 | Adaptive Card | 链接做成小卡片的形式，带有缩略图和简要的信息 | | |
 | | List 的链接在 Teams 上打开 | | |
-| Power App | 预览时，在 OnVisible 中创建的集合，没有数据 | | |
+| Power App | 预览时，在 OnVisible 中创建的集合和全局变量，没有值 | | |
 | | 在 Power App 中直接访问 MS Graph | | |
 | | 没有方法中止公式的执行 | 1. [Exit formula on condition](https://powerusers.microsoft.com/t5/Power-Apps-Ideas/Exit-formula-on-condition/idi-p/110466/page/2#comments) | |
 | | 不支持解析 JSON（2021-12-17）| 1. [Parse JSON string in Power Apps](https://powerusers.microsoft.com/t5/Building-Power-Apps/Parse-JSON-string-in-Power-APPS/td-p/381832) <br> 2. [How to call a JSON-like environment variable in a canvas app?](https://powerusers.microsoft.com/t5/Building-Power-Apps/How-to-call-a-JSON-like-environment-variable-in-a-canvas-app/td-p/1297128) | |
+| | 创建 popup 组件 | | |
 | Power Automate | SharePoint 触发器或操作中未列出的网站 | | Done |
 
 ## [SharePoint 触发器或操作中未列出的网站](https://docs.microsoft.com/zh-cn/troubleshoot/power-platform/power-automate/sharepoint-site-not-listed-in-trigger-or-action)

@@ -80,7 +80,7 @@ $btn.addEventListener('click', function () {
 ```
 
 ## 1. 关键点
-1. :warning: 回调函数不是匿名函数！
+1. 回调函数不是匿名函数！
 2. `箭头函数` 的优点：  
    * 解决匿名函数 this 指向问题。匿名函数的执行环境具有全局性（回调函数并非匿名函数）。  
    * `setTimeout` 等全局函数中使用 this 的问题。  

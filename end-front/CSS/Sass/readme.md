@@ -1,11 +1,18 @@
-* [Sass Guidelines](https://sass-guidelin.es/#the-7-1-pattern)
-* [Sass 参考手册](http://sass.bootcss.com/docs/sass-reference/)
+# Sass
 
+- [Sass Guidelines](https://sass-guidelin.es/#the-7-1-pattern)
+- [Sass 官网](https://sass-lang.com/)
 
-SCSS即SASS的新语法，是Sassy CSS的简写，是CSS3语法的超集。  
-SASS是CSS3的一个扩展，增加了规则嵌套，变量，混合，选择器继承等等。  
+Sass 和 Scss 的区别：
 
-# [HSL颜色函数](https://www.w3cplus.com/preprocessor/sass-color-function.html)
+- 层级
+  - Sass 使用缩进，Scss 使用花括号
+- 分隔符
+  - Sass 使用换行，Scss 使用分号
+
+为了兼容 CSS 语法，推荐使用 Scss！！
+
+## [HSL颜色函数](https://www.w3cplus.com/preprocessor/sass-color-function.html)
 H色相，S饱和度，L亮度。  
 
 | 函数 | 描述 |
