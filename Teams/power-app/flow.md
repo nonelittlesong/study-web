@@ -3,7 +3,7 @@
 ## 1. 创建流
 
 1. 登录到 Power Apps
-2. 创建流 > 即时云端流 — 不要直接再 automate 中创建流
+2. 创建流 > 即时云端流 — 不要直接在 automate 中创建流
 3. 输入流名称，如 `FlowName`
 4. 在【选择如何触发此流】下，选择 Power Apps
 
