@@ -17,3 +17,7 @@ svn propset svn:ignore "my_folder" .
 # 5. 提交忽略规则
 svn commit -m "忽略 my_folder"
 ```
+
+## 设置默认编辑器
+
+windows 添加环境变量 SVN_EDITOR = code.cmd --wait
