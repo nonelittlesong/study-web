@@ -32,3 +32,9 @@ fnm use 16.20.2
 ```pwsh
 fnm default 16.20.2
 ```
+
+## 获取指令来源路径
+
+```pwsh
+Get-Command node
+```
