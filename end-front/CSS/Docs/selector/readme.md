@@ -1,8 +1,8 @@
 # CSS选择器
 
-- `>儿子` — 只选儿子不选孙子
-- `+弟弟` — 选紧跟在后面的弟弟
-- `~弟弟们` — 选择后面所有的弟弟
+- `> 儿子` — 只选儿子不选孙子
+- `+ 弟弟` — 选紧跟在后面的弟弟
+- `~ 弟弟们` — 选择后面所有的弟弟
 
 | 选择器 | 例子 | 例子描述 |
 | --- | --- | --- |
@@ -13,8 +13,8 @@
 | 属性 | | |
 | `[attribute]` | \[target] | 选择有 target 属性的所有元素 |
 | `[attribute=value]` | \[target=\_blank] | 选择 target="\_blank" 的元素 |
-| `[attribute~=value]` | \[title~=flower] | 选择 title 属性包含单词 flower 的所有元素 
-| `[attribute|=value]` | \[lang\|=en] | 选择属性 lang 以 en 开头的所有元素 |
+| `[attribute~=value]` | \[title~=flower] | 选择 title 属性包含单词 flower 的所有元素 |
+| `[attribute\|=value]` | \[lang\|=en] | 选择属性 lang 以 en 开头的所有元素 |
 | `[attribute^=value]` | a\[src^="https"] | 选择 src 属性以 https 开头的所有 a 元素 |
 | `[attirbute$=value]` | a\[src$=".pdf"] | 选择 src 属性以 .pdf 结尾的所有 a 元素 |
 | `[attribute*=value]` | a\[src*="abc"] | 选择 src 属性包含 abc 的每个 a 元素 |
@@ -51,4 +51,4 @@
 
 一些简单的没有记录。。。
 
-### [css 中能否选取父元素？](https://www.zhihu.com/question/20443379)
+## [css 中能否选取父元素？](https://www.zhihu.com/question/20443379)
